@@ -88,6 +88,12 @@ pub fn manipulators() -> Vec<Manipulator> {
                 .from_key(K::Semicolon)
                 .to_key(K::F, Some(vec![Ctrl]))
                 .build(),
+            Manipulator::builder()
+                .conditions(vk1_conditions.clone())
+                .from_key(K::Z)
+                .to_key(K::T, Some(vec![Ctrl]))
+                .to_key(K::B, Some(vec![Ctrl]))
+                .build(),
         ],
     ]
     .into_iter()
