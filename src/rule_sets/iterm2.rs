@@ -14,6 +14,18 @@ pub fn manipulators() -> Vec<Manipulator> {
         Condition::with_vk4(),
     ];
     vec![
+        // <VK4>+<Key> -> <Leader><Key>
+        vec![K::E, K::K]
+            .into_iter()
+            .map(|key_code| {
+                Manipulator::builder()
+                    .conditions(vk4_conditions.clone())
+                    .from_key(key_code.clone())
+                    .to_key(K::International3, None)
+                    .to_key(key_code, None)
+                    .build()
+            })
+            .collect(),
         vec![K::C, K::H, K::J, K::K, K::L, K::N, K::P, K::S, K::V]
             .into_iter()
             .map(|key_code| {
