@@ -16,7 +16,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     vec![
         // for Neovim
         // <VK4>+<Key> -> <Leader><Key>
-        vec![K::E, K::K, K::F]
+        vec![K::E, K::K, K::F, K::H, K::L]
             .into_iter()
             .map(|key_code| {
                 Manipulator::builder()
@@ -27,7 +27,7 @@ pub fn manipulators() -> Vec<Manipulator> {
                     .build()
             })
             .collect(),
-        vec![K::C, K::H, K::J, K::K, K::L, K::N, K::P, K::S, K::V]
+        vec![K::C, K::J, K::K, K::N, K::P, K::S, K::V]
             .into_iter()
             .map(|key_code| {
                 Manipulator::builder()
