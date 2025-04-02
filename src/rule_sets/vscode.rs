@@ -1,6 +1,15 @@
 use crate::karabiner_data::{KeyCode as K, ModifierKey::*, *};
 
 pub fn manipulators() -> Vec<Manipulator> {
+    let vscode_manipulators = manipulators_with_app(&BundleIdentifier::VSCode);
+    let cursor_manipulators = manipulators_with_app(&BundleIdentifier::Cursor);
+    vscode_manipulators
+        .into_iter()
+        .chain(cursor_manipulators)
+        .collect()
+}
+
+fn manipulators_with_app(bundle_identifier: &BundleIdentifier) -> Vec<Manipulator> {
     vec![
         vec![
             K::A,             // execute command
@@ -25,7 +34,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         .into_iter()
         .map(|key_code| {
             Manipulator::builder()
-                .condition(Condition::on_app(BundleIdentifier::VSCode))
+                .condition(Condition::on_app(bundle_identifier.clone()))
                 .condition(Condition::with_vk4())
                 .from_key(key_code.clone())
                 .to_key(key_code, Some(vec![Ctrl, Shift, Opt, Cmd]))
@@ -34,7 +43,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         .collect(),
         vec![
             Manipulator::builder()
-                .condition(Condition::on_app(BundleIdentifier::VSCode))
+                .condition(Condition::on_app(bundle_identifier.clone()))
                 .condition(Condition::with_vk4())
                 .from_key(K::J)
                 .to_key(K::S, Some(vec![Cmd]))
@@ -42,7 +51,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         ],
         vec![
             Manipulator::builder()
-                .condition(Condition::on_app(BundleIdentifier::VSCode))
+                .condition(Condition::on_app(bundle_identifier.clone()))
                 .condition(Condition::with_vk1())
                 .from_key(K::W)
                 .to_key(K::S, Some(vec![Cmd]))
@@ -50,7 +59,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         ],
         vec![
             Manipulator::builder()
-                .condition(Condition::on_app(BundleIdentifier::VSCode))
+                .condition(Condition::on_app(bundle_identifier.clone()))
                 .condition(Condition::with_vk4())
                 .from_key(K::M)
                 .to_key(K::K, Some(vec![Opt, Cmd]))
@@ -58,7 +67,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         ],
         vec![
             Manipulator::builder()
-                .condition(Condition::on_app(BundleIdentifier::VSCode))
+                .condition(Condition::on_app(bundle_identifier.clone()))
                 .condition(Condition::with_vk4())
                 .from_key(K::U)
                 .to_key(K::F12, Some(vec![Shift]))
@@ -66,7 +75,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         ],
         vec![
             Manipulator::builder()
-                .condition(Condition::on_app(BundleIdentifier::VSCode))
+                .condition(Condition::on_app(bundle_identifier.clone()))
                 .condition(Condition::with_vk4())
                 .from_key(K::N)
                 .to_key(K::F8, Some(vec![Opt]))
@@ -74,7 +83,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         ],
         vec![
             Manipulator::builder()
-                .condition(Condition::on_app(BundleIdentifier::VSCode))
+                .condition(Condition::on_app(bundle_identifier.clone()))
                 .condition(Condition::with_vk4())
                 .from_key(K::Period)
                 .to_key(K::Period, Some(vec![Cmd]))
@@ -82,7 +91,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         ],
         vec![
             Manipulator::builder()
-                .condition(Condition::on_app(BundleIdentifier::VSCode))
+                .condition(Condition::on_app(bundle_identifier.clone()))
                 .condition(Condition::with_vk4())
                 .from_key(K::T)
                 .to_key(K::T, Some(vec![Cmd]))
@@ -90,7 +99,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         ],
         vec![
             Manipulator::builder()
-                .condition(Condition::on_app(BundleIdentifier::VSCode))
+                .condition(Condition::on_app(bundle_identifier.clone()))
                 .condition(Condition::with_vk4())
                 .from_key(K::P)
                 .to_key(K::M, Some(vec![Cmd, Shift]))

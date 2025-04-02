@@ -6,6 +6,8 @@ pub enum BundleIdentifier {
     ITerm2,
     #[serde(rename = "com.microsoft.VSCode")]
     VSCode,
+    #[serde(rename = "com.todesktop.230313mzl4w4u92")]
+    Cursor,
     #[serde(rename = "io.dynalist")]
     Dynalist, // https://help.dynalist.io/article/91-keyboard-shortcut-reference
     #[serde(rename = "com.tinyspeck.slackmacgap")]
