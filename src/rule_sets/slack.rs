@@ -6,16 +6,17 @@ pub fn manipulators() -> Vec<Manipulator> {
         Condition::with_vk4(),
     ];
     vec![
-        (K::T, K::T, vec![Cmd, Shift]),           // Threads
-        (K::U, K::A, vec![Cmd, Shift]),           // All Unreads
-        (K::E, K::D, vec![Cmd, Shift]),           // Toggle Sidebar
-        (K::K, K::G, vec![Cmd]),                  // Search
-        (K::F, K::K, vec![Cmd]),                  // Jump
-        (K::B, K::S, vec![Cmd, Shift]),           // Bookmarks
-        (K::D, K::X, vec![Cmd, Shift]),           // Strike through
-        (K::OpenBracket, K::C, vec![Cmd, Shift]), // Code
-        (K::C, K::C, vec![Cmd, Opt, Shift]),      // Code Block
-        (K::Q, K::Key9, vec![Cmd, Shift]),        // Quote
+        (K::T, K::T, vec![Cmd, Shift]),               // Threads
+        (K::U, K::A, vec![Cmd, Shift]),               // All Unreads
+        (K::E, K::D, vec![Cmd, Shift]),               // Toggle Sidebar
+        (K::K, K::G, vec![Cmd]),                      // Search
+        (K::F, K::K, vec![Cmd]),                      // Jump
+        (K::B, K::S, vec![Cmd, Shift]),               // Bookmarks
+        (K::D, K::X, vec![Cmd, Shift]),               // Strike through
+        (K::OpenBracket, K::C, vec![Cmd, Shift]),     // Code
+        (K::C, K::C, vec![Cmd, Opt, Shift]),          // Code Block
+        (K::Q, K::Key9, vec![Cmd, Shift]),            // Quote
+        (K::Spacebar, K::Spacebar, vec![Cmd, Shift]), // Mute huddle
     ]
     .into_iter()
     .map(|(from, to, modifiers)| {

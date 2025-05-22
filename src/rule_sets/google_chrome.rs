@@ -8,6 +8,11 @@ pub fn manipulators() -> Vec<Manipulator> {
     vec![
         Manipulator::builder()
             .conditions(vk4_conditions.clone())
+            .from_key(K::Spacebar)
+            .to_key(K::D, Some(vec![Cmd]))
+            .build(), // Mute google meets
+        Manipulator::builder()
+            .conditions(vk4_conditions.clone())
             .from_key(K::M)
             .to_key(K::M, Some(vec![Cmd, Shift]))
             .build(),
