@@ -13,7 +13,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         Manipulator::builder()
             .conditions(vk2_conditions.clone())
             .from_key(K::Key9)
-            .to_key(K::Semicolon, Some(vec![Cmd, Shift]))
+            .to_key(K::KeypadPlus, Some(vec![Cmd]))
             .build(),
         Manipulator::builder()
             .conditions(vk4_conditions.clone())

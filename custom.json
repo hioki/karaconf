@@ -3154,10 +3154,9 @@
           },
           "to": [
             {
-              "key_code": "semicolon",
+              "key_code": "keypad_plus",
               "modifiers": [
-                "command",
-                "shift"
+                "command"
               ]
             }
           ]
