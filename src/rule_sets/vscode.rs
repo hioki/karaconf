@@ -19,17 +19,18 @@ fn manipulators_with_app(bundle_identifier: &BundleIdentifier) -> Vec<Manipulato
             K::G,             // GitLens: Open File on Remote
             K::H,             // Go Back
             K::I,             // 実装へ移動
+            K::J,             // Toggle Copilot Edits
             K::L,             // Go Forward
             K::O,             // open recent
             K::K,             // find in path
             K::R,             // reload window
             K::S,             // go to symbol
             K::V,             // アクティブファイルの相対パスをコピー
+            K::W,             // ソース管理: 変更 ビューにフォーカスを置く
             K::Y,             // Toggle File Blame
             K::Key9,          // 表示の拡大
             K::Key0,          // 表示の縮小
             K::ReturnOrEnter, // workbench.action.tasks.reRunTask
-            K::J,             // Toggle Copilot Edits
         ]
         .into_iter()
         .map(|key_code| {
