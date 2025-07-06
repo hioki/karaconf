@@ -43,7 +43,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         (K::OpenBracket, "open -a 'Mail.app'"), // @
         // (K::CloseBracket, None), // [
         (K::Comma, "open -a 'System Settings.app'"),
-        (K::Period, "open -a 'ChatGPT.app'"),
+        (K::Period, "open -a 'Claude.app'"),
         (
             K::Slash,
             "open 'https://s2.kingtime.jp/independent/recorder2/personal/'",
