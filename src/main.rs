@@ -1,12 +1,31 @@
 pub mod karabiner_data;
 pub mod rule_sets;
 
-use std::io::Seek as _;
+use std::{io::Seek as _, path::Path};
 
 const CUSTOM_JSON_FILENAME: &str = "custom.json";
 
 fn main() -> anyhow::Result<()> {
-    let rules = vec![karabiner_data::Rule {
+    let rules = collect_all_rules();
+    let complex_modifications = karabiner_data::ComplexModifications {
+        title: "Personal rules",
+        rules: &rules,
+    };
+
+    let config_dir = get_karabiner_config_dir()?;
+    ensure_karabiner_directories(&config_dir)?;
+
+    write_custom_json(&complex_modifications)?;
+    copy_to_karabiner_assets(&config_dir)?;
+    update_karabiner_config(&config_dir, &rules)?;
+
+    println!("✅ Karabiner configuration updated successfully!");
+    Ok(())
+}
+
+/// Collect all manipulators from rule sets
+fn collect_all_rules() -> Vec<karabiner_data::Rule> {
+    vec![karabiner_data::Rule {
         description: "Personal rules".to_string(),
         manipulators: vec![
             rule_sets::virtual_key::manipulators(),
@@ -28,52 +47,107 @@ fn main() -> anyhow::Result<()> {
         .into_iter()
         .flatten()
         .collect::<Vec<karabiner_data::Manipulator>>(),
-    }];
-    let complex_modifications = karabiner_data::ComplexModifications {
-        title: "Personal rules",
-        rules: &rules,
-    };
+    }]
+}
 
-    // https://karabiner-elements.pqrs.org/docs/json/location/
-    let config_dir = std::env::var("HOME")
-        .map(std::path::PathBuf::from)
-        .map_err(|e| anyhow::anyhow!("HOME environment variable is not set: {}", e))?
-        .join(".config/karabiner");
+/// Get the Karabiner-Elements configuration directory
+fn get_karabiner_config_dir() -> anyhow::Result<std::path::PathBuf> {
+    let home = std::env::var("HOME").map_err(|_| {
+        anyhow::anyhow!(
+            "HOME environment variable is not set. Please set it to your home directory."
+        )
+    })?;
+    Ok(std::path::PathBuf::from(home).join(".config/karabiner"))
+}
+
+/// Ensure required Karabiner directories exist
+fn ensure_karabiner_directories(config_dir: &Path) -> anyhow::Result<()> {
     if !config_dir.is_dir() {
-        anyhow::bail!("{:?} must be created via Karabiner-Elements", config_dir);
+        anyhow::bail!(
+            "Karabiner-Elements configuration directory {:?} does not exist.\n\
+            Please install and run Karabiner-Elements first to create the directory structure.",
+            config_dir
+        );
     }
 
-    // 1. write custom.json
-    let mut custom_json_file = std::fs::OpenOptions::new()
+    let assets_dir = config_dir.join("assets/complex_modifications");
+    if !assets_dir.is_dir() {
+        anyhow::bail!(
+            "Karabiner-Elements assets directory {:?} does not exist.\n\
+            Please run Karabiner-Elements at least once to create the directory structure.",
+            assets_dir
+        );
+    }
+
+    Ok(())
+}
+
+/// Write custom.json to the project root
+fn write_custom_json(
+    complex_modifications: &karabiner_data::ComplexModifications,
+) -> anyhow::Result<()> {
+    let custom_json_file = std::fs::OpenOptions::new()
         .write(true)
         .create(true)
         .truncate(true)
         .read(true)
-        .open(CUSTOM_JSON_FILENAME)?;
-    serde_json::to_writer_pretty(&custom_json_file, &complex_modifications)?;
+        .open(CUSTOM_JSON_FILENAME)
+        .map_err(|e| anyhow::anyhow!("Failed to create {}: {}", CUSTOM_JSON_FILENAME, e))?;
 
-    // 2. copy custom.json to karabiner assets (~/.config/karabiner/assets/complex_modifications/custom.json)
-    let mut karabiner_assets_file = std::fs::File::create(
-        config_dir
-            .join("assets/complex_modifications")
-            .join(CUSTOM_JSON_FILENAME),
-    )?;
+    serde_json::to_writer_pretty(&custom_json_file, &complex_modifications)
+        .map_err(|e| anyhow::anyhow!("Failed to write JSON to {}: {}", CUSTOM_JSON_FILENAME, e))?;
+
+    Ok(())
+}
+
+/// Copy custom.json to Karabiner assets directory
+fn copy_to_karabiner_assets(config_dir: &Path) -> anyhow::Result<()> {
+    let assets_path = config_dir
+        .join("assets/complex_modifications")
+        .join(CUSTOM_JSON_FILENAME);
+
+    let mut custom_json_file = std::fs::File::open(CUSTOM_JSON_FILENAME)
+        .map_err(|e| anyhow::anyhow!("Failed to open {}: {}", CUSTOM_JSON_FILENAME, e))?;
+
+    let mut karabiner_assets_file = std::fs::File::create(&assets_path)
+        .map_err(|e| anyhow::anyhow!("Failed to create assets file {:?}: {}", assets_path, e))?;
+
     custom_json_file.seek(std::io::SeekFrom::Start(0))?;
-    std::io::copy(&mut custom_json_file, &mut karabiner_assets_file)?;
+    std::io::copy(&mut custom_json_file, &mut karabiner_assets_file)
+        .map_err(|e| anyhow::anyhow!("Failed to copy to assets directory: {}", e))?;
 
-    // 3. update karabiner.json (~/.config/karabiner/karabiner.json)
+    Ok(())
+}
+
+/// Update karabiner.json with type-safe operations
+fn update_karabiner_config(
+    config_dir: &Path,
+    rules: &[karabiner_data::Rule],
+) -> anyhow::Result<()> {
     let karabiner_json_path = config_dir.join("karabiner.json");
-    let mut karabiner_json: serde_json::Value =
-        serde_json::from_reader(&std::fs::File::open(&karabiner_json_path)?)?;
-    karabiner_json["profiles"]
-        .as_array_mut()
-        .ok_or_else(|| anyhow::anyhow!("Invalid karabiner.json format: profiles is not an array"))?
-        .get_mut(0)
-        .ok_or_else(|| anyhow::anyhow!("No profile exists in karabiner.json"))?["complex_modifications"]
-        .as_object_mut()
-        .ok_or_else(|| anyhow::anyhow!("complex_modifications is not an object"))?
-        .insert("rules".to_string(), serde_json::json!(&rules));
-    let karabiner_json_data = serde_json::to_vec_pretty(&karabiner_json)?;
-    std::fs::write(karabiner_json_path, karabiner_json_data)?;
+
+    // Read and parse the existing karabiner.json
+    let mut karabiner_config: karabiner_data::KarabinerConfig =
+        serde_json::from_reader(&std::fs::File::open(&karabiner_json_path)?).unwrap_or_else(|_| {
+            eprintln!(
+                "⚠️  Warning: Unable to parse existing karabiner.json, using default structure"
+            );
+            karabiner_data::KarabinerConfig::default()
+        });
+
+    // Update the first profile's complex modifications
+    if let Some(profile) = karabiner_config.profiles.get_mut(0) {
+        profile.complex_modifications.rules = rules.to_vec();
+    } else {
+        anyhow::bail!("No profile found in karabiner.json");
+    }
+
+    // Write back the updated configuration
+    let karabiner_json_data = serde_json::to_vec_pretty(&karabiner_config)
+        .map_err(|e| anyhow::anyhow!("Failed to serialize karabiner.json: {}", e))?;
+
+    std::fs::write(&karabiner_json_path, karabiner_json_data)
+        .map_err(|e| anyhow::anyhow!("Failed to write karabiner.json: {}", e))?;
+
     Ok(())
 }

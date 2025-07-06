@@ -18,7 +18,7 @@ This builds the project and executes the main binary, which generates the Karabi
 ```bash
 cargo build        # Build the project
 cargo check        # Check for compilation errors
-cargo test         # Run tests
+cargo test         # Run comprehensive unit tests for all rule sets
 cargo fmt          # Format code
 cargo clippy       # Run lints
 ```
