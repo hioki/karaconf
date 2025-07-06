@@ -9,103 +9,119 @@ pub fn manipulators() -> Vec<Manipulator> {
         .collect()
 }
 
+/// Create a manipulator that maps a key to the same key with VK4 condition
+fn create_vk4_self_mapping(
+    bundle_id: &BundleIdentifier,
+    from_key: K,
+    modifiers: Vec<ModifierKey>,
+) -> Manipulator {
+    Manipulator::builder()
+        .condition(Condition::on_app(bundle_id.clone()))
+        .condition(Condition::with_vk4())
+        .from_key(from_key.clone())
+        .to_key(from_key, Some(modifiers))
+        .build()
+}
+
+/// Create a manipulator that maps a key to a different key with VK4 condition
+fn create_vk4_key_mapping(
+    bundle_id: &BundleIdentifier,
+    from_key: K,
+    to_key: K,
+    modifiers: Vec<ModifierKey>,
+) -> Manipulator {
+    Manipulator::builder()
+        .condition(Condition::on_app(bundle_id.clone()))
+        .condition(Condition::with_vk4())
+        .from_key(from_key)
+        .to_key(to_key, Some(modifiers))
+        .build()
+}
+
+/// Create a manipulator with VK1 condition
+fn create_vk1_mapping(
+    bundle_id: &BundleIdentifier,
+    from_key: K,
+    to_key: K,
+    modifiers: Vec<ModifierKey>,
+) -> Manipulator {
+    Manipulator::builder()
+        .condition(Condition::on_app(bundle_id.clone()))
+        .condition(Condition::with_vk1())
+        .from_key(from_key)
+        .to_key(to_key, Some(modifiers))
+        .build()
+}
+
+/// Create multiple manipulators for keys that map to themselves with Ctrl+Shift+Opt+Cmd
+fn create_universal_command_mappings(bundle_id: &BundleIdentifier) -> Vec<Manipulator> {
+    let keys = vec![
+        K::A,             // execute command
+        K::B,             // show bookmarks
+        K::E,             // Toggle sidebar
+        K::F,             // search file
+        K::G,             // GitLens: Open File on Remote
+        K::H,             // Go Back
+        K::I,             // Go to implementation
+        K::J,             // Toggle Copilot Edits
+        K::L,             // Go Forward
+        K::O,             // open recent
+        K::K,             // find in path
+        K::R,             // reload window
+        K::S,             // go to symbol
+        K::V,             // Copy active file relative path
+        K::W,             // Focus on Source Control: Changes view
+        K::Y,             // Toggle File Blame
+        K::Key9,          // Zoom in
+        K::Key0,          // Zoom out
+        K::ReturnOrEnter, // workbench.action.tasks.reRunTask
+    ];
+
+    keys.into_iter()
+        .map(|key| create_vk4_self_mapping(bundle_id, key, vec![Ctrl, Shift, Opt, Cmd]))
+        .collect()
+}
+
 fn manipulators_with_app(bundle_identifier: &BundleIdentifier) -> Vec<Manipulator> {
     vec![
-        vec![
-            K::A,             // execute command
-            K::B,             // show bookmarks
-            K::E,             // Toggle sidebar
-            K::F,             // search file
-            K::G,             // GitLens: Open File on Remote
-            K::H,             // Go Back
-            K::I,             // 実装へ移動
-            K::J,             // Toggle Copilot Edits
-            K::L,             // Go Forward
-            K::O,             // open recent
-            K::K,             // find in path
-            K::R,             // reload window
-            K::S,             // go to symbol
-            K::V,             // アクティブファイルの相対パスをコピー
-            K::W,             // ソース管理: 変更 ビューにフォーカスを置く
-            K::Y,             // Toggle File Blame
-            K::Key9,          // 表示の拡大
-            K::Key0,          // 表示の縮小
-            K::ReturnOrEnter, // workbench.action.tasks.reRunTask
-        ]
-        .into_iter()
-        .map(|key_code| {
-            Manipulator::builder()
-                .condition(Condition::on_app(bundle_identifier.clone()))
-                .condition(Condition::with_vk4())
-                .from_key(key_code.clone())
-                .to_key(key_code, Some(vec![Ctrl, Shift, Opt, Cmd]))
-                .build()
-        })
-        .collect(),
-        vec![
-            Manipulator::builder()
-                .condition(Condition::on_app(bundle_identifier.clone()))
-                .condition(Condition::with_vk4())
-                .from_key(K::J)
-                .to_key(K::S, Some(vec![Cmd]))
-                .build(),
-        ],
-        vec![
-            Manipulator::builder()
-                .condition(Condition::on_app(bundle_identifier.clone()))
-                .condition(Condition::with_vk1())
-                .from_key(K::W)
-                .to_key(K::S, Some(vec![Cmd]))
-                .build(),
-        ],
-        vec![
-            Manipulator::builder()
-                .condition(Condition::on_app(bundle_identifier.clone()))
-                .condition(Condition::with_vk4())
-                .from_key(K::M)
-                .to_key(K::K, Some(vec![Opt, Cmd]))
-                .build(),
-        ],
-        vec![
-            Manipulator::builder()
-                .condition(Condition::on_app(bundle_identifier.clone()))
-                .condition(Condition::with_vk4())
-                .from_key(K::U)
-                .to_key(K::F12, Some(vec![Shift]))
-                .build(),
-        ],
-        vec![
-            Manipulator::builder()
-                .condition(Condition::on_app(bundle_identifier.clone()))
-                .condition(Condition::with_vk4())
-                .from_key(K::N)
-                .to_key(K::F8, Some(vec![Opt]))
-                .build(),
-        ],
-        vec![
-            Manipulator::builder()
-                .condition(Condition::on_app(bundle_identifier.clone()))
-                .condition(Condition::with_vk4())
-                .from_key(K::Period)
-                .to_key(K::Period, Some(vec![Cmd]))
-                .build(),
-        ],
-        vec![
-            Manipulator::builder()
-                .condition(Condition::on_app(bundle_identifier.clone()))
-                .condition(Condition::with_vk4())
-                .from_key(K::T)
-                .to_key(K::T, Some(vec![Cmd]))
-                .build(),
-        ],
-        vec![
-            Manipulator::builder()
-                .condition(Condition::on_app(bundle_identifier.clone()))
-                .condition(Condition::with_vk4())
-                .from_key(K::P)
-                .to_key(K::M, Some(vec![Cmd, Shift]))
-                .build(),
-        ],
+        create_universal_command_mappings(bundle_identifier),
+        vec![create_vk4_key_mapping(
+            bundle_identifier,
+            K::J,
+            K::S,
+            vec![Cmd],
+        )],
+        vec![create_vk1_mapping(bundle_identifier, K::W, K::S, vec![Cmd])],
+        vec![create_vk4_key_mapping(
+            bundle_identifier,
+            K::M,
+            K::K,
+            vec![Opt, Cmd],
+        )],
+        vec![create_vk4_key_mapping(
+            bundle_identifier,
+            K::U,
+            K::F12,
+            vec![Shift],
+        )],
+        vec![create_vk4_key_mapping(
+            bundle_identifier,
+            K::N,
+            K::F8,
+            vec![Opt],
+        )],
+        vec![create_vk4_self_mapping(
+            bundle_identifier,
+            K::Period,
+            vec![Cmd],
+        )],
+        vec![create_vk4_self_mapping(bundle_identifier, K::T, vec![Cmd])],
+        vec![create_vk4_key_mapping(
+            bundle_identifier,
+            K::P,
+            K::M,
+            vec![Cmd, Shift],
+        )],
     ]
     .into_iter()
     .flatten()
