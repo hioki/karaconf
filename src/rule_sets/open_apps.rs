@@ -27,10 +27,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         (K::T, "open -a 'Visual Studio Code.app'"),
         (K::U, "open -a 'Microsoft To Do.app'"),
         (K::V, "open -a 'DeepL.app'"),
-        (
-            K::W,
-            r#"osascript -e "tell application \"Alfred 5\" to search \"define $(pbpaste)\"""#,
-        ),
+        (K::W, "open -a 'ChatGPT.app'"),
         (
             K::X,
             r#"osascript -e "tell application \"Alfred 5\" to search \"snip codeblocks\"""#,

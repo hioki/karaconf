@@ -5395,7 +5395,7 @@
           },
           "to": [
             {
-              "shell_command": "osascript -e \"tell application \\\"Alfred 5\\\" to search \\\"define $(pbpaste)\\\"\""
+              "shell_command": "open -a 'ChatGPT.app'"
             }
           ]
         },
