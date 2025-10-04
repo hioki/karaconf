@@ -45,6 +45,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         )
     }
 
+    // Disable default Cmd+W behavior in iTerm2
     manipulators.push(
         Manipulator::builder()
             .condition(Condition::on_app(ITerm2))
@@ -53,6 +54,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
+    // Pane movement
     for (from, to) in [(O, P), (P, N)] {
         manipulators.push(
             Manipulator::builder()
@@ -66,7 +68,6 @@ pub fn manipulators() -> Vec<Manipulator> {
                 .build(),
         )
     }
-
     for (from, to) in [(A, P), (S, N)] {
         manipulators.push(
             Manipulator::builder()
@@ -81,6 +82,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         )
     }
 
+    // save file in vim
     manipulators.push(
         Manipulator::builder()
             .conditions(vec![
@@ -95,6 +97,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
+    // quit vim
     manipulators.push(
         Manipulator::builder()
             .conditions(vec![
@@ -109,6 +112,8 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
+    // U -> Shift+0 (go to line head in vim)
+    // I -> Shift+4 (go to line tail in vim)
     for (from, to) in [(U, Key0), (I, Key4)] {
         manipulators.push(
             Manipulator::builder()
@@ -122,6 +127,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         )
     }
 
+    // what is this?
     manipulators.push(
         Manipulator::builder()
             .conditions(vec![
@@ -133,6 +139,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
+    // Enter copy mode in tmux
     manipulators.push(
         Manipulator::builder()
             .conditions(vec![
