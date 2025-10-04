@@ -1,6 +1,7 @@
 pub mod capslock;
 pub mod chatgpt;
 pub mod commands;
+pub mod common;
 pub mod dynalist;
 pub mod google_chrome;
 pub mod iterm2;
