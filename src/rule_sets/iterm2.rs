@@ -1,95 +1,109 @@
-use crate::karabiner_data::{KeyCode as K, ModifierKey::*, *};
+use crate::karabiner_data::{
+    BundleIdentifier::ITerm2,
+    Condition, FromModifier,
+    KeyCode::*,
+    Manipulator,
+    ModifierKey::*,
+    VirtualKey::{Vk1, Vk2, Vk4},
+};
 
 pub fn manipulators() -> Vec<Manipulator> {
-    let vk1_conditions = vec![
-        Condition::on_app(BundleIdentifier::ITerm2),
-        Condition::with_vk1(),
-    ];
-    let vk2_conditions = vec![
-        Condition::on_app(BundleIdentifier::ITerm2),
-        Condition::with_vk2(),
-    ];
-    let vk4_conditions = vec![
-        Condition::on_app(BundleIdentifier::ITerm2),
-        Condition::with_vk4(),
-    ];
     vec![
         // for Neovim
         // <VK4>+<Key> -> <Leader><Key>
-        vec![K::E, K::K, K::F, K::H, K::L, K::O]
+        vec![E, K, F, H, L, O]
             .into_iter()
             .map(|key_code| {
                 Manipulator::builder()
-                    .conditions(vk4_conditions.clone())
+                    .conditions(vec![
+                        Condition::on_app(ITerm2),
+                        Condition::with_virtual_key(Vk4),
+                    ])
                     .from_key(key_code.clone())
-                    .to_key(K::International3, None)
+                    .to_key(International3, None)
                     .to_key(key_code, None)
                     .build()
             })
             .collect(),
-        vec![K::C, K::J, K::K, K::N, K::P, K::S, K::V]
+        // for tmux
+        vec![C, J, K, N, P, S, V]
             .into_iter()
             .map(|key_code| {
                 Manipulator::builder()
-                    .conditions(vk4_conditions.clone())
+                    .conditions(vec![
+                        Condition::on_app(ITerm2),
+                        Condition::with_virtual_key(Vk4),
+                    ])
                     .from_key(key_code.clone())
-                    .to_key(KeyCode::T, Some(vec![ModifierKey::Ctrl]))
+                    .to_key(T, Some(vec![Ctrl]))
                     .to_key(key_code, Some(vec![Ctrl]))
                     .build()
             })
             .collect(),
         vec![
             Manipulator::builder()
-                .condition(Condition::on_app(BundleIdentifier::ITerm2))
-                .from_key_with_modifiers(K::W, FromModifier::Mandatory(vec![Cmd]))
-                .to_key(K::VkNone, None)
+                .condition(Condition::on_app(ITerm2))
+                .from_key_with_modifiers(W, FromModifier::Mandatory(vec![Cmd]))
+                .to_key(VkNone, None)
                 .build(),
         ],
-        vec![(K::O, K::P), (K::P, K::N)]
+        vec![(O, P), (P, N)]
             .into_iter()
             .map(|(from, to)| {
                 Manipulator::builder()
-                    .conditions(vk1_conditions.clone())
+                    .conditions(vec![
+                        Condition::on_app(ITerm2),
+                        Condition::with_virtual_key(Vk1),
+                    ])
                     .from_key(from)
-                    .to_key(KeyCode::T, Some(vec![Ctrl]))
+                    .to_key(T, Some(vec![Ctrl]))
                     .to_key(to, Some(vec![Ctrl]))
                     .build()
             })
             .collect(),
-        vec![(K::A, K::P), (K::S, K::N)]
+        vec![(A, P), (S, N)]
             .into_iter()
             .map(|(from, to)| {
                 Manipulator::builder()
-                    .conditions(vk2_conditions.clone())
+                    .conditions(vec![
+                        Condition::on_app(ITerm2),
+                        Condition::with_virtual_key(Vk2),
+                    ])
                     .from_key(from)
-                    .to_key(KeyCode::T, Some(vec![Ctrl]))
+                    .to_key(T, Some(vec![Ctrl]))
                     .to_key(to, Some(vec![Ctrl]))
                     .build()
             })
             .collect(),
         vec![
             Manipulator::builder()
-                .conditions(vk1_conditions.clone())
-                .from_key(K::W)
-                .to_key(K::Escape, None)
-                .to_key(K::Quote, None)
-                .to_key(K::W, None)
-                .to_key(K::ReturnOrEnter, None)
+                .conditions(vec![
+                    Condition::on_app(ITerm2),
+                    Condition::with_virtual_key(Vk1),
+                ])
+                .from_key(W)
+                .to_key(Escape, None)
+                .to_key(Quote, None)
+                .to_key(W, None)
+                .to_key(ReturnOrEnter, None)
                 .build(),
             Manipulator::builder()
-                .conditions(vk1_conditions.clone())
-                .from_key(K::Q)
-                .to_key(K::Escape, None)
-                .to_key(K::Quote, None)
-                .to_key(K::Q, None)
-                .to_key(K::ReturnOrEnter, None)
+                .conditions(vec![
+                    Condition::on_app(ITerm2),
+                    Condition::with_virtual_key(Vk1),
+                ])
+                .from_key(Q)
+                .to_key(Escape, None)
+                .to_key(Quote, None)
+                .to_key(Q, None)
+                .to_key(ReturnOrEnter, None)
                 .build(),
         ],
-        vec![(K::U, K::Key0), (K::I, K::Key4)]
+        vec![(U, Key0), (I, Key4)]
             .into_iter()
             .map(|(from, to)| {
                 Manipulator::builder()
-                    .conditions(vk1_conditions.clone())
+                    .conditions(vec![Condition::on_app(ITerm2), Condition::with_vk1()])
                     .from_key(from)
                     .to_key(to, Some(vec![Shift]))
                     .build()
@@ -97,15 +111,15 @@ pub fn manipulators() -> Vec<Manipulator> {
             .collect(),
         vec![
             Manipulator::builder()
-                .conditions(vk1_conditions.clone())
-                .from_key(K::Semicolon)
-                .to_key(K::F, Some(vec![Ctrl]))
+                .conditions(vec![Condition::on_app(ITerm2), Condition::with_vk1()])
+                .from_key(Semicolon)
+                .to_key(F, Some(vec![Ctrl]))
                 .build(),
             Manipulator::builder()
-                .conditions(vk1_conditions.clone())
-                .from_key(K::Z)
-                .to_key(K::T, Some(vec![Ctrl]))
-                .to_key(K::B, Some(vec![Ctrl]))
+                .conditions(vec![Condition::on_app(ITerm2), Condition::with_vk1()])
+                .from_key(Z)
+                .to_key(T, Some(vec![Ctrl]))
+                .to_key(B, Some(vec![Ctrl]))
                 .build(),
         ],
     ]
