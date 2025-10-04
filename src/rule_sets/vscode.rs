@@ -58,20 +58,22 @@ fn create_universal_command_mappings(bundle_id: &BundleIdentifier) -> Vec<Manipu
     let keys = vec![
         K::A,             // execute command
         K::B,             // show bookmarks
-        K::E,             // Toggle sidebar
+        K::D,             // Toggle sidebar
+        K::E,             // エクスプローラーを表示
         K::F,             // search file
         K::G,             // GitLens: Open File on Remote
         K::H,             // Go Back
         K::I,             // Go to implementation
-        K::J,             // Toggle Copilot Edits
+        K::J,             // Codex: Focus on Codex View
+        K::K,             // find in path
         K::L,             // Go Forward
         K::O,             // open recent
-        K::K,             // find in path
         K::R,             // reload window
         K::S,             // go to symbol
         K::V,             // Copy active file relative path
-        K::W,             // Focus on Source Control: Changes view
+        K::W,             // Claude Code: Open in Side Bar
         K::Y,             // Toggle File Blame
+        K::Z,             // Focus on Source Control: Changes view
         K::Key9,          // Zoom in
         K::Key0,          // Zoom out
         K::ReturnOrEnter, // workbench.action.tasks.reRunTask
