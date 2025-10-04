@@ -1,6 +1,7 @@
 use crate::karabiner_data::{KeyCode::*, ModifierKey::*, *};
 
 const MOUSE_SPEED: i32 = 1536;
+const WHEEL_SPEED: i32 = 64;
 
 pub fn manipulators() -> Vec<Manipulator> {
     let mut manipulators = Vec::new();
@@ -109,8 +110,8 @@ pub fn manipulators() -> Vec<Manipulator> {
     }
 
     for (from_key, pointing_button) in [
-        (Slash, PointingButton::Button1),
-        (International1, PointingButton::Button2),
+        (Slash, PointingButton::Button1),          // left click
+        (International1, PointingButton::Button2), // right click
     ] {
         manipulators.push(
             Manipulator::builder()
@@ -121,7 +122,11 @@ pub fn manipulators() -> Vec<Manipulator> {
         );
     }
 
-    for (key_code, vertical_wheel) in [(OpenBracket, -64), (NonUsPound, 64), (Backslash, 64)] {
+    for (key_code, vertical_wheel) in [
+        (OpenBracket, -WHEEL_SPEED),
+        (NonUsPound, WHEEL_SPEED),
+        (Backslash, WHEEL_SPEED),
+    ] {
         manipulators.push(
             Manipulator::builder()
                 .condition(Condition::with_vk1())
