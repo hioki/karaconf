@@ -27,6 +27,8 @@ pub fn manipulators() -> Vec<Manipulator> {
         (D, JapaneseEisuu, None),
         (A, F10, None),
         (Z, F7, None),
+        (O, Tab, Some(vec![Ctrl, Shift])),
+        (P, Tab, Some(vec![Ctrl])),
     ] {
         manipulators.push(
             Manipulator::builder()
@@ -37,30 +39,19 @@ pub fn manipulators() -> Vec<Manipulator> {
         );
     }
 
+    manipulators.push(
+        Manipulator::builder()
+            .condition(Condition::with_vk1())
+            .from_key_with_modifiers(Y, FromModifier::Mandatory(vec![Shift]))
+            .to_key(C, Some(vec![Cmd]))
+            .to_command(
+                "export LC_ALL=en_US.UTF-8; pbpaste | tr -d '\n' | sed 's/  */ /g' | pbcopy",
+            )
+            .build(),
+    );
+
     vec![
         manipulators,
-        vec![
-            Manipulator::builder()
-                .condition(Condition::with_vk1())
-                .from_key(O)
-                .to_key(Tab, Some(vec![Ctrl, Shift]))
-                .build(),
-            Manipulator::builder()
-                .condition(Condition::with_vk1())
-                .from_key(P)
-                .to_key(Tab, Some(vec![Ctrl]))
-                .build(),
-        ],
-        vec![
-            Manipulator::builder()
-                .condition(Condition::with_vk1())
-                .from_key_with_modifiers(Y, FromModifier::Mandatory(vec![Shift]))
-                .to_key(C, Some(vec![Cmd]))
-                .to_command(
-                    "export LC_ALL=en_US.UTF-8; pbpaste | tr -d '\n' | sed 's/  */ /g' | pbcopy",
-                )
-                .build(),
-        ],
         vec![
             Manipulator::builder()
                 .condition(Condition::with_vk1())
