@@ -1,29 +1,40 @@
-use crate::karabiner_data::{KeyCode as K, ModifierKey::*, *};
+use crate::karabiner_data::{
+    BundleIdentifier::GoogleChrome, Condition, KeyCode::*, Manipulator, ModifierKey::*,
+    VirtualKey::Vk4,
+};
 
 pub fn manipulators() -> Vec<Manipulator> {
-    let vk4_conditions = vec![
-        Condition::on_app(BundleIdentifier::GoogleChrome),
-        Condition::with_vk4(),
-    ];
     vec![
+        // Mute google meets
         Manipulator::builder()
-            .conditions(vk4_conditions.clone())
-            .from_key(K::Spacebar)
-            .to_key(K::D, Some(vec![Cmd]))
-            .build(), // Mute google meets
-        Manipulator::builder()
-            .conditions(vk4_conditions.clone())
-            .from_key(K::M)
-            .to_key(K::M, Some(vec![Cmd, Shift]))
+            .conditions(vec![
+                Condition::on_app(GoogleChrome),
+                Condition::with_virtual_key(Vk4),
+            ])
+            .from_key(Spacebar)
+            .to_key(D, Some(vec![Cmd]))
             .build(),
+        // List profiles
         Manipulator::builder()
-            .conditions(vk4_conditions.clone())
-            .from_key(K::N)
-            .to_key(K::M, Some(vec![Cmd, Shift]))
-            .to_key(K::DownArrow, None)
-            .to_key(K::DownArrow, None)
-            .to_key(K::DownArrow, None)
-            .to_key(K::ReturnOrEnter, None)
+            .conditions(vec![
+                Condition::on_app(GoogleChrome),
+                Condition::with_virtual_key(Vk4),
+            ])
+            .from_key(M)
+            .to_key(M, Some(vec![Cmd, Shift]))
+            .build(),
+        // Switch profile
+        Manipulator::builder()
+            .conditions(vec![
+                Condition::on_app(GoogleChrome),
+                Condition::with_virtual_key(Vk4),
+            ])
+            .from_key(N)
+            .to_key(M, Some(vec![Cmd, Shift]))
+            .to_key(DownArrow, None)
+            .to_key(DownArrow, None)
+            .to_key(DownArrow, None)
+            .to_key(ReturnOrEnter, None)
             .build(),
     ]
 }
