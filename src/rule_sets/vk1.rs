@@ -109,6 +109,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         });
     }
 
+    // Mouse buttons
     for (from_key, pointing_button) in [
         (Slash, PointingButton::Button1),          // left click
         (International1, PointingButton::Button2), // right click
@@ -122,6 +123,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         );
     }
 
+    // Mouse wheel
     for (key_code, vertical_wheel) in [
         (OpenBracket, -WHEEL_SPEED),
         (NonUsPound, WHEEL_SPEED),
