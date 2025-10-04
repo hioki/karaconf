@@ -341,7 +341,7 @@ pub enum ModifierKey {
     Cmd,
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 #[serde(rename_all = "snake_case")]
 #[allow(dead_code)]
 // See https://github.com/pqrs-org/Karabiner-Elements/blob/a9154a6b073a3396631f43ed11f6dc603c28ea7b/src/share/types/key_code.hpp#L146-L360
