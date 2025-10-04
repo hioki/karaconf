@@ -11,6 +11,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         (F, Escape, None),
         (U, LeftArrow, Some(vec![Cmd])),
         (I, RightArrow, Some(vec![Cmd])),
+        (G, Tab, None),
     ] {
         manipulators.push(
             Manipulator::builder()
@@ -21,25 +22,23 @@ pub fn manipulators() -> Vec<Manipulator> {
         );
     }
 
-    for (from, to) in [(S, JapaneseKana), (D, JapaneseEisuu), (A, F10), (Z, F7)] {
+    for (from, to, modifiers) in [
+        (S, JapaneseKana, None),
+        (D, JapaneseEisuu, None),
+        (A, F10, None),
+        (Z, F7, None),
+    ] {
         manipulators.push(
             Manipulator::builder()
                 .condition(Condition::with_vk1())
                 .from_key(from)
-                .to_key(to, None)
+                .to_key(to, modifiers)
                 .build(),
         );
     }
 
     vec![
         manipulators,
-        vec![
-            Manipulator::builder()
-                .condition(Condition::with_vk1())
-                .from_key_with_modifiers(G, FromModifier::Optional(vec![Any]))
-                .to_key(Tab, None)
-                .build(),
-        ],
         vec![
             Manipulator::builder()
                 .condition(Condition::with_vk1())
