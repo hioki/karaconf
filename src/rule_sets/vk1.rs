@@ -95,35 +95,35 @@ pub fn manipulators() -> Vec<Manipulator> {
         )
     }
 
-    vec![
-        manipulators,
-        vec![
-            (Slash, PointingButton::Button1),
-            (International1, PointingButton::Button2),
-        ]
-        .into_iter()
-        .map(|(from_key, pointing_button)| {
+    for (from_key, pointing_button) in [
+        (Slash, PointingButton::Button1),
+        (International1, PointingButton::Button2),
+    ] {
+        manipulators.push(
             Manipulator::builder()
                 .condition(Condition::with_vk1())
                 .from_key_with_modifiers(from_key, FromModifier::Optional(vec![Any]))
                 .to_click(pointing_button)
-                .build()
-        })
-        .collect(),
-        vec![(OpenBracket, -64), (NonUsPound, 64), (Backslash, 64)]
-            .into_iter()
-            .map(|(key_code, vertical_wheel)| {
-                Manipulator::builder()
-                    .condition(Condition::with_vk1())
-                    .from_key(key_code)
-                    .to_mouse(MouseKey {
-                        x: None,
-                        y: None,
-                        vertical_wheel: Some(vertical_wheel),
-                    })
-                    .build()
-            })
-            .collect(),
+                .build(),
+        );
+    }
+
+    for (key_code, vertical_wheel) in [(OpenBracket, -64), (NonUsPound, 64), (Backslash, 64)] {
+        manipulators.push(
+            Manipulator::builder()
+                .condition(Condition::with_vk1())
+                .from_key(key_code)
+                .to_mouse(MouseKey {
+                    x: None,
+                    y: None,
+                    vertical_wheel: Some(vertical_wheel),
+                })
+                .build(),
+        );
+    }
+
+    vec![
+        manipulators,
         vec![
             (Key1, F1),
             (Key2, F2),
