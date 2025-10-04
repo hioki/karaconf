@@ -319,7 +319,7 @@ pub struct ToAfterKeyUp {
     pub set_variable: SetVariable,
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
 #[serde(rename_all = "snake_case")]
 pub enum VirtualKey {
     Vk1,
