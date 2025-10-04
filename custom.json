@@ -3515,6 +3515,26 @@
             }
           ],
           "from": {
+            "key_code": "n"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "x": -3072
+              }
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk1",
+              "value": 1
+            }
+          ],
+          "from": {
             "key_code": "m",
             "modifiers": {
               "mandatory": [
@@ -3526,6 +3546,26 @@
             {
               "mouse_key": {
                 "y": 1536
+              }
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk1",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "m"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "y": 3072
               }
             }
           ]
@@ -3565,6 +3605,26 @@
             }
           ],
           "from": {
+            "key_code": "comma"
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "y": -3072
+              }
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk1",
+              "value": 1
+            }
+          ],
+          "from": {
             "key_code": "period",
             "modifiers": {
               "mandatory": [
@@ -3576,66 +3636,6 @@
             {
               "mouse_key": {
                 "x": 1536
-              }
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vk1",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "n"
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "x": -3072
-              }
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vk1",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "m"
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "y": 3072
-              }
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vk1",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "comma"
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "y": -3072
               }
             }
           ]

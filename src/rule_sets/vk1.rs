@@ -1,5 +1,7 @@
 use crate::karabiner_data::{KeyCode::*, ModifierKey::*, *};
 
+const MOUSE_SPEED: i32 = 1536;
+
 pub fn manipulators() -> Vec<Manipulator> {
     let mut manipulators = Vec::new();
 
@@ -75,44 +77,35 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
-    // Mouse movement (slower)
+    // Mouse movement
     for (key_code, x, y) in [
-        (N, Some(-1536), None),
-        (M, None, Some(1536)),
-        (Comma, None, Some(-1536)),
-        (Period, Some(1536), None),
+        (N, Some(-MOUSE_SPEED), None),
+        (M, None, Some(MOUSE_SPEED)),
+        (Comma, None, Some(-MOUSE_SPEED)),
+        (Period, Some(MOUSE_SPEED), None),
     ] {
-        manipulators.push(
+        manipulators.push({
             Manipulator::builder()
                 .condition(Condition::with_vk1())
-                .from_key_with_modifiers(key_code, FromModifier::Mandatory(vec![Shift]))
+                .from_key_with_modifiers(key_code.clone(), FromModifier::Mandatory(vec![Shift]))
                 .to_mouse(MouseKey {
                     x,
                     y,
                     vertical_wheel: None,
                 })
-                .build(),
-        );
-    }
-
-    // Mouse movement (faster)
-    for (key_code, x, y) in [
-        (N, Some(-3072), None),
-        (M, None, Some(3072)),
-        (Comma, None, Some(-3072)),
-        (Period, Some(3072), None),
-    ] {
-        manipulators.push(
+                .build()
+        });
+        manipulators.push({
             Manipulator::builder()
                 .condition(Condition::with_vk1())
                 .from_key(key_code)
                 .to_mouse(MouseKey {
-                    x,
-                    y,
+                    x: x.map(|n| n * 2),
+                    y: y.map(|n| n * 2),
                     vertical_wheel: None,
                 })
-                .build(),
-        )
+                .build()
+        });
     }
 
     for (from_key, pointing_button) in [
