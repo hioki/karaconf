@@ -3,9 +3,11 @@ use crate::karabiner_data::{
     Condition, FromModifier,
     KeyCode::*,
     Manipulator,
-    ModifierKey::*,
+    ModifierKey::{self, *},
     VirtualKey::{Vk1, Vk2, Vk4},
 };
+
+const CTRL: &[ModifierKey] = &[Ctrl];
 
 pub fn manipulators() -> Vec<Manipulator> {
     vec![
@@ -35,8 +37,8 @@ pub fn manipulators() -> Vec<Manipulator> {
                         Condition::with_virtual_key(Vk4),
                     ])
                     .from_key(key_code.clone())
-                    .to_key(T, Some(vec![Ctrl]))
-                    .to_key(key_code, Some(vec![Ctrl]))
+                    .to_key(T, Some(CTRL.to_vec()))
+                    .to_key(key_code, Some(CTRL.to_vec()))
                     .build()
             })
             .collect(),
@@ -56,8 +58,8 @@ pub fn manipulators() -> Vec<Manipulator> {
                         Condition::with_virtual_key(Vk1),
                     ])
                     .from_key(from)
-                    .to_key(T, Some(vec![Ctrl]))
-                    .to_key(to, Some(vec![Ctrl]))
+                    .to_key(T, Some(CTRL.to_vec()))
+                    .to_key(to, Some(CTRL.to_vec()))
                     .build()
             })
             .collect(),
@@ -70,8 +72,8 @@ pub fn manipulators() -> Vec<Manipulator> {
                         Condition::with_virtual_key(Vk2),
                     ])
                     .from_key(from)
-                    .to_key(T, Some(vec![Ctrl]))
-                    .to_key(to, Some(vec![Ctrl]))
+                    .to_key(T, Some(CTRL.to_vec()))
+                    .to_key(to, Some(CTRL.to_vec()))
                     .build()
             })
             .collect(),
@@ -119,7 +121,7 @@ pub fn manipulators() -> Vec<Manipulator> {
                     Condition::with_virtual_key(Vk1),
                 ])
                 .from_key(Semicolon)
-                .to_key(F, Some(vec![Ctrl]))
+                .to_key(F, Some(CTRL.to_vec()))
                 .build(),
             Manipulator::builder()
                 .conditions(vec![
@@ -127,8 +129,8 @@ pub fn manipulators() -> Vec<Manipulator> {
                     Condition::with_virtual_key(Vk1),
                 ])
                 .from_key(Z)
-                .to_key(T, Some(vec![Ctrl]))
-                .to_key(B, Some(vec![Ctrl]))
+                .to_key(T, Some(CTRL.to_vec()))
+                .to_key(B, Some(CTRL.to_vec()))
                 .build(),
         ],
     ]
