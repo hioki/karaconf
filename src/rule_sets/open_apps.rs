@@ -14,7 +14,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         (K::G, "open -a 'Visual Studio Code.app'"),
         (K::H, "open -a 'Visual Studio Code.app'"),
         (K::I, "open -a 'CLion.app'"),
-        (K::J, "open -a 'Google Chrome.app'"),
+        (K::J, "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --profile-directory=\"Profile 1\""),
         (K::K, "open -a 'iTerm.app'"),
         (K::L, "open -a 'Alfred 5.app'"),
         (K::M, "open -a 'Dynalist.app'"),
