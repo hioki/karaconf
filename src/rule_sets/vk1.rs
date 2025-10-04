@@ -12,6 +12,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         (U, LeftArrow, Some(vec![Cmd])),
         (I, RightArrow, Some(vec![Cmd])),
         (G, Tab, None),
+        (CloseBracket, Z, Some(vec![Cmd])),
     ] {
         manipulators.push(
             Manipulator::builder()
@@ -29,6 +30,12 @@ pub fn manipulators() -> Vec<Manipulator> {
         (Z, F7, None),
         (O, Tab, Some(vec![Ctrl, Shift])),
         (P, Tab, Some(vec![Ctrl])),
+        (Y, C, Some(vec![Cmd])),
+        (T, X, Some(vec![Cmd])),
+        (X, V, Some(vec![Cmd, Shift, Opt])),
+        (C, DeleteOrBackspace, None),
+        (E, DeleteForward, None),
+        (Quote, H, Some(vec![Cmd])),
     ] {
         manipulators.push(
             Manipulator::builder()
@@ -50,92 +57,46 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
+    for (key_code, x, y) in [
+        (N, Some(-1536), None),
+        (M, None, Some(1536)),
+        (Comma, None, Some(-1536)),
+        (Period, Some(1536), None),
+    ] {
+        manipulators.push(
+            Manipulator::builder()
+                .condition(Condition::with_vk1())
+                .from_key_with_modifiers(key_code, FromModifier::Mandatory(vec![Shift]))
+                .to_mouse(MouseKey {
+                    x,
+                    y,
+                    vertical_wheel: None,
+                })
+                .build(),
+        );
+    }
+
+    for (key_code, x, y) in [
+        (N, Some(-3072), None),
+        (M, None, Some(3072)),
+        (Comma, None, Some(-3072)),
+        (Period, Some(3072), None),
+    ] {
+        manipulators.push(
+            Manipulator::builder()
+                .condition(Condition::with_vk1())
+                .from_key(key_code)
+                .to_mouse(MouseKey {
+                    x,
+                    y,
+                    vertical_wheel: None,
+                })
+                .build(),
+        )
+    }
+
     vec![
         manipulators,
-        vec![
-            Manipulator::builder()
-                .condition(Condition::with_vk1())
-                .from_key(Y)
-                .to_key(C, Some(vec![Cmd]))
-                .build(),
-        ],
-        vec![
-            Manipulator::builder()
-                .condition(Condition::with_vk1())
-                .from_key(T)
-                .to_key(X, Some(vec![Cmd]))
-                .build(),
-            Manipulator::builder()
-                .condition(Condition::with_vk1())
-                .from_key(X)
-                .to_key(V, Some(vec![Cmd, Shift, Opt]))
-                .build(),
-        ],
-        vec![
-            Manipulator::builder()
-                .condition(Condition::with_vk1())
-                .from_key(C)
-                .to_key(DeleteOrBackspace, None)
-                .build(),
-            Manipulator::builder()
-                .condition(Condition::with_vk1())
-                .from_key(E)
-                .to_key(DeleteForward, None)
-                .build(),
-        ],
-        vec![
-            Manipulator::builder()
-                .condition(Condition::with_vk1())
-                .from_key_with_modifiers(CloseBracket, FromModifier::Optional(vec![Any]))
-                .to_key(Z, Some(vec![Cmd]))
-                .build(),
-        ],
-        vec![
-            Manipulator::builder()
-                .condition(Condition::with_vk1())
-                .from_key(Quote)
-                .to_key(H, Some(vec![Cmd]))
-                .build(),
-        ],
-        {
-            let shift_mappings = vec![
-                (N, Some(-1536), None),
-                (M, None, Some(1536)),
-                (Comma, None, Some(-1536)),
-                (Period, Some(1536), None),
-            ]
-            .into_iter()
-            .map(|(key_code, x, y)| {
-                Manipulator::builder()
-                    .condition(Condition::with_vk1())
-                    .from_key_with_modifiers(key_code, FromModifier::Mandatory(vec![Shift]))
-                    .to_mouse(MouseKey {
-                        x,
-                        y,
-                        vertical_wheel: None,
-                    })
-                    .build()
-            });
-            let normal_mappings = vec![
-                (N, Some(-3072), None),
-                (M, None, Some(3072)),
-                (Comma, None, Some(-3072)),
-                (Period, Some(3072), None),
-            ]
-            .into_iter()
-            .map(|(key_code, x, y)| {
-                Manipulator::builder()
-                    .condition(Condition::with_vk1())
-                    .from_key(key_code)
-                    .to_mouse(MouseKey {
-                        x,
-                        y,
-                        vertical_wheel: None,
-                    })
-                    .build()
-            });
-            shift_mappings.chain(normal_mappings).collect()
-        },
         vec![
             (Slash, PointingButton::Button1),
             (International1, PointingButton::Button2),

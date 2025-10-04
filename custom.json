@@ -2876,6 +2876,32 @@
             }
           ],
           "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "z",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk1",
+              "value": 1
+            }
+          ],
+          "from": {
             "key_code": "s"
           },
           "to": [
@@ -2991,35 +3017,6 @@
             }
           ],
           "from": {
-            "key_code": "y",
-            "modifiers": {
-              "mandatory": [
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "c",
-              "modifiers": [
-                "command"
-              ]
-            },
-            {
-              "shell_command": "export LC_ALL=en_US.UTF-8; pbpaste | tr -d '\n' | sed 's/  */ /g' | pbcopy"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vk1",
-              "value": 1
-            }
-          ],
-          "from": {
             "key_code": "y"
           },
           "to": [
@@ -3121,16 +3118,11 @@
             }
           ],
           "from": {
-            "key_code": "close_bracket",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
+            "key_code": "quote"
           },
           "to": [
             {
-              "key_code": "z",
+              "key_code": "h",
               "modifiers": [
                 "command"
               ]
@@ -3147,14 +3139,22 @@
             }
           ],
           "from": {
-            "key_code": "quote"
+            "key_code": "y",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
           },
           "to": [
             {
-              "key_code": "h",
+              "key_code": "c",
               "modifiers": [
                 "command"
               ]
+            },
+            {
+              "shell_command": "export LC_ALL=en_US.UTF-8; pbpaste | tr -d '\n' | sed 's/  */ /g' | pbcopy"
             }
           ]
         },
