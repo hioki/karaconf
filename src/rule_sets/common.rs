@@ -6,6 +6,9 @@ const WHEEL_SPEED: i32 = 64;
 pub fn manipulators() -> Vec<Manipulator> {
     let mut manipulators = Vec::new();
 
+    //
+    // Virtual Key 1
+    //
     for (from, to, modifiers) in [
         (H, LeftArrow, None),
         (J, DownArrow, None),
@@ -140,6 +143,118 @@ pub fn manipulators() -> Vec<Manipulator> {
                 })
                 .build(),
         );
+    }
+
+    //
+    // Virtual Key 2
+    //
+    for (from, to, to_modifiers) in [
+        (F, Tab, Some(vec![Cmd])),           // move to next app
+        (D, Tab, Some(vec![Cmd, Shift])),    // move to previous app
+        (S, Tab, Some(vec![Ctrl])),          // move to next tab
+        (A, Tab, Some(vec![Ctrl, Shift])),   // move to previous tab
+        (Key9, KeypadPlus, Some(vec![Cmd])), // zoom in
+        (Key0, Hyphen, Some(vec![Cmd])),     // zoom out
+        (Key1, VolumeDecrement, None),
+        (Key2, VolumeIncrement, None),
+        (Key3, DisplayBrightnessDecrement, None),
+        (Key4, DisplayBrightnessIncrement, None),
+    ] {
+        manipulators.push(
+            Manipulator::builder()
+                .condition(Condition::with_vk2())
+                .from_key(from)
+                .to_key(to, to_modifiers)
+                .build(),
+        );
+    }
+
+    // for Magnet.app
+    for (from, to) in [
+        (H, LeftArrow),
+        (O, RightArrow),
+        (N, DownArrow),
+        (P, UpArrow),
+        (U, Key1),
+        (I, Key2),
+        (M, Key3),
+        (Comma, Key4),
+        (J, P),
+        (K, N),
+    ] {
+        manipulators.push(
+            Manipulator::builder()
+                .condition(Condition::with_vk2())
+                .from_key_with_modifiers(from, FromModifier::Mandatory(vec![Ctrl]))
+                .to_key(to, Some(vec![Cmd, Ctrl, Opt, Shift]))
+                .build(),
+        );
+    }
+
+    //
+    // Virtual Key 2 - Shell Commands
+    //
+    for (key_code, shell_command) in [
+        // (A, "Ctrl+Shift+Tab"),
+        (B, "open -a 'Bitwarden.app'"),
+        (C, "open -a 'Notion Calendar.app'"),
+        // (D, "Command+Shift+Tab"),
+        (
+            E,
+            r#"osascript -e "tell application \"Alfred 5\" to search \"snip \"""#,
+        ),
+        // (F, "Command+Tab"),
+        (G, "open -a 'Visual Studio Code.app'"),
+        (
+            H,
+            "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --profile-directory=\"Default\"",
+        ),
+        (I, "open -a 'CLion.app'"),
+        (
+            J,
+            "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --profile-directory=\"Profile 1\"",
+        ),
+        (K, "open -a 'iTerm.app'"),
+        (L, "open -a 'Alfred 5.app'"),
+        (M, "open -a 'Dynalist.app'"),
+        (N, "open -a 'Notion.app'"),
+        // (O, None),
+        (P, "open -a '1Password.app'"),
+        // (Q, None),
+        // (R, None),
+        // (S, "Ctrl+Tab"),
+        (T, "open -a 'Visual Studio Code.app'"),
+        (U, "open -a 'Microsoft To Do.app'"),
+        (V, "open -a 'DeepL.app'"),
+        (W, "open -a 'ChatGPT.app'"),
+        (
+            X,
+            r#"osascript -e "tell application \"Alfred 5\" to search \"snip codeblocks\"""#,
+        ),
+        (Y, "open -a 'Slack.app'"),
+        (Z, "open -a 'LICEcap.app'"),
+        // (ReturnOrEnter, None),
+        // (Quote, None), // :
+        // (NonUsPound, None), // ]
+        (OpenBracket, "open -a 'Mail.app'"), // @
+        // (CloseBracket, None), // [
+        (Comma, "open -a 'System Settings.app'"),
+        (Period, "open -a 'Claude.app'"),
+        (
+            Slash,
+            "open 'https://s2.kingtime.jp/independent/recorder2/personal/'",
+        ),
+        // (International1, None), // _
+        // (NonUsPound, None),
+        // (Backslash, None),
+    ] {
+        manipulators.push(
+            Manipulator::builder()
+                .condition(Condition::with_vk2())
+                .from_key(key_code)
+                .to_command(shell_command)
+                .build(),
+        )
     }
 
     manipulators
