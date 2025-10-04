@@ -35,6 +35,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         (VirtualKey::Vk4, K::Key9, &ctrl_shft_opt_cmd), // Zoom in
         (VirtualKey::Vk4, K::Key0, &ctrl_shft_opt_cmd), // Zoom out
         (VirtualKey::Vk4, K::ReturnOrEnter, &ctrl_shft_opt_cmd), // workbench.action.tasks.reRunTask
+        (VirtualKey::Vk4, K::Period, &ctrl_shft_opt), // quick fix
     ];
 
     keys.into_iter()
