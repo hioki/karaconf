@@ -3,16 +3,32 @@ pub mod rule_sets;
 
 use std::{io::Seek as _, path::Path};
 
+const TITLE: &str = "Personal rules";
+
 const CUSTOM_JSON_FILENAME: &str = "custom.json";
 
+const MANIPULATORS: &[fn() -> Vec<karabiner_data::Manipulator>] = &[
+    rule_sets::virtual_key_assignments::manipulators,
+    rule_sets::apps::iterm2::manipulators,
+    rule_sets::apps::vscode::manipulators,
+    rule_sets::apps::dynalist::manipulators,
+    rule_sets::apps::slack::manipulators,
+    rule_sets::apps::google_chrome::manipulators,
+    rule_sets::apps::notion::manipulators,
+    rule_sets::apps::chatgpt::manipulators,
+    rule_sets::common::manipulators,
+];
+
 fn main() -> anyhow::Result<()> {
-    let rules = collect_all_rules();
+    let rules = vec![karabiner_data::Rule {
+        description: TITLE.to_string(),
+        manipulators: MANIPULATORS.iter().flat_map(|f| f()).collect(),
+    }];
     let complex_modifications = karabiner_data::ComplexModifications {
-        title: "Personal rules",
+        title: TITLE,
         rules: &rules,
     };
-
-    let config_dir = get_karabiner_config_dir()?;
+    let config_dir = std::path::PathBuf::from(std::env::var("HOME")?).join(".config/karabiner");
     ensure_karabiner_directories(&config_dir)?;
 
     write_custom_json(&complex_modifications)?;
@@ -21,39 +37,6 @@ fn main() -> anyhow::Result<()> {
 
     println!("✅ Karabiner configuration updated successfully!");
     Ok(())
-}
-
-/// Collect all manipulators from rule sets
-fn collect_all_rules() -> Vec<karabiner_data::Rule> {
-    const MANIPULATOR_BUILDERS: &[fn() -> Vec<karabiner_data::Manipulator>] = &[
-        rule_sets::virtual_key_assignments::manipulators,
-        rule_sets::apps::iterm2::manipulators,
-        rule_sets::apps::vscode::manipulators,
-        rule_sets::apps::dynalist::manipulators,
-        rule_sets::apps::slack::manipulators,
-        rule_sets::apps::google_chrome::manipulators,
-        rule_sets::apps::notion::manipulators,
-        rule_sets::apps::chatgpt::manipulators,
-        rule_sets::common::manipulators,
-    ];
-    let manipulators = MANIPULATOR_BUILDERS
-        .iter()
-        .flat_map(|builder| builder())
-        .collect::<Vec<_>>();
-    vec![karabiner_data::Rule {
-        description: "Personal rules".to_string(),
-        manipulators,
-    }]
-}
-
-/// Get the Karabiner-Elements configuration directory
-fn get_karabiner_config_dir() -> anyhow::Result<std::path::PathBuf> {
-    let home = std::env::var("HOME").map_err(|_| {
-        anyhow::anyhow!(
-            "HOME environment variable is not set. Please set it to your home directory."
-        )
-    })?;
-    Ok(std::path::PathBuf::from(home).join(".config/karabiner"))
 }
 
 /// Ensure required Karabiner directories exist
