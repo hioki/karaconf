@@ -10,6 +10,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         (L, RightArrow, None),
         (F, Escape, None),
         (U, LeftArrow, Some(vec![Cmd])),
+        (I, RightArrow, Some(vec![Cmd])),
     ] {
         manipulators.push(
             Manipulator::builder()
@@ -32,13 +33,6 @@ pub fn manipulators() -> Vec<Manipulator> {
 
     vec![
         manipulators,
-        vec![
-            Manipulator::builder()
-                .condition(Condition::with_vk1())
-                .from_key_with_modifiers(I, FromModifier::Optional(vec![Any]))
-                .to_key(RightArrow, Some(vec![Cmd]))
-                .build(),
-        ],
         vec![
             Manipulator::builder()
                 .condition(Condition::with_vk1())
