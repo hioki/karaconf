@@ -8,6 +8,8 @@ use crate::karabiner_data::{
 };
 
 const CTRL: &[ModifierKey] = &[Ctrl];
+const SHIFT: &[ModifierKey] = &[Shift];
+const CMD: &[ModifierKey] = &[Cmd];
 
 pub fn manipulators() -> Vec<Manipulator> {
     vec![
@@ -45,7 +47,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         vec![
             Manipulator::builder()
                 .condition(Condition::on_app(ITerm2))
-                .from_key_with_modifiers(W, FromModifier::Mandatory(vec![Cmd]))
+                .from_key_with_modifiers(W, FromModifier::Mandatory(CMD.to_vec()))
                 .to_key(VkNone, None)
                 .build(),
         ],
@@ -110,7 +112,7 @@ pub fn manipulators() -> Vec<Manipulator> {
                         Condition::with_virtual_key(Vk1),
                     ])
                     .from_key(from)
-                    .to_key(to, Some(vec![Shift]))
+                    .to_key(to, Some(SHIFT.to_vec()))
                     .build()
             })
             .collect(),
