@@ -10,7 +10,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     m.insert(
         VirtualKey::Vk1,
         vec![
-            (K::W, CTRL_SHIFT_OPT), // ファイルに保存
+            (K::W, CTRL_SHIFT_OPT), // Save file
         ],
     );
     m.insert(
@@ -20,7 +20,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             (K::B, CTRL_SHIFT_OPT_CMD),             // show bookmarks
             (K::C, CTRL_SHIFT_OPT),                 // GitHub Copilot: Open Completions Panel
             (K::D, CTRL_SHIFT_OPT_CMD),             // Toggle sidebar
-            (K::E, CTRL_SHIFT_OPT_CMD),             // エクスプローラーを表示
+            (K::E, CTRL_SHIFT_OPT_CMD),             // Show Explorer
             (K::F, CTRL_SHIFT_OPT_CMD),             // search file
             (K::G, CTRL_SHIFT_OPT_CMD),             // GitLens: Open File on Remote
             (K::H, CTRL_SHIFT_OPT_CMD),             // Go Back
@@ -29,13 +29,13 @@ pub fn manipulators() -> Vec<Manipulator> {
             (K::K, CTRL_SHIFT_OPT_CMD),             // find in path
             (K::L, CTRL_SHIFT_OPT_CMD),             // Go Forward
             (K::M, CTRL_SHIFT_OPT),                 // Toggle bookmarks
-            (K::N, CTRL_SHIFT_OPT),                 // 次の問題へ移動
+            (K::N, CTRL_SHIFT_OPT),                 // Go to next problem
             (K::O, CTRL_SHIFT_OPT_CMD),             // open recent
-            (K::P, CTRL_SHIFT_OPT),                 // 表示: 問題の切り替え
+            (K::P, CTRL_SHIFT_OPT),                 // Toggle Problems view
             (K::R, CTRL_SHIFT_OPT_CMD),             // reload window
             (K::S, CTRL_SHIFT_OPT_CMD),             // go to symbol
-            (K::T, CTRL_SHIFT_OPT),                 // ワークスペース内のシンボルへ移動
-            (K::U, CTRL_SHIFT_OPT),                 // 次の参照へ移動
+            (K::T, CTRL_SHIFT_OPT),                 // Go to workspace symbol
+            (K::U, CTRL_SHIFT_OPT),                 // Go to next reference
             (K::V, CTRL_SHIFT_OPT_CMD),             // Copy active file relative path
             (K::W, CTRL_SHIFT_OPT_CMD),             // Claude Code: Open in Side Bar
             (K::Y, CTRL_SHIFT_OPT_CMD),             // Toggle File Blame
