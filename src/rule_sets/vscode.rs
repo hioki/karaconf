@@ -8,8 +8,8 @@ const CTRL_SHIFT_OPT_CMD: &[ModifierKey] = &[Ctrl, Shift, Opt, Cmd];
 const CTRL_SHIFT_OPT: &[ModifierKey] = &[Ctrl, Shift, Opt];
 
 pub fn manipulators() -> Vec<Manipulator> {
-    let mut m: std::collections::HashMap<VirtualKey, Vec<(K, &[ModifierKey])>> =
-        std::collections::HashMap::new();
+    let mut m: std::collections::BTreeMap<VirtualKey, Vec<(K, &[ModifierKey])>> =
+        std::collections::BTreeMap::new();
     m.insert(
         VirtualKey::Vk1,
         vec![
