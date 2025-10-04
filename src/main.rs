@@ -25,22 +25,24 @@ fn main() -> anyhow::Result<()> {
 
 /// Collect all manipulators from rule sets
 fn collect_all_rules() -> Vec<karabiner_data::Rule> {
+    const MANIPULATOR_BUILDERS: &[fn() -> Vec<karabiner_data::Manipulator>] = &[
+        rule_sets::virtual_key_assignments::manipulators,
+        rule_sets::apps::iterm2::manipulators,
+        rule_sets::apps::vscode::manipulators,
+        rule_sets::apps::dynalist::manipulators,
+        rule_sets::apps::slack::manipulators,
+        rule_sets::apps::google_chrome::manipulators,
+        rule_sets::apps::notion::manipulators,
+        rule_sets::apps::chatgpt::manipulators,
+        rule_sets::common::manipulators,
+    ];
+    let manipulators = MANIPULATOR_BUILDERS
+        .iter()
+        .flat_map(|builder| builder())
+        .collect::<Vec<_>>();
     vec![karabiner_data::Rule {
         description: "Personal rules".to_string(),
-        manipulators: vec![
-            rule_sets::virtual_key_assignments::manipulators(),
-            rule_sets::apps::iterm2::manipulators(),
-            rule_sets::apps::vscode::manipulators(),
-            rule_sets::apps::dynalist::manipulators(),
-            rule_sets::apps::slack::manipulators(),
-            rule_sets::apps::google_chrome::manipulators(),
-            rule_sets::apps::notion::manipulators(),
-            rule_sets::apps::chatgpt::manipulators(),
-            rule_sets::common::manipulators(),
-        ]
-        .into_iter()
-        .flatten()
-        .collect::<Vec<karabiner_data::Manipulator>>(),
+        manipulators,
     }]
 }
 
