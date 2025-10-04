@@ -1,90 +1,49 @@
-use crate::karabiner_data::{KeyCode as K, ModifierKey::*, *};
+use crate::karabiner_data::{Condition, FromModifier, KeyCode::*, Manipulator, ModifierKey::*};
 
 pub fn manipulators() -> Vec<Manipulator> {
-    vec![
-        vec![
+    let mut manipulators = Vec::new();
+
+    for (from, to, to_modifiers) in [
+        (F, Tab, Some(vec![Cmd])),
+        (D, Tab, Some(vec![Cmd, Shift])),
+        (S, Tab, Some(vec![Ctrl])),
+        (A, Tab, Some(vec![Ctrl, Shift])),
+        (Key9, KeypadPlus, Some(vec![Cmd])),
+        (Key0, Hyphen, Some(vec![Cmd])),
+        (Key1, VolumeDecrement, None),
+        (Key2, VolumeIncrement, None),
+        (Key3, DisplayBrightnessDecrement, None),
+        (Key4, DisplayBrightnessIncrement, None),
+    ] {
+        manipulators.push(
             Manipulator::builder()
                 .condition(Condition::with_vk2())
-                .from_key(K::F)
-                .to_key(K::Tab, Some(vec![Cmd]))
+                .from_key(from)
+                .to_key(to, to_modifiers)
                 .build(),
-            Manipulator::builder()
-                .condition(Condition::with_vk2())
-                .from_key(K::D)
-                .to_key(K::Tab, Some(vec![Cmd, Shift]))
-                .build(),
-        ],
-        vec![
-            Manipulator::builder()
-                .condition(Condition::with_vk2())
-                .from_key(K::S)
-                .to_key(K::Tab, Some(vec![Ctrl]))
-                .build(),
-            Manipulator::builder()
-                .condition(Condition::with_vk2())
-                .from_key(K::A)
-                .to_key(K::Tab, Some(vec![Ctrl, Shift]))
-                .build(),
-        ],
-        vec![
-            Manipulator::builder()
-                .condition(Condition::with_vk2())
-                .from_key(K::Key9)
-                .to_key(K::KeypadPlus, Some(vec![Cmd]))
-                .build(),
-            Manipulator::builder()
-                .condition(Condition::with_vk2())
-                .from_key(K::Key0)
-                .to_key(K::Hyphen, Some(vec![Cmd]))
-                .build(),
-        ],
-        vec![
-            Manipulator::builder()
-                .condition(Condition::with_vk2())
-                .from_key(K::Key1)
-                .to_key(K::VolumeDecrement, None)
-                .build(),
-            Manipulator::builder()
-                .condition(Condition::with_vk2())
-                .from_key(K::Key2)
-                .to_key(K::VolumeIncrement, None)
-                .build(),
-        ],
-        vec![
-            Manipulator::builder()
-                .condition(Condition::with_vk2())
-                .from_key(K::Key3)
-                .to_key(K::DisplayBrightnessDecrement, None)
-                .build(),
-            Manipulator::builder()
-                .condition(Condition::with_vk2())
-                .from_key(K::Key4)
-                .to_key(K::DisplayBrightnessIncrement, None)
-                .build(),
-        ],
-        vec![
-            (K::H, K::LeftArrow),
-            (K::O, K::RightArrow),
-            (K::N, K::DownArrow),
-            (K::P, K::UpArrow),
-            (K::U, K::Key1),
-            (K::I, K::Key2),
-            (K::M, K::Key3),
-            (K::Comma, K::Key4),
-            (K::J, K::P),
-            (K::K, K::N),
-        ]
-        .into_iter()
-        .map(|(from, to)| {
+        );
+    }
+
+    for (from, to) in [
+        (H, LeftArrow),
+        (O, RightArrow),
+        (N, DownArrow),
+        (P, UpArrow),
+        (U, Key1),
+        (I, Key2),
+        (M, Key3),
+        (Comma, Key4),
+        (J, P),
+        (K, N),
+    ] {
+        manipulators.push(
             Manipulator::builder()
                 .condition(Condition::with_vk2())
                 .from_key_with_modifiers(from, FromModifier::Mandatory(vec![Ctrl]))
                 .to_key(to, Some(vec![Cmd, Ctrl, Opt, Shift]))
-                .build()
-        })
-        .collect(),
-    ]
-    .into_iter()
-    .flatten()
-    .collect()
+                .build(),
+        );
+    }
+
+    manipulators
 }
