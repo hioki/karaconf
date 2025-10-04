@@ -28,7 +28,7 @@ fn collect_all_rules() -> Vec<karabiner_data::Rule> {
     vec![karabiner_data::Rule {
         description: "Personal rules".to_string(),
         manipulators: vec![
-            rule_sets::virtual_key::manipulators(),
+            rule_sets::virtual_key_assignments::manipulators(),
             rule_sets::iterm2::manipulators(),
             rule_sets::vscode::manipulators(),
             rule_sets::dynalist::manipulators(),

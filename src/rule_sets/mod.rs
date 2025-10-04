@@ -8,7 +8,7 @@ pub mod notion;
 pub mod semicolon;
 pub mod singlequote;
 pub mod slack;
-pub mod virtual_key;
+pub mod virtual_key_assignments;
 pub mod vk1;
 pub mod vk2;
 pub mod vk3;
@@ -22,7 +22,10 @@ mod tests {
     #[test]
     fn test_all_rule_sets_return_manipulators() {
         let rule_sets = vec![
-            ("virtual_key", virtual_key::manipulators()),
+            (
+                "virtual_key_assignments",
+                virtual_key_assignments::manipulators(),
+            ),
             ("iterm2", iterm2::manipulators()),
             ("vscode", vscode::manipulators()),
             ("dynalist", dynalist::manipulators()),
