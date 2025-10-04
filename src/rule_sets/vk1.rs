@@ -9,10 +9,13 @@ pub fn manipulators() -> Vec<Manipulator> {
         (K, UpArrow, None),
         (L, RightArrow, None),
         (F, Escape, None),
-        (U, LeftArrow, Some(vec![Cmd])),
-        (I, RightArrow, Some(vec![Cmd])),
+        (U, LeftArrow, Some(vec![Cmd])),  // go to line head
+        (I, RightArrow, Some(vec![Cmd])), // go to line tail
         (G, Tab, None),
-        (CloseBracket, Z, Some(vec![Cmd])),
+        (CloseBracket, Z, Some(vec![Cmd])), // undo
+        //
+        // F1-F12
+        //
         (Key1, F1, None),
         (Key2, F2, None),
         (Key3, F3, None),
@@ -38,18 +41,18 @@ pub fn manipulators() -> Vec<Manipulator> {
     for (from, to, modifiers) in [
         (S, JapaneseKana, None),
         (D, JapaneseEisuu, None),
-        (A, F10, None),
-        (Z, F7, None),
-        (O, Tab, Some(vec![Ctrl, Shift])),
-        (P, Tab, Some(vec![Ctrl])),
-        (Y, C, Some(vec![Cmd])),
-        (T, X, Some(vec![Cmd])),
-        (X, V, Some(vec![Cmd, Shift, Opt])),
-        (C, DeleteOrBackspace, None),
-        (E, DeleteForward, None),
-        (Quote, H, Some(vec![Cmd])),
-        (B, M, Some(vec![Ctrl, Opt, Cmd, Shift])),
-        (International3, D, Some(vec![Cmd, Opt])),
+        (A, F10, None),                            // 英数に変換
+        (Z, F7, None),                             // カタカナに変換
+        (O, Tab, Some(vec![Ctrl, Shift])),         // move to previous tab
+        (P, Tab, Some(vec![Ctrl])),                // move to next tab
+        (Y, C, Some(vec![Cmd])),                   // copy
+        (T, X, Some(vec![Cmd])),                   // cut
+        (X, V, Some(vec![Cmd, Shift, Opt])),       // paste without formatting
+        (C, DeleteOrBackspace, None),              // backspace
+        (E, DeleteForward, None),                  // delete
+        (Quote, H, Some(vec![Cmd])),               // hide current app
+        (B, M, Some(vec![Ctrl, Opt, Cmd, Shift])), // maximize window
+        (International3, D, Some(vec![Cmd, Opt])), // hide dock
     ] {
         manipulators.push(
             Manipulator::builder()
@@ -61,6 +64,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     }
 
     manipulators.push(
+        // what is this?
         Manipulator::builder()
             .condition(Condition::with_vk1())
             .from_key_with_modifiers(Y, FromModifier::Mandatory(vec![Shift]))
@@ -71,6 +75,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
+    // Mouse movement (slower)
     for (key_code, x, y) in [
         (N, Some(-1536), None),
         (M, None, Some(1536)),
@@ -90,6 +95,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         );
     }
 
+    // Mouse movement (faster)
     for (key_code, x, y) in [
         (N, Some(-3072), None),
         (M, None, Some(3072)),
