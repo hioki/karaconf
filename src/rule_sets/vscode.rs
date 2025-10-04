@@ -46,9 +46,9 @@ pub fn manipulators() -> Vec<Manipulator> {
             (K::Period, CTRL_SHIFT_OPT),            // quick fix
         ],
     );
-    m.into_iter()
+    m.iter()
         .flat_map(|(vk, mappings)| {
-            mappings.into_iter().map(move |(key, modifiers)| {
+            mappings.iter().map(|(key, modifiers)| {
                 Manipulator::builder()
                     .condition(Condition::on_app(BundleIdentifier::VSCode))
                     .condition(Condition::with_virtual_key(vk.clone()))
