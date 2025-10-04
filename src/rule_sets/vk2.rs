@@ -4,12 +4,12 @@ pub fn manipulators() -> Vec<Manipulator> {
     let mut manipulators = Vec::new();
 
     for (from, to, to_modifiers) in [
-        (F, Tab, Some(vec![Cmd])),
-        (D, Tab, Some(vec![Cmd, Shift])),
-        (S, Tab, Some(vec![Ctrl])),
-        (A, Tab, Some(vec![Ctrl, Shift])),
-        (Key9, KeypadPlus, Some(vec![Cmd])),
-        (Key0, Hyphen, Some(vec![Cmd])),
+        (F, Tab, Some(vec![Cmd])),           // move to next app
+        (D, Tab, Some(vec![Cmd, Shift])),    // move to previous app
+        (S, Tab, Some(vec![Ctrl])),          // move to next tab
+        (A, Tab, Some(vec![Ctrl, Shift])),   // move to previous tab
+        (Key9, KeypadPlus, Some(vec![Cmd])), // zoom in
+        (Key0, Hyphen, Some(vec![Cmd])),     // zoom out
         (Key1, VolumeDecrement, None),
         (Key2, VolumeIncrement, None),
         (Key3, DisplayBrightnessDecrement, None),
@@ -24,6 +24,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         );
     }
 
+    // for Magnet.app
     for (from, to) in [
         (H, LeftArrow),
         (O, RightArrow),

@@ -1,10 +1,10 @@
 pub mod capslock;
 pub mod chatgpt;
+pub mod commands;
 pub mod dynalist;
 pub mod google_chrome;
 pub mod iterm2;
 pub mod notion;
-pub mod open_apps;
 pub mod semicolon;
 pub mod singlequote;
 pub mod slack;
@@ -32,7 +32,7 @@ mod tests {
             ("chatgpt", chatgpt::manipulators()),
             ("vk1", vk1::manipulators()),
             ("vk2", vk2::manipulators()),
-            ("open_apps", open_apps::manipulators()),
+            ("commands", commands::manipulators()),
             ("vk3", vk3::manipulators()),
             ("semicolon", semicolon::manipulators()),
             ("singlequote", singlequote::manipulators()),
