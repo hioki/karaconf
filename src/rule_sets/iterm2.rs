@@ -103,7 +103,10 @@ pub fn manipulators() -> Vec<Manipulator> {
             .into_iter()
             .map(|(from, to)| {
                 Manipulator::builder()
-                    .conditions(vec![Condition::on_app(ITerm2), Condition::with_vk1()])
+                    .conditions(vec![
+                        Condition::on_app(ITerm2),
+                        Condition::with_virtual_key(Vk1),
+                    ])
                     .from_key(from)
                     .to_key(to, Some(vec![Shift]))
                     .build()
@@ -111,12 +114,18 @@ pub fn manipulators() -> Vec<Manipulator> {
             .collect(),
         vec![
             Manipulator::builder()
-                .conditions(vec![Condition::on_app(ITerm2), Condition::with_vk1()])
+                .conditions(vec![
+                    Condition::on_app(ITerm2),
+                    Condition::with_virtual_key(Vk1),
+                ])
                 .from_key(Semicolon)
                 .to_key(F, Some(vec![Ctrl]))
                 .build(),
             Manipulator::builder()
-                .conditions(vec![Condition::on_app(ITerm2), Condition::with_vk1()])
+                .conditions(vec![
+                    Condition::on_app(ITerm2),
+                    Condition::with_virtual_key(Vk1),
+                ])
                 .from_key(Z)
                 .to_key(T, Some(vec![Ctrl]))
                 .to_key(B, Some(vec![Ctrl]))
