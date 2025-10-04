@@ -282,5 +282,33 @@ pub fn manipulators() -> Vec<Manipulator> {
         )
     }
 
+    manipulators.extend(vec![
+        // Ctrl+; -> ;
+        Manipulator::builder()
+            .from_key_with_modifiers(Semicolon, FromModifier::Mandatory(vec![Ctrl]))
+            .to_key(Semicolon, None)
+            .build(),
+        // Cmd+Shift+; -> Cmd+"+"
+        Manipulator::builder()
+            .from_key_with_modifiers(Semicolon, FromModifier::Mandatory(vec![Cmd, Shift]))
+            .to_key(KeypadPlus, Some(vec![Cmd]))
+            .build(),
+        // ; -> Enter
+        Manipulator::builder()
+            .from_key(Semicolon)
+            .to_key(ReturnOrEnter, None)
+            .build(),
+        // Ctrl+: -> '
+        Manipulator::builder()
+            .from_key_with_modifiers(Quote, FromModifier::Mandatory(vec![Ctrl]))
+            .to_key(Key7, Some(vec![Shift]))
+            .build(),
+        // CapsLock -> (No Action)
+        Manipulator::builder()
+            .from_key_with_modifiers(CapsLock, FromModifier::Optional(vec![Any]))
+            .to_key(VkNone, None)
+            .build(),
+    ]);
+
     manipulators
 }
