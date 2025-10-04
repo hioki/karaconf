@@ -1,12 +1,15 @@
-use std::collections::HashMap;
-
-use crate::karabiner_data::{KeyCode as K, ModifierKey::*, *};
+use crate::karabiner_data::{
+    BundleIdentifier, Condition, KeyCode as K, Manipulator,
+    ModifierKey::{self, Cmd, Ctrl, Opt, Shift},
+    VirtualKey,
+};
 
 const CTRL_SHIFT_OPT_CMD: &[ModifierKey] = &[Ctrl, Shift, Opt, Cmd];
 const CTRL_SHIFT_OPT: &[ModifierKey] = &[Ctrl, Shift, Opt];
 
 pub fn manipulators() -> Vec<Manipulator> {
-    let mut m: HashMap<VirtualKey, Vec<(K, &[ModifierKey])>> = HashMap::new();
+    let mut m: std::collections::HashMap<VirtualKey, Vec<(K, &[ModifierKey])>> =
+        std::collections::HashMap::new();
     m.insert(
         VirtualKey::Vk1,
         vec![
