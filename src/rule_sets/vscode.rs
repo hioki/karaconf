@@ -1,83 +1,50 @@
 use crate::karabiner_data::{KeyCode as K, ModifierKey::*, *};
 
 pub fn manipulators() -> Vec<Manipulator> {
-    manipulators_with_app(&BundleIdentifier::VSCode)
-}
+    let ctrl_shft_opt_cmd = vec![Ctrl, Shift, Opt, Cmd];
+    let ctrl_shft_opt = vec![Ctrl, Shift, Opt];
 
-/// Create a manipulator that maps a key to the same key with VK4 condition
-fn create_vk4_self_mapping(
-    bundle_id: &BundleIdentifier,
-    from_key: K,
-    modifiers: Vec<ModifierKey>,
-) -> Manipulator {
-    Manipulator::builder()
-        .condition(Condition::on_app(bundle_id.clone()))
-        .condition(Condition::with_vk4())
-        .from_key(from_key.clone())
-        .to_key(from_key, Some(modifiers))
-        .build()
-}
-
-/// Create a manipulator with VK1 condition
-fn create_vk1_mapping(
-    bundle_id: &BundleIdentifier,
-    from_key: K,
-    to_key: K,
-    modifiers: Vec<ModifierKey>,
-) -> Manipulator {
-    Manipulator::builder()
-        .condition(Condition::on_app(bundle_id.clone()))
-        .condition(Condition::with_vk1())
-        .from_key(from_key)
-        .to_key(to_key, Some(modifiers))
-        .build()
-}
-
-/// Create multiple manipulators for keys that map to themselves with Ctrl+Shift+Opt+Cmd
-fn create_universal_command_mappings(bundle_id: &BundleIdentifier) -> Vec<Manipulator> {
-    let super_modifiers = vec![Ctrl, Shift, Opt, Cmd];
-    let super_without_cmd_modifiers = vec![Ctrl, Shift, Opt];
     let keys = vec![
-        (K::A, &super_modifiers),             // execute command
-        (K::B, &super_modifiers),             // show bookmarks
-        (K::C, &super_without_cmd_modifiers), // GitHub Copilot: Open Completions Panel
-        (K::D, &super_modifiers),             // Toggle sidebar
-        (K::E, &super_modifiers),             // エクスプローラーを表示
-        (K::F, &super_modifiers),             // search file
-        (K::G, &super_modifiers),             // GitLens: Open File on Remote
-        (K::H, &super_modifiers),             // Go Back
-        (K::I, &super_modifiers),             // Go to implementation
-        (K::J, &super_modifiers),             // Codex: Focus on Codex View
-        (K::K, &super_modifiers),             // find in path
-        (K::L, &super_modifiers),             // Go Forward
-        (K::M, &super_without_cmd_modifiers), // Toggle bookmarks
-        (K::N, &super_without_cmd_modifiers), // 次の問題へ移動
-        (K::O, &super_modifiers),             // open recent
-        (K::P, &super_without_cmd_modifiers), // 表示: 問題の切り替え
-        (K::R, &super_modifiers),             // reload window
-        (K::S, &super_modifiers),             // go to symbol
-        (K::T, &super_without_cmd_modifiers), // ワークスペース内のシンボルへ移動
-        (K::U, &super_without_cmd_modifiers), // 次の参照へ移動
-        (K::V, &super_modifiers),             // Copy active file relative path
-        (K::W, &super_modifiers),             // Claude Code: Open in Side Bar
-        (K::Y, &super_modifiers),             // Toggle File Blame
-        (K::Z, &super_modifiers),             // Focus on Source Control: Changes view
-        (K::Key9, &super_modifiers),          // Zoom in
-        (K::Key0, &super_modifiers),          // Zoom out
-        (K::ReturnOrEnter, &super_modifiers), // workbench.action.tasks.reRunTask
+        // Vk1
+        (VirtualKey::Vk1, K::W, &ctrl_shft_opt), // ファイルに保存
+        // Vk4
+        (VirtualKey::Vk4, K::A, &ctrl_shft_opt_cmd), // execute command
+        (VirtualKey::Vk4, K::B, &ctrl_shft_opt_cmd), // show bookmarks
+        (VirtualKey::Vk4, K::C, &ctrl_shft_opt),     // GitHub Copilot: Open Completions Panel
+        (VirtualKey::Vk4, K::D, &ctrl_shft_opt_cmd), // Toggle sidebar
+        (VirtualKey::Vk4, K::E, &ctrl_shft_opt_cmd), // エクスプローラーを表示
+        (VirtualKey::Vk4, K::F, &ctrl_shft_opt_cmd), // search file
+        (VirtualKey::Vk4, K::G, &ctrl_shft_opt_cmd), // GitLens: Open File on Remote
+        (VirtualKey::Vk4, K::H, &ctrl_shft_opt_cmd), // Go Back
+        (VirtualKey::Vk4, K::I, &ctrl_shft_opt_cmd), // Go to implementation
+        (VirtualKey::Vk4, K::J, &ctrl_shft_opt_cmd), // Codex: Focus on Codex View
+        (VirtualKey::Vk4, K::K, &ctrl_shft_opt_cmd), // find in path
+        (VirtualKey::Vk4, K::L, &ctrl_shft_opt_cmd), // Go Forward
+        (VirtualKey::Vk4, K::M, &ctrl_shft_opt),     // Toggle bookmarks
+        (VirtualKey::Vk4, K::N, &ctrl_shft_opt),     // 次の問題へ移動
+        (VirtualKey::Vk4, K::O, &ctrl_shft_opt_cmd), // open recent
+        (VirtualKey::Vk4, K::P, &ctrl_shft_opt),     // 表示: 問題の切り替え
+        (VirtualKey::Vk4, K::R, &ctrl_shft_opt_cmd), // reload window
+        (VirtualKey::Vk4, K::S, &ctrl_shft_opt_cmd), // go to symbol
+        (VirtualKey::Vk4, K::T, &ctrl_shft_opt),     // ワークスペース内のシンボルへ移動
+        (VirtualKey::Vk4, K::U, &ctrl_shft_opt),     // 次の参照へ移動
+        (VirtualKey::Vk4, K::V, &ctrl_shft_opt_cmd), // Copy active file relative path
+        (VirtualKey::Vk4, K::W, &ctrl_shft_opt_cmd), // Claude Code: Open in Side Bar
+        (VirtualKey::Vk4, K::Y, &ctrl_shft_opt_cmd), // Toggle File Blame
+        (VirtualKey::Vk4, K::Z, &ctrl_shft_opt_cmd), // Focus on Source Control: Changes view
+        (VirtualKey::Vk4, K::Key9, &ctrl_shft_opt_cmd), // Zoom in
+        (VirtualKey::Vk4, K::Key0, &ctrl_shft_opt_cmd), // Zoom out
+        (VirtualKey::Vk4, K::ReturnOrEnter, &ctrl_shft_opt_cmd), // workbench.action.tasks.reRunTask
     ];
 
     keys.into_iter()
-        .map(|(key, modifiers)| create_vk4_self_mapping(bundle_id, key, modifiers.clone()))
+        .map(|(vk, key, modifiers)| {
+            Manipulator::builder()
+                .condition(Condition::on_app(BundleIdentifier::VSCode))
+                .condition(Condition::with_virtual_key(vk))
+                .from_key(key.clone())
+                .to_key(key, Some(modifiers.clone()))
+                .build()
+        })
         .collect()
-}
-
-fn manipulators_with_app(bundle_identifier: &BundleIdentifier) -> Vec<Manipulator> {
-    vec![
-        create_universal_command_mappings(bundle_identifier),
-        vec![create_vk1_mapping(bundle_identifier, K::W, K::S, vec![Cmd])],
-    ]
-    .into_iter()
-    .flatten()
-    .collect()
 }

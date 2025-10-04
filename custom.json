@@ -958,6 +958,35 @@
             },
             {
               "type": "variable_if",
+              "name": "vk1",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "w"
+          },
+          "to": [
+            {
+              "key_code": "w",
+              "modifiers": [
+                "control",
+                "shift",
+                "option"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.microsoft.VSCode"
+              ]
+            },
+            {
+              "type": "variable_if",
               "name": "vk4",
               "value": 1
             }
@@ -1746,33 +1775,6 @@
                 "control",
                 "shift",
                 "option",
-                "command"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "com.microsoft.VSCode"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "vk1",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "w"
-          },
-          "to": [
-            {
-              "key_code": "s",
-              "modifiers": [
                 "command"
               ]
             }
