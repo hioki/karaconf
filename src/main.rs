@@ -29,13 +29,13 @@ fn collect_all_rules() -> Vec<karabiner_data::Rule> {
         description: "Personal rules".to_string(),
         manipulators: vec![
             rule_sets::virtual_key_assignments::manipulators(),
-            rule_sets::iterm2::manipulators(),
-            rule_sets::vscode::manipulators(),
-            rule_sets::dynalist::manipulators(),
-            rule_sets::slack::manipulators(),
-            rule_sets::google_chrome::manipulators(),
-            rule_sets::notion::manipulators(),
-            rule_sets::chatgpt::manipulators(),
+            rule_sets::apps::iterm2::manipulators(),
+            rule_sets::apps::vscode::manipulators(),
+            rule_sets::apps::dynalist::manipulators(),
+            rule_sets::apps::slack::manipulators(),
+            rule_sets::apps::google_chrome::manipulators(),
+            rule_sets::apps::notion::manipulators(),
+            rule_sets::apps::chatgpt::manipulators(),
             rule_sets::common::manipulators(),
         ]
         .into_iter()

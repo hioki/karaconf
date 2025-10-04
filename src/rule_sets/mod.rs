@@ -1,9 +1,3 @@
-pub mod chatgpt;
+pub mod apps;
 pub mod common;
-pub mod dynalist;
-pub mod google_chrome;
-pub mod iterm2;
-pub mod notion;
-pub mod slack;
 pub mod virtual_key_assignments;
-pub mod vscode;
