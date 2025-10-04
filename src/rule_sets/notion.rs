@@ -1,64 +1,41 @@
-use crate::karabiner_data::{KeyCode as K, ModifierKey::*, *};
+use crate::karabiner_data::{KeyCode::*, ModifierKey::*, *};
+use std::collections::BTreeMap;
 
 pub fn manipulators() -> Vec<Manipulator> {
-    let vk2_conditions = vec![
-        Condition::on_app(BundleIdentifier::Notion),
-        Condition::with_vk2(),
-    ];
-    let vk4_conditions = vec![
-        Condition::on_app(BundleIdentifier::Notion),
-        Condition::with_vk4(),
-    ];
-    vec![
-        Manipulator::builder()
-            .conditions(vk2_conditions.clone())
-            .from_key(K::Key9)
-            .to_key(K::KeypadPlus, Some(vec![Cmd]))
-            .build(),
-        Manipulator::builder()
-            .conditions(vk4_conditions.clone())
-            .from_key(K::E)
-            .to_key(K::International3, Some(vec![Cmd]))
-            .build(),
-        Manipulator::builder()
-            .conditions(vk4_conditions.clone())
-            .from_key(K::F)
-            .to_key(K::P, Some(vec![Cmd]))
-            .build(),
-        Manipulator::builder()
-            .conditions(vk4_conditions.clone())
-            .from_key(K::H)
-            .to_key(K::CloseBracket, Some(vec![Cmd]))
-            .build(),
-        Manipulator::builder()
-            .conditions(vk4_conditions.clone())
-            .from_key(K::L)
-            .to_key(K::NonUsPound, Some(vec![Cmd]))
-            .build(),
-        Manipulator::builder()
-            .conditions(vk4_conditions.clone())
-            .from_key(K::U)
-            .to_key(K::U, Some(vec![Cmd, Shift]))
-            .build(),
-        Manipulator::builder()
-            .conditions(vk2_conditions.clone())
-            .from_key(K::Key9)
-            .to_key(K::EqualSign, Some(vec![Cmd]))
-            .build(),
-        Manipulator::builder()
-            .conditions(vk2_conditions.clone())
-            .from_key(K::Key0)
-            .to_key(K::Hyphen, Some(vec![Cmd]))
-            .build(),
-        Manipulator::builder()
-            .conditions(vk4_conditions.clone())
-            .from_key(K::N)
-            .to_key(K::J, Some(vec![Ctrl, Shift]))
-            .build(),
-        Manipulator::builder()
-            .conditions(vk4_conditions.clone())
-            .from_key(K::P)
-            .to_key(K::K, Some(vec![Ctrl, Shift]))
-            .build(),
-    ]
+    let m = BTreeMap::from([
+        (
+            VirtualKey::Vk2,
+            vec![
+                (Key9, KeypadPlus, vec![Cmd]),
+                (Key9, EqualSign, vec![Cmd]),
+                (Key0, Hyphen, vec![Cmd]),
+            ],
+        ),
+        (
+            VirtualKey::Vk4,
+            vec![
+                (E, International3, vec![Cmd]),
+                (F, P, vec![Cmd]),
+                (H, CloseBracket, vec![Cmd]),
+                (L, NonUsPound, vec![Cmd]),
+                (U, U, vec![Cmd, Shift]),
+                (N, J, vec![Ctrl, Shift]),
+                (P, K, vec![Ctrl, Shift]),
+            ],
+        ),
+    ]);
+    m.iter()
+        .flat_map(|(vk, mappings)| {
+            mappings.iter().map(move |(from, to, modifiers)| {
+                Manipulator::builder()
+                    .from_key(from.clone())
+                    .to_key(to.clone(), Some(modifiers.clone()))
+                    .conditions(vec![
+                        Condition::on_app(BundleIdentifier::Notion),
+                        Condition::with_virtual_key(vk.clone()),
+                    ])
+                    .build()
+            })
+        })
+        .collect()
 }
