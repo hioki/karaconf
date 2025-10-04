@@ -226,6 +226,30 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2"
               ]
+            }
+          ],
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "vk_none"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2"
+              ]
             },
             {
               "type": "variable_if",
@@ -377,6 +401,126 @@
             },
             {
               "key_code": "o"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk1",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "w"
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "quote"
+            },
+            {
+              "key_code": "w"
+            },
+            {
+              "key_code": "return_or_enter"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk1",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "q"
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "quote"
+            },
+            {
+              "key_code": "q"
+            },
+            {
+              "key_code": "return_or_enter"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk1",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "u"
+          },
+          "to": [
+            {
+              "key_code": "0",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.googlecode.iterm2"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk1",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "i"
+          },
+          "to": [
+            {
+              "key_code": "4",
+              "modifiers": [
+                "shift"
+              ]
             }
           ]
         },
@@ -619,30 +763,6 @@
               "bundle_identifiers": [
                 "com.googlecode.iterm2"
               ]
-            }
-          ],
-          "from": {
-            "key_code": "w",
-            "modifiers": {
-              "mandatory": [
-                "command"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "vk_none"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2"
-              ]
             },
             {
               "type": "variable_if",
@@ -783,106 +903,19 @@
             }
           ],
           "from": {
-            "key_code": "w"
+            "key_code": "z"
           },
           "to": [
             {
-              "key_code": "escape"
-            },
-            {
-              "key_code": "quote"
-            },
-            {
-              "key_code": "w"
-            },
-            {
-              "key_code": "return_or_enter"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "vk1",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "q"
-          },
-          "to": [
-            {
-              "key_code": "escape"
-            },
-            {
-              "key_code": "quote"
-            },
-            {
-              "key_code": "q"
-            },
-            {
-              "key_code": "return_or_enter"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "vk1",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "u"
-          },
-          "to": [
-            {
-              "key_code": "0",
+              "key_code": "t",
               "modifiers": [
-                "shift"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2"
+                "control"
               ]
             },
             {
-              "type": "variable_if",
-              "name": "vk1",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "i"
-          },
-          "to": [
-            {
-              "key_code": "4",
+              "key_code": "b",
               "modifiers": [
-                "shift"
+                "control"
               ]
             }
           ]
@@ -908,39 +941,6 @@
           "to": [
             {
               "key_code": "f",
-              "modifiers": [
-                "control"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "vk1",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "z"
-          },
-          "to": [
-            {
-              "key_code": "t",
-              "modifiers": [
-                "control"
-              ]
-            },
-            {
-              "key_code": "b",
               "modifiers": [
                 "control"
               ]
