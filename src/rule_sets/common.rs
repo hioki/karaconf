@@ -1,4 +1,6 @@
-use crate::karabiner_data::{KeyCode::*, ModifierKey::*, *};
+use crate::karabiner_data::{
+    Condition, FromModifier, KeyCode::*, Manipulator, ModifierKey::*, MouseKey, PointingButton,
+};
 
 const MOUSE_SPEED: i32 = 1536;
 const WHEEL_SPEED: i32 = 64;

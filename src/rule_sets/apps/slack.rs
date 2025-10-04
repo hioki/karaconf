@@ -1,4 +1,6 @@
-use crate::karabiner_data::{KeyCode::*, ModifierKey::*, *};
+use crate::karabiner_data::{
+    BundleIdentifier::Slack, Condition, KeyCode::*, Manipulator, ModifierKey::*,
+};
 
 pub fn manipulators() -> Vec<Manipulator> {
     vec![
@@ -17,10 +19,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     .into_iter()
     .map(|(from, to, modifiers)| {
         Manipulator::builder()
-            .conditions(vec![
-                Condition::on_app(BundleIdentifier::Slack),
-                Condition::with_vk4(),
-            ])
+            .conditions(vec![Condition::on_app(Slack), Condition::with_vk4()])
             .from_key(from)
             .to_key(to, Some(modifiers))
             .build()

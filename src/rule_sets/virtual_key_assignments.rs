@@ -1,18 +1,15 @@
-use crate::karabiner_data::{KeyCode as K, ModifierKey::*, VirtualKey as VK, *};
+use crate::karabiner_data::{
+    FromModifier, KeyCode, KeyCode::*, Manipulator, ModifierKey::*, SetVariable, VirtualKey,
+    VirtualKey::*,
+};
 use std::collections::BTreeMap;
 
 pub fn manipulators() -> Vec<Manipulator> {
     let m: BTreeMap<(VirtualKey, Option<KeyCode>), Vec<KeyCode>> = BTreeMap::from([
-        (
-            (VK::Vk1, Some(K::JapaneseKana)),
-            vec![K::Lang1, K::International4],
-        ),
-        (
-            (VK::Vk2, Some(K::JapaneseEisuu)),
-            vec![K::Lang2, K::International5],
-        ),
-        ((VK::Vk3, None), vec![K::RightGui, K::International2]),
-        ((VK::Vk4, Some(K::Tab)), vec![K::Tab]),
+        ((Vk1, Some(JapaneseKana)), vec![Lang1, International4]),
+        ((Vk2, Some(JapaneseEisuu)), vec![Lang2, International5]),
+        ((Vk3, None), vec![RightGui, International2]),
+        ((Vk4, Some(Tab)), vec![Tab]),
     ]);
     m.iter()
         .flat_map(|((virtual_key, to_if_alone), key_codes)| {

@@ -1,4 +1,6 @@
-use crate::karabiner_data::{KeyCode::*, ModifierKey::*, *};
+use crate::karabiner_data::{
+    BundleIdentifier::Dynalist, Condition, KeyCode::*, Manipulator, ModifierKey::*, VirtualKey,
+};
 use std::collections::BTreeMap;
 
 pub fn manipulators() -> Vec<Manipulator> {
@@ -30,7 +32,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             mappings.iter().map(move |(from, to, to_modifiers)| {
                 Manipulator::builder()
                     .conditions(vec![
-                        Condition::on_app(BundleIdentifier::Dynalist),
+                        Condition::on_app(Dynalist),
                         Condition::with_virtual_key(vk.clone()),
                     ])
                     .from_key(from.clone())

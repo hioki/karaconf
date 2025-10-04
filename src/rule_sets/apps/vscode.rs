@@ -1,5 +1,6 @@
 use crate::karabiner_data::{
-    BundleIdentifier, Condition,
+    BundleIdentifier::VSCode,
+    Condition,
     KeyCode::{self, *},
     Manipulator,
     ModifierKey::{self, Cmd, Ctrl, Opt, Shift},
@@ -56,7 +57,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         .flat_map(|(vk, mappings)| {
             mappings.iter().map(|(key, modifiers)| {
                 Manipulator::builder()
-                    .condition(Condition::on_app(BundleIdentifier::VSCode))
+                    .condition(Condition::on_app(VSCode))
                     .condition(Condition::with_virtual_key(vk.clone()))
                     .from_key(key.clone())
                     .to_key(key.clone(), Some(modifiers.to_vec()))
