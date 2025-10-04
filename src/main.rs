@@ -37,7 +37,6 @@ fn collect_all_rules() -> Vec<karabiner_data::Rule> {
             rule_sets::notion::manipulators(),
             rule_sets::chatgpt::manipulators(),
             rule_sets::common::manipulators(),
-            rule_sets::vk3::manipulators(),
             rule_sets::semicolon::manipulators(),
             rule_sets::singlequote::manipulators(),
             rule_sets::capslock::manipulators(),

@@ -257,5 +257,30 @@ pub fn manipulators() -> Vec<Manipulator> {
         )
     }
 
+    //
+    // Virtual Key 3
+    //
+    for (from, to) in [
+        (A, Key1),
+        (S, Key2),
+        (D, Key3),
+        (F, Key4),
+        (G, Key5),
+        (H, Key6),
+        (J, Key7),
+        (K, Key8),
+        (L, Key9),
+        (Semicolon, Key0),
+        (Quote, Hyphen),
+    ] {
+        manipulators.push(
+            Manipulator::builder()
+                .condition(Condition::with_vk3())
+                .from_key_with_modifiers(from, FromModifier::Optional(vec![Any]))
+                .to_key(to, None)
+                .build(),
+        )
+    }
+
     manipulators
 }
