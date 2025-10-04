@@ -13,6 +13,18 @@ pub fn manipulators() -> Vec<Manipulator> {
         (I, RightArrow, Some(vec![Cmd])),
         (G, Tab, None),
         (CloseBracket, Z, Some(vec![Cmd])),
+        (Key1, F1, None),
+        (Key2, F2, None),
+        (Key3, F3, None),
+        (Key4, F4, None),
+        (Key5, F5, None),
+        (Key6, F6, None),
+        (Key7, F7, None),
+        (Key8, F8, None),
+        (Key9, F9, None),
+        (Key0, F10, None),
+        (Hyphen, F11, None),
+        (EqualSign, F12, None),
     ] {
         manipulators.push(
             Manipulator::builder()
@@ -36,6 +48,8 @@ pub fn manipulators() -> Vec<Manipulator> {
         (C, DeleteOrBackspace, None),
         (E, DeleteForward, None),
         (Quote, H, Some(vec![Cmd])),
+        (B, M, Some(vec![Ctrl, Opt, Cmd, Shift])),
+        (International3, D, Some(vec![Cmd, Opt])),
     ] {
         manipulators.push(
             Manipulator::builder()
@@ -122,47 +136,5 @@ pub fn manipulators() -> Vec<Manipulator> {
         );
     }
 
-    vec![
-        manipulators,
-        vec![
-            (Key1, F1),
-            (Key2, F2),
-            (Key3, F3),
-            (Key4, F4),
-            (Key5, F5),
-            (Key6, F6),
-            (Key7, F7),
-            (Key8, F8),
-            (Key9, F9),
-            (Key0, F10),
-            (Hyphen, F11),
-            (EqualSign, F12),
-        ]
-        .into_iter()
-        .map(|(from, to)| {
-            Manipulator::builder()
-                .condition(Condition::with_vk1())
-                .from_key_with_modifiers(from, FromModifier::Optional(vec![Any]))
-                .to_key(to, None)
-                .build()
-        })
-        .collect(),
-        vec![
-            Manipulator::builder()
-                .condition(Condition::with_vk1())
-                .from_key(B)
-                .to_key(M, Some(vec![Ctrl, Opt, Cmd, Shift]))
-                .build(),
-        ],
-        vec![
-            Manipulator::builder()
-                .condition(Condition::with_vk1())
-                .from_key(International3)
-                .to_key(D, Some(vec![Cmd, Opt]))
-                .build(),
-        ],
-    ]
-    .into_iter()
-    .flatten()
-    .collect()
+    manipulators
 }
