@@ -207,15 +207,9 @@ pub fn manipulators() -> Vec<Manipulator> {
         ),
         // (F, "Command+Tab"),
         (G, "open -a 'Visual Studio Code.app'"),
-        (
-            H,
-            "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --profile-directory=\"Default\"",
-        ),
+        // (H, None),
         (I, "open -a 'CLion.app'"),
-        (
-            J,
-            "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --profile-directory=\"Profile 1\"",
-        ),
+        (J, "open -a \"Google Chrome\""),
         (K, "open -a 'iTerm.app'"),
         (L, "open -a 'Alfred 5.app'"),
         (M, "open -a 'Dynalist.app'"),
