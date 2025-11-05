@@ -44,6 +44,7 @@ pub fn manipulators() -> Vec<Manipulator> {
                 (U, CTRL_SHIFT_OPT),                 // Go to next reference
                 (V, CTRL_SHIFT_OPT_CMD),             // Copy active file relative path
                 (W, CTRL_SHIFT_OPT_CMD),             // Claude Code: Open in Side Bar
+                (X, CTRL_SHIFT_OPT_CMD),             // Close editor
                 (Y, CTRL_SHIFT_OPT_CMD),             // Toggle File Blame
                 (Z, CTRL_SHIFT_OPT_CMD),             // Focus on Source Control: Changes view
                 (Key9, CTRL_SHIFT_OPT_CMD),          // Zoom in
