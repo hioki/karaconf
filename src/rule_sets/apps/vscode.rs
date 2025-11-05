@@ -50,6 +50,10 @@ pub fn manipulators() -> Vec<Manipulator> {
                 (Key0, CTRL_SHIFT_OPT_CMD),          // Zoom out
                 (ReturnOrEnter, CTRL_SHIFT_OPT_CMD), // workbench.action.tasks.reRunTask
                 (Period, CTRL_SHIFT_OPT),            // quick fix
+                (Key1, CTRL_SHIFT_OPT),              // Split the editor to the left
+                (Key2, CTRL_SHIFT_OPT),              // Split the editor to the bottom
+                (Key3, CTRL_SHIFT_OPT),              // Split the editor to the top
+                (Key4, CTRL_SHIFT_OPT),              // Split the editor to the right
             ],
         ),
     ]);
