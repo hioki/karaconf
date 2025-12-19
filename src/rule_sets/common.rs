@@ -1,5 +1,6 @@
 use crate::karabiner_data::{
     Condition, FromModifier, KeyCode::*, Manipulator, ModifierKey::*, MouseKey, PointingButton,
+    SetVariable, VirtualKey,
 };
 
 const MOUSE_SPEED: i32 = 1536;
@@ -305,6 +306,43 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(VkNone, None)
             .build(),
     ]);
+
+    // F12: Toggle between default romaji input and shingeta layout
+    // When shingeta_mode is 0 (off), pressing F12 sets it to 1 (on)
+    manipulators.push(
+        Manipulator::builder()
+            .condition(Condition::without_virtual_key(VirtualKey::ShingetaMode))
+            .from_key(F12)
+            .to_variable(SetVariable {
+                name: VirtualKey::ShingetaMode,
+                value: 1,
+            })
+            .build(),
+    );
+
+    // When shingeta_mode is 1 (on), pressing F12 sets it to 0 (off)
+    manipulators.push(
+        Manipulator::builder()
+            .condition(Condition::with_shingeta_mode())
+            .from_key(F12)
+            .to_variable(SetVariable {
+                name: VirtualKey::ShingetaMode,
+                value: 0,
+            })
+            .build(),
+    );
+
+    // JapaneseEisuu (英数): Disable shingeta mode when switching to English input
+    manipulators.push(
+        Manipulator::builder()
+            .from_key(JapaneseEisuu)
+            .to_key(JapaneseEisuu, None)
+            .to_variable(SetVariable {
+                name: VirtualKey::ShingetaMode,
+                value: 0,
+            })
+            .build(),
+    );
 
     manipulators
 }

@@ -45,6 +45,15 @@ pub enum Condition {
         name: VirtualKey,
         value: u8,
     },
+    InputSource {
+        r#type: ConditionType,
+        input_sources: Vec<InputSource>,
+    },
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct InputSource {
+    pub language: String,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -52,6 +61,7 @@ pub enum Condition {
 pub enum ConditionType {
     FrontmostApplicationIf,
     VariableIf,
+    InputSourceIf,
 }
 
 impl Condition {
@@ -78,6 +88,10 @@ impl Condition {
         Self::with_virtual_key(VirtualKey::Vk4)
     }
 
+    pub fn with_shingeta_mode() -> Condition {
+        Self::with_virtual_key(VirtualKey::ShingetaMode)
+    }
+
     pub fn with_virtual_key(virtual_key: VirtualKey) -> Condition {
         Condition::WithVirtualKey {
             r#type: ConditionType::VariableIf,
@@ -85,14 +99,57 @@ impl Condition {
             value: 1,
         }
     }
+
+    pub fn without_virtual_key(virtual_key: VirtualKey) -> Condition {
+        Condition::WithVirtualKey {
+            r#type: ConditionType::VariableIf,
+            name: virtual_key,
+            value: 0,
+        }
+    }
+
+    pub fn with_japanese_input() -> Condition {
+        Condition::InputSource {
+            r#type: ConditionType::InputSourceIf,
+            input_sources: vec![InputSource {
+                language: "ja".to_string(),
+            }],
+        }
+    }
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
-pub struct From {
+pub struct SimultaneousKey {
     pub key_code: KeyCode,
+}
 
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct SimultaneousOptions {
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub modifiers: Option<FromModifier>,
+    pub detect_key_down_uninterruptedly: Option<bool>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub key_down_order: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub key_up_order: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub key_up_when: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub to_after_key_up: Option<Vec<To>>,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(untagged)]
+pub enum From {
+    Single {
+        key_code: KeyCode,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        modifiers: Option<FromModifier>,
+    },
+    Simultaneous {
+        simultaneous: Vec<SimultaneousKey>,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        simultaneous_options: Option<SimultaneousOptions>,
+    },
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -130,6 +187,8 @@ pub enum To {
         key_code: KeyCode,
         #[serde(skip_serializing_if = "Option::is_none")]
         modifiers: Option<Vec<ModifierKey>>,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        repeat: Option<bool>,
     },
     Mouse {
         mouse_key: MouseKey,
@@ -214,6 +273,16 @@ impl<S> ManipulatorInitBuilder<S> {
         self.to.push(To::Key {
             key_code,
             modifiers,
+            repeat: None,
+        });
+        self
+    }
+
+    pub fn to_key_with_repeat(mut self, key_code: KeyCode, modifiers: Option<Vec<ModifierKey>>, repeat: bool) -> Self {
+        self.to.push(To::Key {
+            key_code,
+            modifiers,
+            repeat: Some(repeat),
         });
         self
     }
@@ -259,7 +328,7 @@ impl ManipulatorInitBuilder<WithoutFrom> {
     pub fn from_key(self, key_code: KeyCode) -> ManipulatorInitBuilder<WithFrom> {
         ManipulatorInitBuilder {
             conditions: self.conditions,
-            from: Some(From {
+            from: Some(From::Single {
                 key_code,
                 modifiers: None,
             }),
@@ -277,9 +346,50 @@ impl ManipulatorInitBuilder<WithoutFrom> {
     ) -> ManipulatorInitBuilder<WithFrom> {
         ManipulatorInitBuilder {
             conditions: self.conditions,
-            from: Some(From {
+            from: Some(From::Single {
                 key_code,
                 modifiers: Some(modifiers),
+            }),
+            to: self.to,
+            to_after_key_up: self.to_after_key_up,
+            to_if_alone: self.to_if_alone,
+            _phantom: std::marker::PhantomData,
+        }
+    }
+
+    pub fn from_simultaneous_keys(
+        self,
+        key_codes: Vec<KeyCode>,
+    ) -> ManipulatorInitBuilder<WithFrom> {
+        ManipulatorInitBuilder {
+            conditions: self.conditions,
+            from: Some(From::Simultaneous {
+                simultaneous: key_codes
+                    .into_iter()
+                    .map(|key_code| SimultaneousKey { key_code })
+                    .collect(),
+                simultaneous_options: None,
+            }),
+            to: self.to,
+            to_after_key_up: self.to_after_key_up,
+            to_if_alone: self.to_if_alone,
+            _phantom: std::marker::PhantomData,
+        }
+    }
+
+    pub fn from_simultaneous_keys_with_options(
+        self,
+        key_codes: Vec<KeyCode>,
+        options: SimultaneousOptions,
+    ) -> ManipulatorInitBuilder<WithFrom> {
+        ManipulatorInitBuilder {
+            conditions: self.conditions,
+            from: Some(From::Simultaneous {
+                simultaneous: key_codes
+                    .into_iter()
+                    .map(|key_code| SimultaneousKey { key_code })
+                    .collect(),
+                simultaneous_options: Some(options),
             }),
             to: self.to,
             to_after_key_up: self.to_after_key_up,
@@ -326,6 +436,7 @@ pub enum VirtualKey {
     Vk2,
     Vk3,
     Vk4,
+    ShingetaMode,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]

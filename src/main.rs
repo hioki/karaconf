@@ -17,6 +17,7 @@ const MANIPULATORS: &[fn() -> Vec<karabiner_data::Manipulator>] = &[
     rule_sets::apps::notion::manipulators,
     rule_sets::apps::chatgpt::manipulators,
     rule_sets::common::manipulators,
+    rule_sets::shingeta::manipulators,
 ];
 
 fn main() -> anyhow::Result<()> {
@@ -117,6 +118,14 @@ fn update_karabiner_config(
     // Update the first profile's complex modifications
     if let Some(profile) = karabiner_config.profiles.get_mut(0) {
         profile.complex_modifications.rules = rules.to_vec();
+
+        // Update simultaneous threshold to 100ms for shingeta layout
+        if let Some(params) = profile.complex_modifications.parameters.as_object_mut() {
+            params.insert(
+                "basic.simultaneous_threshold_milliseconds".to_string(),
+                serde_json::json!(100),
+            );
+        }
     } else {
         anyhow::bail!("No profile found in karabiner.json");
     }
