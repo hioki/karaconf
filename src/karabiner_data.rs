@@ -116,6 +116,15 @@ impl Condition {
             }],
         }
     }
+
+    pub fn with_english_input() -> Condition {
+        Condition::InputSource {
+            r#type: ConditionType::InputSourceIf,
+            input_sources: vec![InputSource {
+                language: "en".to_string(),
+            }],
+        }
+    }
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]

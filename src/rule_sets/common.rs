@@ -290,8 +290,15 @@ pub fn manipulators() -> Vec<Manipulator> {
             .from_key_with_modifiers(Semicolon, FromModifier::Mandatory(vec![Cmd, Shift]))
             .to_key(KeypadPlus, Some(vec![Cmd]))
             .build(),
-        // ; -> Enter
+        // ; -> Enter (except when shingeta mode is ON)
         Manipulator::builder()
+            .condition(Condition::without_virtual_key(VirtualKey::ShingetaMode))
+            .from_key(Semicolon)
+            .to_key(ReturnOrEnter, None)
+            .build(),
+        Manipulator::builder()
+            .condition(Condition::with_virtual_key(VirtualKey::ShingetaMode))
+            .condition(Condition::with_english_input())
             .from_key(Semicolon)
             .to_key(ReturnOrEnter, None)
             .build(),

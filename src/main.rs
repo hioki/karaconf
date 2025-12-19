@@ -123,7 +123,7 @@ fn update_karabiner_config(
         if let Some(params) = profile.complex_modifications.parameters.as_object_mut() {
             params.insert(
                 "basic.simultaneous_threshold_milliseconds".to_string(),
-                serde_json::json!(100),
+                serde_json::json!(70),
             );
         }
     } else {
