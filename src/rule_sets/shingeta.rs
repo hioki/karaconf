@@ -2148,11 +2148,9 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
-
     // ============================================================================
     // SHINGETA LAYOUT MAPPINGS - SINGLE KEY MAPPINGS
     // ============================================================================
-
 
     // ============================================================================
     // SHINGETA LAYOUT MAPPINGS - SINGLE KEY MAPPINGS
@@ -2375,24 +2373,35 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
-    // ; -> "na" (n + a)
-    manipulators.push(
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .condition(Condition::with_japanese_input())
-            .from_key(Semicolon)
-            .to_key(N, None)
-            .to_key(A, None)
-            .build(),
-    );
+    // // ; -> "na" (n + a)
+    // manipulators.push(
+    //     Manipulator::builder()
+    //         .condition(Condition::with_shingeta_mode())
+    //         .condition(Condition::with_japanese_input())
+    //         .from_key(Semicolon)
+    //         .to_key(N, None)
+    //         .to_key(A, None)
+    //         .build(),
+    // );
 
-    // ' -> backspace
+    // // ' -> backspace
+    // manipulators.push(
+    //     Manipulator::builder()
+    //         .condition(Condition::with_shingeta_mode())
+    //         .condition(Condition::with_japanese_input())
+    //         .from_key(Quote)
+    //         .to_key(DeleteOrBackspace, None)
+    //         .build(),
+    // );
+
+    // : -> "na" (n + a)
     manipulators.push(
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_key(Quote)
-            .to_key(DeleteOrBackspace, None)
+            .to_key(N, None)
+            .to_key(A, None)
             .build(),
     );
 
