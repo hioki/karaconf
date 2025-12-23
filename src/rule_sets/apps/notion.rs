@@ -16,6 +16,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         (
             VirtualKey::Vk4,
             vec![
+                (C, L, vec![Cmd]),
                 (E, International3, vec![Cmd]),
                 (F, P, vec![Cmd]),
                 (H, CloseBracket, vec![Cmd]),
