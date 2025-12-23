@@ -1211,22 +1211,41 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
-    // d+semicolon -> e
+    // // d+semicolon -> e
+    // manipulators.push(
+    //     Manipulator::builder()
+    //         .condition(Condition::with_shingeta_mode())
+    //         .condition(Condition::with_japanese_input())
+    //         .from_simultaneous_keys(vec![D, Semicolon])
+    //         .to_key(E, None)
+    //         .build(),
+    // );
+    // d+colon -> e
     manipulators.push(
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
-            .from_simultaneous_keys(vec![D, Semicolon])
+            .from_simultaneous_keys(vec![D, Quote])
             .to_key(E, None)
             .build(),
     );
 
-    // s+semicolon -> s -> o
+    // // s+semicolon -> s -> o
+    // manipulators.push(
+    //     Manipulator::builder()
+    //         .condition(Condition::with_shingeta_mode())
+    //         .condition(Condition::with_japanese_input())
+    //         .from_simultaneous_keys(vec![S, Semicolon])
+    //         .to_key(S, None)
+    //         .to_key(O, None)
+    //         .build(),
+    // );
+    // s+colon -> s -> o
     manipulators.push(
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
-            .from_simultaneous_keys(vec![S, Semicolon])
+            .from_simultaneous_keys(vec![S, Quote])
             .to_key(S, None)
             .to_key(O, None)
             .build(),
@@ -2373,16 +2392,16 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
-    // ; -> "na" (n + a)
-    manipulators.push(
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .condition(Condition::with_japanese_input())
-            .from_key(Semicolon)
-            .to_key(N, None)
-            .to_key(A, None)
-            .build(),
-    );
+    // // ; -> "na" (n + a)
+    // manipulators.push(
+    //     Manipulator::builder()
+    //         .condition(Condition::with_shingeta_mode())
+    //         .condition(Condition::with_japanese_input())
+    //         .from_key(Semicolon)
+    //         .to_key(N, None)
+    //         .to_key(A, None)
+    //         .build(),
+    // );
 
     // // ' -> backspace
     // manipulators.push(
@@ -2394,13 +2413,14 @@ pub fn manipulators() -> Vec<Manipulator> {
     //         .build(),
     // );
 
-    // ' -> Enter
+    // ' -> "na" (n + a)
     manipulators.push(
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_key(Quote)
-            .to_key(ReturnOrEnter, None)
+            .to_key(N, None)
+            .to_key(A, None)
             .build(),
     );
 

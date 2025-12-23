@@ -5116,39 +5116,6 @@
         },
         {
           "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "shingeta_mode",
-              "value": 0
-            }
-          ],
-          "from": {
-            "key_code": "semicolon"
-          },
-          "to": [
-            {
-              "key_code": "return_or_enter"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "shingeta_mode",
-              "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "en"
-                }
-              ]
-            }
-          ],
           "from": {
             "key_code": "semicolon"
           },
@@ -9244,7 +9211,7 @@
                 "key_code": "d"
               },
               {
-                "key_code": "semicolon"
+                "key_code": "quote"
               }
             ]
           },
@@ -9277,7 +9244,7 @@
                 "key_code": "s"
               },
               {
-                "key_code": "semicolon"
+                "key_code": "quote"
               }
             ]
           },
@@ -12888,7 +12855,7 @@
             }
           ],
           "from": {
-            "key_code": "semicolon"
+            "key_code": "quote"
           },
           "to": [
             {
@@ -12896,32 +12863,6 @@
             },
             {
               "key_code": "a"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "shingeta_mode",
-              "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
-            }
-          ],
-          "from": {
-            "key_code": "quote"
-          },
-          "to": [
-            {
-              "key_code": "return_or_enter"
             }
           ]
         },
