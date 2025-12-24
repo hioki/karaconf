@@ -5178,6 +5178,9 @@
                 "name": "shingeta_mode",
                 "value": 1
               }
+            },
+            {
+              "shell_command": "mkdir -p \"$HOME/.cache/karaconf\" && printf 'on' > \"$HOME/.cache/karaconf/shingeta_mode\""
             }
           ]
         },
@@ -5199,6 +5202,9 @@
                 "name": "shingeta_mode",
                 "value": 0
               }
+            },
+            {
+              "shell_command": "mkdir -p \"$HOME/.cache/karaconf\" && printf 'off' > \"$HOME/.cache/karaconf/shingeta_mode\""
             }
           ]
         },
@@ -5216,6 +5222,9 @@
                 "name": "shingeta_mode",
                 "value": 0
               }
+            },
+            {
+              "shell_command": "mkdir -p \"$HOME/.cache/karaconf\" && printf 'off' > \"$HOME/.cache/karaconf/shingeta_mode\""
             }
           ]
         },

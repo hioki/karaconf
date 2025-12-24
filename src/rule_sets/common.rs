@@ -5,6 +5,10 @@ use crate::karabiner_data::{
 
 const MOUSE_SPEED: i32 = 1536;
 const WHEEL_SPEED: i32 = 64;
+const SHINGETA_MODE_ON_COMMAND: &str =
+    "mkdir -p \"$HOME/.cache/karaconf\" && printf 'on' > \"$HOME/.cache/karaconf/shingeta_mode\"";
+const SHINGETA_MODE_OFF_COMMAND: &str =
+    "mkdir -p \"$HOME/.cache/karaconf\" && printf 'off' > \"$HOME/.cache/karaconf/shingeta_mode\"";
 
 pub fn manipulators() -> Vec<Manipulator> {
     let mut manipulators = Vec::new();
@@ -317,6 +321,7 @@ pub fn manipulators() -> Vec<Manipulator> {
                 name: VirtualKey::ShingetaMode,
                 value: 1,
             })
+            .to_command(SHINGETA_MODE_ON_COMMAND)
             .build(),
     );
 
@@ -329,6 +334,7 @@ pub fn manipulators() -> Vec<Manipulator> {
                 name: VirtualKey::ShingetaMode,
                 value: 0,
             })
+            .to_command(SHINGETA_MODE_OFF_COMMAND)
             .build(),
     );
 
@@ -341,6 +347,7 @@ pub fn manipulators() -> Vec<Manipulator> {
                 name: VirtualKey::ShingetaMode,
                 value: 0,
             })
+            .to_command(SHINGETA_MODE_OFF_COMMAND)
             .build(),
     );
 
