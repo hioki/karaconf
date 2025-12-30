@@ -3,6 +3,8 @@ pub mod rule_sets;
 
 use std::{io::Seek as _, path::Path};
 
+const SIMULTANEOUS_THRESHOLD_MILLISECONDS: u64 = 63;
+
 const TITLE: &str = "Personal rules";
 
 const CUSTOM_JSON_FILENAME: &str = "custom.json";
@@ -123,7 +125,7 @@ fn update_karabiner_config(
         if let Some(params) = profile.complex_modifications.parameters.as_object_mut() {
             params.insert(
                 "basic.simultaneous_threshold_milliseconds".to_string(),
-                serde_json::json!(70),
+                serde_json::json!(SIMULTANEOUS_THRESHOLD_MILLISECONDS),
             );
         }
     } else {
