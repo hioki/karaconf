@@ -287,7 +287,12 @@ impl<S> ManipulatorInitBuilder<S> {
         self
     }
 
-    pub fn to_key_with_repeat(mut self, key_code: KeyCode, modifiers: Option<Vec<ModifierKey>>, repeat: bool) -> Self {
+    pub fn to_key_with_repeat(
+        mut self,
+        key_code: KeyCode,
+        modifiers: Option<Vec<ModifierKey>>,
+        repeat: bool,
+    ) -> Self {
         self.to.push(To::Key {
             key_code,
             modifiers,
