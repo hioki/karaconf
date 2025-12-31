@@ -282,6 +282,16 @@ pub fn manipulators() -> Vec<Manipulator> {
                 .build(),
         )
     }
+    for (from, to) in [(N, H), (M, J), (Comma, K), (Period, L)] {
+        manipulators.push(
+            Manipulator::builder()
+                .condition(Condition::with_vk3())
+                .from_key(from)
+                .to_key(Z, None)
+                .to_key(to, None)
+                .build(),
+        );
+    }
 
     manipulators.extend(vec![
         // Ctrl+; -> ;

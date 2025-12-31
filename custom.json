@@ -5080,6 +5080,90 @@
         },
         {
           "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk3",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "n"
+          },
+          "to": [
+            {
+              "key_code": "z"
+            },
+            {
+              "key_code": "h"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk3",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "m"
+          },
+          "to": [
+            {
+              "key_code": "z"
+            },
+            {
+              "key_code": "j"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk3",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "comma"
+          },
+          "to": [
+            {
+              "key_code": "z"
+            },
+            {
+              "key_code": "k"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk3",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "period"
+          },
+          "to": [
+            {
+              "key_code": "z"
+            },
+            {
+              "key_code": "l"
+            }
+          ]
+        },
+        {
+          "type": "basic",
           "from": {
             "key_code": "semicolon",
             "modifiers": {
