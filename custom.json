@@ -5065,7 +5065,7 @@
             }
           ],
           "from": {
-            "key_code": "quote",
+            "key_code": "backslash",
             "modifiers": {
               "optional": [
                 "any"
@@ -5088,7 +5088,43 @@
             }
           ],
           "from": {
-            "key_code": "n"
+            "key_code": "non_us_pound",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk3",
+              "value": 1
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "shingeta_mode",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "z"
           },
           "to": [
             {
@@ -5106,10 +5142,23 @@
               "type": "variable_if",
               "name": "vk3",
               "value": 1
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "shingeta_mode",
+              "value": 1
             }
           ],
           "from": {
-            "key_code": "m"
+            "key_code": "x"
           },
           "to": [
             {
@@ -5127,10 +5176,23 @@
               "type": "variable_if",
               "name": "vk3",
               "value": 1
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "shingeta_mode",
+              "value": 1
             }
           ],
           "from": {
-            "key_code": "comma"
+            "key_code": "c"
           },
           "to": [
             {
@@ -5148,10 +5210,23 @@
               "type": "variable_if",
               "name": "vk3",
               "value": 1
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "shingeta_mode",
+              "value": 1
             }
           ],
           "from": {
-            "key_code": "period"
+            "key_code": "v"
           },
           "to": [
             {
