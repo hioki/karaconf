@@ -3,7 +3,7 @@ use crate::karabiner_data::{
     SetVariable, VirtualKey,
 };
 
-const MOUSE_SPEED: i32 = 1536;
+const MOUSE_SPEED: i32 = 768;
 const WHEEL_SPEED: i32 = 64;
 const SHINGETA_MODE_ON_COMMAND: &str =
     "mkdir -p \"$HOME/.cache/karaconf\" && printf 'on' > \"$HOME/.cache/karaconf/shingeta_mode\"";
@@ -111,8 +111,8 @@ pub fn manipulators() -> Vec<Manipulator> {
                 .condition(Condition::with_vk1())
                 .from_key(key_code)
                 .to_mouse(MouseKey {
-                    x: x.map(|n| n * 2),
-                    y: y.map(|n| n * 2),
+                    x: x.map(|n| n * 4),
+                    y: y.map(|n| n * 4),
                     vertical_wheel: None,
                 })
                 .build()
