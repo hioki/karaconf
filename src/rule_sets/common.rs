@@ -103,6 +103,7 @@ pub fn manipulators() -> Vec<Manipulator> {
                     x,
                     y,
                     vertical_wheel: None,
+                    horizontal_wheel: None,
                 })
                 .build()
         });
@@ -114,6 +115,7 @@ pub fn manipulators() -> Vec<Manipulator> {
                     x: x.map(|n| n * 4),
                     y: y.map(|n| n * 4),
                     vertical_wheel: None,
+                    horizontal_wheel: None,
                 })
                 .build()
         });
@@ -134,7 +136,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     }
 
     // Mouse wheel
-    for (key_code, vertical_wheel) in [
+    for (key_code, wheel) in [
         (OpenBracket, -WHEEL_SPEED),
         (NonUsPound, WHEEL_SPEED),
         (Backslash, WHEEL_SPEED),
@@ -146,7 +148,26 @@ pub fn manipulators() -> Vec<Manipulator> {
                 .to_mouse(MouseKey {
                     x: None,
                     y: None,
-                    vertical_wheel: Some(vertical_wheel),
+                    vertical_wheel: Some(wheel),
+                    horizontal_wheel: None,
+                })
+                .build(),
+        );
+    }
+    for (key_code, wheel) in [
+        (OpenBracket, WHEEL_SPEED),
+        (NonUsPound, -WHEEL_SPEED),
+        (Backslash, -WHEEL_SPEED),
+    ] {
+        manipulators.push(
+            Manipulator::builder()
+                .condition(Condition::with_vk1())
+                .from_key_with_modifiers(key_code, FromModifier::Mandatory(vec![Ctrl]))
+                .to_mouse(MouseKey {
+                    x: None,
+                    y: None,
+                    vertical_wheel: None,
+                    horizontal_wheel: Some(wheel),
                 })
                 .build(),
         );

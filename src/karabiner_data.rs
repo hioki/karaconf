@@ -184,6 +184,9 @@ pub struct MouseKey {
 
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vertical_wheel: Option<i32>,
+
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub horizontal_wheel: Option<i32>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
