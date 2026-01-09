@@ -295,6 +295,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         (Semicolon, Key0),
         (Backslash, Hyphen),
         (NonUsPound, Hyphen),
+        (Quote, Hyphen),
     ] {
         manipulators.push(
             Manipulator::builder()
