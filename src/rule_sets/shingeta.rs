@@ -1,4 +1,4 @@
-use crate::karabiner_data::{Condition, KeyCode::*, Manipulator, ModifierKey::*};
+use crate::karabiner_data::{Condition, FromModifier, KeyCode::*, Manipulator, ModifierKey::*};
 
 pub fn manipulators() -> Vec<Manipulator> {
     let mut manipulators = Vec::new();
@@ -2412,6 +2412,16 @@ pub fn manipulators() -> Vec<Manipulator> {
     //         .to_key(DeleteOrBackspace, None)
     //         .build(),
     // );
+
+    // Cmd+: -> :
+    manipulators.push(
+        Manipulator::builder()
+            .condition(Condition::with_shingeta_mode())
+            .condition(Condition::with_japanese_input())
+            .from_key_with_modifiers(Quote, FromModifier::Mandatory(vec![Cmd]))
+            .to_key(Quote, None)
+            .build(),
+    );
 
     // ' -> "na" (n + a)
     manipulators.push(
