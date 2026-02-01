@@ -1,15 +1,12 @@
 use crate::karabiner_data::{Condition, FromModifier, KeyCode::*, Manipulator, ModifierKey::*};
 
+// ============================================================================
+// SHINGETA LAYOUT MAPPINGS - SIMULTANEOUS KEY MAPPINGS
+// ============================================================================
+// NOTE: Simultaneous key mappings MUST come before single key mappings
+//       to ensure proper priority in Karabiner-Elements
 pub fn manipulators() -> Vec<Manipulator> {
-    let mut manipulators = Vec::new();
-
-    // ============================================================================
-    // SHINGETA LAYOUT MAPPINGS - SIMULTANEOUS KEY MAPPINGS
-    // ============================================================================
-    // NOTE: Simultaneous key mappings MUST come before single key mappings
-    //       to ensure proper priority in Karabiner-Elements
-
-    manipulators.push(
+    let mut manipulators = vec![
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -17,10 +14,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(L, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // d+1 -> l -> a
-    manipulators.push(
+        // d+1 -> l -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -28,10 +22,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(L, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // s+1 -> l -> y -> a
-    manipulators.push(
+        // s+1 -> l -> y -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -40,10 +31,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // l+1 -> l -> y -> a
-    manipulators.push(
+        // l+1 -> l -> y -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -52,10 +40,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // k+2 -> l -> i
-    manipulators.push(
+        // k+2 -> l -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -63,10 +48,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(L, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // d+2 -> l -> i
-    manipulators.push(
+        // d+2 -> l -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -74,10 +56,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(L, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // s+2 -> m -> y -> a
-    manipulators.push(
+        // s+2 -> m -> y -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -86,10 +65,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // l+2 -> m -> y -> a
-    manipulators.push(
+        // l+2 -> m -> y -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -98,10 +74,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // k+3 -> l -> u
-    manipulators.push(
+        // k+3 -> l -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -109,10 +82,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(L, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // d+3 -> l -> u
-    manipulators.push(
+        // d+3 -> l -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -120,10 +90,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(L, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // s+3 -> m -> y -> u
-    manipulators.push(
+        // s+3 -> m -> y -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -132,10 +99,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // l+3 -> m -> y -> u
-    manipulators.push(
+        // l+3 -> m -> y -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -144,10 +108,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // k+4 -> l -> e
-    manipulators.push(
+        // k+4 -> l -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -155,10 +116,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(L, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // d+4 -> l -> e
-    manipulators.push(
+        // d+4 -> l -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -166,10 +124,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(L, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // s+4 -> m -> y -> o
-    manipulators.push(
+        // s+4 -> m -> y -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -178,10 +133,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // l+4 -> m -> y -> o
-    manipulators.push(
+        // l+4 -> m -> y -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -190,10 +142,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // k+5 -> l -> o
-    manipulators.push(
+        // k+5 -> l -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -201,10 +150,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(L, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // d+5 -> l -> o
-    manipulators.push(
+        // d+5 -> l -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -212,10 +158,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(L, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // s+5 -> l -> w -> a
-    manipulators.push(
+        // s+5 -> l -> w -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -224,10 +167,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(W, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // l+5 -> l -> w -> a
-    manipulators.push(
+        // l+5 -> l -> w -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -236,210 +176,147 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(W, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // k+7 -> option+comma
-    manipulators.push(
+        // k+7 -> option+comma
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![K, Key7])
             .to_key(Comma, Some(vec![Opt]))
             .build(),
-    );
-
-    // d+7 -> option+comma
-    manipulators.push(
+        // d+7 -> option+comma
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![D, Key7])
             .to_key(Comma, Some(vec![Opt]))
             .build(),
-    );
-
-    // s+7 -> option+period
-    manipulators.push(
+        // s+7 -> option+period
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![S, Key7])
             .to_key(Period, Some(vec![Opt]))
             .build(),
-    );
-
-    // l+7 -> option+period
-    manipulators.push(
+        // l+7 -> option+period
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![L, Key7])
             .to_key(Period, Some(vec![Opt]))
             .build(),
-    );
-
-    // k+8 -> close_bracket
-    manipulators.push(
+        // k+8 -> close_bracket
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![K, Key8])
             .to_key(CloseBracket, None)
             .build(),
-    );
-
-    // d+8 -> close_bracket
-    manipulators.push(
+        // d+8 -> close_bracket
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![D, Key8])
             .to_key(CloseBracket, None)
             .build(),
-    );
-
-    // s+8 -> shift+8
-    manipulators.push(
+        // s+8 -> shift+8
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![S, Key8])
             .to_key(Key8, Some(vec![Shift]))
             .build(),
-    );
-
-    // l+8 -> shift+8
-    manipulators.push(
+        // l+8 -> shift+8
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![L, Key8])
             .to_key(Key8, Some(vec![Shift]))
             .build(),
-    );
-
-    // k+9 -> backslash
-    manipulators.push(
+        // k+9 -> backslash
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![K, Key9])
             .to_key(Backslash, None)
             .build(),
-    );
-
-    // d+9 -> backslash
-    manipulators.push(
+        // d+9 -> backslash
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![D, Key9])
             .to_key(Backslash, None)
             .build(),
-    );
-
-    // s+9 -> shift+9
-    manipulators.push(
+        // s+9 -> shift+9
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![S, Key9])
             .to_key(Key9, Some(vec![Shift]))
             .build(),
-    );
-
-    // l+9 -> shift+9
-    manipulators.push(
+        // l+9 -> shift+9
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![L, Key9])
             .to_key(Key9, Some(vec![Shift]))
             .build(),
-    );
-
-    // k+0 -> semicolon
-    manipulators.push(
+        // k+0 -> semicolon
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![K, Key0])
             .to_key(Semicolon, None)
             .build(),
-    );
-
-    // d+0 -> semicolon
-    manipulators.push(
+        // d+0 -> semicolon
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![D, Key0])
             .to_key(Semicolon, None)
             .build(),
-    );
-
-    // s+0 -> quote
-    manipulators.push(
+        // s+0 -> quote
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![S, Key0])
             .to_key(Quote, None)
             .build(),
-    );
-
-    // l+0 -> quote
-    manipulators.push(
+        // l+0 -> quote
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![L, Key0])
             .to_key(Quote, None)
             .build(),
-    );
-
-    // k+hyphen -> open_bracket
-    manipulators.push(
+        // k+hyphen -> open_bracket
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![K, Hyphen])
             .to_key(OpenBracket, None)
             .build(),
-    );
-
-    // d+hyphen -> open_bracket
-    manipulators.push(
+        // d+hyphen -> open_bracket
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![D, Hyphen])
             .to_key(OpenBracket, None)
             .build(),
-    );
-
-    // s+hyphen -> shift+quote
-    manipulators.push(
+        // s+hyphen -> shift+quote
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![S, Hyphen])
             .to_key(Quote, Some(vec![Shift]))
             .build(),
-    );
-
-    // l+hyphen -> shift+quote
-    manipulators.push(
+        // l+hyphen -> shift+quote
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![L, Hyphen])
             .to_key(Quote, Some(vec![Shift]))
             .build(),
-    );
-
-    // k+q -> f -> a
-    manipulators.push(
+        // k+q -> f -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -447,10 +324,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(F, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // d+q -> f -> a
-    manipulators.push(
+        // d+q -> f -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -458,10 +332,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(F, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // s+q -> d -> i
-    manipulators.push(
+        // s+q -> d -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -469,10 +340,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(D, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // l+q -> d -> i
-    manipulators.push(
+        // l+q -> d -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -480,10 +348,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(D, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // k+w -> g -> o
-    manipulators.push(
+        // k+w -> g -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -491,10 +356,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(G, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // d+w -> g -> o
-    manipulators.push(
+        // d+w -> g -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -502,10 +364,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(G, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // s+w -> m -> e
-    manipulators.push(
+        // s+w -> m -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -513,10 +372,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(M, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // l+w -> m -> e
-    manipulators.push(
+        // l+w -> m -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -524,10 +380,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(M, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // k+e -> f -> u
-    manipulators.push(
+        // k+e -> f -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -535,10 +388,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(F, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // d+e -> f -> u
-    manipulators.push(
+        // d+e -> f -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -546,10 +396,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(F, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // s+e -> k -> e
-    manipulators.push(
+        // s+e -> k -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -557,10 +404,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(K, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // l+e -> k -> e
-    manipulators.push(
+        // l+e -> k -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -568,10 +412,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(K, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // k+r -> f -> i
-    manipulators.push(
+        // k+r -> f -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -579,10 +420,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(F, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // d+r -> f -> i
-    manipulators.push(
+        // d+r -> f -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -590,10 +428,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(F, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // s+r -> t -> h -> i
-    manipulators.push(
+        // s+r -> t -> h -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -602,10 +437,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(H, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // l+r -> t -> h -> i
-    manipulators.push(
+        // l+r -> t -> h -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -614,10 +446,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(H, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // k+t -> f -> e
-    manipulators.push(
+        // k+t -> f -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -625,10 +454,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(F, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // d+t -> f -> e
-    manipulators.push(
+        // d+t -> f -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -636,10 +462,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(F, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // s+t -> d -> h -> i
-    manipulators.push(
+        // s+t -> d -> h -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -648,10 +471,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(H, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // l+t -> d -> h -> i
-    manipulators.push(
+        // l+t -> d -> h -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -660,10 +480,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(H, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // k+y -> w -> i
-    manipulators.push(
+        // k+y -> w -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -671,10 +488,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(W, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // d+y -> w -> i
-    manipulators.push(
+        // d+y -> w -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -682,10 +496,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(W, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // s+y -> s -> h -> e
-    manipulators.push(
+        // s+y -> s -> h -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -694,10 +505,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(H, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // l+y -> s -> h -> e
-    manipulators.push(
+        // l+y -> s -> h -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -706,10 +514,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(H, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // k+u -> p -> a
-    manipulators.push(
+        // k+u -> p -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -717,10 +522,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(P, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // d+u -> p -> a
-    manipulators.push(
+        // d+u -> p -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -728,10 +530,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(P, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // s+u -> p -> e
-    manipulators.push(
+        // s+u -> p -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -739,10 +538,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(P, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // l+u -> p -> e
-    manipulators.push(
+        // l+u -> p -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -750,10 +546,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(P, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // k+i -> y -> o
-    manipulators.push(
+        // k+i -> y -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -761,10 +554,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // d+i -> y -> o
-    manipulators.push(
+        // d+i -> y -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -772,10 +562,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // s+i -> d -> o
-    manipulators.push(
+        // s+i -> d -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -783,10 +570,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(D, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // l+i -> d -> o
-    manipulators.push(
+        // l+i -> d -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -794,10 +578,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(D, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // k+o -> m -> i
-    manipulators.push(
+        // k+o -> m -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -805,10 +586,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(M, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // d+o -> m -> i
-    manipulators.push(
+        // d+o -> m -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -816,10 +594,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(M, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // s+o -> y -> a
-    manipulators.push(
+        // s+o -> y -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -827,10 +602,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // l+o -> y -> a
-    manipulators.push(
+        // l+o -> y -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -838,10 +610,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // k+p -> w -> e
-    manipulators.push(
+        // k+p -> w -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -849,10 +618,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(W, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // d+p -> w -> e
-    manipulators.push(
+        // d+p -> w -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -860,10 +626,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(W, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // s+p -> j -> e
-    manipulators.push(
+        // s+p -> j -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -871,10 +634,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(J, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // l+p -> j -> e
-    manipulators.push(
+        // l+p -> j -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -882,10 +642,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(J, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // k+open_bracket -> u -> l -> o
-    manipulators.push(
+        // k+open_bracket -> u -> l -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -894,10 +651,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(L, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // d+open_bracket -> u -> l -> o
-    manipulators.push(
+        // d+open_bracket -> u -> l -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -906,10 +660,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(L, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // k+a -> h -> o
-    manipulators.push(
+        // k+a -> h -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -917,10 +668,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(H, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // d+a -> h -> o
-    manipulators.push(
+        // d+a -> h -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -928,10 +676,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(H, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // s+a -> w -> o
-    manipulators.push(
+        // s+a -> w -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -939,10 +684,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(W, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // l+a -> w -> o
-    manipulators.push(
+        // l+a -> w -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -950,10 +692,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(W, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // k+s -> j -> i
-    manipulators.push(
+        // k+s -> j -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -961,10 +700,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(J, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // d+s -> j -> i
-    manipulators.push(
+        // d+s -> j -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -972,10 +708,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(J, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // s+l -> s -> a
-    manipulators.push(
+        // s+l -> s -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -983,10 +716,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(S, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // k+d -> r -> e
-    manipulators.push(
+        // k+d -> r -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -994,30 +724,21 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(R, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // s+d -> o
-    manipulators.push(
+        // s+d -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![S, D])
             .to_key(O, None)
             .build(),
-    );
-
-    // l+d -> o
-    manipulators.push(
+        // l+d -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![L, D])
             .to_key(O, None)
             .build(),
-    );
-
-    // k+f -> m -> o
-    manipulators.push(
+        // k+f -> m -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1025,10 +746,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(M, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // d+f -> m -> o
-    manipulators.push(
+        // d+f -> m -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1036,10 +754,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(M, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // s+f -> r -> i
-    manipulators.push(
+        // s+f -> r -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1047,10 +762,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(R, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // l+f -> r -> i
-    manipulators.push(
+        // l+f -> r -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1058,10 +770,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(R, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // k+g -> y -> u
-    manipulators.push(
+        // k+g -> y -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1069,10 +778,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // d+g -> y -> u
-    manipulators.push(
+        // d+g -> y -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1080,10 +786,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // s+g -> z -> u
-    manipulators.push(
+        // s+g -> z -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1091,10 +794,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Z, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // l+g -> z -> u
-    manipulators.push(
+        // l+g -> z -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1102,10 +802,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Z, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // k+h -> h -> e
-    manipulators.push(
+        // k+h -> h -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1113,10 +810,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(H, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // d+h -> h -> e
-    manipulators.push(
+        // d+h -> h -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1124,10 +818,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(H, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // s+h -> b -> i
-    manipulators.push(
+        // s+h -> b -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1135,10 +826,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(B, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // l+h -> b -> i
-    manipulators.push(
+        // l+h -> b -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1146,30 +834,21 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(B, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // k+j -> a
-    manipulators.push(
+        // k+j -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![K, J])
             .to_key(A, None)
             .build(),
-    );
-
-    // d+j -> a
-    manipulators.push(
+        // d+j -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![D, J])
             .to_key(A, None)
             .build(),
-    );
-
-    // s+j -> r -> a
-    manipulators.push(
+        // s+j -> r -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1177,10 +856,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(R, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // l+j -> r -> a
-    manipulators.push(
+        // l+j -> r -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1188,10 +864,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(R, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // k+l -> j -> i
-    manipulators.push(
+        // k+l -> j -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1199,49 +872,38 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(J, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // k+semicolon -> e
-    manipulators.push(
+        // k+semicolon -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![K, Semicolon])
             .to_key(E, None)
             .build(),
-    );
-
-    // // d+semicolon -> e
-    // manipulators.push(
-    //     Manipulator::builder()
-    //         .condition(Condition::with_shingeta_mode())
-    //         .condition(Condition::with_japanese_input())
-    //         .from_simultaneous_keys(vec![D, Semicolon])
-    //         .to_key(E, None)
-    //         .build(),
-    // );
-    // d+colon -> e
-    manipulators.push(
+        // // d+semicolon -> e
+        //     Manipulator::builder()
+        //         .condition(Condition::with_shingeta_mode())
+        //         .condition(Condition::with_japanese_input())
+        //         .from_simultaneous_keys(vec![D, Semicolon])
+        //         .to_key(E, None)
+        //         .build(),
+        // );
+        // d+colon -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![D, Quote])
             .to_key(E, None)
             .build(),
-    );
-
-    // // s+semicolon -> s -> o
-    // manipulators.push(
-    //     Manipulator::builder()
-    //         .condition(Condition::with_shingeta_mode())
-    //         .condition(Condition::with_japanese_input())
-    //         .from_simultaneous_keys(vec![S, Semicolon])
-    //         .to_key(S, None)
-    //         .to_key(O, None)
-    //         .build(),
-    // );
-    // s+colon -> s -> o
-    manipulators.push(
+        // // s+semicolon -> s -> o
+        //     Manipulator::builder()
+        //         .condition(Condition::with_shingeta_mode())
+        //         .condition(Condition::with_japanese_input())
+        //         .from_simultaneous_keys(vec![S, Semicolon])
+        //         .to_key(S, None)
+        //         .to_key(O, None)
+        //         .build(),
+        // );
+        // s+colon -> s -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1249,10 +911,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(S, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // l+semicolon -> s -> o
-    manipulators.push(
+        // l+semicolon -> s -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1260,10 +919,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(S, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // k+z -> d -> u
-    manipulators.push(
+        // k+z -> d -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1271,10 +927,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(D, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // d+z -> d -> u
-    manipulators.push(
+        // d+z -> d -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1282,10 +935,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(D, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // s+z -> z -> e
-    manipulators.push(
+        // s+z -> z -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1293,10 +943,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Z, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // l+z -> z -> e
-    manipulators.push(
+        // l+z -> z -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1304,10 +951,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Z, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // k+x -> z -> o
-    manipulators.push(
+        // k+x -> z -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1315,10 +959,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Z, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // d+x -> z -> o
-    manipulators.push(
+        // d+x -> z -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1326,10 +967,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Z, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // s+x -> z -> a
-    manipulators.push(
+        // s+x -> z -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1337,10 +975,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Z, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // l+x -> z -> a
-    manipulators.push(
+        // l+x -> z -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1348,10 +983,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Z, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // k+c -> b -> o
-    manipulators.push(
+        // k+c -> b -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1359,10 +991,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(B, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // d+c -> b -> o
-    manipulators.push(
+        // d+c -> b -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1370,10 +999,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(B, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // s+c -> g -> i
-    manipulators.push(
+        // s+c -> g -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1381,10 +1007,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(G, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // l+c -> g -> i
-    manipulators.push(
+        // l+c -> g -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1392,10 +1015,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(G, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // k+v -> m -> u
-    manipulators.push(
+        // k+v -> m -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1403,10 +1023,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(M, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // d+v -> m -> u
-    manipulators.push(
+        // d+v -> m -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1414,10 +1031,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(M, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // s+v -> r -> o
-    manipulators.push(
+        // s+v -> r -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1425,10 +1039,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(R, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // l+v -> r -> o
-    manipulators.push(
+        // l+v -> r -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1436,10 +1047,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(R, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // k+b -> f -> o
-    manipulators.push(
+        // k+b -> f -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1447,10 +1055,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(F, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // d+b -> f -> o
-    manipulators.push(
+        // d+b -> f -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1458,10 +1063,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(F, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // s+b -> n -> u
-    manipulators.push(
+        // s+b -> n -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1469,10 +1071,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(N, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // l+b -> n -> u
-    manipulators.push(
+        // l+b -> n -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1480,10 +1079,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(N, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // k+n -> s -> e
-    manipulators.push(
+        // k+n -> s -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1491,10 +1087,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(S, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // d+n -> s -> e
-    manipulators.push(
+        // d+n -> s -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1502,10 +1095,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(S, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // s+n -> w -> a
-    manipulators.push(
+        // s+n -> w -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1513,10 +1103,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(W, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // l+n -> w -> a
-    manipulators.push(
+        // l+n -> w -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1524,10 +1111,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(W, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // k+m -> n -> e
-    manipulators.push(
+        // k+m -> n -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1535,10 +1119,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(N, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // d+m -> n -> e
-    manipulators.push(
+        // d+m -> n -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1546,10 +1127,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(N, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // s+m -> d -> a
-    manipulators.push(
+        // s+m -> d -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1557,10 +1135,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(D, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // l+m -> d -> a
-    manipulators.push(
+        // l+m -> d -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1568,10 +1143,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(D, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // k+comma -> b -> e
-    manipulators.push(
+        // k+comma -> b -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1579,10 +1151,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(B, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // d+comma -> b -> e
-    manipulators.push(
+        // d+comma -> b -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1590,10 +1159,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(B, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // s+comma -> p -> i
-    manipulators.push(
+        // s+comma -> p -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1601,10 +1167,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(P, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // l+comma -> p -> i
-    manipulators.push(
+        // l+comma -> p -> i
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1612,10 +1175,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(P, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // k+period -> p -> u
-    manipulators.push(
+        // k+period -> p -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1623,10 +1183,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(P, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // d+period -> p -> u
-    manipulators.push(
+        // d+period -> p -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1634,10 +1191,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(P, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // s+period -> p -> o
-    manipulators.push(
+        // s+period -> p -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1645,10 +1199,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(P, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // l+period -> p -> o
-    manipulators.push(
+        // l+period -> p -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1656,10 +1207,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(P, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // k+slash -> v -> u
-    manipulators.push(
+        // k+slash -> v -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1667,10 +1215,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(V, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // d+slash -> v -> u
-    manipulators.push(
+        // d+slash -> v -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1678,10 +1223,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(V, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // s+slash -> c -> h -> e
-    manipulators.push(
+        // s+slash -> c -> h -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1690,10 +1232,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(H, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // l+slash -> c -> h -> e
-    manipulators.push(
+        // l+slash -> c -> h -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1702,10 +1241,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(H, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // i+1 -> l -> y -> u
-    manipulators.push(
+        // i+1 -> l -> y -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1714,10 +1250,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // i+2 -> b -> y -> a
-    manipulators.push(
+        // i+2 -> b -> y -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1726,10 +1259,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // i+3 -> b -> y -> u
-    manipulators.push(
+        // i+3 -> b -> y -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1738,10 +1268,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // i+4 -> b -> y -> o
-    manipulators.push(
+        // i+4 -> b -> y -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1750,10 +1277,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // i+q -> h -> y -> u
-    manipulators.push(
+        // i+q -> h -> y -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1762,10 +1286,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // i+w -> s -> h -> u
-    manipulators.push(
+        // i+w -> s -> h -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1774,10 +1295,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(H, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // i+e -> s -> h -> o
-    manipulators.push(
+        // i+e -> s -> h -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1786,10 +1304,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(H, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // i+r -> k -> y -> u
-    manipulators.push(
+        // i+r -> k -> y -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1798,10 +1313,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // i+t -> c -> h -> u
-    manipulators.push(
+        // i+t -> c -> h -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1810,10 +1322,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(H, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // i+a -> h -> y -> o
-    manipulators.push(
+        // i+a -> h -> y -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1822,10 +1331,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // i+f -> k -> y -> o
-    manipulators.push(
+        // i+f -> k -> y -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1834,10 +1340,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // i+g -> c -> h -> o
-    manipulators.push(
+        // i+g -> c -> h -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1846,10 +1349,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(H, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // i+z -> h -> y -> a
-    manipulators.push(
+        // i+z -> h -> y -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1858,10 +1358,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // i+c -> s -> h -> a
-    manipulators.push(
+        // i+c -> s -> h -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1870,10 +1367,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(H, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // i+v -> k -> y -> a
-    manipulators.push(
+        // i+v -> k -> y -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1882,10 +1376,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // i+b -> c -> h -> a
-    manipulators.push(
+        // i+b -> c -> h -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1894,10 +1385,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(H, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // o+1 -> l -> y -> o
-    manipulators.push(
+        // o+1 -> l -> y -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1906,10 +1394,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // o+2 -> p -> y -> a
-    manipulators.push(
+        // o+2 -> p -> y -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1918,10 +1403,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // o+3 -> p -> y -> u
-    manipulators.push(
+        // o+3 -> p -> y -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1930,10 +1412,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // o+4 -> p -> y -> o
-    manipulators.push(
+        // o+4 -> p -> y -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1942,10 +1421,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // o+q -> r -> y -> u
-    manipulators.push(
+        // o+q -> r -> y -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1954,10 +1430,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // o+w -> j -> u
-    manipulators.push(
+        // o+w -> j -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1965,10 +1438,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(J, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // o+e -> j -> o
-    manipulators.push(
+        // o+e -> j -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1976,10 +1446,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(J, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // o+r -> g -> y -> u
-    manipulators.push(
+        // o+r -> g -> y -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -1988,10 +1455,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // o+t -> n -> y -> u
-    manipulators.push(
+        // o+t -> n -> y -> u
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2000,10 +1464,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // o+a -> r -> y -> o
-    manipulators.push(
+        // o+a -> r -> y -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2012,10 +1473,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // o+f -> g -> y -> o
-    manipulators.push(
+        // o+f -> g -> y -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2024,10 +1482,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // o+g -> n -> y -> o
-    manipulators.push(
+        // o+g -> n -> y -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2036,10 +1491,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // o+z -> r -> y -> a
-    manipulators.push(
+        // o+z -> r -> y -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2048,10 +1500,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // o+c -> j -> a
-    manipulators.push(
+        // o+c -> j -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2059,10 +1508,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(J, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // o+v -> g -> y -> a
-    manipulators.push(
+        // o+v -> g -> y -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2071,10 +1517,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // o+b -> n -> y -> a
-    manipulators.push(
+        // o+b -> n -> y -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2083,50 +1526,35 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // r+g -> slash
-    manipulators.push(
+        // r+g -> slash
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![R, G])
             .to_key(Slash, None)
             .build(),
-    );
-
-    // r+f -> slash
-    manipulators.push(
+        // r+f -> slash
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![R, F])
             .to_key(Slash, None)
             .build(),
-    );
-
-    // f+v -> shift+1
-    manipulators.push(
+        // f+v -> shift+1
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![F, V])
             .to_key(Key1, Some(vec![Shift]))
             .build(),
-    );
-
-    // f+b -> shift+1
-    manipulators.push(
+        // f+b -> shift+1
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![F, B])
             .to_key(Key1, Some(vec![Shift]))
             .build(),
-    );
-
-    // f+g -> close_bracket -> backslash
-    manipulators.push(
+        // f+g -> close_bracket -> backslash
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2134,30 +1562,21 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(CloseBracket, None)
             .to_key(Backslash, None)
             .build(),
-    );
-
-    // u+h -> international3
-    manipulators.push(
+        // u+h -> international3
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![U, H])
             .to_key(International3, None)
             .build(),
-    );
-
-    // j+n -> shift+slash
-    manipulators.push(
+        // j+n -> shift+slash
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_simultaneous_keys(vec![J, N])
             .to_key(Slash, Some(vec![Shift]))
             .build(),
-    );
-
-    // h+j -> shift+8 -> shift+9
-    manipulators.push(
+        // h+j -> shift+8 -> shift+9
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2165,27 +1584,21 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Key8, Some(vec![Shift]))
             .to_key(Key9, Some(vec![Shift]))
             .build(),
-    );
+        // ============================================================================
+        // SHINGETA LAYOUT MAPPINGS - SINGLE KEY MAPPINGS
+        // ============================================================================
 
-    // ============================================================================
-    // SHINGETA LAYOUT MAPPINGS - SINGLE KEY MAPPINGS
-    // ============================================================================
-
-    // ============================================================================
-    // SHINGETA LAYOUT MAPPINGS - SINGLE KEY MAPPINGS
-    // ============================================================================
-    // Q -> "-" (hyphen)
-    manipulators.push(
+        // ============================================================================
+        // SHINGETA LAYOUT MAPPINGS - SINGLE KEY MAPPINGS
+        // ============================================================================
+        // Q -> "-" (hyphen)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_key(Q)
             .to_key(Hyphen, None)
             .build(),
-    );
-
-    // W -> "ni" (n + i)
-    manipulators.push(
+        // W -> "ni" (n + i)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2193,10 +1606,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(N, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // E -> "ha" (h + a)
-    manipulators.push(
+        // E -> "ha" (h + a)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2204,20 +1614,14 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(H, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // R -> "," (comma)
-    manipulators.push(
+        // R -> "," (comma)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_key(R)
             .to_key(Comma, None)
             .build(),
-    );
-
-    // T -> "chi" (c + h + i)
-    manipulators.push(
+        // T -> "chi" (c + h + i)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2226,10 +1630,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(H, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // Y -> "gu" (g + u)
-    manipulators.push(
+        // Y -> "gu" (g + u)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2237,10 +1638,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(G, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // U -> "ba" (b + a)
-    manipulators.push(
+        // U -> "ba" (b + a)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2248,10 +1646,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(B, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // I -> "ko" (k + o)
-    manipulators.push(
+        // I -> "ko" (k + o)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2259,10 +1654,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(K, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // O -> "ga" (g + a)
-    manipulators.push(
+        // O -> "ga" (g + a)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2270,10 +1662,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(G, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // P -> "hi" (h + i)
-    manipulators.push(
+        // P -> "hi" (h + i)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2281,10 +1670,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(H, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // [ -> "ge" (g + e)
-    manipulators.push(
+        // OpenBracket -> "ge" (g + e)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2292,10 +1678,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(G, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // A -> "no" (n + o)
-    manipulators.push(
+        // A -> "no" (n + o)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2303,10 +1686,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(N, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // S -> "to" (t + o)
-    manipulators.push(
+        // S -> "to" (t + o)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2314,10 +1694,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(T, None)
             .to_key(O, None)
             .build(),
-    );
-
-    // D -> "ka" (k + a)
-    manipulators.push(
+        // D -> "ka" (k + a)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2325,10 +1702,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(K, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // F -> "nn" (n + n)
-    manipulators.push(
+        // F -> "nn" (n + n)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2336,10 +1710,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(N, None)
             .to_key(N, None)
             .build(),
-    );
-
-    // G -> "ltu" (small tsu: l + t + u)
-    manipulators.push(
+        // G -> "ltu" (small tsu: l + t + u)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2348,10 +1719,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(T, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // H -> "ku" (k + u)
-    manipulators.push(
+        // H -> "ku" (k + u)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2359,30 +1727,21 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(K, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // J -> "u"
-    manipulators.push(
+        // J -> "u"
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_key(J)
             .to_key(U, None)
             .build(),
-    );
-
-    // K -> "i"
-    manipulators.push(
+        // K -> "i"
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_key(K)
             .to_key(I, None)
             .build(),
-    );
-
-    // L -> "si" (s + i)
-    manipulators.push(
+        // L -> "si" (s + i)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2390,41 +1749,33 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(S, None)
             .to_key(I, None)
             .build(),
-    );
+        // // ; -> "na" (n + a)
+        //     Manipulator::builder()
+        //         .condition(Condition::with_shingeta_mode())
+        //         .condition(Condition::with_japanese_input())
+        //         .from_key(Semicolon)
+        //         .to_key(N, None)
+        //         .to_key(A, None)
+        //         .build(),
+        // );
 
-    // // ; -> "na" (n + a)
-    // manipulators.push(
-    //     Manipulator::builder()
-    //         .condition(Condition::with_shingeta_mode())
-    //         .condition(Condition::with_japanese_input())
-    //         .from_key(Semicolon)
-    //         .to_key(N, None)
-    //         .to_key(A, None)
-    //         .build(),
-    // );
+        // // ' -> backspace
+        //     Manipulator::builder()
+        //         .condition(Condition::with_shingeta_mode())
+        //         .condition(Condition::with_japanese_input())
+        //         .from_key(Quote)
+        //         .to_key(DeleteOrBackspace, None)
+        //         .build(),
+        // );
 
-    // // ' -> backspace
-    // manipulators.push(
-    //     Manipulator::builder()
-    //         .condition(Condition::with_shingeta_mode())
-    //         .condition(Condition::with_japanese_input())
-    //         .from_key(Quote)
-    //         .to_key(DeleteOrBackspace, None)
-    //         .build(),
-    // );
-
-    // Cmd+: -> :
-    manipulators.push(
+        // Cmd+: -> :
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_key_with_modifiers(Quote, FromModifier::Mandatory(vec![Cmd]))
             .to_key(Quote, None)
             .build(),
-    );
-
-    // ' -> "na" (n + a)
-    manipulators.push(
+        // ' -> "na" (n + a)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2432,10 +1783,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(N, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // Z -> "su" (s + u)
-    manipulators.push(
+        // Z -> "su" (s + u)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2443,10 +1791,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(S, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // X -> "ma" (m + a)
-    manipulators.push(
+        // X -> "ma" (m + a)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2454,10 +1799,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(M, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // C -> "ki" (k + i)
-    manipulators.push(
+        // C -> "ki" (k + i)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2465,10 +1807,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(K, None)
             .to_key(I, None)
             .build(),
-    );
-
-    // V -> "ru" (r + u)
-    manipulators.push(
+        // V -> "ru" (r + u)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2476,10 +1815,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(R, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // B -> "tsu" (t + s + u)
-    manipulators.push(
+        // B -> "tsu" (t + s + u)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2488,10 +1824,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(S, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // N -> "te" (t + e)
-    manipulators.push(
+        // N -> "te" (t + e)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2499,10 +1832,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(T, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // M -> "ta" (t + a)
-    manipulators.push(
+        // M -> "ta" (t + a)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2510,10 +1840,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(T, None)
             .to_key(A, None)
             .build(),
-    );
-
-    // , -> "de" (d + e)
-    manipulators.push(
+        // , -> "de" (d + e)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2521,20 +1848,14 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(D, None)
             .to_key(E, None)
             .build(),
-    );
-
-    // . -> "."
-    manipulators.push(
+        // . -> "."
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_key(Period)
             .to_key(Period, None)
             .build(),
-    );
-
-    // / -> "bu" (b + u)
-    manipulators.push(
+        // / -> "bu" (b + u)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
@@ -2542,17 +1863,14 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(B, None)
             .to_key(U, None)
             .build(),
-    );
-
-    // International1 (無変換) -> International3 + Option (katakana input mode)
-    manipulators.push(
+        // International1 (無変換) -> International3 + Option (katakana input mode)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .condition(Condition::with_japanese_input())
             .from_key(International1)
             .to_key(International3, Some(vec![Opt]))
             .build(),
-    );
+    ];
 
     for (from, to) in [
         (LeftArrow, H),
@@ -2573,10 +1891,5 @@ pub fn manipulators() -> Vec<Manipulator> {
         );
     }
 
-    // ============================================================================
-    // SHINGETA LAYOUT MAPPINGS - SIMULTANEOUS KEY COMBINATIONS (193 combinations)
-    // ============================================================================
-
-    // k+1 -> l -> a
     manipulators
 }
