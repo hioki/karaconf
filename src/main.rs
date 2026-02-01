@@ -3,7 +3,7 @@ pub mod rule_sets;
 
 use std::{io::Seek as _, path::Path};
 
-const SIMULTANEOUS_THRESHOLD_MILLISECONDS: u64 = 58;
+const SIMULTANEOUS_THRESHOLD_MILLISECONDS: u64 = 59;
 
 const TITLE: &str = "Personal rules";
 
