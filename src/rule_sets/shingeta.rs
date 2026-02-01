@@ -2554,6 +2554,25 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
+    for (from, to) in [
+        (LeftArrow, H),
+        (DownArrow, J),
+        (UpArrow, K),
+        (RightArrow, L),
+    ]
+    .into_iter()
+    {
+        manipulators.push(
+            Manipulator::builder()
+                .condition(Condition::with_shingeta_mode())
+                .condition(Condition::with_japanese_input())
+                .from_key(from)
+                .to_key(Z, None)
+                .to_key(to, None)
+                .build(),
+        );
+    }
+
     // ============================================================================
     // SHINGETA LAYOUT MAPPINGS - SIMULTANEOUS KEY COMBINATIONS (193 combinations)
     // ============================================================================

@@ -13481,6 +13481,122 @@
               ]
             }
           ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "shingeta_mode",
+              "value": 1
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "left_arrow"
+          },
+          "to": [
+            {
+              "key_code": "z"
+            },
+            {
+              "key_code": "h"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "shingeta_mode",
+              "value": 1
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "down_arrow"
+          },
+          "to": [
+            {
+              "key_code": "z"
+            },
+            {
+              "key_code": "j"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "shingeta_mode",
+              "value": 1
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "up_arrow"
+          },
+          "to": [
+            {
+              "key_code": "z"
+            },
+            {
+              "key_code": "k"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "shingeta_mode",
+              "value": 1
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "right_arrow"
+          },
+          "to": [
+            {
+              "key_code": "z"
+            },
+            {
+              "key_code": "l"
+            }
+          ]
         }
       ]
     }
