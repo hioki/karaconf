@@ -199,11 +199,11 @@ pub fn manipulators() -> Vec<Manipulator> {
     for (key_code, shell_command) in [
         (
             Key1,
-            r#"osascript -e 'set currentVolume to input volume of (get volume settings)' -e 'set nextVolume to currentVolume - 10' -e 'if nextVolume < 0 then set nextVolume to 0' -e 'set volume input volume nextVolume'"#,
+            r#"osascript -e 'set currentVolume to input volume of (get volume settings)' -e 'set nextVolume to currentVolume - 10' -e 'if nextVolume < 0 then set nextVolume to 0' -e 'set volume input volume nextVolume'; open -g 'xbar://app.xbarapp.com/refreshPlugin?path=mic-slider.2s.sh'"#,
         ),
         (
             Key2,
-            r#"osascript -e 'set currentVolume to input volume of (get volume settings)' -e 'set nextVolume to currentVolume + 10' -e 'if nextVolume > 100 then set nextVolume to 100' -e 'set volume input volume nextVolume'"#,
+            r#"osascript -e 'set currentVolume to input volume of (get volume settings)' -e 'set nextVolume to currentVolume + 10' -e 'if nextVolume > 100 then set nextVolume to 100' -e 'set volume input volume nextVolume'; open -g 'xbar://app.xbarapp.com/refreshPlugin?path=mic-slider.2s.sh'"#,
         ),
     ] {
         manipulators.push(
