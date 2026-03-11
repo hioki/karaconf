@@ -4224,6 +4224,52 @@
             }
           ],
           "from": {
+            "key_code": "1",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'set currentVolume to input volume of (get volume settings)' -e 'set nextVolume to currentVolume - 10' -e 'if nextVolume < 0 then set nextVolume to 0' -e 'set volume input volume nextVolume'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'set currentVolume to input volume of (get volume settings)' -e 'set nextVolume to currentVolume + 10' -e 'if nextVolume > 100 then set nextVolume to 100' -e 'set volume input volume nextVolume'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
             "key_code": "h",
             "modifiers": {
               "mandatory": [

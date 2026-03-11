@@ -196,6 +196,24 @@ pub fn manipulators() -> Vec<Manipulator> {
                 .build(),
         );
     }
+    for (key_code, shell_command) in [
+        (
+            Key1,
+            r#"osascript -e 'set currentVolume to input volume of (get volume settings)' -e 'set nextVolume to currentVolume - 10' -e 'if nextVolume < 0 then set nextVolume to 0' -e 'set volume input volume nextVolume'"#,
+        ),
+        (
+            Key2,
+            r#"osascript -e 'set currentVolume to input volume of (get volume settings)' -e 'set nextVolume to currentVolume + 10' -e 'if nextVolume > 100 then set nextVolume to 100' -e 'set volume input volume nextVolume'"#,
+        ),
+    ] {
+        manipulators.push(
+            Manipulator::builder()
+                .condition(Condition::with_vk2())
+                .from_key_with_modifiers(key_code, FromModifier::Mandatory(vec![Ctrl]))
+                .to_command(shell_command)
+                .build(),
+        );
+    }
 
     // for Magnet.app
     for (from, to) in [
