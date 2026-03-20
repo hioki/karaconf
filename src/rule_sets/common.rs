@@ -21,7 +21,6 @@ pub fn manipulators() -> Vec<Manipulator> {
         (J, DownArrow, None),
         (K, UpArrow, None),
         (L, RightArrow, None),
-        (F, Escape, None),
         (U, LeftArrow, Some(vec![Cmd])),  // go to line head
         (I, RightArrow, Some(vec![Cmd])), // go to line tail
         (G, Tab, None),
@@ -50,6 +49,15 @@ pub fn manipulators() -> Vec<Manipulator> {
                 .build(),
         );
     }
+    // F with any modifier -> Escape + 英数 (to easily switch to English input)
+    manipulators.push(
+        Manipulator::builder()
+            .condition(Condition::with_vk1())
+            .from_key_with_modifiers(F, FromModifier::Optional(vec![Any]))
+            .to_key(Escape, None)
+            .to_key(JapaneseEisuu, None)
+            .build(),
+    );
 
     for (from, to, modifiers) in [
         (S, JapaneseKana, None),

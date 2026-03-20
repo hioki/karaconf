@@ -2951,29 +2951,6 @@
             }
           ],
           "from": {
-            "key_code": "f",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "escape"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vk1",
-              "value": 1
-            }
-          ],
-          "from": {
             "key_code": "u",
             "modifiers": {
               "optional": [
@@ -3338,6 +3315,32 @@
           "to": [
             {
               "key_code": "f12"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk1",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "japanese_eisuu"
             }
           ]
         },
