@@ -1,9 +1,10 @@
 use crate::karabiner_data::{
-    BundleIdentifier, Condition, KeyCode::*, Manipulator, ModifierKey::*, VirtualKey,
+    BundleIdentifier, Condition, FromModifier, KeyCode::*, Manipulator, ModifierKey::*, VirtualKey,
 };
 use std::collections::BTreeMap;
 
 pub fn manipulators() -> Vec<Manipulator> {
+    let mut manipulators = Vec::new();
     let m = BTreeMap::from([
         (
             VirtualKey::Vk2,
@@ -27,18 +28,36 @@ pub fn manipulators() -> Vec<Manipulator> {
             ],
         ),
     ]);
-    m.iter()
-        .flat_map(|(vk, mappings)| {
-            mappings.iter().map(move |(from, to, modifiers)| {
-                Manipulator::builder()
-                    .from_key(from.clone())
-                    .to_key(to.clone(), Some(modifiers.clone()))
-                    .conditions(vec![
-                        Condition::on_app(BundleIdentifier::Notion),
-                        Condition::with_virtual_key(vk.clone()),
-                    ])
-                    .build()
-            })
-        })
-        .collect()
+    for (vk, mappings) in &m {
+        for (from, to, modifiers) in mappings {
+            let manipulator = Manipulator::builder()
+                .from_key(from.clone())
+                .to_key(to.clone(), Some(modifiers.clone()))
+                .conditions(vec![
+                    Condition::on_app(BundleIdentifier::Notion),
+                    Condition::with_virtual_key(vk.clone()),
+                ])
+                .build();
+            manipulators.push(manipulator);
+        }
+    }
+
+    // VK1 with X -> ```{paste}```
+    manipulators.push(
+        Manipulator::builder()
+            .conditions(vec![
+                Condition::on_app(BundleIdentifier::Notion),
+                Condition::with_vk1(),
+            ])
+            .from_key_with_modifiers(X, FromModifier::Optional(vec![Any]))
+            .to_key(OpenBracket, Some(vec![Shift]))
+            .to_key(OpenBracket, Some(vec![Shift]))
+            .to_key(OpenBracket, Some(vec![Shift]))
+            .to_key(V, Some(vec![Cmd]))
+            .to_key(ReturnOrEnter, Some(vec![Shift]))
+            .to_key(ReturnOrEnter, None)
+            .build(),
+    );
+
+    manipulators
 }

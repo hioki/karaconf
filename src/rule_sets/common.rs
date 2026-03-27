@@ -59,6 +59,25 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
+    // VK1 with X -> ```{paste}```
+    manipulators.push(
+        Manipulator::builder()
+            .condition(Condition::with_vk1())
+            .from_key_with_modifiers(X, FromModifier::Optional(vec![Any]))
+            .to_key(OpenBracket, Some(vec![Shift]))
+            .to_key(OpenBracket, Some(vec![Shift]))
+            .to_key(OpenBracket, Some(vec![Shift]))
+            .to_key(ReturnOrEnter, None)
+            .to_key(V, Some(vec![Cmd]))
+            .to_key(ReturnOrEnter, None)
+            .to_key(OpenBracket, Some(vec![Shift]))
+            .to_key(OpenBracket, Some(vec![Shift]))
+            .to_key(OpenBracket, Some(vec![Shift]))
+            .to_key(ReturnOrEnter, None)
+            .to_key(ReturnOrEnter, None)
+            .build(),
+    );
+
     for (from, to, modifiers) in [
         (S, JapaneseKana, None),
         (D, JapaneseEisuu, None),
