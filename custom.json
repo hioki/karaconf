@@ -4246,6 +4246,30 @@
             }
           ],
           "from": {
+            "key_code": "h"
+          },
+          "to": [
+            {
+              "key_code": "n",
+              "modifiers": [
+                "control",
+                "shift",
+                "command",
+                "option"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
             "key_code": "9"
           },
           "to": [
