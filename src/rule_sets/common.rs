@@ -209,6 +209,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         (S, Tab, Some(vec![Ctrl])),                // move to next tab
         (A, Tab, Some(vec![Ctrl, Shift])),         // move to previous tab
         (H, N, Some(vec![Ctrl, Shift, Cmd, Opt])), // Open notification center
+        (Z, Key4, Some(vec![Shift, Cmd])),         // Screenshot (selection)
         (Key9, KeypadPlus, Some(vec![Cmd])),       // zoom in
         (Key0, Hyphen, Some(vec![Cmd])),           // zoom out
         (Key1, VolumeDecrement, None),
@@ -300,7 +301,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             r#"osascript -e "tell application \"Alfred 5\" to search \"snip codeblocks\"""#,
         ),
         (Y, "open -a 'Slack.app'"),
-        (Z, "open -a 'LICEcap.app'"),
+        (Z, "Cmd+Shift+4 - screenshot selection"),
         // (ReturnOrEnter, None),
         // (Quote, None), // :
         // (NonUsPound, None), // ]

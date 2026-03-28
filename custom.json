@@ -4270,6 +4270,28 @@
             }
           ],
           "from": {
+            "key_code": "z"
+          },
+          "to": [
+            {
+              "key_code": "4",
+              "modifiers": [
+                "shift",
+                "command"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
             "key_code": "9"
           },
           "to": [
@@ -5030,7 +5052,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'LICEcap.app'"
+              "shell_command": "Cmd+Shift+4 - screenshot selection"
             }
           ]
         },
