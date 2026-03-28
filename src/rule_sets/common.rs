@@ -281,7 +281,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         // (F, "Command+Tab"),
         (G, "open -a 'Visual Studio Code.app'"),
         // (H, "Open notification center"),
-        (I, "open -a 'CLion.app'"),
+        // (I, None),
         (J, "open -a \"Google Chrome\""),
         (K, "open -a 'iTerm.app'"),
         (L, "open -a 'Alfred 5.app'"),
@@ -296,12 +296,9 @@ pub fn manipulators() -> Vec<Manipulator> {
         (U, "open -a 'Microsoft To Do.app'"),
         (V, "open -a 'DeepL.app'"),
         (W, "open -a 'ChatGPT.app'"),
-        (
-            X,
-            r#"osascript -e "tell application \"Alfred 5\" to search \"snip codeblocks\"""#,
-        ),
+        // (X, None),
         (Y, "open -a 'Slack.app'"),
-        (Z, "Cmd+Shift+4 - screenshot selection"),
+        // (Z, "Cmd+Shift+4 - screenshot selection"),
         // (ReturnOrEnter, None),
         (Quote, "open -a 'Figma.app'"),
         // (NonUsPound, None), // ]
