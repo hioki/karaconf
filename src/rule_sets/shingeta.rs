@@ -1358,6 +1358,16 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(Y, None)
             .to_key(A, None)
             .build(),
+        // i+x -> v -> u -> l -> a
+        Manipulator::builder()
+            .condition(Condition::with_shingeta_mode())
+            .condition(Condition::with_japanese_input())
+            .from_simultaneous_keys(vec![I, X])
+            .to_key(V, None)
+            .to_key(U, None)
+            .to_key(L, None)
+            .to_key(A, None)
+            .build(),
         // i+c -> s -> h -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
@@ -1499,6 +1509,15 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(R, None)
             .to_key(Y, None)
             .to_key(A, None)
+            .build(),
+        // o+x -> d -> h -> u
+        Manipulator::builder()
+            .condition(Condition::with_shingeta_mode())
+            .condition(Condition::with_japanese_input())
+            .from_simultaneous_keys(vec![O, X])
+            .to_key(D, None)
+            .to_key(H, None)
+            .to_key(U, None)
             .build(),
         // o+c -> j -> a
         Manipulator::builder()
