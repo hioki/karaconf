@@ -295,7 +295,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         (T, "open -a 'Visual Studio Code.app'"),
         (U, "open -a 'Microsoft To Do.app'"),
         (V, "open -a 'DeepL.app'"),
-        (W, "open -a 'ChatGPT.app'"),
+        (W, "open -a 'Codex.app'"),
         // (X, None),
         (Y, "open -a 'Slack.app'"),
         // (Z, "Cmd+Shift+4 - screenshot selection"),
