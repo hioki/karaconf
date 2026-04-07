@@ -204,14 +204,14 @@ pub fn manipulators() -> Vec<Manipulator> {
     // Virtual Key 2
     //
     for (from, to, to_modifiers) in [
-        (F, Tab, Some(vec![Cmd])),                 // move to next app
-        (D, Tab, Some(vec![Cmd, Shift])),          // move to previous app
-        (S, Tab, Some(vec![Ctrl])),                // move to next tab
-        (A, Tab, Some(vec![Ctrl, Shift])),         // move to previous tab
-        (H, N, Some(vec![Ctrl, Shift, Cmd, Opt])), // Open notification center
-        (Z, Key4, Some(vec![Shift, Cmd])),         // Screenshot (selection)
-        (Key9, KeypadPlus, Some(vec![Cmd])),       // zoom in
-        (Key0, Hyphen, Some(vec![Cmd])),           // zoom out
+        (F, Tab, Some(vec![Cmd])),            // move to next app
+        (D, Tab, Some(vec![Cmd, Shift])),     // move to previous app
+        (S, Tab, Some(vec![Ctrl])),           // move to next tab
+        (A, Tab, Some(vec![Ctrl, Shift])),    // move to previous tab
+        (H, N, Some(vec![Ctrl, Shift, Cmd])), // Open notification center
+        (Z, Key4, Some(vec![Shift, Cmd])),    // Screenshot (selection)
+        (Key9, KeypadPlus, Some(vec![Cmd])),  // zoom in
+        (Key0, Hyphen, Some(vec![Cmd])),      // zoom out
         (Key1, VolumeDecrement, None),
         (Key2, VolumeIncrement, None),
         (Key3, DisplayBrightnessDecrement, None),
