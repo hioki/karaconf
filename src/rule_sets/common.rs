@@ -24,6 +24,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         (U, LeftArrow, Some(vec![Cmd])),  // go to line head
         (I, RightArrow, Some(vec![Cmd])), // go to line tail
         (G, Tab, None),
+        (X, V, Some(vec![Cmd, Shift])),     // paste without formatting
         (CloseBracket, Z, Some(vec![Cmd])), // undo
         //
         // F1-F12
@@ -56,25 +57,6 @@ pub fn manipulators() -> Vec<Manipulator> {
             .from_key_with_modifiers(F, FromModifier::Optional(vec![Any]))
             .to_key(Escape, None)
             .to_key(JapaneseEisuu, None)
-            .build(),
-    );
-
-    // VK1 with X -> ```{paste}```
-    manipulators.push(
-        Manipulator::builder()
-            .condition(Condition::with_vk1())
-            .from_key_with_modifiers(X, FromModifier::Optional(vec![Any]))
-            .to_key(OpenBracket, Some(vec![Shift]))
-            .to_key(OpenBracket, Some(vec![Shift]))
-            .to_key(OpenBracket, Some(vec![Shift]))
-            .to_key(ReturnOrEnter, None)
-            .to_key(V, Some(vec![Cmd]))
-            .to_key(ReturnOrEnter, None)
-            .to_key(OpenBracket, Some(vec![Shift]))
-            .to_key(OpenBracket, Some(vec![Shift]))
-            .to_key(OpenBracket, Some(vec![Shift]))
-            .to_key(ReturnOrEnter, None)
-            .to_key(ReturnOrEnter, None)
             .build(),
     );
 
