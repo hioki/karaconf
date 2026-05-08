@@ -33,6 +33,12 @@
           "to_if_alone": [
             {
               "key_code": "japanese_kana"
+            },
+            {
+              "set_variable": {
+                "name": "shingeta_mode",
+                "value": 1
+              }
             }
           ]
         },
@@ -65,6 +71,12 @@
           "to_if_alone": [
             {
               "key_code": "japanese_kana"
+            },
+            {
+              "set_variable": {
+                "name": "shingeta_mode",
+                "value": 1
+              }
             }
           ]
         },
@@ -97,6 +109,12 @@
           "to_if_alone": [
             {
               "key_code": "japanese_eisuu"
+            },
+            {
+              "set_variable": {
+                "name": "shingeta_mode",
+                "value": 0
+              }
             }
           ]
         },
@@ -129,6 +147,12 @@
           "to_if_alone": [
             {
               "key_code": "japanese_eisuu"
+            },
+            {
+              "set_variable": {
+                "name": "shingeta_mode",
+                "value": 0
+              }
             }
           ]
         },
@@ -3427,6 +3451,15 @@
             },
             {
               "key_code": "japanese_eisuu"
+            },
+            {
+              "set_variable": {
+                "name": "shingeta_mode",
+                "value": 0
+              }
+            },
+            {
+              "shell_command": "mkdir -p \"$HOME/.cache/karaconf\" && printf 'off' > \"$HOME/.cache/karaconf/shingeta_mode\""
             }
           ]
         },
@@ -3445,6 +3478,15 @@
           "to": [
             {
               "key_code": "japanese_kana"
+            },
+            {
+              "set_variable": {
+                "name": "shingeta_mode",
+                "value": 1
+              }
+            },
+            {
+              "shell_command": "mkdir -p \"$HOME/.cache/karaconf\" && printf 'on' > \"$HOME/.cache/karaconf/shingeta_mode\""
             }
           ]
         },
@@ -3463,6 +3505,15 @@
           "to": [
             {
               "key_code": "japanese_eisuu"
+            },
+            {
+              "set_variable": {
+                "name": "shingeta_mode",
+                "value": 0
+              }
+            },
+            {
+              "shell_command": "mkdir -p \"$HOME/.cache/karaconf\" && printf 'off' > \"$HOME/.cache/karaconf/shingeta_mode\""
             }
           ]
         },
@@ -5388,14 +5439,6 @@
               "value": 1
             },
             {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
-            },
-            {
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
@@ -5420,14 +5463,6 @@
               "type": "variable_if",
               "name": "vk3",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             },
             {
               "type": "variable_if",
@@ -5456,14 +5491,6 @@
               "value": 1
             },
             {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
-            },
-            {
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
@@ -5488,14 +5515,6 @@
               "type": "variable_if",
               "name": "vk3",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             },
             {
               "type": "variable_if",
@@ -5667,19 +5686,31 @@
         },
         {
           "type": "basic",
+          "from": {
+            "key_code": "japanese_kana"
+          },
+          "to": [
+            {
+              "key_code": "japanese_kana"
+            },
+            {
+              "set_variable": {
+                "name": "shingeta_mode",
+                "value": 1
+              }
+            },
+            {
+              "shell_command": "mkdir -p \"$HOME/.cache/karaconf\" && printf 'on' > \"$HOME/.cache/karaconf/shingeta_mode\""
+            }
+          ]
+        },
+        {
+          "type": "basic",
           "conditions": [
             {
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -5708,14 +5739,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -5744,14 +5767,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -5783,14 +5798,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -5822,14 +5829,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -5858,14 +5857,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -5894,14 +5885,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -5933,14 +5916,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -5972,14 +5947,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6008,14 +5975,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6044,14 +6003,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6083,14 +6034,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6122,14 +6065,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6158,14 +6093,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6194,14 +6121,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6233,14 +6152,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6272,14 +6183,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6308,14 +6211,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6344,14 +6239,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6383,14 +6270,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6422,14 +6301,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6458,14 +6329,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6494,14 +6357,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6530,14 +6385,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6566,14 +6413,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6599,14 +6438,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6632,14 +6463,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6668,14 +6491,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6704,14 +6519,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6737,14 +6544,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6770,14 +6569,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6806,14 +6597,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6842,14 +6625,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6875,14 +6650,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6908,14 +6675,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6941,14 +6700,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -6974,14 +6725,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7007,14 +6750,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7040,14 +6775,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7076,14 +6803,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7112,14 +6831,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7148,14 +6859,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7184,14 +6887,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7220,14 +6915,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7256,14 +6943,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7292,14 +6971,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7328,14 +6999,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7364,14 +7027,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7400,14 +7055,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7436,14 +7083,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7472,14 +7111,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7508,14 +7139,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7544,14 +7167,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7580,14 +7195,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7616,14 +7223,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7655,14 +7254,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7694,14 +7285,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7730,14 +7313,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7766,14 +7341,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7805,14 +7372,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7844,14 +7403,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7880,14 +7431,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7916,14 +7459,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7955,14 +7490,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -7994,14 +7521,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8030,14 +7549,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8066,14 +7577,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8102,14 +7605,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8138,14 +7633,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8174,14 +7661,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8210,14 +7689,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8246,14 +7717,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8282,14 +7745,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8318,14 +7773,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8354,14 +7801,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8390,14 +7829,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8426,14 +7857,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8462,14 +7885,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8498,14 +7913,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8534,14 +7941,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8570,14 +7969,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8609,14 +8000,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8648,14 +8031,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8684,14 +8059,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8720,14 +8087,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8756,14 +8115,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8792,14 +8143,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8828,14 +8171,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8864,14 +8199,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8900,14 +8227,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8936,14 +8255,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -8969,14 +8280,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9002,14 +8305,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9038,14 +8333,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9074,14 +8361,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9110,14 +8389,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9146,14 +8417,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9182,14 +8445,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9218,14 +8473,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9254,14 +8501,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9290,14 +8529,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9326,14 +8557,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9362,14 +8585,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9398,14 +8613,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9434,14 +8641,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9467,14 +8666,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9500,14 +8691,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9536,14 +8719,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9572,14 +8747,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9608,14 +8775,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9641,14 +8800,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9674,14 +8825,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9710,14 +8853,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9746,14 +8881,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9782,14 +8909,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9818,14 +8937,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9854,14 +8965,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9890,14 +8993,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9926,14 +9021,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9962,14 +9049,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -9998,14 +9077,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10034,14 +9105,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10070,14 +9133,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10106,14 +9161,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10142,14 +9189,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10178,14 +9217,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10214,14 +9245,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10250,14 +9273,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10286,14 +9301,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10322,14 +9329,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10358,14 +9357,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10394,14 +9385,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10430,14 +9413,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10466,14 +9441,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10502,14 +9469,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10538,14 +9497,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10574,14 +9525,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10610,14 +9553,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10646,14 +9581,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10682,14 +9609,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10718,14 +9637,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10754,14 +9665,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10790,14 +9693,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10826,14 +9721,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10862,14 +9749,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10898,14 +9777,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10934,14 +9805,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -10970,14 +9833,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11006,14 +9861,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11042,14 +9889,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11078,14 +9917,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11114,14 +9945,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11153,14 +9976,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11192,14 +10007,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11231,14 +10038,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11270,14 +10069,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11309,14 +10100,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11348,14 +10131,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11387,14 +10162,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11426,14 +10193,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11465,14 +10224,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11504,14 +10255,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11543,14 +10286,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11582,14 +10317,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11621,14 +10348,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11660,14 +10379,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11699,14 +10410,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11741,14 +10444,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11780,14 +10475,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11819,14 +10506,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11858,14 +10537,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11897,14 +10568,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11936,14 +10599,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -11975,14 +10630,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12014,14 +10661,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12053,14 +10692,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12089,14 +10720,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12125,14 +10748,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12164,14 +10779,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12203,14 +10810,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12242,14 +10841,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12281,14 +10872,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12320,14 +10903,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12359,14 +10934,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12398,14 +10965,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12434,14 +10993,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12473,14 +11024,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12512,14 +11055,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12545,14 +11080,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12578,14 +11105,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12614,14 +11133,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12650,14 +11161,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12686,14 +11189,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12719,14 +11214,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12755,14 +11242,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12797,14 +11276,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12823,14 +11294,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12852,14 +11315,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12881,14 +11336,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12907,14 +11354,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12939,14 +11378,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12968,14 +11399,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -12997,14 +11420,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13026,14 +11441,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13055,14 +11462,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13084,14 +11483,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13113,14 +11504,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13142,14 +11525,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13171,14 +11546,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13200,14 +11567,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13229,14 +11588,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13261,14 +11612,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13290,14 +11633,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13316,14 +11651,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13342,14 +11669,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13371,14 +11690,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13402,14 +11713,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13431,14 +11734,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13460,14 +11755,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13489,14 +11776,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13518,14 +11797,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13547,14 +11818,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13579,14 +11842,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13608,14 +11863,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13637,14 +11884,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13666,14 +11905,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13692,14 +11923,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13721,14 +11944,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13750,14 +11965,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13779,14 +11986,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13808,14 +12007,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {
@@ -13837,14 +12028,6 @@
               "type": "variable_if",
               "name": "shingeta_mode",
               "value": 1
-            },
-            {
-              "type": "input_source_if",
-              "input_sources": [
-                {
-                  "language": "ja"
-                }
-              ]
             }
           ],
           "from": {

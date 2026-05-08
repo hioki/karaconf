@@ -336,7 +336,14 @@ impl<S> ManipulatorInitBuilder<S> {
     pub fn to_if_alone(mut self, key_code: KeyCode) -> Self {
         self.to_if_alone
             .get_or_insert(vec![])
-            .push(ToIfAlone { key_code });
+            .push(ToIfAlone::Key { key_code });
+        self
+    }
+
+    pub fn to_if_alone_variable(mut self, set_variable: SetVariable) -> Self {
+        self.to_if_alone
+            .get_or_insert(vec![])
+            .push(ToIfAlone::Variable { set_variable });
         self
     }
 }
@@ -437,8 +444,10 @@ pub enum ManipulatorType {
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
-pub struct ToIfAlone {
-    pub key_code: KeyCode,
+#[serde(untagged)]
+pub enum ToIfAlone {
+    Key { key_code: KeyCode },
+    Variable { set_variable: SetVariable },
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]

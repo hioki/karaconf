@@ -57,12 +57,43 @@ pub fn manipulators() -> Vec<Manipulator> {
             .from_key_with_modifiers(F, FromModifier::Optional(vec![Any]))
             .to_key(Escape, None)
             .to_key(JapaneseEisuu, None)
+            .to_variable(SetVariable {
+                name: VirtualKey::ShingetaMode,
+                value: 0,
+            })
+            .to_command(SHINGETA_MODE_OFF_COMMAND)
+            .build(),
+    );
+
+    // VK1+S -> JapaneseKana (also enable shingeta mode)
+    manipulators.push(
+        Manipulator::builder()
+            .condition(Condition::with_vk1())
+            .from_key(S)
+            .to_key(JapaneseKana, None)
+            .to_variable(SetVariable {
+                name: VirtualKey::ShingetaMode,
+                value: 1,
+            })
+            .to_command(SHINGETA_MODE_ON_COMMAND)
+            .build(),
+    );
+
+    // VK1+D -> JapaneseEisuu (also disable shingeta mode)
+    manipulators.push(
+        Manipulator::builder()
+            .condition(Condition::with_vk1())
+            .from_key(D)
+            .to_key(JapaneseEisuu, None)
+            .to_variable(SetVariable {
+                name: VirtualKey::ShingetaMode,
+                value: 0,
+            })
+            .to_command(SHINGETA_MODE_OFF_COMMAND)
             .build(),
     );
 
     for (from, to, modifiers) in [
-        (S, JapaneseKana, None),
-        (D, JapaneseEisuu, None),
         (A, F10, None),                            // 英数に変換
         (Z, F7, None),                             // カタカナに変換
         (O, Tab, Some(vec![Ctrl, Shift])),         // move to previous tab
@@ -335,7 +366,6 @@ pub fn manipulators() -> Vec<Manipulator> {
         manipulators.push(
             Manipulator::builder()
                 .condition(Condition::with_vk3())
-                .condition(Condition::with_japanese_input())
                 .condition(Condition::with_shingeta_mode())
                 .from_key(from)
                 .to_key(Z, None)
@@ -409,6 +439,19 @@ pub fn manipulators() -> Vec<Manipulator> {
                 value: 0,
             })
             .to_command(SHINGETA_MODE_OFF_COMMAND)
+            .build(),
+    );
+
+    // JapaneseKana (かな): Enable shingeta mode when switching to Japanese input
+    manipulators.push(
+        Manipulator::builder()
+            .from_key(JapaneseKana)
+            .to_key(JapaneseKana, None)
+            .to_variable(SetVariable {
+                name: VirtualKey::ShingetaMode,
+                value: 1,
+            })
+            .to_command(SHINGETA_MODE_ON_COMMAND)
             .build(),
     );
 
