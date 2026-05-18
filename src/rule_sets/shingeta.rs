@@ -81,12 +81,6 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(W, None)
             .to_key(A, None)
             .build(),
-        // k+7 -> option+comma
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, Key7])
-            .to_key(Comma, Some(vec![Opt]))
-            .build(),
         // d+7 -> option+comma
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
@@ -98,18 +92,6 @@ pub fn manipulators() -> Vec<Manipulator> {
             .condition(Condition::with_shingeta_mode())
             .from_simultaneous_keys(vec![S, Key7])
             .to_key(Period, Some(vec![Opt]))
-            .build(),
-        // l+7 -> option+period
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![L, Key7])
-            .to_key(Period, Some(vec![Opt]))
-            .build(),
-        // k+8 -> close_bracket
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, Key8])
-            .to_key(CloseBracket, None)
             .build(),
         // d+8 -> close_bracket
         Manipulator::builder()
@@ -123,18 +105,6 @@ pub fn manipulators() -> Vec<Manipulator> {
             .from_simultaneous_keys(vec![S, Key8])
             .to_key(Key8, Some(vec![Shift]))
             .build(),
-        // l+8 -> shift+8
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![L, Key8])
-            .to_key(Key8, Some(vec![Shift]))
-            .build(),
-        // k+9 -> backslash
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, Key9])
-            .to_key(Backslash, None)
-            .build(),
         // d+9 -> backslash
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
@@ -146,18 +116,6 @@ pub fn manipulators() -> Vec<Manipulator> {
             .condition(Condition::with_shingeta_mode())
             .from_simultaneous_keys(vec![S, Key9])
             .to_key(Key9, Some(vec![Shift]))
-            .build(),
-        // l+9 -> shift+9
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![L, Key9])
-            .to_key(Key9, Some(vec![Shift]))
-            .build(),
-        // k+0 -> semicolon
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, Key0])
-            .to_key(Semicolon, None)
             .build(),
         // d+0 -> semicolon
         Manipulator::builder()
@@ -171,18 +129,6 @@ pub fn manipulators() -> Vec<Manipulator> {
             .from_simultaneous_keys(vec![S, Key0])
             .to_key(Quote, None)
             .build(),
-        // l+0 -> quote
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![L, Key0])
-            .to_key(Quote, None)
-            .build(),
-        // k+hyphen -> open_bracket
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, Hyphen])
-            .to_key(OpenBracket, None)
-            .build(),
         // d+hyphen -> open_bracket
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
@@ -193,12 +139,6 @@ pub fn manipulators() -> Vec<Manipulator> {
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
             .from_simultaneous_keys(vec![S, Hyphen])
-            .to_key(Quote, Some(vec![Shift]))
-            .build(),
-        // l+hyphen -> shift+quote
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![L, Hyphen])
             .to_key(Quote, Some(vec![Shift]))
             .build(),
         // k+q -> f -> a

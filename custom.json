@@ -5744,65 +5744,6 @@
           "from": {
             "simultaneous": [
               {
-                "key_code": "d"
-              },
-              {
-                "key_code": "1"
-              }
-            ]
-          },
-          "to": [
-            {
-              "key_code": "l"
-            },
-            {
-              "key_code": "a"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "shingeta_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "s"
-              },
-              {
-                "key_code": "1"
-              }
-            ]
-          },
-          "to": [
-            {
-              "key_code": "l"
-            },
-            {
-              "key_code": "y"
-            },
-            {
-              "key_code": "a"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "shingeta_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "simultaneous": [
-              {
                 "key_code": "l"
               },
               {
@@ -5862,65 +5803,6 @@
           "from": {
             "simultaneous": [
               {
-                "key_code": "d"
-              },
-              {
-                "key_code": "2"
-              }
-            ]
-          },
-          "to": [
-            {
-              "key_code": "l"
-            },
-            {
-              "key_code": "i"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "shingeta_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "s"
-              },
-              {
-                "key_code": "2"
-              }
-            ]
-          },
-          "to": [
-            {
-              "key_code": "m"
-            },
-            {
-              "key_code": "y"
-            },
-            {
-              "key_code": "a"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "shingeta_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "simultaneous": [
-              {
                 "key_code": "l"
               },
               {
@@ -5962,65 +5844,6 @@
           "to": [
             {
               "key_code": "l"
-            },
-            {
-              "key_code": "u"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "shingeta_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "d"
-              },
-              {
-                "key_code": "3"
-              }
-            ]
-          },
-          "to": [
-            {
-              "key_code": "l"
-            },
-            {
-              "key_code": "u"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "shingeta_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "s"
-              },
-              {
-                "key_code": "3"
-              }
-            ]
-          },
-          "to": [
-            {
-              "key_code": "m"
-            },
-            {
-              "key_code": "y"
             },
             {
               "key_code": "u"
@@ -6098,65 +5921,6 @@
           "from": {
             "simultaneous": [
               {
-                "key_code": "d"
-              },
-              {
-                "key_code": "4"
-              }
-            ]
-          },
-          "to": [
-            {
-              "key_code": "l"
-            },
-            {
-              "key_code": "e"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "shingeta_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "s"
-              },
-              {
-                "key_code": "4"
-              }
-            ]
-          },
-          "to": [
-            {
-              "key_code": "m"
-            },
-            {
-              "key_code": "y"
-            },
-            {
-              "key_code": "o"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "shingeta_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "simultaneous": [
-              {
                 "key_code": "l"
               },
               {
@@ -6216,65 +5980,6 @@
           "from": {
             "simultaneous": [
               {
-                "key_code": "d"
-              },
-              {
-                "key_code": "5"
-              }
-            ]
-          },
-          "to": [
-            {
-              "key_code": "l"
-            },
-            {
-              "key_code": "o"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "shingeta_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "s"
-              },
-              {
-                "key_code": "5"
-              }
-            ]
-          },
-          "to": [
-            {
-              "key_code": "l"
-            },
-            {
-              "key_code": "w"
-            },
-            {
-              "key_code": "a"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "shingeta_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "simultaneous": [
-              {
                 "key_code": "l"
               },
               {
@@ -6291,34 +5996,6 @@
             },
             {
               "key_code": "a"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "shingeta_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "k"
-              },
-              {
-                "key_code": "7"
-              }
-            ]
-          },
-          "to": [
-            {
-              "key_code": "comma",
-              "modifiers": [
-                "option"
-              ]
             }
           ]
         },
@@ -6390,59 +6067,6 @@
           "from": {
             "simultaneous": [
               {
-                "key_code": "l"
-              },
-              {
-                "key_code": "7"
-              }
-            ]
-          },
-          "to": [
-            {
-              "key_code": "period",
-              "modifiers": [
-                "option"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "shingeta_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "k"
-              },
-              {
-                "key_code": "8"
-              }
-            ]
-          },
-          "to": [
-            {
-              "key_code": "close_bracket"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "shingeta_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "simultaneous": [
-              {
                 "key_code": "d"
               },
               {
@@ -6481,59 +6105,6 @@
               "modifiers": [
                 "shift"
               ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "shingeta_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "l"
-              },
-              {
-                "key_code": "8"
-              }
-            ]
-          },
-          "to": [
-            {
-              "key_code": "8",
-              "modifiers": [
-                "shift"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "shingeta_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "k"
-              },
-              {
-                "key_code": "9"
-              }
-            ]
-          },
-          "to": [
-            {
-              "key_code": "backslash"
             }
           ]
         },
@@ -6602,59 +6173,6 @@
           "from": {
             "simultaneous": [
               {
-                "key_code": "l"
-              },
-              {
-                "key_code": "9"
-              }
-            ]
-          },
-          "to": [
-            {
-              "key_code": "9",
-              "modifiers": [
-                "shift"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "shingeta_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "k"
-              },
-              {
-                "key_code": "0"
-              }
-            ]
-          },
-          "to": [
-            {
-              "key_code": "semicolon"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "shingeta_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "simultaneous": [
-              {
                 "key_code": "d"
               },
               {
@@ -6705,56 +6223,6 @@
           "from": {
             "simultaneous": [
               {
-                "key_code": "l"
-              },
-              {
-                "key_code": "0"
-              }
-            ]
-          },
-          "to": [
-            {
-              "key_code": "quote"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "shingeta_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "k"
-              },
-              {
-                "key_code": "hyphen"
-              }
-            ]
-          },
-          "to": [
-            {
-              "key_code": "open_bracket"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "shingeta_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "simultaneous": [
-              {
                 "key_code": "d"
               },
               {
@@ -6781,34 +6249,6 @@
             "simultaneous": [
               {
                 "key_code": "s"
-              },
-              {
-                "key_code": "hyphen"
-              }
-            ]
-          },
-          "to": [
-            {
-              "key_code": "quote",
-              "modifiers": [
-                "shift"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "shingeta_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "simultaneous": [
-              {
-                "key_code": "l"
               },
               {
                 "key_code": "hyphen"
