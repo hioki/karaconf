@@ -13,21 +13,6 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(L, None)
             .to_key(A, None)
             .build(),
-        // d+1 -> l -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![D, Key1])
-            .to_key(L, None)
-            .to_key(A, None)
-            .build(),
-        // s+1 -> l -> y -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![S, Key1])
-            .to_key(L, None)
-            .to_key(Y, None)
-            .to_key(A, None)
-            .build(),
         // l+1 -> l -> y -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
@@ -43,21 +28,6 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(L, None)
             .to_key(I, None)
             .build(),
-        // d+2 -> l -> i
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![D, Key2])
-            .to_key(L, None)
-            .to_key(I, None)
-            .build(),
-        // s+2 -> m -> y -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![S, Key2])
-            .to_key(M, None)
-            .to_key(Y, None)
-            .to_key(A, None)
-            .build(),
         // l+2 -> m -> y -> a
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
@@ -71,21 +41,6 @@ pub fn manipulators() -> Vec<Manipulator> {
             .condition(Condition::with_shingeta_mode())
             .from_simultaneous_keys(vec![K, Key3])
             .to_key(L, None)
-            .to_key(U, None)
-            .build(),
-        // d+3 -> l -> u
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![D, Key3])
-            .to_key(L, None)
-            .to_key(U, None)
-            .build(),
-        // s+3 -> m -> y -> u
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![S, Key3])
-            .to_key(M, None)
-            .to_key(Y, None)
             .to_key(U, None)
             .build(),
         // l+3 -> m -> y -> u
@@ -103,21 +58,6 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(L, None)
             .to_key(E, None)
             .build(),
-        // d+4 -> l -> e
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![D, Key4])
-            .to_key(L, None)
-            .to_key(E, None)
-            .build(),
-        // s+4 -> m -> y -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![S, Key4])
-            .to_key(M, None)
-            .to_key(Y, None)
-            .to_key(O, None)
-            .build(),
         // l+4 -> m -> y -> o
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
@@ -132,21 +72,6 @@ pub fn manipulators() -> Vec<Manipulator> {
             .from_simultaneous_keys(vec![K, Key5])
             .to_key(L, None)
             .to_key(O, None)
-            .build(),
-        // d+5 -> l -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![D, Key5])
-            .to_key(L, None)
-            .to_key(O, None)
-            .build(),
-        // s+5 -> l -> w -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![S, Key5])
-            .to_key(L, None)
-            .to_key(W, None)
-            .to_key(A, None)
             .build(),
         // l+5 -> l -> w -> a
         Manipulator::builder()
@@ -1667,7 +1592,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         manipulators.push(
             Manipulator::builder()
                 .condition(Condition::with_shingeta_mode())
-                    .from_key(from)
+                .from_key(from)
                 .to_key(Z, None)
                 .to_key(to, None)
                 .build(),
