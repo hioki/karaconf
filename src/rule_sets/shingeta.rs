@@ -974,13 +974,6 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(W, None)
             .to_key(A, None)
             .build(),
-        // k+m -> n -> e
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, M])
-            .to_key(N, None)
-            .to_key(E, None)
-            .build(),
         // d+m -> n -> e
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())

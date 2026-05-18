@@ -9558,34 +9558,6 @@
           "from": {
             "simultaneous": [
               {
-                "key_code": "k"
-              },
-              {
-                "key_code": "m"
-              }
-            ]
-          },
-          "to": [
-            {
-              "key_code": "n"
-            },
-            {
-              "key_code": "e"
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "shingeta_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "simultaneous": [
-              {
                 "key_code": "d"
               },
               {
