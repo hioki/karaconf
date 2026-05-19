@@ -15,6 +15,16 @@ fn dj(from: (KeyCode, KeyCode), to: Vec<(KeyCode, Option<Vec<ModifierKey>>)>) ->
     builder.build()
 }
 
+fn sn(from: KeyCode, to: Vec<(KeyCode, Option<Vec<ModifierKey>>)>) -> Manipulator {
+    let mut builder = Manipulator::builder()
+        .condition(Condition::with_shingeta_mode())
+        .from_key(from);
+    for (key_code, modifiers) in to {
+        builder = builder.to_key(key_code, modifiers);
+    }
+    builder.build()
+}
+
 // ============================================================================
 // SHINGETA LAYOUT MAPPINGS - SIMULTANEOUS KEY MAPPINGS
 // ============================================================================
@@ -148,12 +158,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         // ============================================================================
         // SHINGETA LAYOUT MAPPINGS - SINGLE KEY MAPPINGS
         // ============================================================================
-        // Q -> "-" (hyphen)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(Q)
-            .to_key(Hyphen, None)
-            .build(),
+        sn(Q, vec![(Hyphen, None)]),
         // W -> "ni" (n + i)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
