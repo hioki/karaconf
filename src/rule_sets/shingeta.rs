@@ -151,230 +151,38 @@ pub fn manipulators() -> Vec<Manipulator> {
         // dj((U, H), vec![(International3, None)]),
         // dj((J, N), vec![(Slash, Some(vec![Shift]))]),
         // dj((H, J), vec![(Key8, Some(vec![Shift])), (Key9, Some(vec![Shift]))]),
-        // ============================================================================
-        // SHINGETA LAYOUT MAPPINGS - SINGLE KEY MAPPINGS
-        // ============================================================================
-
-        // ============================================================================
-        // SHINGETA LAYOUT MAPPINGS - SINGLE KEY MAPPINGS
-        // ============================================================================
         sn(Q, vec![(Hyphen, None)]),
-        // TODO: 単打は sn に置き換える
-        // W -> "ni" (n + i)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(W)
-            .to_key(N, None)
-            .to_key(I, None)
-            .build(),
-        // E -> "ha" (h + a)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(E)
-            .to_key(H, None)
-            .to_key(A, None)
-            .build(),
-        // R -> "," (comma)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(R)
-            .to_key(Comma, None)
-            .build(),
-        // T -> "chi" (c + h + i)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(T)
-            .to_key(C, None)
-            .to_key(H, None)
-            .to_key(I, None)
-            .build(),
-        // Y -> "gu" (g + u)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(Y)
-            .to_key(G, None)
-            .to_key(U, None)
-            .build(),
-        // U -> "ba" (b + a)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(U)
-            .to_key(B, None)
-            .to_key(A, None)
-            .build(),
-        // I -> "ko" (k + o)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(I)
-            .to_key(K, None)
-            .to_key(O, None)
-            .build(),
-        // O -> "ga" (g + a)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(O)
-            .to_key(G, None)
-            .to_key(A, None)
-            .build(),
-        // P -> "hi" (h + i)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(P)
-            .to_key(H, None)
-            .to_key(I, None)
-            .build(),
-        // OpenBracket -> "ge" (g + e)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(OpenBracket)
-            .to_key(G, None)
-            .to_key(E, None)
-            .build(),
-        // A -> "no" (n + o)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(A)
-            .to_key(N, None)
-            .to_key(O, None)
-            .build(),
-        // S -> "to" (t + o)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(S)
-            .to_key(T, None)
-            .to_key(O, None)
-            .build(),
-        // D -> "ka" (k + a)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(D)
-            .to_key(K, None)
-            .to_key(A, None)
-            .build(),
-        // F -> "nn" (n + n)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(F)
-            .to_key(N, None)
-            .to_key(N, None)
-            .build(),
-        // G -> "ltu" (small tsu: l + t + u)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(G)
-            .to_key(L, None)
-            .to_key(T, None)
-            .to_key(U, None)
-            .build(),
-        // H -> "ku" (k + u)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(H)
-            .to_key(K, None)
-            .to_key(U, None)
-            .build(),
-        // J -> "u"
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(J)
-            .to_key(U, None)
-            .build(),
-        // K -> "i"
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(K)
-            .to_key(I, None)
-            .build(),
-        // L -> "si" (s + i)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(L)
-            .to_key(S, None)
-            .to_key(I, None)
-            .build(),
-        // ' -> "na" (n + a)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(Quote)
-            .to_key(N, None)
-            .to_key(A, None)
-            .build(),
-        // Z -> "su" (s + u)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(Z)
-            .to_key(S, None)
-            .to_key(U, None)
-            .build(),
-        // X -> "ma" (m + a)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(X)
-            .to_key(M, None)
-            .to_key(A, None)
-            .build(),
-        // C -> "ki" (k + i)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(C)
-            .to_key(K, None)
-            .to_key(I, None)
-            .build(),
-        // V -> "ru" (r + u)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(V)
-            .to_key(R, None)
-            .to_key(U, None)
-            .build(),
-        // B -> "tsu" (t + s + u)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(B)
-            .to_key(T, None)
-            .to_key(S, None)
-            .to_key(U, None)
-            .build(),
-        // N -> "te" (t + e)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(N)
-            .to_key(T, None)
-            .to_key(E, None)
-            .build(),
-        // M -> "ta" (t + a)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(M)
-            .to_key(T, None)
-            .to_key(A, None)
-            .build(),
-        // , -> "de" (d + e)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(Comma)
-            .to_key(D, None)
-            .to_key(E, None)
-            .build(),
-        // . -> "."
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(Period)
-            .to_key(Period, None)
-            .build(),
-        // / -> "bu" (b + u)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(Slash)
-            .to_key(B, None)
-            .to_key(U, None)
-            .build(),
-        // International1 (無変換) -> International3 + Option (katakana input mode)
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key(International1)
-            .to_key(International3, Some(vec![Opt]))
-            .build(),
+        sn(W, vec![(N, None), (I, None)]),
+        sn(E, vec![(H, None), (A, None)]),
+        sn(R, vec![(Comma, None)]),
+        sn(T, vec![(C, None), (H, None), (I, None)]),
+        sn(Y, vec![(G, None), (U, None)]),
+        sn(U, vec![(B, None), (A, None)]),
+        sn(I, vec![(K, None), (O, None)]),
+        sn(O, vec![(G, None), (A, None)]),
+        sn(P, vec![(H, None), (I, None)]),
+        sn(OpenBracket, vec![(G, None), (E, None)]),
+        sn(A, vec![(N, None), (O, None)]),
+        sn(S, vec![(T, None), (O, None)]),
+        sn(D, vec![(K, None), (A, None)]),
+        sn(F, vec![(N, None), (N, None)]),
+        sn(G, vec![(L, None), (T, None), (U, None)]),
+        sn(H, vec![(K, None), (U, None)]),
+        sn(J, vec![(U, None)]),
+        sn(K, vec![(I, None)]),
+        sn(L, vec![(S, None), (I, None)]),
+        sn(Quote, vec![(N, None), (A, None)]),
+        sn(Z, vec![(S, None), (U, None)]),
+        sn(X, vec![(M, None), (A, None)]),
+        sn(C, vec![(K, None), (I, None)]),
+        sn(V, vec![(R, None), (U, None)]),
+        sn(B, vec![(T, None), (S, None), (U, None)]),
+        sn(N, vec![(T, None), (E, None)]),
+        sn(M, vec![(T, None), (A, None)]),
+        sn(Comma, vec![(D, None), (E, None)]),
+        sn(Period, vec![(Period, None)]),
+        sn(Slash, vec![(B, None), (U, None)]),
+        sn(International1, vec![(International3, Some(vec![Opt]))]),
         // Cmd+: -> :
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
