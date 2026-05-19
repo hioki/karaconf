@@ -5,8 +5,18 @@ use crate::karabiner_data::{
 
 pub fn manipulators() -> Vec<Manipulator> {
     let configs: Vec<(VirtualKey, Vec<KeyCode>, Option<KeyCode>, Option<u8>)> = vec![
-        (Vk1, vec![Lang1, International4], Some(JapaneseKana), Some(1)),
-        (Vk2, vec![Lang2, International5], Some(JapaneseEisuu), Some(0)),
+        (
+            Vk1,
+            vec![Lang1, International4],
+            Some(JapaneseKana),
+            Some(1),
+        ),
+        (
+            Vk2,
+            vec![Lang2, International5],
+            Some(JapaneseEisuu),
+            Some(0),
+        ),
         (Vk3, vec![RightGui, International2], None, None),
         (Vk4, vec![Tab], Some(Tab), None),
     ];
