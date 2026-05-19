@@ -1,4 +1,19 @@
-use crate::karabiner_data::{Condition, FromModifier, KeyCode::*, Manipulator, ModifierKey::*};
+use crate::karabiner_data::{
+    Condition, FromModifier,
+    KeyCode::{self, *},
+    Manipulator,
+    ModifierKey::{self, *},
+};
+
+fn dj(from: (KeyCode, KeyCode), to: Vec<(KeyCode, Option<Vec<ModifierKey>>)>) -> Manipulator {
+    let mut builder = Manipulator::builder()
+        .condition(Condition::with_shingeta_mode())
+        .from_simultaneous_keys(vec![from.0, from.1]);
+    for (key_code, modifiers) in to {
+        builder = builder.to_key(key_code, modifiers);
+    }
+    builder.build()
+}
 
 // ============================================================================
 // SHINGETA LAYOUT MAPPINGS - SIMULTANEOUS KEY MAPPINGS
@@ -7,861 +22,128 @@ use crate::karabiner_data::{Condition, FromModifier, KeyCode::*, Manipulator, Mo
 //       to ensure proper priority in Karabiner-Elements
 pub fn manipulators() -> Vec<Manipulator> {
     let mut manipulators = vec![
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, Key1])
-            .to_key(L, None)
-            .to_key(A, None)
-            .build(),
-        // l+1 -> l -> y -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![L, Key1])
-            .to_key(L, None)
-            .to_key(Y, None)
-            .to_key(A, None)
-            .build(),
-        // k+2 -> l -> i
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, Key2])
-            .to_key(L, None)
-            .to_key(I, None)
-            .build(),
-        // l+2 -> m -> y -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![L, Key2])
-            .to_key(M, None)
-            .to_key(Y, None)
-            .to_key(A, None)
-            .build(),
-        // k+3 -> l -> u
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, Key3])
-            .to_key(L, None)
-            .to_key(U, None)
-            .build(),
-        // l+3 -> m -> y -> u
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![L, Key3])
-            .to_key(M, None)
-            .to_key(Y, None)
-            .to_key(U, None)
-            .build(),
-        // k+4 -> l -> e
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, Key4])
-            .to_key(L, None)
-            .to_key(E, None)
-            .build(),
-        // l+4 -> m -> y -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![L, Key4])
-            .to_key(M, None)
-            .to_key(Y, None)
-            .to_key(O, None)
-            .build(),
-        // k+5 -> l -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, Key5])
-            .to_key(L, None)
-            .to_key(O, None)
-            .build(),
-        // l+5 -> l -> w -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![L, Key5])
-            .to_key(L, None)
-            .to_key(W, None)
-            .to_key(A, None)
-            .build(),
-        // d+7 -> option+comma
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![D, Key7])
-            .to_key(Comma, Some(vec![Opt]))
-            .build(),
-        // s+7 -> option+period
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![S, Key7])
-            .to_key(Period, Some(vec![Opt]))
-            .build(),
-        // d+8 -> close_bracket
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![D, Key8])
-            .to_key(CloseBracket, None)
-            .build(),
-        // s+8 -> shift+8
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![S, Key8])
-            .to_key(Key8, Some(vec![Shift]))
-            .build(),
-        // d+9 -> backslash
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![D, Key9])
-            .to_key(Backslash, None)
-            .build(),
-        // s+9 -> shift+9
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![S, Key9])
-            .to_key(Key9, Some(vec![Shift]))
-            .build(),
-        // d+0 -> semicolon
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![D, Key0])
-            .to_key(Semicolon, None)
-            .build(),
-        // s+0 -> quote
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![S, Key0])
-            .to_key(Quote, None)
-            .build(),
-        // d+hyphen -> open_bracket
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![D, Hyphen])
-            .to_key(OpenBracket, None)
-            .build(),
-        // s+hyphen -> shift+quote
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![S, Hyphen])
-            .to_key(Quote, Some(vec![Shift]))
-            .build(),
-        // k+q -> f -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, Q])
-            .to_key(F, None)
-            .to_key(A, None)
-            .build(),
-        // l+q -> d -> i
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![L, Q])
-            .to_key(D, None)
-            .to_key(I, None)
-            .build(),
-        // k+w -> g -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, W])
-            .to_key(G, None)
-            .to_key(O, None)
-            .build(),
-        // l+w -> m -> e
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![L, W])
-            .to_key(M, None)
-            .to_key(E, None)
-            .build(),
-        // k+e -> f -> u
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, E])
-            .to_key(F, None)
-            .to_key(U, None)
-            .build(),
-        // l+e -> k -> e
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![L, E])
-            .to_key(K, None)
-            .to_key(E, None)
-            .build(),
-        // k+r -> f -> i
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, R])
-            .to_key(F, None)
-            .to_key(I, None)
-            .build(),
-        // l+r -> t -> h -> i
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![L, R])
-            .to_key(T, None)
-            .to_key(H, None)
-            .to_key(I, None)
-            .build(),
-        // k+t -> f -> e
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, T])
-            .to_key(F, None)
-            .to_key(E, None)
-            .build(),
-        // l+t -> d -> h -> i
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![L, T])
-            .to_key(D, None)
-            .to_key(H, None)
-            .to_key(I, None)
-            .build(),
-        // d+y -> w -> i
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![D, Y])
-            .to_key(W, None)
-            .to_key(I, None)
-            .build(),
-        // s+y -> s -> h -> e
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![S, Y])
-            .to_key(S, None)
-            .to_key(H, None)
-            .to_key(E, None)
-            .build(),
-        // d+u -> p -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![D, U])
-            .to_key(P, None)
-            .to_key(A, None)
-            .build(),
-        // s+u -> p -> e
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![S, U])
-            .to_key(P, None)
-            .to_key(E, None)
-            .build(),
-        // d+i -> y -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![D, I])
-            .to_key(Y, None)
-            .to_key(O, None)
-            .build(),
-        // s+i -> d -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![S, I])
-            .to_key(D, None)
-            .to_key(O, None)
-            .build(),
-        // d+o -> m -> i
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![D, O])
-            .to_key(M, None)
-            .to_key(I, None)
-            .build(),
-        // s+o -> y -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![S, O])
-            .to_key(Y, None)
-            .to_key(A, None)
-            .build(),
-        // d+p -> w -> e
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![D, P])
-            .to_key(W, None)
-            .to_key(E, None)
-            .build(),
-        // s+p -> j -> e
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![S, P])
-            .to_key(J, None)
-            .to_key(E, None)
-            .build(),
-        // d+open_bracket -> u -> l -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![D, OpenBracket])
-            .to_key(U, None)
-            .to_key(L, None)
-            .to_key(O, None)
-            .build(),
-        // k+a -> h -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, A])
-            .to_key(H, None)
-            .to_key(O, None)
-            .build(),
-        // l+a -> w -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![L, A])
-            .to_key(W, None)
-            .to_key(O, None)
-            .build(),
-        // k+s -> j -> i
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, S])
-            .to_key(J, None)
-            .to_key(I, None)
-            .build(),
-        // s+l -> s -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![S, L])
-            .to_key(S, None)
-            .to_key(A, None)
-            .build(),
-        // k+d -> r -> e
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, D])
-            .to_key(R, None)
-            .to_key(E, None)
-            .build(),
-        // l+d -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![L, D])
-            .to_key(O, None)
-            .build(),
-        // k+f -> m -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, F])
-            .to_key(M, None)
-            .to_key(O, None)
-            .build(),
-        // l+f -> r -> i
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![L, F])
-            .to_key(R, None)
-            .to_key(I, None)
-            .build(),
-        // k+g -> y -> u
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, G])
-            .to_key(Y, None)
-            .to_key(U, None)
-            .build(),
-        // l+g -> z -> u
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![L, G])
-            .to_key(Z, None)
-            .to_key(U, None)
-            .build(),
-        // d+h -> h -> e
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![D, H])
-            .to_key(H, None)
-            .to_key(E, None)
-            .build(),
-        // s+h -> b -> i
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![S, H])
-            .to_key(B, None)
-            .to_key(I, None)
-            .build(),
-        // d+j -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![D, J])
-            .to_key(A, None)
-            .build(),
-        // s+j -> r -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![S, J])
-            .to_key(R, None)
-            .to_key(A, None)
-            .build(),
-        // d+colon -> e
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![D, Quote])
-            .to_key(E, None)
-            .build(),
-        // s+colon -> s -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![S, Quote])
-            .to_key(S, None)
-            .to_key(O, None)
-            .build(),
-        // k+z -> d -> u
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, Z])
-            .to_key(D, None)
-            .to_key(U, None)
-            .build(),
-        // l+z -> z -> e
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![L, Z])
-            .to_key(Z, None)
-            .to_key(E, None)
-            .build(),
-        // k+x -> z -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, X])
-            .to_key(Z, None)
-            .to_key(O, None)
-            .build(),
-        // l+x -> z -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![L, X])
-            .to_key(Z, None)
-            .to_key(A, None)
-            .build(),
-        // k+c -> b -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, C])
-            .to_key(B, None)
-            .to_key(O, None)
-            .build(),
-        // l+c -> g -> i
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![L, C])
-            .to_key(G, None)
-            .to_key(I, None)
-            .build(),
-        // k+v -> m -> u
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, V])
-            .to_key(M, None)
-            .to_key(U, None)
-            .build(),
-        // l+v -> r -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![L, V])
-            .to_key(R, None)
-            .to_key(O, None)
-            .build(),
-        // k+b -> f -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![K, B])
-            .to_key(F, None)
-            .to_key(O, None)
-            .build(),
-        // l+b -> n -> u
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![L, B])
-            .to_key(N, None)
-            .to_key(U, None)
-            .build(),
-        // d+n -> s -> e
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![D, N])
-            .to_key(S, None)
-            .to_key(E, None)
-            .build(),
-        // s+n -> w -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![S, N])
-            .to_key(W, None)
-            .to_key(A, None)
-            .build(),
-        // d+m -> n -> e
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![D, M])
-            .to_key(N, None)
-            .to_key(E, None)
-            .build(),
-        // s+m -> d -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![S, M])
-            .to_key(D, None)
-            .to_key(A, None)
-            .build(),
-        // d+comma -> b -> e
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![D, Comma])
-            .to_key(B, None)
-            .to_key(E, None)
-            .build(),
-        // s+comma -> p -> i
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![S, Comma])
-            .to_key(P, None)
-            .to_key(I, None)
-            .build(),
-        // d+period -> p -> u
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![D, Period])
-            .to_key(P, None)
-            .to_key(U, None)
-            .build(),
-        // s+period -> p -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![S, Period])
-            .to_key(P, None)
-            .to_key(O, None)
-            .build(),
-        // d+slash -> v -> u
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![D, Slash])
-            .to_key(V, None)
-            .to_key(U, None)
-            .build(),
-        // s+slash -> c -> h -> e
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![S, Slash])
-            .to_key(C, None)
-            .to_key(H, None)
-            .to_key(E, None)
-            .build(),
-        // i+1 -> l -> y -> u
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![I, Key1])
-            .to_key(L, None)
-            .to_key(Y, None)
-            .to_key(U, None)
-            .build(),
-        // i+2 -> b -> y -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![I, Key2])
-            .to_key(B, None)
-            .to_key(Y, None)
-            .to_key(A, None)
-            .build(),
-        // i+3 -> b -> y -> u
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![I, Key3])
-            .to_key(B, None)
-            .to_key(Y, None)
-            .to_key(U, None)
-            .build(),
-        // i+4 -> b -> y -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![I, Key4])
-            .to_key(B, None)
-            .to_key(Y, None)
-            .to_key(O, None)
-            .build(),
-        // i+q -> h -> y -> u
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![I, Q])
-            .to_key(H, None)
-            .to_key(Y, None)
-            .to_key(U, None)
-            .build(),
-        // i+w -> s -> h -> u
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![I, W])
-            .to_key(S, None)
-            .to_key(H, None)
-            .to_key(U, None)
-            .build(),
-        // i+e -> s -> h -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![I, E])
-            .to_key(S, None)
-            .to_key(H, None)
-            .to_key(O, None)
-            .build(),
-        // i+r -> k -> y -> u
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![I, R])
-            .to_key(K, None)
-            .to_key(Y, None)
-            .to_key(U, None)
-            .build(),
-        // i+t -> c -> h -> u
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![I, T])
-            .to_key(C, None)
-            .to_key(H, None)
-            .to_key(U, None)
-            .build(),
-        // i+a -> h -> y -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![I, A])
-            .to_key(H, None)
-            .to_key(Y, None)
-            .to_key(O, None)
-            .build(),
-        // i+f -> k -> y -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![I, F])
-            .to_key(K, None)
-            .to_key(Y, None)
-            .to_key(O, None)
-            .build(),
-        // i+g -> c -> h -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![I, G])
-            .to_key(C, None)
-            .to_key(H, None)
-            .to_key(O, None)
-            .build(),
-        // i+z -> h -> y -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![I, Z])
-            .to_key(H, None)
-            .to_key(Y, None)
-            .to_key(A, None)
-            .build(),
-        // i+x -> v -> u -> l -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![I, X])
-            .to_key(V, None)
-            .to_key(U, None)
-            .to_key(L, None)
-            .to_key(A, None)
-            .build(),
-        // i+c -> s -> h -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![I, C])
-            .to_key(S, None)
-            .to_key(H, None)
-            .to_key(A, None)
-            .build(),
-        // i+v -> k -> y -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![I, V])
-            .to_key(K, None)
-            .to_key(Y, None)
-            .to_key(A, None)
-            .build(),
-        // i+b -> c -> h -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![I, B])
-            .to_key(C, None)
-            .to_key(H, None)
-            .to_key(A, None)
-            .build(),
-        // o+1 -> l -> y -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![O, Key1])
-            .to_key(L, None)
-            .to_key(Y, None)
-            .to_key(O, None)
-            .build(),
-        // o+2 -> p -> y -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![O, Key2])
-            .to_key(P, None)
-            .to_key(Y, None)
-            .to_key(A, None)
-            .build(),
-        // o+3 -> p -> y -> u
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![O, Key3])
-            .to_key(P, None)
-            .to_key(Y, None)
-            .to_key(U, None)
-            .build(),
-        // o+4 -> p -> y -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![O, Key4])
-            .to_key(P, None)
-            .to_key(Y, None)
-            .to_key(O, None)
-            .build(),
-        // o+q -> r -> y -> u
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![O, Q])
-            .to_key(R, None)
-            .to_key(Y, None)
-            .to_key(U, None)
-            .build(),
-        // o+w -> j -> u
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![O, W])
-            .to_key(J, None)
-            .to_key(U, None)
-            .build(),
-        // o+e -> j -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![O, E])
-            .to_key(J, None)
-            .to_key(O, None)
-            .build(),
-        // o+r -> g -> y -> u
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![O, R])
-            .to_key(G, None)
-            .to_key(Y, None)
-            .to_key(U, None)
-            .build(),
-        // o+t -> n -> y -> u
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![O, T])
-            .to_key(N, None)
-            .to_key(Y, None)
-            .to_key(U, None)
-            .build(),
-        // o+a -> r -> y -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![O, A])
-            .to_key(R, None)
-            .to_key(Y, None)
-            .to_key(O, None)
-            .build(),
-        // o+f -> g -> y -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![O, F])
-            .to_key(G, None)
-            .to_key(Y, None)
-            .to_key(O, None)
-            .build(),
-        // o+g -> n -> y -> o
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![O, G])
-            .to_key(N, None)
-            .to_key(Y, None)
-            .to_key(O, None)
-            .build(),
-        // o+z -> r -> y -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![O, Z])
-            .to_key(R, None)
-            .to_key(Y, None)
-            .to_key(A, None)
-            .build(),
-        // o+x -> d -> h -> u
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![O, X])
-            .to_key(D, None)
-            .to_key(H, None)
-            .to_key(U, None)
-            .build(),
-        // o+c -> j -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![O, C])
-            .to_key(J, None)
-            .to_key(A, None)
-            .build(),
-        // o+v -> g -> y -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![O, V])
-            .to_key(G, None)
-            .to_key(Y, None)
-            .to_key(A, None)
-            .build(),
-        // o+b -> n -> y -> a
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![O, B])
-            .to_key(N, None)
-            .to_key(Y, None)
-            .to_key(A, None)
-            .build(),
-        // r+g -> slash
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![R, G])
-            .to_key(Slash, None)
-            .build(),
-        // r+f -> slash
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![R, F])
-            .to_key(Slash, None)
-            .build(),
-        // f+v -> shift+1
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![F, V])
-            .to_key(Key1, Some(vec![Shift]))
-            .build(),
-        // f+b -> shift+1
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![F, B])
-            .to_key(Key1, Some(vec![Shift]))
-            .build(),
-        // f+g -> close_bracket -> backslash
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![F, G])
-            .to_key(CloseBracket, None)
-            .to_key(Backslash, None)
-            .build(),
-        // u+h -> international3
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![U, H])
-            .to_key(International3, None)
-            .build(),
-        // j+n -> shift+slash
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![J, N])
-            .to_key(Slash, Some(vec![Shift]))
-            .build(),
-        // h+j -> shift+8 -> shift+9
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_simultaneous_keys(vec![H, J])
-            .to_key(Key8, Some(vec![Shift]))
-            .to_key(Key9, Some(vec![Shift]))
-            .build(),
+        dj((K, Key1), vec![(L, None), (A, None)]),
+        dj((L, Key1), vec![(L, None), (Y, None), (A, None)]),
+        dj((K, Key2), vec![(L, None), (I, None)]),
+        dj((L, Key2), vec![(M, None), (Y, None), (A, None)]),
+        dj((K, Key3), vec![(L, None), (U, None)]),
+        dj((L, Key3), vec![(M, None), (Y, None), (U, None)]),
+        dj((K, Key4), vec![(L, None), (E, None)]),
+        dj((L, Key4), vec![(M, None), (Y, None), (O, None)]),
+        dj((K, Key5), vec![(L, None), (O, None)]),
+        dj((L, Key5), vec![(L, None), (W, None), (A, None)]),
+        dj((D, Key7), vec![(Comma, Some(vec![Opt]))]),
+        dj((S, Key7), vec![(Period, Some(vec![Opt]))]),
+        dj((D, Key8), vec![(CloseBracket, None)]),
+        dj((S, Key8), vec![(Key8, Some(vec![Shift]))]),
+        dj((D, Key9), vec![(Backslash, None)]),
+        dj((S, Key9), vec![(Key9, Some(vec![Shift]))]),
+        dj((D, Key0), vec![(Semicolon, None)]),
+        dj((S, Key0), vec![(Quote, None)]),
+        dj((D, Hyphen), vec![(OpenBracket, None)]),
+        dj((S, Hyphen), vec![(Quote, Some(vec![Shift]))]),
+        dj((K, Q), vec![(F, None), (A, None)]),
+        dj((L, Q), vec![(D, None), (I, None)]),
+        dj((K, W), vec![(G, None), (O, None)]),
+        dj((L, W), vec![(M, None), (E, None)]),
+        dj((K, E), vec![(F, None), (U, None)]),
+        dj((L, E), vec![(K, None), (E, None)]),
+        dj((K, R), vec![(F, None), (I, None)]),
+        dj((L, R), vec![(T, None), (H, None), (I, None)]),
+        dj((K, T), vec![(F, None), (E, None)]),
+        dj((L, T), vec![(D, None), (H, None), (I, None)]),
+        dj((D, Y), vec![(W, None), (I, None)]),
+        dj((S, Y), vec![(S, None), (H, None), (E, None)]),
+        dj((D, U), vec![(P, None), (A, None)]),
+        dj((S, U), vec![(P, None), (E, None)]),
+        dj((D, I), vec![(Y, None), (O, None)]),
+        dj((S, I), vec![(D, None), (O, None)]),
+        dj((D, O), vec![(M, None), (I, None)]),
+        dj((S, O), vec![(Y, None), (A, None)]),
+        dj((D, P), vec![(W, None), (E, None)]),
+        dj((S, P), vec![(J, None), (E, None)]),
+        dj((D, OpenBracket), vec![(U, None), (L, None), (O, None)]),
+        dj((K, A), vec![(H, None), (O, None)]),
+        dj((L, A), vec![(W, None), (O, None)]),
+        dj((K, S), vec![(J, None), (I, None)]),
+        dj((S, L), vec![(S, None), (A, None)]),
+        dj((K, D), vec![(R, None), (E, None)]),
+        dj((L, D), vec![(O, None)]),
+        dj((K, F), vec![(M, None), (O, None)]),
+        dj((L, F), vec![(R, None), (I, None)]),
+        dj((K, G), vec![(Y, None), (U, None)]),
+        dj((L, G), vec![(Z, None), (U, None)]),
+        dj((D, H), vec![(H, None), (E, None)]),
+        dj((S, H), vec![(B, None), (I, None)]),
+        dj((D, J), vec![(A, None)]),
+        dj((S, J), vec![(R, None), (A, None)]),
+        dj((D, Quote), vec![(E, None)]),
+        dj((S, Quote), vec![(S, None), (O, None)]),
+        dj((K, Z), vec![(D, None), (U, None)]),
+        dj((L, Z), vec![(Z, None), (E, None)]),
+        dj((K, X), vec![(Z, None), (O, None)]),
+        dj((L, X), vec![(Z, None), (A, None)]),
+        dj((K, C), vec![(B, None), (O, None)]),
+        dj((L, C), vec![(G, None), (I, None)]),
+        dj((K, V), vec![(M, None), (U, None)]),
+        dj((L, V), vec![(R, None), (O, None)]),
+        dj((K, B), vec![(F, None), (O, None)]),
+        dj((L, B), vec![(N, None), (U, None)]),
+        dj((D, N), vec![(S, None), (E, None)]),
+        dj((S, N), vec![(W, None), (A, None)]),
+        dj((D, M), vec![(N, None), (E, None)]),
+        dj((S, M), vec![(D, None), (A, None)]),
+        dj((D, Comma), vec![(B, None), (E, None)]),
+        dj((S, Comma), vec![(P, None), (I, None)]),
+        dj((D, Period), vec![(P, None), (U, None)]),
+        dj((S, Period), vec![(P, None), (O, None)]),
+        dj((D, Slash), vec![(V, None), (U, None)]),
+        dj((S, Slash), vec![(C, None), (H, None), (E, None)]),
+        dj((I, Key1), vec![(L, None), (Y, None), (U, None)]),
+        dj((I, Key2), vec![(B, None), (Y, None), (A, None)]),
+        dj((I, Key3), vec![(B, None), (Y, None), (U, None)]),
+        dj((I, Key4), vec![(B, None), (Y, None), (O, None)]),
+        dj((I, Q), vec![(H, None), (Y, None), (U, None)]),
+        dj((I, W), vec![(S, None), (H, None), (U, None)]),
+        dj((I, E), vec![(S, None), (H, None), (O, None)]),
+        dj((I, R), vec![(K, None), (Y, None), (U, None)]),
+        dj((I, T), vec![(C, None), (H, None), (U, None)]),
+        dj((I, A), vec![(H, None), (Y, None), (O, None)]),
+        dj((I, F), vec![(K, None), (Y, None), (O, None)]),
+        dj((I, G), vec![(C, None), (H, None), (O, None)]),
+        dj((I, Z), vec![(H, None), (Y, None), (A, None)]),
+        dj((I, X), vec![(V, None), (U, None), (L, None), (A, None)]),
+        dj((I, C), vec![(S, None), (H, None), (A, None)]),
+        dj((I, V), vec![(K, None), (Y, None), (A, None)]),
+        dj((I, B), vec![(C, None), (H, None), (A, None)]),
+        dj((O, Key1), vec![(L, None), (Y, None), (O, None)]),
+        dj((O, Key2), vec![(P, None), (Y, None), (A, None)]),
+        dj((O, Key3), vec![(P, None), (Y, None), (U, None)]),
+        dj((O, Key4), vec![(P, None), (Y, None), (O, None)]),
+        dj((O, Q), vec![(R, None), (Y, None), (U, None)]),
+        dj((O, W), vec![(J, None), (U, None)]),
+        dj((O, E), vec![(J, None), (O, None)]),
+        dj((O, R), vec![(G, None), (Y, None), (U, None)]),
+        dj((O, T), vec![(N, None), (Y, None), (U, None)]),
+        dj((O, A), vec![(R, None), (Y, None), (O, None)]),
+        dj((O, F), vec![(G, None), (Y, None), (O, None)]),
+        dj((O, G), vec![(N, None), (Y, None), (O, None)]),
+        dj((O, Z), vec![(R, None), (Y, None), (A, None)]),
+        dj((O, X), vec![(D, None), (H, None), (U, None)]),
+        dj((O, C), vec![(J, None), (A, None)]),
+        dj((O, V), vec![(G, None), (Y, None), (A, None)]),
+        dj((O, B), vec![(N, None), (Y, None), (A, None)]),
+        dj((R, G), vec![(Slash, None)]),
+        dj((R, F), vec![(Slash, None)]),
+        dj((F, V), vec![(Key1, Some(vec![Shift]))]),
+        dj((F, B), vec![(Key1, Some(vec![Shift]))]),
+        dj((F, G), vec![(CloseBracket, None), (Backslash, None)]),
+        dj((U, H), vec![(International3, None)]),
+        dj((J, N), vec![(Slash, Some(vec![Shift]))]),
+        dj(
+            (H, J),
+            vec![(Key8, Some(vec![Shift])), (Key9, Some(vec![Shift]))],
+        ),
         // ============================================================================
         // SHINGETA LAYOUT MAPPINGS - SINGLE KEY MAPPINGS
         // ============================================================================
