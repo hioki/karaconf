@@ -159,6 +159,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         // SHINGETA LAYOUT MAPPINGS - SINGLE KEY MAPPINGS
         // ============================================================================
         sn(Q, vec![(Hyphen, None)]),
+        // TODO: 単打は sn に置き換える
         // W -> "ni" (n + i)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
@@ -291,31 +292,6 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(S, None)
             .to_key(I, None)
             .build(),
-        // // ; -> "na" (n + a)
-        //     Manipulator::builder()
-        //         .condition(Condition::with_shingeta_mode())
-        //         .condition(Condition::with_japanese_input())
-        //         .from_key(Semicolon)
-        //         .to_key(N, None)
-        //         .to_key(A, None)
-        //         .build(),
-        // );
-
-        // // ' -> backspace
-        //     Manipulator::builder()
-        //         .condition(Condition::with_shingeta_mode())
-        //         .condition(Condition::with_japanese_input())
-        //         .from_key(Quote)
-        //         .to_key(DeleteOrBackspace, None)
-        //         .build(),
-        // );
-
-        // Cmd+: -> :
-        Manipulator::builder()
-            .condition(Condition::with_shingeta_mode())
-            .from_key_with_modifiers(Quote, FromModifier::Mandatory(vec![Cmd]))
-            .to_key(Quote, None)
-            .build(),
         // ' -> "na" (n + a)
         Manipulator::builder()
             .condition(Condition::with_shingeta_mode())
@@ -398,6 +374,12 @@ pub fn manipulators() -> Vec<Manipulator> {
             .condition(Condition::with_shingeta_mode())
             .from_key(International1)
             .to_key(International3, Some(vec![Opt]))
+            .build(),
+        // Cmd+: -> :
+        Manipulator::builder()
+            .condition(Condition::with_shingeta_mode())
+            .from_key_with_modifiers(Quote, FromModifier::Mandatory(vec![Cmd]))
+            .to_key(Quote, None)
             .build(),
     ];
 
