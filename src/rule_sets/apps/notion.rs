@@ -1,5 +1,5 @@
 use crate::karabiner_data::{
-    BundleIdentifier, Condition, FromModifier, KeyCode::*, Manipulator, ModifierKey::*, VirtualKey,
+    BundleIdentifier, Condition, KeyCode::*, Manipulator, ModifierKey::*, VirtualKey,
 };
 use std::collections::BTreeMap;
 
@@ -41,23 +41,6 @@ pub fn manipulators() -> Vec<Manipulator> {
             manipulators.push(manipulator);
         }
     }
-
-    // VK1 with X -> ```{paste}```
-    manipulators.push(
-        Manipulator::builder()
-            .conditions(vec![
-                Condition::on_app(BundleIdentifier::Notion),
-                Condition::with_vk1(),
-            ])
-            .from_key_with_modifiers(X, FromModifier::Optional(vec![Any]))
-            .to_key(OpenBracket, Some(vec![Shift]))
-            .to_key(OpenBracket, Some(vec![Shift]))
-            .to_key(OpenBracket, Some(vec![Shift]))
-            .to_key(V, Some(vec![Cmd]))
-            .to_key(ReturnOrEnter, Some(vec![Shift]))
-            .to_key(ReturnOrEnter, None)
-            .build(),
-    );
 
     manipulators
 }
