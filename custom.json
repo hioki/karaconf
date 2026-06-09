@@ -6011,6 +6011,118 @@
           "from": {
             "simultaneous": [
               {
+                "key_code": "d"
+              },
+              {
+                "key_code": "6"
+              }
+            ]
+          },
+          "to": [
+            {
+              "key_code": "z"
+            },
+            {
+              "key_code": "h"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "shingeta_mode",
+              "value": 1
+            }
+          ],
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "d"
+              },
+              {
+                "key_code": "7"
+              }
+            ]
+          },
+          "to": [
+            {
+              "key_code": "z"
+            },
+            {
+              "key_code": "j"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "shingeta_mode",
+              "value": 1
+            }
+          ],
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "d"
+              },
+              {
+                "key_code": "8"
+              }
+            ]
+          },
+          "to": [
+            {
+              "key_code": "z"
+            },
+            {
+              "key_code": "k"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "shingeta_mode",
+              "value": 1
+            }
+          ],
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "d"
+              },
+              {
+                "key_code": "9"
+              }
+            ]
+          },
+          "to": [
+            {
+              "key_code": "z"
+            },
+            {
+              "key_code": "l"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "shingeta_mode",
+              "value": 1
+            }
+          ],
+          "from": {
+            "simultaneous": [
+              {
                 "key_code": "k"
               },
               {
@@ -8646,6 +8758,31 @@
             },
             {
               "key_code": "a"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "shingeta_mode",
+              "value": 1
+            }
+          ],
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "r"
+              },
+              {
+                "key_code": "f"
+              }
+            ]
+          },
+          "to": [
+            {
+              "key_code": "slash"
             }
           ]
         },
