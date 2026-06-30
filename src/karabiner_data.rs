@@ -14,6 +14,8 @@ pub enum BundleIdentifier {
     Slack,
     #[serde(rename = "com.google.Chrome")]
     GoogleChrome,
+    #[serde(rename = "org.mozilla.firefox")]
+    Firefox,
     #[serde(rename = "notion.id")]
     Notion,
     #[serde(rename = "com.openai.chat")]

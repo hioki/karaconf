@@ -1,5 +1,6 @@
 pub mod chatgpt;
 pub mod dynalist;
+pub mod firefox;
 pub mod google_chrome;
 pub mod iterm2;
 pub mod notion;
