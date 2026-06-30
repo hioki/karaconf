@@ -300,7 +300,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         (L, "open -a 'Alfred 5.app'"),
         (M, "open -a 'Dynalist.app'"),
         (N, "open -a 'Notion.app'"),
-        // (O, None),
+        (O, "open -a 'Firefox.app'"),
         (P, "open -a '1Password.app'"),
         // (Q, None),
         (R, "open -a 'Raspberry Pi Imager.app'"),
