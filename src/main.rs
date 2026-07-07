@@ -19,6 +19,7 @@ const MANIPULATORS: &[fn() -> Vec<karabiner_data::Manipulator>] = &[
     rule_sets::apps::firefox::manipulators,
     rule_sets::apps::notion::manipulators,
     rule_sets::apps::chatgpt::manipulators,
+    rule_sets::apps::codex::manipulators,
     rule_sets::common::manipulators,
     rule_sets::shingeta::manipulators,
 ];
