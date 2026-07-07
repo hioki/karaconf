@@ -2605,6 +2605,36 @@
             {
               "type": "frontmost_application_if",
               "bundle_identifiers": [
+                "org.mozilla.firefox"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "r"
+          },
+          "to": [
+            {
+              "key_code": "l",
+              "modifiers": [
+                "command"
+              ]
+            },
+            {
+              "key_code": "equal_sign"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
                 "notion.id"
               ]
             },
