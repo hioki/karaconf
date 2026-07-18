@@ -3363,6 +3363,24 @@
             }
           ],
           "from": {
+            "key_code": "r"
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e \"tell application \\\"System Events\\\" to keystroke \\\"$(date +%F)\\\"\""
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk1",
+              "value": 1
+            }
+          ],
+          "from": {
             "key_code": "a"
           },
           "to": [
@@ -4232,6 +4250,82 @@
           "to": [
             {
               "key_code": "display_brightness_increment"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "5"
+          },
+          "to": [
+            {
+              "key_code": "rewind"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "6"
+          },
+          "to": [
+            {
+              "key_code": "play_or_pause"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "7"
+          },
+          "to": [
+            {
+              "key_code": "fastforward"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "q"
+          },
+          "to": [
+            {
+              "key_code": "q",
+              "modifiers": [
+                "control",
+                "command"
+              ]
             }
           ]
         },
@@ -5385,6 +5479,122 @@
             },
             {
               "key_code": "l"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk3",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "i"
+          },
+          "to": [
+            {
+              "key_code": "8",
+              "modifiers": [
+                "shift"
+              ]
+            },
+            {
+              "key_code": "9",
+              "modifiers": [
+                "shift"
+              ]
+            },
+            {
+              "key_code": "left_arrow"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk3",
+              "value": 1
+            },
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                {
+                  "language": "ja"
+                }
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "o"
+          },
+          "to": [
+            {
+              "key_code": "japanese_eisuu"
+            },
+            {
+              "key_code": "close_bracket"
+            },
+            {
+              "key_code": "non_us_pound"
+            },
+            {
+              "key_code": "japanese_kana"
+            },
+            {
+              "key_code": "left_arrow"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk3",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "o"
+          },
+          "to": [
+            {
+              "key_code": "close_bracket"
+            },
+            {
+              "key_code": "non_us_pound"
+            },
+            {
+              "key_code": "left_arrow"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk3",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "e"
+          },
+          "to": [
+            {
+              "key_code": "close_bracket"
+            },
+            {
+              "key_code": "non_us_pound"
+            },
+            {
+              "key_code": "left_arrow"
             }
           ]
         },
