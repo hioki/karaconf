@@ -2935,34 +2935,6 @@
             {
               "type": "frontmost_application_if",
               "bundle_identifiers": [
-                "com.openai.chat"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "vk4",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "e"
-          },
-          "to": [
-            {
-              "key_code": "s",
-              "modifiers": [
-                "command",
-                "control"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
                 "com.openai.codex"
               ]
             },

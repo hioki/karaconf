@@ -31,7 +31,6 @@ const RULE_SETS: &[RuleSet] = &[
     ),
     ("apps/firefox", rule_sets::apps::firefox::manipulators),
     ("apps/notion", rule_sets::apps::notion::manipulators),
-    ("apps/chatgpt", rule_sets::apps::chatgpt::manipulators),
     ("apps/codex", rule_sets::apps::codex::manipulators),
     ("common", rule_sets::common::manipulators),
     ("shingeta", rule_sets::shingeta::manipulators),

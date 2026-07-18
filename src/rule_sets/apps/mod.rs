@@ -1,4 +1,3 @@
-pub mod chatgpt;
 pub mod codex;
 pub mod dynalist;
 pub mod firefox;
