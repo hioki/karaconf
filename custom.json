@@ -2510,33 +2510,6 @@
             }
           ],
           "from": {
-            "key_code": "9"
-          },
-          "to": [
-            {
-              "key_code": "equal_sign",
-              "modifiers": [
-                "command"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "notion.id"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "vk2",
-              "value": 1
-            }
-          ],
-          "from": {
             "key_code": "0"
           },
           "to": [

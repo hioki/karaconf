@@ -8,11 +8,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     let m = BTreeMap::from([
         (
             VirtualKey::Vk2,
-            vec![
-                (Key9, KeypadPlus, vec![Cmd]),
-                (Key9, EqualSign, vec![Cmd]),
-                (Key0, Hyphen, vec![Cmd]),
-            ],
+            vec![(Key9, KeypadPlus, vec![Cmd]), (Key0, Hyphen, vec![Cmd])],
         ),
         (
             VirtualKey::Vk4,
