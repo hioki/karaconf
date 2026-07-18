@@ -58,6 +58,9 @@ pub fn key_label(key: &KeyCode) -> String {
         KeypadHyphen => "-",
         VolumeIncrement => "音量+",
         VolumeDecrement => "音量-",
+        Rewind => "⏪",
+        PlayOrPause => "⏯",
+        Fastforward => "⏩",
         DisplayBrightnessIncrement => "輝度+",
         DisplayBrightnessDecrement => "輝度-",
         VkNone => "∅",
@@ -190,6 +193,9 @@ fn command_summary(shell_command: &str) -> String {
     }
     if shell_command.contains("osascript") && shell_command.contains("volume") {
         return "マイク音量調整".to_string();
+    }
+    if shell_command.contains("keystroke") && shell_command.contains("date +") {
+        return "今日の日付を入力".to_string();
     }
     if shell_command.contains("pbpaste") {
         return "クリップボード整形".to_string();

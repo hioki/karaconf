@@ -92,6 +92,17 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
+    // VK1+R -> type today's date (e.g. 2026-07-18)
+    manipulators.push(
+        Manipulator::builder()
+            .condition(Condition::with_vk1())
+            .from_key(R)
+            .to_command(
+                r#"osascript -e "tell application \"System Events\" to keystroke \"$(date +%F)\"""#,
+            )
+            .build(),
+    );
+
     for (from, to, modifiers) in [
         (A, F10, None),                            // 英数に変換
         (Z, F7, None),                             // カタカナに変換
@@ -228,6 +239,10 @@ pub fn manipulators() -> Vec<Manipulator> {
         (Key2, VolumeIncrement, None),
         (Key3, DisplayBrightnessDecrement, None),
         (Key4, DisplayBrightnessIncrement, None),
+        (Key5, Rewind, None),
+        (Key6, PlayOrPause, None),
+        (Key7, Fastforward, None),
+        (Q, Q, Some(vec![Ctrl, Cmd])), // lock screen
     ] {
         manipulators.push(
             Manipulator::builder()
@@ -301,7 +316,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         (N, "open -a 'Notion.app'"),
         (O, "open -a \"Google Chrome\""),
         (P, "open -a '1Password.app'"),
-        // (Q, None),
+        // (Q, "Ctrl+Cmd+Q - lock screen"),
         (R, "open -a 'Raspberry Pi Imager.app'"),
         // (S, "Ctrl+Tab"),
         (T, "open -a 'Visual Studio Code.app'"),
@@ -372,6 +387,53 @@ pub fn manipulators() -> Vec<Manipulator> {
                 .build(),
         );
     }
+
+    //
+    // Virtual Key 3 - Bracket pairs (cursor ends up between the brackets)
+    //
+    // VK3+I -> () : Shift+8 / Shift+9 on JIS (IME turns them into （）)
+    manipulators.push(
+        Manipulator::builder()
+            .condition(Condition::with_vk3())
+            .from_key(I)
+            .to_key(Key8, Some(vec![Shift]))
+            .to_key(Key9, Some(vec![Shift]))
+            .to_key(LeftArrow, None)
+            .build(),
+    );
+    // VK3+O -> [] : while composing Japanese the bracket keys would become
+    // 「」, so switch to eisuu first and back to kana afterwards.
+    manipulators.push(
+        Manipulator::builder()
+            .condition(Condition::with_vk3())
+            .condition(Condition::with_japanese_input())
+            .from_key(O)
+            .to_key(JapaneseEisuu, None)
+            .to_key(CloseBracket, None)
+            .to_key(NonUsPound, None)
+            .to_key(JapaneseKana, None)
+            .to_key(LeftArrow, None)
+            .build(),
+    );
+    manipulators.push(
+        Manipulator::builder()
+            .condition(Condition::with_vk3())
+            .from_key(O)
+            .to_key(CloseBracket, None)
+            .to_key(NonUsPound, None)
+            .to_key(LeftArrow, None)
+            .build(),
+    );
+    // VK3+E -> 「」 : the physical [ ] keys, which the IME renders as 「」
+    manipulators.push(
+        Manipulator::builder()
+            .condition(Condition::with_vk3())
+            .from_key(E)
+            .to_key(CloseBracket, None)
+            .to_key(NonUsPound, None)
+            .to_key(LeftArrow, None)
+            .build(),
+    );
 
     manipulators.extend(vec![
         // Ctrl+; -> ;
