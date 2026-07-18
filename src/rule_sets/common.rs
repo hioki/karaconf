@@ -110,7 +110,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         (P, Tab, Some(vec![Ctrl])),                // move to next tab
         (Y, C, Some(vec![Cmd])),                   // copy
         (T, X, Some(vec![Cmd])),                   // cut
-        (X, V, Some(vec![Cmd, Shift, Opt])),       // paste without formatting
+        (V, V, Some(vec![Cmd, Shift, Opt])),       // paste without formatting
         (C, DeleteOrBackspace, None),              // backspace
         (E, DeleteForward, None),                  // delete
         (Quote, H, Some(vec![Cmd])),               // hide current app
