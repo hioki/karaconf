@@ -24,7 +24,6 @@ pub fn manipulators() -> Vec<Manipulator> {
         (U, LeftArrow, Some(vec![Cmd])),  // go to line head
         (I, RightArrow, Some(vec![Cmd])), // go to line tail
         (G, Tab, None),
-        (X, V, Some(vec![Cmd, Shift])),     // paste without formatting
         (CloseBracket, Z, Some(vec![Cmd])), // undo
         //
         // F1-F12
