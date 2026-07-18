@@ -3381,6 +3381,24 @@
             }
           ],
           "from": {
+            "key_code": "x"
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e \"tell application \\\"System Events\\\" to keystroke \\\"$(date +%Y%m%d%H%M%S)\\\"\""
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk1",
+              "value": 1
+            }
+          ],
+          "from": {
             "key_code": "a"
           },
           "to": [
