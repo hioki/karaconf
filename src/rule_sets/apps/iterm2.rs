@@ -23,23 +23,6 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
-    //
-    // for Neovim
-    //
-    // <VK4>+<Key> -> <Leader><Key>
-    for key_code in [E, K, F, H, L, O] {
-        manipulators.push(
-            Manipulator::builder()
-                .conditions(vec![
-                    Condition::on_app(ITerm2),
-                    Condition::with_virtual_key(Vk4),
-                ])
-                .from_key(key_code.clone())
-                .to_key(International3, None)
-                .to_key(key_code, None)
-                .build(),
-        );
-    }
     // save file in vim
     manipulators.push(
         Manipulator::builder()
