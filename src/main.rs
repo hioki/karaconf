@@ -1,4 +1,7 @@
+pub mod cheatsheet;
+pub mod display;
 pub mod karabiner_data;
+pub mod lint;
 pub mod rule_sets;
 
 use std::{io::Seek as _, path::Path};
@@ -9,25 +12,52 @@ const TITLE: &str = "Personal rules";
 
 const CUSTOM_JSON_FILENAME: &str = "custom.json";
 
-const MANIPULATORS: &[fn() -> Vec<karabiner_data::Manipulator>] = &[
-    rule_sets::virtual_key_assignments::manipulators,
-    rule_sets::apps::iterm2::manipulators,
-    rule_sets::apps::vscode::manipulators,
-    rule_sets::apps::dynalist::manipulators,
-    rule_sets::apps::slack::manipulators,
-    rule_sets::apps::google_chrome::manipulators,
-    rule_sets::apps::firefox::manipulators,
-    rule_sets::apps::notion::manipulators,
-    rule_sets::apps::chatgpt::manipulators,
-    rule_sets::apps::codex::manipulators,
-    rule_sets::common::manipulators,
-    rule_sets::shingeta::manipulators,
+const CHEATSHEET_FILENAME: &str = "cheatsheet.html";
+
+type RuleSet = (&'static str, fn() -> Vec<karabiner_data::Manipulator>);
+
+const RULE_SETS: &[RuleSet] = &[
+    (
+        "virtual_key_assignments",
+        rule_sets::virtual_key_assignments::manipulators,
+    ),
+    ("apps/iterm2", rule_sets::apps::iterm2::manipulators),
+    ("apps/vscode", rule_sets::apps::vscode::manipulators),
+    ("apps/dynalist", rule_sets::apps::dynalist::manipulators),
+    ("apps/slack", rule_sets::apps::slack::manipulators),
+    (
+        "apps/google_chrome",
+        rule_sets::apps::google_chrome::manipulators,
+    ),
+    ("apps/firefox", rule_sets::apps::firefox::manipulators),
+    ("apps/notion", rule_sets::apps::notion::manipulators),
+    ("apps/chatgpt", rule_sets::apps::chatgpt::manipulators),
+    ("apps/codex", rule_sets::apps::codex::manipulators),
+    ("common", rule_sets::common::manipulators),
+    ("shingeta", rule_sets::shingeta::manipulators),
 ];
 
 fn main() -> anyhow::Result<()> {
+    let rulesets: Vec<(&str, Vec<karabiner_data::Manipulator>)> =
+        RULE_SETS.iter().map(|(name, f)| (*name, f())).collect();
+
+    let findings = lint::lint(&rulesets);
+    if !findings.is_empty() {
+        eprintln!("⚠️  lint: {} 件の問題が見つかりました:", findings.len());
+        for finding in &findings {
+            eprintln!("  - {}", finding);
+        }
+    }
+    if std::env::args().any(|arg| arg == "--check") {
+        if findings.is_empty() {
+            println!("✅ lint: 問題なし");
+        }
+        std::process::exit(if findings.is_empty() { 0 } else { 1 });
+    }
+
     let rules = vec![karabiner_data::Rule {
         description: TITLE.to_string(),
-        manipulators: MANIPULATORS.iter().flat_map(|f| f()).collect(),
+        manipulators: rulesets.iter().flat_map(|(_, m)| m.clone()).collect(),
     }];
     let complex_modifications = karabiner_data::ComplexModifications {
         title: TITLE,
@@ -40,7 +70,14 @@ fn main() -> anyhow::Result<()> {
     copy_to_karabiner_assets(&config_dir)?;
     update_karabiner_config(&config_dir, &rules)?;
 
+    std::fs::write(
+        CHEATSHEET_FILENAME,
+        cheatsheet::generate(&rulesets, &findings),
+    )
+    .map_err(|e| anyhow::anyhow!("Failed to write {}: {}", CHEATSHEET_FILENAME, e))?;
+
     println!("✅ Karabiner configuration updated successfully!");
+    println!("📝 Cheatsheet written to {}", CHEATSHEET_FILENAME);
     Ok(())
 }
 
