@@ -219,10 +219,18 @@ fn to_part(to: &To) -> String {
         To::Mouse { mouse_key } => {
             let mut parts = Vec::new();
             if let Some(x) = mouse_key.x {
-                parts.push(format!("マウス{}", if x < 0 { "←" } else { "→" }));
+                parts.push(format!(
+                    "マウス{}{}",
+                    if x < 0 { "←" } else { "→" },
+                    mouse_speed_label(x)
+                ));
             }
             if let Some(y) = mouse_key.y {
-                parts.push(format!("マウス{}", if y < 0 { "↑" } else { "↓" }));
+                parts.push(format!(
+                    "マウス{}{}",
+                    if y < 0 { "↑" } else { "↓" },
+                    mouse_speed_label(y)
+                ));
             }
             if let Some(v) = mouse_key.vertical_wheel {
                 parts.push(format!("ホイール{}", if v < 0 { "↑" } else { "↓" }));
@@ -236,6 +244,16 @@ fn to_part(to: &To) -> String {
             PointingButton::Button1 => "左クリック".to_string(),
             PointingButton::Button2 => "右クリック".to_string(),
         },
+    }
+}
+
+/// Mouse movement comes in two speeds: plain key = fast (MOUSE_SPEED * 4),
+/// Shift+key = slow (MOUSE_SPEED). Distinguish them in the summary.
+fn mouse_speed_label(speed: i32) -> &'static str {
+    if speed.abs() >= 2000 {
+        "(高速)"
+    } else {
+        "(低速)"
     }
 }
 
