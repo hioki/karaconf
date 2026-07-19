@@ -5797,6 +5797,29 @@
       ]
     },
     {
+      "description": "VK2+: -> App Store 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "quote"
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'App Store.app'"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "VK2+@ -> Mail 起動",
       "manipulators": [
         {
