@@ -256,7 +256,8 @@ pub fn manipulators() -> Vec<Manipulator> {
         (Key5, Rewind, None),
         (Key6, PlayOrPause, None),
         (Key7, Fastforward, None),
-        (Q, Q, Some(vec![Ctrl, Cmd])), // lock screen
+        (Q, Q, Some(vec![Ctrl, Cmd])),               // lock screen
+        (Semicolon, ReturnOrEnter, Some(vec![Cmd])), // Cmd+Return
     ] {
         manipulators.push(
             Manipulator::builder()

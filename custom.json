@@ -4351,6 +4351,27 @@
             }
           ],
           "from": {
+            "key_code": "semicolon"
+          },
+          "to": [
+            {
+              "key_code": "return_or_enter",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
             "key_code": "1",
             "modifiers": {
               "mandatory": [
