@@ -934,7 +934,7 @@
       ]
     },
     {
-      "description": "VSCode: VK4+A -> execute command",
+      "description": "VSCode: VK4+A -> Execute command",
       "manipulators": [
         {
           "type": "basic",
@@ -969,7 +969,7 @@
       ]
     },
     {
-      "description": "VSCode: VK4+B -> show bookmarks",
+      "description": "VSCode: VK4+B -> Show bookmarks",
       "manipulators": [
         {
           "type": "basic",
@@ -1108,7 +1108,7 @@
       ]
     },
     {
-      "description": "VSCode: VK4+F -> search file",
+      "description": "VSCode: VK4+F -> Search file",
       "manipulators": [
         {
           "type": "basic",
@@ -1248,7 +1248,7 @@
       ]
     },
     {
-      "description": "VSCode: VK4+J -> Codex: Focus on Codex View",
+      "description": "VSCode: VK4+J -> Toggle secondary sidebar",
       "manipulators": [
         {
           "type": "basic",
@@ -1283,7 +1283,7 @@
       ]
     },
     {
-      "description": "VSCode: VK4+K -> find in path",
+      "description": "VSCode: VK4+K -> Search",
       "manipulators": [
         {
           "type": "basic",
@@ -1353,7 +1353,7 @@
       ]
     },
     {
-      "description": "VSCode: VK4+M -> Toggle bookmarks",
+      "description": "VSCode: VK4+M -> Bookmarks: Toggle bookmarks",
       "manipulators": [
         {
           "type": "basic",
@@ -1421,7 +1421,7 @@
       ]
     },
     {
-      "description": "VSCode: VK4+O -> open recent",
+      "description": "VSCode: VK4+O -> Open recent",
       "manipulators": [
         {
           "type": "basic",
@@ -1490,7 +1490,7 @@
       ]
     },
     {
-      "description": "VSCode: VK4+R -> reload window",
+      "description": "VSCode: VK4+R -> Search all references",
       "manipulators": [
         {
           "type": "basic",
@@ -1525,7 +1525,7 @@
       ]
     },
     {
-      "description": "VSCode: VK4+S -> go to symbol",
+      "description": "VSCode: VK4+S -> Go to symbol",
       "manipulators": [
         {
           "type": "basic",
@@ -1663,7 +1663,7 @@
       ]
     },
     {
-      "description": "VSCode: VK4+W -> Claude Code: Open in Side Bar",
+      "description": "VSCode: VK4+W -> Focus on changes view",
       "manipulators": [
         {
           "type": "basic",
@@ -1768,147 +1768,7 @@
       ]
     },
     {
-      "description": "VSCode: VK4+Z -> Focus on Source Control: Changes view",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "com.microsoft.VSCode"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "vk4",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "z"
-          },
-          "to": [
-            {
-              "key_code": "z",
-              "modifiers": [
-                "control",
-                "shift",
-                "option",
-                "command"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "VSCode: VK4+9 -> Zoom in",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "com.microsoft.VSCode"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "vk4",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "9"
-          },
-          "to": [
-            {
-              "key_code": "9",
-              "modifiers": [
-                "control",
-                "shift",
-                "option",
-                "command"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "VSCode: VK4+0 -> Zoom out",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "com.microsoft.VSCode"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "vk4",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "0"
-          },
-          "to": [
-            {
-              "key_code": "0",
-              "modifiers": [
-                "control",
-                "shift",
-                "option",
-                "command"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "VSCode: VK4+⏎ -> re-run task",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "com.microsoft.VSCode"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "vk4",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "return_or_enter"
-          },
-          "to": [
-            {
-              "key_code": "return_or_enter",
-              "modifiers": [
-                "control",
-                "shift",
-                "option",
-                "command"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "VSCode: VK4+. -> quick fix",
+      "description": "VSCode: VK4+. -> Quick Fix",
       "manipulators": [
         {
           "type": "basic",
