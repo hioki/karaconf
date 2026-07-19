@@ -5704,29 +5704,6 @@
       ]
     },
     {
-      "description": "VK2+I -> Journal 起動",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vk2",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "i"
-          },
-          "to": [
-            {
-              "shell_command": "open -a 'Journal.app'"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "description": "VK2+J -> Firefox 起動",
       "manipulators": [
         {

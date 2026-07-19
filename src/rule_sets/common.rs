@@ -348,7 +348,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         // (F, "Command+Tab"),
         (G, "open -a 'Visual Studio Code.app'"),
         // (H, "Open notification center"),
-        (I, "open -a 'Journal.app'"),
+        // (I, None),
         (J, "open -a 'Firefox.app'"),
         (K, "open -a 'iTerm.app'"),
         (L, "open -a 'Alfred 5.app'"),
