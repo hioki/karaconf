@@ -5911,6 +5911,29 @@
       ]
     },
     {
+      "description": "VK2+T -> Finder 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "t"
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Finder.app'"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "VK2+U -> Microsoft To Do 起動",
       "manipulators": [
         {
@@ -6003,7 +6026,7 @@
       ]
     },
     {
-      "description": "VK2+Y -> Slack 起動",
+      "description": "VK2+Y -> Preview 起動",
       "manipulators": [
         {
           "type": "basic",
@@ -6019,7 +6042,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Slack.app'"
+              "shell_command": "open -a 'Preview.app'"
             }
           ]
         }
@@ -6066,6 +6089,29 @@
           "to": [
             {
               "shell_command": "open -a 'System Settings.app'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "VK2+. -> Slack 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "period"
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Slack.app'"
             }
           ]
         }

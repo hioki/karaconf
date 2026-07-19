@@ -359,12 +359,12 @@ pub fn manipulators() -> Vec<Manipulator> {
         // (Q, "Ctrl+Cmd+Q - lock screen"),
         (R, "open -a 'Calculator.app'"),
         // (S, "Ctrl+Tab"),
-        // (T, None),
+        (T, "open -a 'Finder.app'"),
         (U, "open -a 'Microsoft To Do.app'"),
         (V, "open -a 'DeepL.app'"),
         (W, "open -a 'ChatGPT.app'"),
         (X, "open -a 'Calendar.app'"),
-        (Y, "open -a 'Slack.app'"),
+        (Y, "open -a 'Preview.app'"),
         // (Z, "Cmd+Shift+4 - screenshot selection"),
         // (ReturnOrEnter, None),
         // (Quote, None),
@@ -372,7 +372,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         (OpenBracket, "open -a 'Mail.app'"), // @
         // (CloseBracket, None), // [
         (Comma, "open -a 'System Settings.app'"),
-        // (Period, None),
+        (Period, "open -a 'Slack.app'"),
         (
             Slash,
             "open 'https://s2.kingtime.jp/independent/recorder2/personal/'",
