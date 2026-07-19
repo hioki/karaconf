@@ -420,7 +420,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     //
     manipulators.push(
         Manipulator::builder()
-            .description("type () with cursor inside")
+            .description("Type () with cursor inside")
             .condition(Condition::with_vk3())
             .from_key(I)
             .to_key(Key8, Some(vec![Shift]))
@@ -430,7 +430,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     );
     manipulators.push(
         Manipulator::builder()
-            .description("type half-width [] with cursor inside")
+            .description("Type half-width [] with cursor inside")
             .condition(Condition::with_vk3())
             .condition(Condition::with_japanese_input())
             .from_key(O)
@@ -443,7 +443,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     );
     manipulators.push(
         Manipulator::builder()
-            .description("type [] with cursor inside")
+            .description("Type [] with cursor inside")
             .condition(Condition::with_vk3())
             .from_key(O)
             .to_key(CloseBracket, None)

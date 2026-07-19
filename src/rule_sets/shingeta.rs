@@ -187,22 +187,24 @@ pub fn manipulators() -> Vec<Manipulator> {
         sn(International1, vec![(International3, Some(vec![Opt]))]),
         // Cmd+: -> :
         Manipulator::builder()
+            .description("Replace Cmd+: with : for Shingeta mode")
             .condition(Condition::with_shingeta_mode())
             .from_key_with_modifiers(Quote, FromModifier::Mandatory(vec![Cmd]))
             .to_key(Quote, None)
             .build(),
     ];
 
-    for (from, to) in [
-        (LeftArrow, H),
-        (DownArrow, J),
-        (UpArrow, K),
-        (RightArrow, L),
+    for (description, from, to) in [
+        ("←", LeftArrow, H),
+        ("↓", DownArrow, J),
+        ("↑", UpArrow, K),
+        ("→", RightArrow, L),
     ]
     .into_iter()
     {
         manipulators.push(
             Manipulator::builder()
+                .description(format!("Type \"{}\"", description))
                 .condition(Condition::with_shingeta_mode())
                 .from_key(from)
                 .to_key(Z, None)

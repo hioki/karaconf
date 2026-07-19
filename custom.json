@@ -6231,7 +6231,7 @@
       ]
     },
     {
-      "description": "VK3+I -> type () with cursor inside",
+      "description": "VK3+I -> Type () with cursor inside",
       "manipulators": [
         {
           "type": "basic",
@@ -6266,7 +6266,7 @@
       ]
     },
     {
-      "description": "VK3+(ja) O -> type half-width [] with cursor inside",
+      "description": "VK3+(ja) O -> Type half-width [] with cursor inside",
       "manipulators": [
         {
           "type": "basic",
@@ -6309,7 +6309,7 @@
       ]
     },
     {
-      "description": "VK3+O -> type [] with cursor inside",
+      "description": "VK3+O -> Type [] with cursor inside",
       "manipulators": [
         {
           "type": "basic",
@@ -10947,7 +10947,7 @@
       ]
     },
     {
-      "description": "新下駄: ⌘: -> :",
+      "description": "新下駄: ⌘: -> Replace Cmd+: with : for Shingeta mode",
       "manipulators": [
         {
           "type": "basic",
@@ -10975,7 +10975,7 @@
       ]
     },
     {
-      "description": "新下駄: ← -> Z H",
+      "description": "新下駄: ← -> Type \"←\"",
       "manipulators": [
         {
           "type": "basic",
@@ -11001,7 +11001,7 @@
       ]
     },
     {
-      "description": "新下駄: ↓ -> Z J",
+      "description": "新下駄: ↓ -> Type \"↓\"",
       "manipulators": [
         {
           "type": "basic",
@@ -11027,7 +11027,7 @@
       ]
     },
     {
-      "description": "新下駄: ↑ -> Z K",
+      "description": "新下駄: ↑ -> Type \"↑\"",
       "manipulators": [
         {
           "type": "basic",
@@ -11053,7 +11053,7 @@
       ]
     },
     {
-      "description": "新下駄: → -> Z L",
+      "description": "新下駄: → -> Type \"→\"",
       "manipulators": [
         {
           "type": "basic",
