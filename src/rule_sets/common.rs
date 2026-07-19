@@ -404,8 +404,6 @@ pub fn manipulators() -> Vec<Manipulator> {
         (K, Key8),
         (L, Key9),
         (Semicolon, Key0),
-        (Backslash, Hyphen),
-        (NonUsPound, Hyphen),
         (Quote, Hyphen),
     ] {
         manipulators.push(
@@ -415,17 +413,6 @@ pub fn manipulators() -> Vec<Manipulator> {
                 .to_key(to, None)
                 .build(),
         )
-    }
-    for (from, to) in [(Z, H), (X, J), (C, K), (V, L)] {
-        manipulators.push(
-            Manipulator::builder()
-                .condition(Condition::with_vk3())
-                .condition(Condition::with_shingeta_mode())
-                .from_key(from)
-                .to_key(Z, None)
-                .to_key(to, None)
-                .build(),
-        );
     }
 
     //
