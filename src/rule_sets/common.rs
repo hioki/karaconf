@@ -167,14 +167,15 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
-    for (key_code, x, y) in [
-        (N, Some(-MOUSE_SPEED), None),
-        (M, None, Some(MOUSE_SPEED)),
-        (Comma, None, Some(-MOUSE_SPEED)),
-        (Period, Some(MOUSE_SPEED), None),
+    for (description, key_code, x, y) in [
+        ("マウスを左に移動", N, Some(-MOUSE_SPEED), None),
+        ("マウスを下に移動", M, None, Some(MOUSE_SPEED)),
+        ("マウスを上に移動", Comma, None, Some(-MOUSE_SPEED)),
+        ("マウスを右に移動", Period, Some(MOUSE_SPEED), None),
     ] {
         manipulators.push({
             Manipulator::builder()
+                .description(format!("{} (低速)", description))
                 .condition(Condition::with_vk1())
                 .from_key_with_modifiers(key_code.clone(), FromModifier::Mandatory(vec![Shift]))
                 .to_mouse(MouseKey {
@@ -187,6 +188,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         });
         manipulators.push({
             Manipulator::builder()
+                .description(format!("{} (高速)", description))
                 .condition(Condition::with_vk1())
                 .from_key(key_code)
                 .to_mouse(MouseKey {
@@ -255,28 +257,43 @@ pub fn manipulators() -> Vec<Manipulator> {
     // Virtual Key 2
     //
     for (from, to, to_modifiers, description) in [
-        (F, Tab, Some(vec![Cmd]), "move to next app"),
-        (D, Tab, Some(vec![Cmd, Shift]), "move to previous app"),
-        (S, Tab, Some(vec![Ctrl]), "move to next tab"),
-        (A, Tab, Some(vec![Ctrl, Shift]), "move to previous tab"),
+        (F, Tab, Some(vec![Cmd]), "Move to next app"),
+        (D, Tab, Some(vec![Cmd, Shift]), "Move to previous app"),
+        (S, Tab, Some(vec![Ctrl]), "Move to next tab"),
+        (A, Tab, Some(vec![Ctrl, Shift]), "Move to previous tab"),
         (
             H,
             N,
             Some(vec![Ctrl, Shift, Cmd]),
-            "open notification center",
+            "Open notification center",
         ),
-        (Z, Key4, Some(vec![Shift, Cmd]), "screenshot (selection)"),
-        (Key9, KeypadPlus, Some(vec![Cmd]), "zoom in"),
-        (Key0, Hyphen, Some(vec![Cmd]), "zoom out"),
-        (Key1, VolumeDecrement, None, ""),
-        (Key2, VolumeIncrement, None, ""),
-        (Key3, DisplayBrightnessDecrement, None, ""),
-        (Key4, DisplayBrightnessIncrement, None, ""),
-        (Key5, Rewind, None, ""),
-        (Key6, PlayOrPause, None, ""),
-        (Key7, Fastforward, None, ""),
-        (Q, Q, Some(vec![Ctrl, Cmd]), "lock screen"),
-        (Semicolon, ReturnOrEnter, Some(vec![Cmd]), ""),
+        (Z, Key4, Some(vec![Shift, Cmd]), "Screenshot (selection)"),
+        (Key9, KeypadPlus, Some(vec![Cmd]), "Zoom in"),
+        (Key0, Hyphen, Some(vec![Cmd]), "Zoom out"),
+        (Key1, VolumeDecrement, None, "音量を下げる"),
+        (Key2, VolumeIncrement, None, "音量を上げる"),
+        (
+            Key3,
+            DisplayBrightnessDecrement,
+            None,
+            "画面の明るさを下げる",
+        ),
+        (
+            Key4,
+            DisplayBrightnessIncrement,
+            None,
+            "画面の明るさを上げる",
+        ),
+        (Key5, Rewind, None, "巻き戻し"),
+        (Key6, PlayOrPause, None, "再生/一時停止"),
+        (Key7, Fastforward, None, "早送り"),
+        (Q, Q, Some(vec![Ctrl, Cmd]), "Lock screen"),
+        (
+            Semicolon,
+            ReturnOrEnter,
+            Some(vec![Cmd]),
+            "Replace `VK2+;` with `Cmd+Enter`",
+        ),
     ] {
         let mut builder = Manipulator::builder()
             .condition(Condition::with_vk2())

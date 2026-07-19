@@ -2418,7 +2418,7 @@
       ]
     },
     {
-      "description": "GoogleChrome: VK4+Space -> Mute Google Meet",
+      "description": "GoogleChrome: VK4+Space -> Mute google meets",
       "manipulators": [
         {
           "type": "basic",
@@ -3613,7 +3613,7 @@
       ]
     },
     {
-      "description": "VK1+F -> Escape + 英数 (switch to English input)",
+      "description": "VK1+F -> Replace `VK1+F` with `Escape` + `英数` + disable shingeta mode",
       "manipulators": [
         {
           "type": "basic",
@@ -3653,7 +3653,7 @@
       ]
     },
     {
-      "description": "VK1+S -> かな (enable shingeta mode)",
+      "description": "VK1+S -> Replace `VK1+S` with `かな` (switch to Japanese input)",
       "manipulators": [
         {
           "type": "basic",
@@ -3685,7 +3685,7 @@
       ]
     },
     {
-      "description": "VK1+D -> 英数 (disable shingeta mode)",
+      "description": "VK1+D -> Replace `VK1+D` with `英数` (switch to English input)",
       "manipulators": [
         {
           "type": "basic",
@@ -3717,7 +3717,7 @@
       ]
     },
     {
-      "description": "VK1+R -> type today's date (e.g. 2026-07-18)",
+      "description": "VK1+R -> Type today's date (e.g. 2026-07-18)",
       "manipulators": [
         {
           "type": "basic",
@@ -3740,7 +3740,7 @@
       ]
     },
     {
-      "description": "VK1+X -> type current timestamp (e.g. 20260718215230)",
+      "description": "VK1+X -> Type current timestamp (e.g. 20260718215230)",
       "manipulators": [
         {
           "type": "basic",
@@ -3763,7 +3763,7 @@
       ]
     },
     {
-      "description": "VK1+A -> 英数に変換",
+      "description": "VK1+A -> 変換中の文字を英数に変換",
       "manipulators": [
         {
           "type": "basic",
@@ -3786,7 +3786,7 @@
       ]
     },
     {
-      "description": "VK1+Z -> カタカナに変換",
+      "description": "VK1+Z -> 変換中の文字をカタカナに変換",
       "manipulators": [
         {
           "type": "basic",
@@ -3809,7 +3809,7 @@
       ]
     },
     {
-      "description": "VK1+O -> move to previous tab",
+      "description": "VK1+O -> Move to previous tab",
       "manipulators": [
         {
           "type": "basic",
@@ -3836,7 +3836,7 @@
       ]
     },
     {
-      "description": "VK1+P -> move to next tab",
+      "description": "VK1+P -> Move to next tab",
       "manipulators": [
         {
           "type": "basic",
@@ -3862,7 +3862,7 @@
       ]
     },
     {
-      "description": "VK1+Y -> copy",
+      "description": "VK1+Y -> Copy",
       "manipulators": [
         {
           "type": "basic",
@@ -3888,7 +3888,7 @@
       ]
     },
     {
-      "description": "VK1+T -> cut",
+      "description": "VK1+T -> Cut",
       "manipulators": [
         {
           "type": "basic",
@@ -3914,7 +3914,7 @@
       ]
     },
     {
-      "description": "VK1+V -> paste without formatting",
+      "description": "VK1+V -> Paste without formatting",
       "manipulators": [
         {
           "type": "basic",
@@ -3942,7 +3942,7 @@
       ]
     },
     {
-      "description": "VK1+C -> backspace",
+      "description": "VK1+C -> Backspace",
       "manipulators": [
         {
           "type": "basic",
@@ -3965,7 +3965,7 @@
       ]
     },
     {
-      "description": "VK1+E -> delete",
+      "description": "VK1+E -> Delete",
       "manipulators": [
         {
           "type": "basic",
@@ -3988,7 +3988,7 @@
       ]
     },
     {
-      "description": "VK1+: -> hide current app",
+      "description": "VK1+: -> Hide current app",
       "manipulators": [
         {
           "type": "basic",
@@ -4014,7 +4014,7 @@
       ]
     },
     {
-      "description": "VK1+B -> maximize window",
+      "description": "VK1+B -> Maximize window",
       "manipulators": [
         {
           "type": "basic",
@@ -4043,7 +4043,7 @@
       ]
     },
     {
-      "description": "VK1+¥ -> hide dock",
+      "description": "VK1+¥ -> Hide dock",
       "manipulators": [
         {
           "type": "basic",
@@ -4070,7 +4070,7 @@
       ]
     },
     {
-      "description": "VK1+; -> ⇧⏎",
+      "description": "VK1+; -> Replace `VK1+;` with `Shift+Enter`",
       "manipulators": [
         {
           "type": "basic",
@@ -4096,7 +4096,7 @@
       ]
     },
     {
-      "description": "VK1+⇧Y -> copy + strip newlines and repeated spaces",
+      "description": "VK1+⇧Y -> Replace `VK1+Shift+Y` with `Cmd+C` + remove newlines and extra spaces from clipboard",
       "manipulators": [
         {
           "type": "basic",
@@ -4130,7 +4130,7 @@
       ]
     },
     {
-      "description": "VK1+⇧N -> マウス←(低速)",
+      "description": "VK1+⇧N -> マウスを左に移動 (低速)",
       "manipulators": [
         {
           "type": "basic",
@@ -4160,7 +4160,7 @@
       ]
     },
     {
-      "description": "VK1+N -> マウス←(高速)",
+      "description": "VK1+N -> マウスを左に移動 (高速)",
       "manipulators": [
         {
           "type": "basic",
@@ -4185,7 +4185,7 @@
       ]
     },
     {
-      "description": "VK1+⇧M -> マウス↓(低速)",
+      "description": "VK1+⇧M -> マウスを下に移動 (低速)",
       "manipulators": [
         {
           "type": "basic",
@@ -4215,7 +4215,7 @@
       ]
     },
     {
-      "description": "VK1+M -> マウス↓(高速)",
+      "description": "VK1+M -> マウスを下に移動 (高速)",
       "manipulators": [
         {
           "type": "basic",
@@ -4240,7 +4240,7 @@
       ]
     },
     {
-      "description": "VK1+⇧, -> マウス↑(低速)",
+      "description": "VK1+⇧, -> マウスを上に移動 (低速)",
       "manipulators": [
         {
           "type": "basic",
@@ -4270,7 +4270,7 @@
       ]
     },
     {
-      "description": "VK1+, -> マウス↑(高速)",
+      "description": "VK1+, -> マウスを上に移動 (高速)",
       "manipulators": [
         {
           "type": "basic",
@@ -4295,7 +4295,7 @@
       ]
     },
     {
-      "description": "VK1+⇧. -> マウス→(低速)",
+      "description": "VK1+⇧. -> マウスを右に移動 (低速)",
       "manipulators": [
         {
           "type": "basic",
@@ -4325,7 +4325,7 @@
       ]
     },
     {
-      "description": "VK1+. -> マウス→(高速)",
+      "description": "VK1+. -> マウスを右に移動 (高速)",
       "manipulators": [
         {
           "type": "basic",
@@ -4571,7 +4571,7 @@
       ]
     },
     {
-      "description": "VK2+F -> move to next app",
+      "description": "VK2+F -> Move to next app",
       "manipulators": [
         {
           "type": "basic",
@@ -4597,7 +4597,7 @@
       ]
     },
     {
-      "description": "VK2+D -> move to previous app",
+      "description": "VK2+D -> Move to previous app",
       "manipulators": [
         {
           "type": "basic",
@@ -4624,7 +4624,7 @@
       ]
     },
     {
-      "description": "VK2+S -> move to next tab",
+      "description": "VK2+S -> Move to next tab",
       "manipulators": [
         {
           "type": "basic",
@@ -4650,7 +4650,7 @@
       ]
     },
     {
-      "description": "VK2+A -> move to previous tab",
+      "description": "VK2+A -> Move to previous tab",
       "manipulators": [
         {
           "type": "basic",
@@ -4677,7 +4677,7 @@
       ]
     },
     {
-      "description": "VK2+H -> open notification center",
+      "description": "VK2+H -> Open notification center",
       "manipulators": [
         {
           "type": "basic",
@@ -4705,7 +4705,7 @@
       ]
     },
     {
-      "description": "VK2+Z -> screenshot (selection)",
+      "description": "VK2+Z -> Screenshot (selection)",
       "manipulators": [
         {
           "type": "basic",
@@ -4732,7 +4732,7 @@
       ]
     },
     {
-      "description": "VK2+9 -> zoom in",
+      "description": "VK2+9 -> Zoom in",
       "manipulators": [
         {
           "type": "basic",
@@ -4758,7 +4758,7 @@
       ]
     },
     {
-      "description": "VK2+0 -> zoom out",
+      "description": "VK2+0 -> Zoom out",
       "manipulators": [
         {
           "type": "basic",
@@ -4784,7 +4784,7 @@
       ]
     },
     {
-      "description": "VK2+1 -> 音量-",
+      "description": "VK2+1 -> 音量を下げる",
       "manipulators": [
         {
           "type": "basic",
@@ -4807,7 +4807,7 @@
       ]
     },
     {
-      "description": "VK2+2 -> 音量+",
+      "description": "VK2+2 -> 音量を上げる",
       "manipulators": [
         {
           "type": "basic",
@@ -4830,7 +4830,7 @@
       ]
     },
     {
-      "description": "VK2+3 -> 輝度-",
+      "description": "VK2+3 -> 画面の明るさを下げる",
       "manipulators": [
         {
           "type": "basic",
@@ -4853,7 +4853,7 @@
       ]
     },
     {
-      "description": "VK2+4 -> 輝度+",
+      "description": "VK2+4 -> 画面の明るさを上げる",
       "manipulators": [
         {
           "type": "basic",
@@ -4876,7 +4876,7 @@
       ]
     },
     {
-      "description": "VK2+5 -> ⏪",
+      "description": "VK2+5 -> 巻き戻し",
       "manipulators": [
         {
           "type": "basic",
@@ -4899,7 +4899,7 @@
       ]
     },
     {
-      "description": "VK2+6 -> ⏯",
+      "description": "VK2+6 -> 再生/一時停止",
       "manipulators": [
         {
           "type": "basic",
@@ -4922,7 +4922,7 @@
       ]
     },
     {
-      "description": "VK2+7 -> ⏩",
+      "description": "VK2+7 -> 早送り",
       "manipulators": [
         {
           "type": "basic",
@@ -4945,7 +4945,7 @@
       ]
     },
     {
-      "description": "VK2+Q -> lock screen",
+      "description": "VK2+Q -> Lock screen",
       "manipulators": [
         {
           "type": "basic",
@@ -4972,7 +4972,7 @@
       ]
     },
     {
-      "description": "VK2+; -> ⌘⏎",
+      "description": "VK2+; -> Replace `VK2+;` with `Cmd+Enter`",
       "manipulators": [
         {
           "type": "basic",
