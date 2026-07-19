@@ -185,9 +185,8 @@ pub fn manipulators() -> Vec<Manipulator> {
         sn(Period, vec![(Period, None)]),
         sn(Slash, vec![(B, None), (U, None)]),
         sn(International1, vec![(International3, Some(vec![Opt]))]),
-        // Cmd+: -> :
         Manipulator::builder()
-            .description("Replace Cmd+: with : for Shingeta mode")
+            .description("新下駄モードで「:」を入力する")
             .condition(Condition::with_shingeta_mode())
             .from_key_with_modifiers(Quote, FromModifier::Mandatory(vec![Cmd]))
             .to_key(Quote, None)
@@ -204,7 +203,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     {
         manipulators.push(
             Manipulator::builder()
-                .description(format!("Type \"{}\"", description))
+                .description(format!("\"{}\" を入力", description))
                 .condition(Condition::with_shingeta_mode())
                 .from_key(from)
                 .to_key(Z, None)

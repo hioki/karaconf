@@ -9,16 +9,16 @@ pub fn manipulators() -> Vec<Manipulator> {
         (
             VirtualKey::Vk2,
             vec![
-                ("Zoom in", Key9, KeypadPlus, vec![Cmd]),
-                ("Zoom out", Key0, Hyphen, vec![Cmd]),
+                ("拡大", Key9, KeypadPlus, vec![Cmd]),
+                ("縮小", Key0, Hyphen, vec![Cmd]),
             ],
         ),
         (
             VirtualKey::Vk4,
             vec![
-                ("Toggle sidebar", E, International3, vec![Cmd]),
-                ("Search", F, P, vec![Cmd]),
-                ("Copy link", Y, L, vec![Cmd]),
+                ("サイドバーを表示/非表示", E, International3, vec![Cmd]),
+                ("検索", F, P, vec![Cmd]),
+                ("ページのリンクをコピー", Y, L, vec![Cmd]),
             ],
         ),
     ]);
