@@ -2078,7 +2078,7 @@
       ]
     },
     {
-      "description": "Dynalist: VK1+U -> go to line head",
+      "description": "Dynalist: VK1+U -> Go to line head",
       "manipulators": [
         {
           "type": "basic",
@@ -2110,7 +2110,7 @@
       ]
     },
     {
-      "description": "Dynalist: VK1+I -> go to line tail",
+      "description": "Dynalist: VK1+I -> Go to line tail",
       "manipulators": [
         {
           "type": "basic",
@@ -2142,7 +2142,7 @@
       ]
     },
     {
-      "description": "Dynalist: VK2+9 -> zoom in",
+      "description": "Dynalist: VK2+9 -> Zoom in",
       "manipulators": [
         {
           "type": "basic",
@@ -2175,7 +2175,7 @@
       ]
     },
     {
-      "description": "Dynalist: VK2+0 -> zoom out",
+      "description": "Dynalist: VK2+0 -> Zoom out",
       "manipulators": [
         {
           "type": "basic",
@@ -2207,7 +2207,7 @@
       ]
     },
     {
-      "description": "Dynalist: VK4+E -> hide sidebar",
+      "description": "Dynalist: VK4+E -> Hide sidebar",
       "manipulators": [
         {
           "type": "basic",
@@ -2240,7 +2240,7 @@
       ]
     },
     {
-      "description": "Dynalist: VK4+F -> search",
+      "description": "Dynalist: VK4+F -> Search",
       "manipulators": [
         {
           "type": "basic",

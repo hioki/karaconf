@@ -8,22 +8,22 @@ pub fn manipulators() -> Vec<Manipulator> {
         (
             VirtualKey::Vk1,
             vec![
-                (U, A, Some(vec![Ctrl]), "go to line head"),
-                (I, E, Some(vec![Ctrl]), "go to line tail"),
+                (U, A, Some(vec![Ctrl]), "Go to line head"),
+                (I, E, Some(vec![Ctrl]), "Go to line tail"),
             ],
         ),
         (
             VirtualKey::Vk2,
             vec![
-                (Key9, Hyphen, Some(vec![Cmd, Shift]), "zoom in"),
-                (Key0, Hyphen, Some(vec![Cmd]), "zoom out"),
+                (Key9, Hyphen, Some(vec![Cmd, Shift]), "Zoom in"),
+                (Key0, Hyphen, Some(vec![Cmd]), "Zoom out"),
             ],
         ),
         (
             VirtualKey::Vk4,
             vec![
-                (E, F, Some(vec![Cmd, Shift]), "hide sidebar"),
-                (F, O, Some(vec![Cmd]), "search"),
+                (E, F, Some(vec![Cmd, Shift]), "Hide sidebar"),
+                (F, O, Some(vec![Cmd]), "Search"),
             ],
         ),
     ]);
