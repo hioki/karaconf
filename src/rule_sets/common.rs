@@ -357,9 +357,9 @@ pub fn manipulators() -> Vec<Manipulator> {
         (O, "open -a \"Google Chrome\""),
         (P, "open -a '1Password.app'"),
         // (Q, "Ctrl+Cmd+Q - lock screen"),
-        (R, "open -a 'Raspberry Pi Imager.app'"),
+        (R, "open -a 'Calculator.app'"),
         // (S, "Ctrl+Tab"),
-        (T, "open -a 'Visual Studio Code.app'"),
+        // (T, None),
         (U, "open -a 'Microsoft To Do.app'"),
         (V, "open -a 'DeepL.app'"),
         (W, "open -a 'ChatGPT.app'"),
@@ -379,7 +379,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         ),
         // (International1, None), // _
         // (NonUsPound, None),
-        (Backslash, "open -a 'Calculator.app'"),
+        // (Backslash, None),
     ] {
         manipulators.push(
             Manipulator::builder()
