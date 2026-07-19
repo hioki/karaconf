@@ -127,6 +127,9 @@ pub fn manipulators() -> Vec<Manipulator> {
         (Quote, H, Some(vec![Cmd])),               // hide current app
         (B, M, Some(vec![Ctrl, Opt, Cmd, Shift])), // maximize window
         (International3, D, Some(vec![Cmd, Opt])), // hide dock
+        // NOTE: must stay before the unconditioned `; -> Enter` rule below;
+        // otherwise that rule matches first and this one never fires.
+        (Semicolon, ReturnOrEnter, Some(vec![Shift])), // Shift+Return
     ] {
         manipulators.push(
             Manipulator::builder()
@@ -253,7 +256,8 @@ pub fn manipulators() -> Vec<Manipulator> {
         (Key5, Rewind, None),
         (Key6, PlayOrPause, None),
         (Key7, Fastforward, None),
-        (Q, Q, Some(vec![Ctrl, Cmd])), // lock screen
+        (Q, Q, Some(vec![Ctrl, Cmd])),               // lock screen
+        (Semicolon, ReturnOrEnter, Some(vec![Cmd])), // Cmd+Return
     ] {
         manipulators.push(
             Manipulator::builder()
