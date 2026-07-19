@@ -20,8 +20,11 @@ pub enum BundleIdentifier {
     Notion,
     #[serde(rename = "com.openai.chat")]
     ChatGPT,
-    #[serde(rename = "com.openai.codex")]
-    Codex,
+    // TODO:
+    // BitWarden
+    // Claude
+    // 1Password
+    // Finder
 }
 
 // https://karabiner-elements.pqrs.org/docs/json/root-data-structure/#custom-json-file-in-configkarabinerassetscomplex_modifications

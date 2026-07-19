@@ -1,4 +1,3 @@
-pub mod codex;
 pub mod dynalist;
 pub mod firefox;
 pub mod google_chrome;
