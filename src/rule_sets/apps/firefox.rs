@@ -3,31 +3,24 @@ use crate::karabiner_data::{
 };
 
 pub fn manipulators() -> Vec<Manipulator> {
-    vec![
-        Manipulator::builder()
-            .conditions(vec![
-                Condition::on_app(Firefox),
-                Condition::with_virtual_key(Vk4),
-            ])
-            .from_key(B)
-            .to_key(B, Some(vec![Cmd]))
-            .build(),
-        Manipulator::builder()
-            .conditions(vec![
-                Condition::on_app(Firefox),
-                Condition::with_virtual_key(Vk4),
-            ])
-            .from_key(E)
-            .to_key(Z, Some(vec![Ctrl]))
-            .build(),
-        Manipulator::builder()
-            .conditions(vec![
-                Condition::on_app(Firefox),
-                Condition::with_virtual_key(Vk4),
-            ])
-            .from_key(R)
-            .to_key(L, Some(vec![Cmd]))
-            .to_key(EqualSign, None)
-            .build(),
-    ]
+    let mut manipulators = Vec::new();
+    for (description, from_key, to_key, modifiers) in [
+        ("Toggle bookmarks", B, B, Some(vec![Cmd])),
+        ("Expand/Collapse the Tab List Area", E, Z, Some(vec![Ctrl])),
+        ("Select from the history list", R, L, Some(vec![Cmd])),
+        ("Open Private Window", N, P, Some(vec![Cmd, Shift])),
+    ] {
+        manipulators.push(
+            Manipulator::builder()
+                .description(description)
+                .conditions(vec![
+                    Condition::on_app(Firefox),
+                    Condition::with_virtual_key(Vk4),
+                ])
+                .from_key(from_key)
+                .to_key(to_key, modifiers)
+                .build(),
+        );
+    }
+    manipulators
 }
