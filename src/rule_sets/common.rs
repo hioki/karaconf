@@ -103,6 +103,17 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
+    // VK1+X -> type current timestamp (e.g. 20260718215230)
+    manipulators.push(
+        Manipulator::builder()
+            .condition(Condition::with_vk1())
+            .from_key(X)
+            .to_command(
+                r#"osascript -e "tell application \"System Events\" to keystroke \"$(date +%Y%m%d%H%M%S)\"""#,
+            )
+            .build(),
+    );
+
     for (from, to, modifiers) in [
         (A, F10, None),                            // 英数に変換
         (Z, F7, None),                             // カタカナに変換

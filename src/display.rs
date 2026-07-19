@@ -194,6 +194,9 @@ fn command_summary(shell_command: &str) -> String {
     if shell_command.contains("osascript") && shell_command.contains("volume") {
         return "マイク音量調整".to_string();
     }
+    if shell_command.contains("keystroke") && shell_command.contains("date +%Y%m%d%H%M%S") {
+        return "タイムスタンプを入力".to_string();
+    }
     if shell_command.contains("keystroke") && shell_command.contains("date +") {
         return "今日の日付を入力".to_string();
     }
