@@ -2634,7 +2634,7 @@
       ]
     },
     {
-      "description": "GoogleChrome: VK4+Space -> mute Google Meet",
+      "description": "GoogleChrome: VK4+Space -> Mute Google Meet",
       "manipulators": [
         {
           "type": "basic",
@@ -2666,7 +2666,7 @@
       ]
     },
     {
-      "description": "GoogleChrome: VK4+M -> list profiles",
+      "description": "GoogleChrome: VK4+M -> List profiles",
       "manipulators": [
         {
           "type": "basic",
@@ -2699,7 +2699,7 @@
       ]
     },
     {
-      "description": "GoogleChrome: VK4+N -> switch profile",
+      "description": "GoogleChrome: VK4+N -> Switch profile",
       "manipulators": [
         {
           "type": "basic",
