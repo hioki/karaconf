@@ -2971,6 +2971,32 @@
             }
           ],
           "from": {
+            "key_code": "q",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "q",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk1",
+              "value": 1
+            }
+          ],
+          "from": {
             "key_code": "1",
             "modifiers": {
               "optional": [

@@ -25,6 +25,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         (I, RightArrow, Some(vec![Cmd])), // go to line tail
         (G, Tab, None),
         (CloseBracket, Z, Some(vec![Cmd])), // undo
+        (Q, Q, Some(vec![Cmd])),
         //
         // F1-F12
         //
