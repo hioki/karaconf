@@ -16,43 +16,45 @@ pub fn manipulators() -> Vec<Manipulator> {
     //
     // Virtual Key 1
     //
-    for (from, to, modifiers) in [
-        (H, LeftArrow, None),
-        (J, DownArrow, None),
-        (K, UpArrow, None),
-        (L, RightArrow, None),
-        (U, LeftArrow, Some(vec![Cmd])),  // go to line head
-        (I, RightArrow, Some(vec![Cmd])), // go to line tail
-        (G, Tab, None),
-        (CloseBracket, Z, Some(vec![Cmd])), // undo
-        (Q, Q, Some(vec![Cmd])),
+    for (from, to, modifiers, description) in [
+        (H, LeftArrow, None, ""),
+        (J, DownArrow, None, ""),
+        (K, UpArrow, None, ""),
+        (L, RightArrow, None, ""),
+        (U, LeftArrow, Some(vec![Cmd]), "go to line head"),
+        (I, RightArrow, Some(vec![Cmd]), "go to line tail"),
+        (G, Tab, None, ""),
+        (CloseBracket, Z, Some(vec![Cmd]), "undo"),
+        (Q, Q, Some(vec![Cmd]), ""),
         //
         // F1-F12
         //
-        (Key1, F1, None),
-        (Key2, F2, None),
-        (Key3, F3, None),
-        (Key4, F4, None),
-        (Key5, F5, None),
-        (Key6, F6, None),
-        (Key7, F7, None),
-        (Key8, F8, None),
-        (Key9, F9, None),
-        (Key0, F10, None),
-        (Hyphen, F11, None),
-        (EqualSign, F12, None),
+        (Key1, F1, None, ""),
+        (Key2, F2, None, ""),
+        (Key3, F3, None, ""),
+        (Key4, F4, None, ""),
+        (Key5, F5, None, ""),
+        (Key6, F6, None, ""),
+        (Key7, F7, None, ""),
+        (Key8, F8, None, ""),
+        (Key9, F9, None, ""),
+        (Key0, F10, None, ""),
+        (Hyphen, F11, None, ""),
+        (EqualSign, F12, None, ""),
     ] {
-        manipulators.push(
-            Manipulator::builder()
-                .condition(Condition::with_vk1())
-                .from_key_with_modifiers(from, FromModifier::Optional(vec![Any]))
-                .to_key(to, modifiers)
-                .build(),
-        );
+        let mut builder = Manipulator::builder()
+            .condition(Condition::with_vk1())
+            .from_key_with_modifiers(from, FromModifier::Optional(vec![Any]))
+            .to_key(to, modifiers);
+        if !description.is_empty() {
+            builder = builder.description(description);
+        }
+        manipulators.push(builder.build());
     }
     // F with any modifier -> Escape + 英数 (to easily switch to English input)
     manipulators.push(
         Manipulator::builder()
+            .description("Escape + 英数 (switch to English input)")
             .condition(Condition::with_vk1())
             .from_key_with_modifiers(F, FromModifier::Optional(vec![Any]))
             .to_key(Escape, None)
@@ -68,6 +70,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     // VK1+S -> JapaneseKana (also enable shingeta mode)
     manipulators.push(
         Manipulator::builder()
+            .description("かな (enable shingeta mode)")
             .condition(Condition::with_vk1())
             .from_key(S)
             .to_key(JapaneseKana, None)
@@ -82,6 +85,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     // VK1+D -> JapaneseEisuu (also disable shingeta mode)
     manipulators.push(
         Manipulator::builder()
+            .description("英数 (disable shingeta mode)")
             .condition(Condition::with_vk1())
             .from_key(D)
             .to_key(JapaneseEisuu, None)
@@ -96,6 +100,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     // VK1+R -> type today's date (e.g. 2026-07-18)
     manipulators.push(
         Manipulator::builder()
+            .description("type today's date (e.g. 2026-07-18)")
             .condition(Condition::with_vk1())
             .from_key(R)
             .to_command(
@@ -107,6 +112,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     // VK1+X -> type current timestamp (e.g. 20260718215230)
     manipulators.push(
         Manipulator::builder()
+            .description("type current timestamp (e.g. 20260718215230)")
             .condition(Condition::with_vk1())
             .from_key(X)
             .to_command(
@@ -115,35 +121,41 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
-    for (from, to, modifiers) in [
-        (A, F10, None),                            // 英数に変換
-        (Z, F7, None),                             // カタカナに変換
-        (O, Tab, Some(vec![Ctrl, Shift])),         // move to previous tab
-        (P, Tab, Some(vec![Ctrl])),                // move to next tab
-        (Y, C, Some(vec![Cmd])),                   // copy
-        (T, X, Some(vec![Cmd])),                   // cut
-        (V, V, Some(vec![Cmd, Shift, Opt])),       // paste without formatting
-        (C, DeleteOrBackspace, None),              // backspace
-        (E, DeleteForward, None),                  // delete
-        (Quote, H, Some(vec![Cmd])),               // hide current app
-        (B, M, Some(vec![Ctrl, Opt, Cmd, Shift])), // maximize window
-        (International3, D, Some(vec![Cmd, Opt])), // hide dock
+    for (from, to, modifiers, description) in [
+        (A, F10, None, "英数に変換"),
+        (Z, F7, None, "カタカナに変換"),
+        (O, Tab, Some(vec![Ctrl, Shift]), "move to previous tab"),
+        (P, Tab, Some(vec![Ctrl]), "move to next tab"),
+        (Y, C, Some(vec![Cmd]), "copy"),
+        (T, X, Some(vec![Cmd]), "cut"),
+        (
+            V,
+            V,
+            Some(vec![Cmd, Shift, Opt]),
+            "paste without formatting",
+        ),
+        (C, DeleteOrBackspace, None, "backspace"),
+        (E, DeleteForward, None, "delete"),
+        (Quote, H, Some(vec![Cmd]), "hide current app"),
+        (B, M, Some(vec![Ctrl, Opt, Cmd, Shift]), "maximize window"),
+        (International3, D, Some(vec![Cmd, Opt]), "hide dock"),
         // NOTE: must stay before the unconditioned `; -> Enter` rule below;
         // otherwise that rule matches first and this one never fires.
-        (Semicolon, ReturnOrEnter, Some(vec![Shift])), // Shift+Return
+        (Semicolon, ReturnOrEnter, Some(vec![Shift]), ""),
     ] {
-        manipulators.push(
-            Manipulator::builder()
-                .condition(Condition::with_vk1())
-                .from_key(from)
-                .to_key(to, modifiers)
-                .build(),
-        );
+        let mut builder = Manipulator::builder()
+            .condition(Condition::with_vk1())
+            .from_key(from)
+            .to_key(to, modifiers);
+        if !description.is_empty() {
+            builder = builder.description(description);
+        }
+        manipulators.push(builder.build());
     }
 
     manipulators.push(
-        // what is this?
         Manipulator::builder()
+            .description("copy + strip newlines and repeated spaces")
             .condition(Condition::with_vk1())
             .from_key_with_modifiers(Y, FromModifier::Mandatory(vec![Shift]))
             .to_key(C, Some(vec![Cmd]))
@@ -241,32 +253,38 @@ pub fn manipulators() -> Vec<Manipulator> {
     //
     // Virtual Key 2
     //
-    for (from, to, to_modifiers) in [
-        (F, Tab, Some(vec![Cmd])),            // move to next app
-        (D, Tab, Some(vec![Cmd, Shift])),     // move to previous app
-        (S, Tab, Some(vec![Ctrl])),           // move to next tab
-        (A, Tab, Some(vec![Ctrl, Shift])),    // move to previous tab
-        (H, N, Some(vec![Ctrl, Shift, Cmd])), // Open notification center
-        (Z, Key4, Some(vec![Shift, Cmd])),    // Screenshot (selection)
-        (Key9, KeypadPlus, Some(vec![Cmd])),  // zoom in
-        (Key0, Hyphen, Some(vec![Cmd])),      // zoom out
-        (Key1, VolumeDecrement, None),
-        (Key2, VolumeIncrement, None),
-        (Key3, DisplayBrightnessDecrement, None),
-        (Key4, DisplayBrightnessIncrement, None),
-        (Key5, Rewind, None),
-        (Key6, PlayOrPause, None),
-        (Key7, Fastforward, None),
-        (Q, Q, Some(vec![Ctrl, Cmd])),               // lock screen
-        (Semicolon, ReturnOrEnter, Some(vec![Cmd])), // Cmd+Return
+    for (from, to, to_modifiers, description) in [
+        (F, Tab, Some(vec![Cmd]), "move to next app"),
+        (D, Tab, Some(vec![Cmd, Shift]), "move to previous app"),
+        (S, Tab, Some(vec![Ctrl]), "move to next tab"),
+        (A, Tab, Some(vec![Ctrl, Shift]), "move to previous tab"),
+        (
+            H,
+            N,
+            Some(vec![Ctrl, Shift, Cmd]),
+            "open notification center",
+        ),
+        (Z, Key4, Some(vec![Shift, Cmd]), "screenshot (selection)"),
+        (Key9, KeypadPlus, Some(vec![Cmd]), "zoom in"),
+        (Key0, Hyphen, Some(vec![Cmd]), "zoom out"),
+        (Key1, VolumeDecrement, None, ""),
+        (Key2, VolumeIncrement, None, ""),
+        (Key3, DisplayBrightnessDecrement, None, ""),
+        (Key4, DisplayBrightnessIncrement, None, ""),
+        (Key5, Rewind, None, ""),
+        (Key6, PlayOrPause, None, ""),
+        (Key7, Fastforward, None, ""),
+        (Q, Q, Some(vec![Ctrl, Cmd]), "lock screen"),
+        (Semicolon, ReturnOrEnter, Some(vec![Cmd]), ""),
     ] {
-        manipulators.push(
-            Manipulator::builder()
-                .condition(Condition::with_vk2())
-                .from_key(from)
-                .to_key(to, to_modifiers)
-                .build(),
-        );
+        let mut builder = Manipulator::builder()
+            .condition(Condition::with_vk2())
+            .from_key(from)
+            .to_key(to, to_modifiers);
+        if !description.is_empty() {
+            builder = builder.description(description);
+        }
+        manipulators.push(builder.build());
     }
     for (key_code, shell_command) in [
         (
@@ -280,6 +298,11 @@ pub fn manipulators() -> Vec<Manipulator> {
     ] {
         manipulators.push(
             Manipulator::builder()
+                .description(if matches!(key_code, Key1) {
+                    "decrease mic input volume"
+                } else {
+                    "increase mic input volume"
+                })
                 .condition(Condition::with_vk2())
                 .from_key_with_modifiers(key_code, FromModifier::Mandatory(vec![Ctrl]))
                 .to_command(shell_command)
@@ -302,6 +325,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     ] {
         manipulators.push(
             Manipulator::builder()
+                .description(format!("Magnet: {}", crate::display::key_label(&to)))
                 .condition(Condition::with_vk2())
                 .from_key_with_modifiers(from, FromModifier::Mandatory(vec![Ctrl]))
                 .to_key(to, Some(vec![Cmd, Ctrl, Opt, Shift]))
@@ -410,6 +434,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     // VK3+I -> () : Shift+8 / Shift+9 on JIS (IME turns them into （）)
     manipulators.push(
         Manipulator::builder()
+            .description("type () with cursor inside")
             .condition(Condition::with_vk3())
             .from_key(I)
             .to_key(Key8, Some(vec![Shift]))
@@ -421,6 +446,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     // 「」, so switch to eisuu first and back to kana afterwards.
     manipulators.push(
         Manipulator::builder()
+            .description("type half-width [] with cursor inside")
             .condition(Condition::with_vk3())
             .condition(Condition::with_japanese_input())
             .from_key(O)
@@ -433,6 +459,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     );
     manipulators.push(
         Manipulator::builder()
+            .description("type [] with cursor inside")
             .condition(Condition::with_vk3())
             .from_key(O)
             .to_key(CloseBracket, None)
@@ -443,6 +470,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     // VK3+P -> 「」 : the physical [ ] keys, which the IME renders as 「」
     manipulators.push(
         Manipulator::builder()
+            .description("type 「」 with cursor inside")
             .condition(Condition::with_vk3())
             .from_key(P)
             .to_key(CloseBracket, None)
@@ -451,13 +479,14 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
     // Super Easy Timer
-    for from in [
-        Q, // Play/Pause Timer
-        W, // Reset Timer
-        E, // Show Timer
+    for (from, description) in [
+        (Q, "Super Easy Timer: Play/Pause"),
+        (W, "Super Easy Timer: Reset"),
+        (E, "Super Easy Timer: Show"),
     ] {
         manipulators.push(
             Manipulator::builder()
+                .description(description)
                 .condition(Condition::with_vk3())
                 .from_key(from.clone())
                 .to_key(from, Some(vec![Cmd, Opt, Shift]))
@@ -473,6 +502,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
         // Cmd+Shift+; -> Cmd+"+"
         Manipulator::builder()
+            .description("zoom in (Cmd+\"+\")")
             .from_key_with_modifiers(Semicolon, FromModifier::Mandatory(vec![Cmd, Shift]))
             .to_key(KeypadPlus, Some(vec![Cmd]))
             .build(),
@@ -483,11 +513,13 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
         // Ctrl+: -> '
         Manipulator::builder()
+            .description("type '")
             .from_key_with_modifiers(Quote, FromModifier::Mandatory(vec![Ctrl]))
             .to_key(Key7, Some(vec![Shift]))
             .build(),
         // CapsLock -> (No Action)
         Manipulator::builder()
+            .description("disabled")
             .from_key_with_modifiers(CapsLock, FromModifier::Optional(vec![Any]))
             .to_key(VkNone, None)
             .build(),
@@ -497,6 +529,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     // When shingeta_mode is 0 (off), pressing F12 sets it to 1 (on)
     manipulators.push(
         Manipulator::builder()
+            .description("enable shingeta layout")
             .condition(Condition::without_virtual_key(VirtualKey::ShingetaMode))
             .from_key(F12)
             .to_variable(SetVariable {
@@ -510,6 +543,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     // When shingeta_mode is 1 (on), pressing F12 sets it to 0 (off)
     manipulators.push(
         Manipulator::builder()
+            .description("disable shingeta layout")
             .condition(Condition::with_shingeta_mode())
             .from_key(F12)
             .to_variable(SetVariable {
@@ -523,6 +557,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     // JapaneseEisuu (英数): Disable shingeta mode when switching to English input
     manipulators.push(
         Manipulator::builder()
+            .description("英数 (disable shingeta mode)")
             .from_key(JapaneseEisuu)
             .to_key(JapaneseEisuu, None)
             .to_variable(SetVariable {
@@ -536,6 +571,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     // JapaneseKana (かな): Enable shingeta mode when switching to Japanese input
     manipulators.push(
         Manipulator::builder()
+            .description("かな (enable shingeta mode)")
             .from_key(JapaneseKana)
             .to_key(JapaneseKana, None)
             .to_variable(SetVariable {

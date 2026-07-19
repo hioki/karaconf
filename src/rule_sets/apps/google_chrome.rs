@@ -7,6 +7,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     vec![
         // Mute google meets
         Manipulator::builder()
+            .description("mute Google Meet")
             .conditions(vec![
                 Condition::on_app(GoogleChrome),
                 Condition::with_virtual_key(Vk4),
@@ -16,6 +17,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
         // List profiles
         Manipulator::builder()
+            .description("list profiles")
             .conditions(vec![
                 Condition::on_app(GoogleChrome),
                 Condition::with_virtual_key(Vk4),
@@ -25,6 +27,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
         // Switch profile
         Manipulator::builder()
+            .description("switch profile")
             .conditions(vec![
                 Condition::on_app(GoogleChrome),
                 Condition::with_virtual_key(Vk4),
