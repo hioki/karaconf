@@ -4732,6 +4732,32 @@
       ]
     },
     {
+      "description": "VK2+8 -> 拡大/縮小をリセット",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "8"
+          },
+          "to": [
+            {
+              "key_code": "0",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "VK2+9 -> 拡大",
       "manipulators": [
         {

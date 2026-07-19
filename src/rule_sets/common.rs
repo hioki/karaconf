@@ -265,6 +265,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             Some(vec![Shift, Cmd]),
             "スクリーンショット（選択範囲）",
         ),
+        (Key8, Key0, Some(vec![Cmd]), "拡大/縮小をリセット"),
         (Key9, KeypadPlus, Some(vec![Cmd]), "拡大"),
         (Key0, Hyphen, Some(vec![Cmd]), "縮小"),
         (Key1, VolumeDecrement, None, "音量を下げる"),
