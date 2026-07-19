@@ -367,7 +367,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         (Y, "open -a 'Slack.app'"),
         // (Z, "Cmd+Shift+4 - screenshot selection"),
         // (ReturnOrEnter, None),
-        (Quote, "open -a 'Figma.app'"),
+        // (Quote, None),
         // (NonUsPound, None), // ]
         (OpenBracket, "open -a 'Mail.app'"), // @
         // (CloseBracket, None), // [

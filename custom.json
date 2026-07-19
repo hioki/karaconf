@@ -6026,29 +6026,6 @@
       ]
     },
     {
-      "description": "VK2+: -> Figma 起動",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vk2",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "quote"
-          },
-          "to": [
-            {
-              "shell_command": "open -a 'Figma.app'"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "description": "VK2+@ -> Mail 起動",
       "manipulators": [
         {
