@@ -2,7 +2,7 @@
   "title": "Personal rules",
   "rules": [
     {
-      "description": "かな -> VirtualKey: VK1, 単独: かな, 新下駄: ON",
+      "description": "かな -> [VK1=1] ／ 単独: かな",
       "manipulators": [
         {
           "type": "basic",
@@ -45,7 +45,7 @@
       ]
     },
     {
-      "description": "変換 -> VirtualKey: VK1, 単独: かな, 新下駄: ON",
+      "description": "変換 -> [VK1=1] ／ 単独: かな",
       "manipulators": [
         {
           "type": "basic",
@@ -88,7 +88,7 @@
       ]
     },
     {
-      "description": "英数 -> VirtualKey: VK2, 単独: 英数, 新下駄: OFF",
+      "description": "英数 -> [VK2=1] ／ 単独: 英数",
       "manipulators": [
         {
           "type": "basic",
@@ -131,7 +131,7 @@
       ]
     },
     {
-      "description": "無変換 -> VirtualKey: VK2, 単独: 英数, 新下駄: OFF",
+      "description": "無変換 -> [VK2=1] ／ 単独: 英数",
       "manipulators": [
         {
           "type": "basic",
@@ -174,7 +174,7 @@
       ]
     },
     {
-      "description": "右⌘ -> VirtualKey: VK3, 単独: なし, 新下駄: OFF",
+      "description": "右⌘ -> [VK3=1]",
       "manipulators": [
         {
           "type": "basic",
@@ -206,7 +206,7 @@
       ]
     },
     {
-      "description": "Intl2 -> VirtualKey: VK3, 単独: なし, 新下駄: OFF",
+      "description": "Intl2 -> [VK3=1]",
       "manipulators": [
         {
           "type": "basic",
@@ -238,7 +238,7 @@
       ]
     },
     {
-      "description": "Tab -> VirtualKey: VK4, 単独: Tab, 新下駄: OFF",
+      "description": "Tab -> [VK4=1] ／ 単独: Tab",
       "manipulators": [
         {
           "type": "basic",
