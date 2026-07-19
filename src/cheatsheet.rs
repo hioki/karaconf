@@ -196,10 +196,18 @@ fn render_keyboard(
             let legend = esc(&key_label(key));
             match cells.get(&key_id(key)) {
                 Some(lines) if !lines.is_empty() => {
+                    // Key codes sharing one physical cap (Backslash/NonUsPound)
+                    // produce identical entries; show each rendering only once.
+                    let mut unique: Vec<&String> = Vec::new();
+                    for line in lines {
+                        if !unique.contains(&line) {
+                            unique.push(line);
+                        }
+                    }
                     html.push_str(&format!(
                         "<div class=\"key\"><span class=\"legend\">{}</span>{}</div>\n",
                         legend,
-                        lines.join("")
+                        unique.iter().map(|s| s.as_str()).collect::<String>()
                     ));
                 }
                 _ => {

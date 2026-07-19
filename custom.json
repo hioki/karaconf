@@ -4348,7 +4348,7 @@
       ]
     },
     {
-      "description": "VK1+⇧N -> マウス←",
+      "description": "VK1+⇧N -> マウス←(低速)",
       "manipulators": [
         {
           "type": "basic",
@@ -4378,7 +4378,7 @@
       ]
     },
     {
-      "description": "VK1+N -> マウス←",
+      "description": "VK1+N -> マウス←(高速)",
       "manipulators": [
         {
           "type": "basic",
@@ -4403,7 +4403,7 @@
       ]
     },
     {
-      "description": "VK1+⇧M -> マウス↓",
+      "description": "VK1+⇧M -> マウス↓(低速)",
       "manipulators": [
         {
           "type": "basic",
@@ -4433,7 +4433,7 @@
       ]
     },
     {
-      "description": "VK1+M -> マウス↓",
+      "description": "VK1+M -> マウス↓(高速)",
       "manipulators": [
         {
           "type": "basic",
@@ -4458,7 +4458,7 @@
       ]
     },
     {
-      "description": "VK1+⇧, -> マウス↑",
+      "description": "VK1+⇧, -> マウス↑(低速)",
       "manipulators": [
         {
           "type": "basic",
@@ -4488,7 +4488,7 @@
       ]
     },
     {
-      "description": "VK1+, -> マウス↑",
+      "description": "VK1+, -> マウス↑(高速)",
       "manipulators": [
         {
           "type": "basic",
@@ -4513,7 +4513,7 @@
       ]
     },
     {
-      "description": "VK1+⇧. -> マウス→",
+      "description": "VK1+⇧. -> マウス→(低速)",
       "manipulators": [
         {
           "type": "basic",
@@ -4543,7 +4543,7 @@
       ]
     },
     {
-      "description": "VK1+. -> マウス→",
+      "description": "VK1+. -> マウス→(高速)",
       "manipulators": [
         {
           "type": "basic",
