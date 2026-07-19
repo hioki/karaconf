@@ -14,7 +14,6 @@ const CMD: &[ModifierKey] = &[Cmd];
 pub fn manipulators() -> Vec<Manipulator> {
     let mut manipulators = Vec::new();
 
-    // Disable default Cmd+W behavior in iTerm2
     manipulators.push(
         Manipulator::builder()
             .description("disable default Cmd+W")
@@ -23,8 +22,6 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(VkNone, None)
             .build(),
     );
-
-    // save file in vim
     manipulators.push(
         Manipulator::builder()
             .description("vim: save file (:w)")
@@ -39,7 +36,6 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(ReturnOrEnter, None)
             .build(),
     );
-    // quit vim
     manipulators.push(
         Manipulator::builder()
             .description("vim: quit (:q)")
@@ -54,7 +50,6 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(ReturnOrEnter, None)
             .build(),
     );
-    // go to line head/tail in vim
     for (from, to, description) in [
         (U, Key0, "vim: go to line head (0)"),
         (I, Key4, "vim: go to line tail ($)"),
@@ -75,9 +70,16 @@ pub fn manipulators() -> Vec<Manipulator> {
     //
     // for tmux
     //
-    for key_code in [C, J, K, N, P, S, V] {
+    for (key_code, description) in [
+        (C, "Create a new window"),
+        (N, "Select the next window"),
+        (P, "Select the previous window"),
+        (S, "Split the current pane horizontally"),
+        (V, "Split the current pane vertically"),
+    ] {
         manipulators.push(
             Manipulator::builder()
+                .description(format!("tmux: {}", description))
                 .conditions(vec![
                     Condition::on_app(ITerm2),
                     Condition::with_virtual_key(Vk4),
@@ -88,11 +90,10 @@ pub fn manipulators() -> Vec<Manipulator> {
                 .build(),
         )
     }
-    // Pane movement with O and P in tmux
-    for (from, to) in [(O, P), (P, N)] {
+    for (description, from, to) in [("Go to previous window", O, P), ("Go to next window", P, N)] {
         manipulators.push(
             Manipulator::builder()
-                .description("tmux: pane movement")
+                .description(format!("tmux: {}", description))
                 .conditions(vec![
                     Condition::on_app(ITerm2),
                     Condition::with_virtual_key(Vk1),
@@ -103,11 +104,10 @@ pub fn manipulators() -> Vec<Manipulator> {
                 .build(),
         )
     }
-    // Pane movement with A and S in tmux
-    for (from, to) in [(A, P), (S, N)] {
+    for (description, from, to) in [("Go to previous window", A, P), ("Go to next window", S, N)] {
         manipulators.push(
             Manipulator::builder()
-                .description("tmux: pane movement")
+                .description(format!("tmux: {}", description))
                 .conditions(vec![
                     Condition::on_app(ITerm2),
                     Condition::with_virtual_key(Vk2),
@@ -118,10 +118,9 @@ pub fn manipulators() -> Vec<Manipulator> {
                 .build(),
         )
     }
-    // Enter copy mode in tmux
     manipulators.push(
         Manipulator::builder()
-            .description("tmux: enter copy mode")
+            .description("tmux: Enter copy mode")
             .conditions(vec![
                 Condition::on_app(ITerm2),
                 Condition::with_virtual_key(Vk1),

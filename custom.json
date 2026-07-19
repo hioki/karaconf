@@ -444,7 +444,7 @@
       ]
     },
     {
-      "description": "ITerm2: VK4+C -> ⌃T ⌃C",
+      "description": "ITerm2: VK4+C -> tmux: Create a new window",
       "manipulators": [
         {
           "type": "basic",
@@ -482,83 +482,7 @@
       ]
     },
     {
-      "description": "ITerm2: VK4+J -> ⌃T ⌃J",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "vk4",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "j"
-          },
-          "to": [
-            {
-              "key_code": "t",
-              "modifiers": [
-                "control"
-              ]
-            },
-            {
-              "key_code": "j",
-              "modifiers": [
-                "control"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "ITerm2: VK4+K -> ⌃T ⌃K",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "com.googlecode.iterm2"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "vk4",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "k"
-          },
-          "to": [
-            {
-              "key_code": "t",
-              "modifiers": [
-                "control"
-              ]
-            },
-            {
-              "key_code": "k",
-              "modifiers": [
-                "control"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "ITerm2: VK4+N -> ⌃T ⌃N",
+      "description": "ITerm2: VK4+N -> tmux: Select the next window",
       "manipulators": [
         {
           "type": "basic",
@@ -596,7 +520,7 @@
       ]
     },
     {
-      "description": "ITerm2: VK4+P -> ⌃T ⌃P",
+      "description": "ITerm2: VK4+P -> tmux: Select the previous window",
       "manipulators": [
         {
           "type": "basic",
@@ -634,7 +558,7 @@
       ]
     },
     {
-      "description": "ITerm2: VK4+S -> ⌃T ⌃S",
+      "description": "ITerm2: VK4+S -> tmux: Split the current pane horizontally",
       "manipulators": [
         {
           "type": "basic",
@@ -672,7 +596,7 @@
       ]
     },
     {
-      "description": "ITerm2: VK4+V -> ⌃T ⌃V",
+      "description": "ITerm2: VK4+V -> tmux: Split the current pane vertically",
       "manipulators": [
         {
           "type": "basic",
@@ -710,7 +634,7 @@
       ]
     },
     {
-      "description": "ITerm2: VK1+O -> tmux: pane movement",
+      "description": "ITerm2: VK1+O -> tmux: Go to previous window",
       "manipulators": [
         {
           "type": "basic",
@@ -748,7 +672,7 @@
       ]
     },
     {
-      "description": "ITerm2: VK1+P -> tmux: pane movement",
+      "description": "ITerm2: VK1+P -> tmux: Go to next window",
       "manipulators": [
         {
           "type": "basic",
@@ -786,7 +710,7 @@
       ]
     },
     {
-      "description": "ITerm2: VK2+A -> tmux: pane movement",
+      "description": "ITerm2: VK2+A -> tmux: Go to previous window",
       "manipulators": [
         {
           "type": "basic",
@@ -824,7 +748,7 @@
       ]
     },
     {
-      "description": "ITerm2: VK2+S -> tmux: pane movement",
+      "description": "ITerm2: VK2+S -> tmux: Go to next window",
       "manipulators": [
         {
           "type": "basic",
