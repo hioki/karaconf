@@ -328,28 +328,33 @@ pub fn manipulators() -> Vec<Manipulator> {
         );
     }
 
-    // for Magnet.app
-    for (from, to) in [
-        (H, LeftArrow),
-        (O, RightArrow),
-        (N, DownArrow),
-        (P, UpArrow),
-        (U, Key1),
-        (I, Key2),
-        (M, Key3),
-        (Comma, Key4),
-        (J, P),
-        (K, N),
+    for (description, from, to) in [
+        ("Left", H, LeftArrow),
+        ("Right", O, RightArrow),
+        ("Down", N, DownArrow),
+        ("Up", P, UpArrow),
+        ("Top Left", U, Key1),
+        ("Top Right", I, Key2),
+        ("Bottom Left", M, Key3),
+        ("Bottom Right", Comma, Key4),
     ] {
         manipulators.push(
             Manipulator::builder()
-                .description(format!("Magnet: {}", crate::display::key_label(&to)))
+                .description(format!("[Magnet] Move app to {}", description))
                 .condition(Condition::with_vk2())
                 .from_key_with_modifiers(from, FromModifier::Mandatory(vec![Ctrl]))
                 .to_key(to, Some(vec![Cmd, Ctrl, Opt, Shift]))
                 .build(),
         );
     }
+    manipulators.push(
+        Manipulator::builder()
+            .description("Maximize app")
+            .condition(Condition::with_vk2())
+            .from_key_with_modifiers(B, FromModifier::Mandatory(vec![Ctrl]))
+            .to_key(M, Some(vec![Ctrl, Opt, Cmd, Shift]))
+            .build(),
+    );
 
     //
     // Virtual Key 2 - Shell Commands
