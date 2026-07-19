@@ -440,16 +440,30 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(LeftArrow, None)
             .build(),
     );
-    // VK3+E -> 「」 : the physical [ ] keys, which the IME renders as 「」
+    // VK3+P -> 「」 : the physical [ ] keys, which the IME renders as 「」
     manipulators.push(
         Manipulator::builder()
             .condition(Condition::with_vk3())
-            .from_key(E)
+            .from_key(P)
             .to_key(CloseBracket, None)
             .to_key(NonUsPound, None)
             .to_key(LeftArrow, None)
             .build(),
     );
+    // Super Easy Timer
+    for from in [
+        Q, // Play/Pause Timer
+        W, // Reset Timer
+        E, // Show Timer
+    ] {
+        manipulators.push(
+            Manipulator::builder()
+                .condition(Condition::with_vk3())
+                .from_key(from.clone())
+                .to_key(from, Some(vec![Cmd, Opt, Shift]))
+                .build(),
+        );
+    }
 
     manipulators.extend(vec![
         // Ctrl+; -> ;
