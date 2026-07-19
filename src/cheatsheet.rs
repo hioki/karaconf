@@ -17,6 +17,15 @@ pub fn generate(rulesets: &[(&str, Vec<Manipulator>)], findings: &[Finding]) -> 
         }
     }
 
+    let mut body = String::with_capacity(256 * 1024);
+    let mut toc = TocEntries::new();
+    render_layer_sections(&mut body, &mut toc, &buckets);
+    render_global_section(&mut body, &mut toc, &buckets.global);
+    render_app_sections(&mut body, &mut toc, &buckets.apps);
+    render_shingeta_section(&mut body, &mut toc, &buckets);
+    render_misc_section(&mut body, &mut toc, &buckets.misc);
+    render_lint_section(&mut body, &mut toc, findings);
+
     let total: usize = rulesets.iter().map(|(_, m)| m.len()).sum();
     let mut html = String::with_capacity(256 * 1024);
     html.push_str(HEADER);
@@ -30,16 +39,39 @@ pub fn generate(rulesets: &[(&str, Vec<Manipulator>)], findings: &[Finding]) -> 
             format!(" ／ <a href=\"#lint\">lint: {} 件 ⚠️</a>", findings.len())
         },
     ));
-
-    render_layer_sections(&mut html, &buckets);
-    render_global_section(&mut html, &buckets.global);
-    render_app_sections(&mut html, &buckets.apps);
-    render_shingeta_section(&mut html, &buckets);
-    render_misc_section(&mut html, &buckets.misc);
-    render_lint_section(&mut html, findings);
-
+    render_toc(&mut html, &toc);
+    html.push_str(&body);
     html.push_str("</main></body>\n");
     html
+}
+
+/// (level, anchor id, plain-text label) for each heading.
+type TocEntries = Vec<(u8, String, String)>;
+
+/// Emit a heading with an anchor id and record it for the table of contents.
+fn push_heading(html: &mut String, toc: &mut TocEntries, level: u8, inner: &str, label: &str) {
+    let id = format!("sec-{}", toc.len());
+    html.push_str(&format!(
+        "<h{} id=\"{}\">{}</h{}>\n",
+        level, id, inner, level
+    ));
+    toc.push((level, id, label.to_string()));
+}
+
+fn render_toc(html: &mut String, toc: &TocEntries) {
+    if toc.is_empty() {
+        return;
+    }
+    html.push_str("<nav class=\"toc\">\n");
+    for (level, id, label) in toc {
+        html.push_str(&format!(
+            "<a class=\"lv{}\" href=\"#{}\">{}</a>\n",
+            level,
+            id,
+            esc(label)
+        ));
+    }
+    html.push_str("</nav>\n");
 }
 
 // ---------------------------------------------------------------------------
@@ -229,14 +261,21 @@ fn render_keyboard(
 // Sections
 // ---------------------------------------------------------------------------
 
-fn render_layer_sections(html: &mut String, buckets: &Buckets) {
+fn render_layer_sections(html: &mut String, toc: &mut TocEntries, buckets: &Buckets) {
     for (layer, entries) in &buckets.layers {
-        html.push_str(&format!(
-            "<section><h2><span class=\"chip {}\">{}</span> レイヤー <span class=\"count\">{} rules</span></h2>\n",
-            layer.to_lowercase(),
-            layer,
-            entries.len()
-        ));
+        html.push_str("<section>");
+        push_heading(
+            html,
+            toc,
+            2,
+            &format!(
+                "<span class=\"chip {}\">{}</span> レイヤー <span class=\"count\">{} rules</span>",
+                layer.to_lowercase(),
+                layer,
+                entries.len()
+            ),
+            &format!("{} レイヤー", layer),
+        );
 
         let mut cells: BTreeMap<String, Vec<String>> = BTreeMap::new();
         let mut overflow: Vec<&Entry> = Vec::new();
@@ -281,44 +320,69 @@ fn render_layer_sections(html: &mut String, buckets: &Buckets) {
     }
 }
 
-fn render_global_section(html: &mut String, entries: &[Entry]) {
+fn render_global_section(html: &mut String, toc: &mut TocEntries, entries: &[Entry]) {
     if entries.is_empty() {
         return;
     }
-    html.push_str(&format!(
-        "<section><h2>常時有効 <span class=\"count\">{} rules</span></h2>\n",
-        entries.len()
-    ));
+    html.push_str("<section>");
+    push_heading(
+        html,
+        toc,
+        2,
+        &format!(
+            "常時有効 <span class=\"count\">{} rules</span>",
+            entries.len()
+        ),
+        "常時有効",
+    );
     let refs: Vec<&Entry> = entries.iter().collect();
     render_entry_table(html, &refs, false);
     html.push_str("</section>\n");
 }
 
-fn render_app_sections(html: &mut String, apps: &BTreeMap<String, Vec<Entry>>) {
+fn render_app_sections(
+    html: &mut String,
+    toc: &mut TocEntries,
+    apps: &BTreeMap<String, Vec<Entry>>,
+) {
     if apps.is_empty() {
         return;
     }
-    html.push_str("<section><h2>アプリ別</h2>\n");
+    html.push_str("<section>");
+    push_heading(html, toc, 2, "アプリ別", "アプリ別");
     for (app, entries) in apps {
-        html.push_str(&format!(
-            "<h3>{} <span class=\"count\">{} rules</span></h3>\n",
-            esc(app),
-            entries.len()
-        ));
+        push_heading(
+            html,
+            toc,
+            3,
+            &format!(
+                "{} <span class=\"count\">{} rules</span>",
+                esc(app),
+                entries.len()
+            ),
+            app,
+        );
         let refs: Vec<&Entry> = entries.iter().collect();
         render_entry_table(html, &refs, true);
     }
     html.push_str("</section>\n");
 }
 
-fn render_misc_section(html: &mut String, entries: &[Entry]) {
+fn render_misc_section(html: &mut String, toc: &mut TocEntries, entries: &[Entry]) {
     if entries.is_empty() {
         return;
     }
-    html.push_str(&format!(
-        "<section><h2>その他の条件 <span class=\"count\">{} rules</span></h2>\n",
-        entries.len()
-    ));
+    html.push_str("<section>");
+    push_heading(
+        html,
+        toc,
+        2,
+        &format!(
+            "その他の条件 <span class=\"count\">{} rules</span>",
+            entries.len()
+        ),
+        "その他の条件",
+    );
     let refs: Vec<&Entry> = entries.iter().collect();
     render_entry_table(html, &refs, true);
     html.push_str("</section>\n");
@@ -371,10 +435,11 @@ fn render_entry_table(html: &mut String, entries: &[&Entry], show_conditions: bo
     html.push_str("</tbody></table>\n");
 }
 
-fn render_lint_section(html: &mut String, findings: &[Finding]) {
+fn render_lint_section(html: &mut String, toc: &mut TocEntries, findings: &[Finding]) {
     if findings.is_empty() {
         return;
     }
+    toc.push((2, "lint".to_string(), "⚠️ lint".to_string()));
     html.push_str(&format!(
         "<section id=\"lint\"><h2>⚠️ lint <span class=\"count\">{} 件</span></h2><ul class=\"lint\">\n",
         findings.len()
@@ -389,14 +454,21 @@ fn render_lint_section(html: &mut String, findings: &[Finding]) {
 // Shingeta
 // ---------------------------------------------------------------------------
 
-fn render_shingeta_section(html: &mut String, buckets: &Buckets) {
+fn render_shingeta_section(html: &mut String, toc: &mut TocEntries, buckets: &Buckets) {
     if buckets.shingeta.is_empty() {
         return;
     }
-    html.push_str(&format!(
-        "<section><h2><span class=\"chip shingeta\">新下駄</span> 配列 <span class=\"count\">{} rules</span></h2>\n",
-        buckets.shingeta.len()
-    ));
+    html.push_str("<section>");
+    push_heading(
+        html,
+        toc,
+        2,
+        &format!(
+            "<span class=\"chip shingeta\">新下駄</span> 配列 <span class=\"count\">{} rules</span>",
+            buckets.shingeta.len()
+        ),
+        "新下駄 配列",
+    );
 
     let mut single_cells: BTreeMap<String, Vec<String>> = BTreeMap::new();
     let mut combo_groups: BTreeMap<String, BTreeMap<String, Vec<String>>> = BTreeMap::new();
@@ -431,7 +503,7 @@ fn render_shingeta_section(html: &mut String, buckets: &Buckets) {
         }
     }
 
-    html.push_str("<h3>単打</h3>\n");
+    push_heading(html, toc, 3, "単打", "単打");
     render_keyboard(html, &single_cells, true);
 
     // Show combo groups in home-position order rather than alphabetically.
@@ -446,11 +518,17 @@ fn render_shingeta_section(html: &mut String, buckets: &Buckets) {
     for name in group_names {
         let cells = &combo_groups[name];
         let count: usize = cells.values().map(Vec::len).sum();
-        html.push_str(&format!(
-            "<h3>{} + □ 同時押し <span class=\"count\">{} keys</span></h3>\n",
-            esc(name),
-            count
-        ));
+        push_heading(
+            html,
+            toc,
+            3,
+            &format!(
+                "{} + □ 同時押し <span class=\"count\">{} keys</span>",
+                esc(name),
+                count
+            ),
+            &format!("{} + □ 同時押し", name),
+        );
         render_keyboard(html, cells, true);
     }
 
@@ -727,6 +805,11 @@ h1 { font-size: 26px; margin-bottom: 4px; }
 .meta { color: var(--muted); margin-top: 0; }
 section { margin-top: 36px; }
 h2 { border-bottom: 2px solid var(--key-border); padding-bottom: 6px; font-size: 20px; }
+html { scroll-behavior: smooth; }
+.toc { display: inline-block; min-width: 280px; margin: 18px 0 6px; padding: 12px 18px; border: 1px solid var(--key-border); border-radius: 8px; }
+.toc a { display: block; color: var(--muted); text-decoration: none; font-size: 13px; padding: 2px 0; }
+.toc a:hover { color: var(--fg); text-decoration: underline; }
+.toc a.lv3 { padding-left: 18px; }
 h3 { font-size: 15px; margin: 18px 0 8px; }
 .count { color: var(--muted); font-size: 12px; font-weight: normal; }
 .chip { color: #fff; border-radius: 6px; padding: 2px 10px; font-size: 15px; }

@@ -2744,7 +2744,7 @@
       ]
     },
     {
-      "description": "Firefox: VK4+B -> ⌘B",
+      "description": "Firefox: VK4+B -> Toggle bookmarks",
       "manipulators": [
         {
           "type": "basic",
@@ -2776,7 +2776,7 @@
       ]
     },
     {
-      "description": "Firefox: VK4+E -> ⌃Z",
+      "description": "Firefox: VK4+E -> Toggle tab",
       "manipulators": [
         {
           "type": "basic",
