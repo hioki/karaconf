@@ -274,13 +274,13 @@ a { color: var(--vk1); }
 </section>
 <section><h2 id="sec-3">常時有効 <span class="count">14 rules</span></h2>
 <table><thead><tr><th>入力</th><th>出力</th><th>説明</th><th>定義元</th></tr></thead><tbody>
-<tr><td class="from">かな</td><td>[VK1=1] ／ 単独: かな</td><td class="desc-col"></td><td class="src">virtual_key_assignments</td></tr>
-<tr><td class="from">変換</td><td>[VK1=1] ／ 単独: かな</td><td class="desc-col"></td><td class="src">virtual_key_assignments</td></tr>
-<tr><td class="from">英数</td><td>[VK2=1] ／ 単独: 英数</td><td class="desc-col"></td><td class="src">virtual_key_assignments</td></tr>
-<tr><td class="from">無変換</td><td>[VK2=1] ／ 単独: 英数</td><td class="desc-col"></td><td class="src">virtual_key_assignments</td></tr>
-<tr><td class="from">右⌘</td><td>[VK3=1]</td><td class="desc-col"></td><td class="src">virtual_key_assignments</td></tr>
-<tr><td class="from">Intl2</td><td>[VK3=1]</td><td class="desc-col"></td><td class="src">virtual_key_assignments</td></tr>
-<tr><td class="from">Tab</td><td>[VK4=1] ／ 単独: Tab</td><td class="desc-col"></td><td class="src">virtual_key_assignments</td></tr>
+<tr><td class="from">かな</td><td>[VK1=1] ／ 単独: かな</td><td class="desc-col">VirtualKey: VK1, 単独: かな, 新下駄: ON</td><td class="src">virtual_key_assignments</td></tr>
+<tr><td class="from">変換</td><td>[VK1=1] ／ 単独: かな</td><td class="desc-col">VirtualKey: VK1, 単独: かな, 新下駄: ON</td><td class="src">virtual_key_assignments</td></tr>
+<tr><td class="from">英数</td><td>[VK2=1] ／ 単独: 英数</td><td class="desc-col">VirtualKey: VK2, 単独: 英数, 新下駄: OFF</td><td class="src">virtual_key_assignments</td></tr>
+<tr><td class="from">無変換</td><td>[VK2=1] ／ 単独: 英数</td><td class="desc-col">VirtualKey: VK2, 単独: 英数, 新下駄: OFF</td><td class="src">virtual_key_assignments</td></tr>
+<tr><td class="from">右⌘</td><td>[VK3=1]</td><td class="desc-col">VirtualKey: VK3, 単独: なし, 新下駄: OFF</td><td class="src">virtual_key_assignments</td></tr>
+<tr><td class="from">Intl2</td><td>[VK3=1]</td><td class="desc-col">VirtualKey: VK3, 単独: なし, 新下駄: OFF</td><td class="src">virtual_key_assignments</td></tr>
+<tr><td class="from">Tab</td><td>[VK4=1] ／ 単独: Tab</td><td class="desc-col">VirtualKey: VK4, 単独: Tab, 新下駄: OFF</td><td class="src">virtual_key_assignments</td></tr>
 <tr><td class="from">⌃;</td><td>;</td><td class="desc-col"></td><td class="src">common</td></tr>
 <tr><td class="from">⌘⇧;</td><td>⌘+</td><td class="desc-col">zoom in (Cmd+&quot;+&quot;)</td><td class="src">common</td></tr>
 <tr><td class="from">;</td><td>⏎</td><td class="desc-col"></td><td class="src">common</td></tr>
@@ -343,7 +343,7 @@ a { color: var(--vk1); }
 <tr><td class="cond">VK1</td><td class="from">P</td><td>⌃T ⌃N</td><td class="desc-col">tmux: Go to next window</td></tr>
 <tr><td class="cond">VK2</td><td class="from">A</td><td>⌃T ⌃P</td><td class="desc-col">tmux: Go to previous window</td></tr>
 <tr><td class="cond">VK2</td><td class="from">S</td><td>⌃T ⌃N</td><td class="desc-col">tmux: Go to next window</td></tr>
-<tr><td class="cond">VK1</td><td class="from">Z</td><td>⌃T ⌃B</td><td class="desc-col">tmux: enter copy mode</td></tr>
+<tr><td class="cond">VK1</td><td class="from">Z</td><td>⌃T ⌃B</td><td class="desc-col">tmux: Enter copy mode</td></tr>
 </tbody></table>
 <h3 id="sec-10">Notion <span class="count">5 rules</span></h3>
 <p class="src-note">定義元: apps/notion</p>
