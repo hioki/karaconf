@@ -328,11 +328,27 @@ fn render_entry_table(html: &mut String, entries: &[&Entry], show_conditions: bo
     if entries.is_empty() {
         return;
     }
+    // When every row comes from the same rule set, note it once above the
+    // table instead of repeating it on every row.
+    let mut sources: Vec<&str> = entries.iter().map(|e| e.ruleset).collect();
+    sources.sort_unstable();
+    sources.dedup();
+    let single_source = sources.len() == 1;
+    if single_source {
+        html.push_str(&format!(
+            "<p class=\"src-note\">定義元: {}</p>\n",
+            esc(sources[0])
+        ));
+    }
     html.push_str("<table><thead><tr>");
     if show_conditions {
         html.push_str("<th>条件</th>");
     }
-    html.push_str("<th>入力</th><th>出力</th><th>説明</th><th>定義元</th></tr></thead><tbody>\n");
+    html.push_str("<th>入力</th><th>出力</th><th>説明</th>");
+    if !single_source {
+        html.push_str("<th>定義元</th>");
+    }
+    html.push_str("</tr></thead><tbody>\n");
     for entry in entries {
         html.push_str("<tr>");
         if show_conditions {
@@ -342,12 +358,15 @@ fn render_entry_table(html: &mut String, entries: &[&Entry], show_conditions: bo
             ));
         }
         html.push_str(&format!(
-            "<td class=\"from\">{}</td><td>{}</td><td class=\"desc-col\">{}</td><td class=\"src\">{}</td></tr>\n",
+            "<td class=\"from\">{}</td><td>{}</td><td class=\"desc-col\">{}</td>",
             esc(&from_label(&entry.manipulator.from)),
             esc(&to_summary(entry.manipulator)),
             esc(entry.manipulator.description.as_deref().unwrap_or("")),
-            esc(entry.ruleset),
         ));
+        if !single_source {
+            html.push_str(&format!("<td class=\"src\">{}</td>", esc(entry.ruleset)));
+        }
+        html.push_str("</tr>\n");
     }
     html.push_str("</tbody></table>\n");
 }
@@ -728,6 +747,7 @@ td.desc-col { color: var(--muted); }
 .key.free { opacity: 0.45; }
 .badge { background: var(--badge-bg); border-radius: 4px; padding: 0 3px; margin-right: 3px; font-size: 9px; }
 .free-list { color: var(--muted); font-size: 12px; }
+.src-note { color: var(--muted); font-size: 11px; margin: 8px 0 0; }
 table { border-collapse: collapse; margin-top: 8px; font-size: 13px; }
 th, td { border: 1px solid var(--key-border); padding: 4px 10px; text-align: left; }
 th { background: var(--key-bg); }

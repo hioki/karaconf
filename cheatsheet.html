@@ -46,6 +46,7 @@ td.desc-col { color: var(--muted); }
 .key.free { opacity: 0.45; }
 .badge { background: var(--badge-bg); border-radius: 4px; padding: 0 3px; margin-right: 3px; font-size: 9px; }
 .free-list { color: var(--muted); font-size: 12px; }
+.src-note { color: var(--muted); font-size: 11px; margin: 8px 0 0; }
 table { border-collapse: collapse; margin-top: 8px; font-size: 13px; }
 th, td { border: 1px solid var(--key-border); padding: 4px 10px; text-align: left; }
 th { background: var(--key-bg); }
@@ -261,118 +262,126 @@ a { color: var(--vk1); }
 </section>
 <section><h2>アプリ別</h2>
 <h3>Codex <span class="count">6 rules</span></h3>
-<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th><th>定義元</th></tr></thead><tbody>
-<tr><td class="cond">VK4</td><td class="from">E</td><td>⌘B</td><td class="desc-col">Toggle Sidebar</td><td class="src">apps/codex</td></tr>
-<tr><td class="cond">VK4</td><td class="from">J</td><td>⌥⌘B</td><td class="desc-col">Toggle Review Panel</td><td class="src">apps/codex</td></tr>
-<tr><td class="cond">VK4</td><td class="from">P</td><td>⇧⌘[</td><td class="desc-col">Previous Chat</td><td class="src">apps/codex</td></tr>
-<tr><td class="cond">VK4</td><td class="from">N</td><td>⇧⌘]</td><td class="desc-col">Next Chat</td><td class="src">apps/codex</td></tr>
-<tr><td class="cond">VK4</td><td class="from">F</td><td>⇧⌘E</td><td class="desc-col">Toggle File Tree</td><td class="src">apps/codex</td></tr>
-<tr><td class="cond">VK4</td><td class="from">T</td><td>⌃@</td><td class="desc-col">Open Terminal</td><td class="src">apps/codex</td></tr>
+<p class="src-note">定義元: apps/codex</p>
+<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th></tr></thead><tbody>
+<tr><td class="cond">VK4</td><td class="from">E</td><td>⌘B</td><td class="desc-col">Toggle Sidebar</td></tr>
+<tr><td class="cond">VK4</td><td class="from">J</td><td>⌥⌘B</td><td class="desc-col">Toggle Review Panel</td></tr>
+<tr><td class="cond">VK4</td><td class="from">P</td><td>⇧⌘[</td><td class="desc-col">Previous Chat</td></tr>
+<tr><td class="cond">VK4</td><td class="from">N</td><td>⇧⌘]</td><td class="desc-col">Next Chat</td></tr>
+<tr><td class="cond">VK4</td><td class="from">F</td><td>⇧⌘E</td><td class="desc-col">Toggle File Tree</td></tr>
+<tr><td class="cond">VK4</td><td class="from">T</td><td>⌃@</td><td class="desc-col">Open Terminal</td></tr>
 </tbody></table>
 <h3>Dynalist <span class="count">6 rules</span></h3>
-<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th><th>定義元</th></tr></thead><tbody>
-<tr><td class="cond">VK1</td><td class="from">U</td><td>⌃A</td><td class="desc-col">go to line head</td><td class="src">apps/dynalist</td></tr>
-<tr><td class="cond">VK1</td><td class="from">I</td><td>⌃E</td><td class="desc-col">go to line tail</td><td class="src">apps/dynalist</td></tr>
-<tr><td class="cond">VK2</td><td class="from">9</td><td>⌘⇧-</td><td class="desc-col">zoom in</td><td class="src">apps/dynalist</td></tr>
-<tr><td class="cond">VK2</td><td class="from">0</td><td>⌘-</td><td class="desc-col">zoom out</td><td class="src">apps/dynalist</td></tr>
-<tr><td class="cond">VK4</td><td class="from">E</td><td>⌘⇧F</td><td class="desc-col">hide sidebar</td><td class="src">apps/dynalist</td></tr>
-<tr><td class="cond">VK4</td><td class="from">F</td><td>⌘O</td><td class="desc-col">search</td><td class="src">apps/dynalist</td></tr>
+<p class="src-note">定義元: apps/dynalist</p>
+<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th></tr></thead><tbody>
+<tr><td class="cond">VK1</td><td class="from">U</td><td>⌃A</td><td class="desc-col">go to line head</td></tr>
+<tr><td class="cond">VK1</td><td class="from">I</td><td>⌃E</td><td class="desc-col">go to line tail</td></tr>
+<tr><td class="cond">VK2</td><td class="from">9</td><td>⌘⇧-</td><td class="desc-col">zoom in</td></tr>
+<tr><td class="cond">VK2</td><td class="from">0</td><td>⌘-</td><td class="desc-col">zoom out</td></tr>
+<tr><td class="cond">VK4</td><td class="from">E</td><td>⌘⇧F</td><td class="desc-col">hide sidebar</td></tr>
+<tr><td class="cond">VK4</td><td class="from">F</td><td>⌘O</td><td class="desc-col">search</td></tr>
 </tbody></table>
 <h3>Firefox <span class="count">3 rules</span></h3>
-<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th><th>定義元</th></tr></thead><tbody>
-<tr><td class="cond">VK4</td><td class="from">B</td><td>⌘B</td><td class="desc-col"></td><td class="src">apps/firefox</td></tr>
-<tr><td class="cond">VK4</td><td class="from">E</td><td>⌃Z</td><td class="desc-col"></td><td class="src">apps/firefox</td></tr>
-<tr><td class="cond">VK4</td><td class="from">R</td><td>⌘L ^</td><td class="desc-col"></td><td class="src">apps/firefox</td></tr>
+<p class="src-note">定義元: apps/firefox</p>
+<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th></tr></thead><tbody>
+<tr><td class="cond">VK4</td><td class="from">B</td><td>⌘B</td><td class="desc-col"></td></tr>
+<tr><td class="cond">VK4</td><td class="from">E</td><td>⌃Z</td><td class="desc-col"></td></tr>
+<tr><td class="cond">VK4</td><td class="from">R</td><td>⌘L ^</td><td class="desc-col"></td></tr>
 </tbody></table>
 <h3>GoogleChrome <span class="count">3 rules</span></h3>
-<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th><th>定義元</th></tr></thead><tbody>
-<tr><td class="cond">VK4</td><td class="from">Space</td><td>⌘D</td><td class="desc-col">mute Google Meet</td><td class="src">apps/google_chrome</td></tr>
-<tr><td class="cond">VK4</td><td class="from">M</td><td>⌘⇧M</td><td class="desc-col">list profiles</td><td class="src">apps/google_chrome</td></tr>
-<tr><td class="cond">VK4</td><td class="from">N</td><td>⌘⇧M ↓ ↓ ↓ ⏎</td><td class="desc-col">switch profile</td><td class="src">apps/google_chrome</td></tr>
+<p class="src-note">定義元: apps/google_chrome</p>
+<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th></tr></thead><tbody>
+<tr><td class="cond">VK4</td><td class="from">Space</td><td>⌘D</td><td class="desc-col">mute Google Meet</td></tr>
+<tr><td class="cond">VK4</td><td class="from">M</td><td>⌘⇧M</td><td class="desc-col">list profiles</td></tr>
+<tr><td class="cond">VK4</td><td class="from">N</td><td>⌘⇧M ↓ ↓ ↓ ⏎</td><td class="desc-col">switch profile</td></tr>
 </tbody></table>
 <h3>ITerm2 <span class="count">17 rules</span></h3>
-<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th><th>定義元</th></tr></thead><tbody>
-<tr><td class="cond">常時</td><td class="from">⌘W</td><td>∅</td><td class="desc-col">disable default Cmd+W</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK1</td><td class="from">W</td><td>Esc : W ⏎</td><td class="desc-col">vim: save file (:w)</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK1</td><td class="from">Q</td><td>Esc : Q ⏎</td><td class="desc-col">vim: quit (:q)</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK1</td><td class="from">U</td><td>⇧0</td><td class="desc-col">vim: go to line head (0)</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK1</td><td class="from">I</td><td>⇧4</td><td class="desc-col">vim: go to line tail ($)</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK4</td><td class="from">C</td><td>⌃T ⌃C</td><td class="desc-col"></td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK4</td><td class="from">J</td><td>⌃T ⌃J</td><td class="desc-col"></td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK4</td><td class="from">K</td><td>⌃T ⌃K</td><td class="desc-col"></td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK4</td><td class="from">N</td><td>⌃T ⌃N</td><td class="desc-col"></td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK4</td><td class="from">P</td><td>⌃T ⌃P</td><td class="desc-col"></td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK4</td><td class="from">S</td><td>⌃T ⌃S</td><td class="desc-col"></td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK4</td><td class="from">V</td><td>⌃T ⌃V</td><td class="desc-col"></td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK1</td><td class="from">O</td><td>⌃T ⌃P</td><td class="desc-col">tmux: pane movement</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK1</td><td class="from">P</td><td>⌃T ⌃N</td><td class="desc-col">tmux: pane movement</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK2</td><td class="from">A</td><td>⌃T ⌃P</td><td class="desc-col">tmux: pane movement</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK2</td><td class="from">S</td><td>⌃T ⌃N</td><td class="desc-col">tmux: pane movement</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK1</td><td class="from">Z</td><td>⌃T ⌃B</td><td class="desc-col">tmux: enter copy mode</td><td class="src">apps/iterm2</td></tr>
+<p class="src-note">定義元: apps/iterm2</p>
+<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th></tr></thead><tbody>
+<tr><td class="cond">常時</td><td class="from">⌘W</td><td>∅</td><td class="desc-col">disable default Cmd+W</td></tr>
+<tr><td class="cond">VK1</td><td class="from">W</td><td>Esc : W ⏎</td><td class="desc-col">vim: save file (:w)</td></tr>
+<tr><td class="cond">VK1</td><td class="from">Q</td><td>Esc : Q ⏎</td><td class="desc-col">vim: quit (:q)</td></tr>
+<tr><td class="cond">VK1</td><td class="from">U</td><td>⇧0</td><td class="desc-col">vim: go to line head (0)</td></tr>
+<tr><td class="cond">VK1</td><td class="from">I</td><td>⇧4</td><td class="desc-col">vim: go to line tail ($)</td></tr>
+<tr><td class="cond">VK4</td><td class="from">C</td><td>⌃T ⌃C</td><td class="desc-col"></td></tr>
+<tr><td class="cond">VK4</td><td class="from">J</td><td>⌃T ⌃J</td><td class="desc-col"></td></tr>
+<tr><td class="cond">VK4</td><td class="from">K</td><td>⌃T ⌃K</td><td class="desc-col"></td></tr>
+<tr><td class="cond">VK4</td><td class="from">N</td><td>⌃T ⌃N</td><td class="desc-col"></td></tr>
+<tr><td class="cond">VK4</td><td class="from">P</td><td>⌃T ⌃P</td><td class="desc-col"></td></tr>
+<tr><td class="cond">VK4</td><td class="from">S</td><td>⌃T ⌃S</td><td class="desc-col"></td></tr>
+<tr><td class="cond">VK4</td><td class="from">V</td><td>⌃T ⌃V</td><td class="desc-col"></td></tr>
+<tr><td class="cond">VK1</td><td class="from">O</td><td>⌃T ⌃P</td><td class="desc-col">tmux: pane movement</td></tr>
+<tr><td class="cond">VK1</td><td class="from">P</td><td>⌃T ⌃N</td><td class="desc-col">tmux: pane movement</td></tr>
+<tr><td class="cond">VK2</td><td class="from">A</td><td>⌃T ⌃P</td><td class="desc-col">tmux: pane movement</td></tr>
+<tr><td class="cond">VK2</td><td class="from">S</td><td>⌃T ⌃N</td><td class="desc-col">tmux: pane movement</td></tr>
+<tr><td class="cond">VK1</td><td class="from">Z</td><td>⌃T ⌃B</td><td class="desc-col">tmux: enter copy mode</td></tr>
 </tbody></table>
 <h3>Notion <span class="count">10 rules</span></h3>
-<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th><th>定義元</th></tr></thead><tbody>
-<tr><td class="cond">VK2</td><td class="from">9</td><td>⌘+</td><td class="desc-col"></td><td class="src">apps/notion</td></tr>
-<tr><td class="cond">VK2</td><td class="from">0</td><td>⌘-</td><td class="desc-col"></td><td class="src">apps/notion</td></tr>
-<tr><td class="cond">VK4</td><td class="from">C</td><td>⌘L</td><td class="desc-col"></td><td class="src">apps/notion</td></tr>
-<tr><td class="cond">VK4</td><td class="from">E</td><td>⌘¥</td><td class="desc-col"></td><td class="src">apps/notion</td></tr>
-<tr><td class="cond">VK4</td><td class="from">F</td><td>⌘P</td><td class="desc-col"></td><td class="src">apps/notion</td></tr>
-<tr><td class="cond">VK4</td><td class="from">H</td><td>⌘[</td><td class="desc-col"></td><td class="src">apps/notion</td></tr>
-<tr><td class="cond">VK4</td><td class="from">L</td><td>⌘]</td><td class="desc-col"></td><td class="src">apps/notion</td></tr>
-<tr><td class="cond">VK4</td><td class="from">U</td><td>⌘⇧U</td><td class="desc-col"></td><td class="src">apps/notion</td></tr>
-<tr><td class="cond">VK4</td><td class="from">N</td><td>⌃⇧J</td><td class="desc-col"></td><td class="src">apps/notion</td></tr>
-<tr><td class="cond">VK4</td><td class="from">P</td><td>⌃⇧K</td><td class="desc-col"></td><td class="src">apps/notion</td></tr>
+<p class="src-note">定義元: apps/notion</p>
+<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th></tr></thead><tbody>
+<tr><td class="cond">VK2</td><td class="from">9</td><td>⌘+</td><td class="desc-col"></td></tr>
+<tr><td class="cond">VK2</td><td class="from">0</td><td>⌘-</td><td class="desc-col"></td></tr>
+<tr><td class="cond">VK4</td><td class="from">C</td><td>⌘L</td><td class="desc-col"></td></tr>
+<tr><td class="cond">VK4</td><td class="from">E</td><td>⌘¥</td><td class="desc-col"></td></tr>
+<tr><td class="cond">VK4</td><td class="from">F</td><td>⌘P</td><td class="desc-col"></td></tr>
+<tr><td class="cond">VK4</td><td class="from">H</td><td>⌘[</td><td class="desc-col"></td></tr>
+<tr><td class="cond">VK4</td><td class="from">L</td><td>⌘]</td><td class="desc-col"></td></tr>
+<tr><td class="cond">VK4</td><td class="from">U</td><td>⌘⇧U</td><td class="desc-col"></td></tr>
+<tr><td class="cond">VK4</td><td class="from">N</td><td>⌃⇧J</td><td class="desc-col"></td></tr>
+<tr><td class="cond">VK4</td><td class="from">P</td><td>⌃⇧K</td><td class="desc-col"></td></tr>
 </tbody></table>
 <h3>Slack <span class="count">11 rules</span></h3>
-<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th><th>定義元</th></tr></thead><tbody>
-<tr><td class="cond">VK4</td><td class="from">T</td><td>⌘⇧T</td><td class="desc-col">Threads</td><td class="src">apps/slack</td></tr>
-<tr><td class="cond">VK4</td><td class="from">U</td><td>⌘⇧A</td><td class="desc-col">All Unreads</td><td class="src">apps/slack</td></tr>
-<tr><td class="cond">VK4</td><td class="from">E</td><td>⌘⇧D</td><td class="desc-col">Toggle Sidebar</td><td class="src">apps/slack</td></tr>
-<tr><td class="cond">VK4</td><td class="from">K</td><td>⌘G</td><td class="desc-col">Search</td><td class="src">apps/slack</td></tr>
-<tr><td class="cond">VK4</td><td class="from">F</td><td>⌘K</td><td class="desc-col">Jump</td><td class="src">apps/slack</td></tr>
-<tr><td class="cond">VK4</td><td class="from">B</td><td>⌘⇧S</td><td class="desc-col">Bookmarks</td><td class="src">apps/slack</td></tr>
-<tr><td class="cond">VK4</td><td class="from">D</td><td>⌘⇧X</td><td class="desc-col">Strike through</td><td class="src">apps/slack</td></tr>
-<tr><td class="cond">VK4</td><td class="from">@</td><td>⌘⇧C</td><td class="desc-col">Code</td><td class="src">apps/slack</td></tr>
-<tr><td class="cond">VK4</td><td class="from">C</td><td>⌘⌥⇧C</td><td class="desc-col">Code Block</td><td class="src">apps/slack</td></tr>
-<tr><td class="cond">VK4</td><td class="from">Q</td><td>⌘⇧9</td><td class="desc-col">Quote</td><td class="src">apps/slack</td></tr>
-<tr><td class="cond">VK4</td><td class="from">Space</td><td>⌘⇧Space</td><td class="desc-col">Mute huddle</td><td class="src">apps/slack</td></tr>
+<p class="src-note">定義元: apps/slack</p>
+<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th></tr></thead><tbody>
+<tr><td class="cond">VK4</td><td class="from">T</td><td>⌘⇧T</td><td class="desc-col">Threads</td></tr>
+<tr><td class="cond">VK4</td><td class="from">U</td><td>⌘⇧A</td><td class="desc-col">All Unreads</td></tr>
+<tr><td class="cond">VK4</td><td class="from">E</td><td>⌘⇧D</td><td class="desc-col">Toggle Sidebar</td></tr>
+<tr><td class="cond">VK4</td><td class="from">K</td><td>⌘G</td><td class="desc-col">Search</td></tr>
+<tr><td class="cond">VK4</td><td class="from">F</td><td>⌘K</td><td class="desc-col">Jump</td></tr>
+<tr><td class="cond">VK4</td><td class="from">B</td><td>⌘⇧S</td><td class="desc-col">Bookmarks</td></tr>
+<tr><td class="cond">VK4</td><td class="from">D</td><td>⌘⇧X</td><td class="desc-col">Strike through</td></tr>
+<tr><td class="cond">VK4</td><td class="from">@</td><td>⌘⇧C</td><td class="desc-col">Code</td></tr>
+<tr><td class="cond">VK4</td><td class="from">C</td><td>⌘⌥⇧C</td><td class="desc-col">Code Block</td></tr>
+<tr><td class="cond">VK4</td><td class="from">Q</td><td>⌘⇧9</td><td class="desc-col">Quote</td></tr>
+<tr><td class="cond">VK4</td><td class="from">Space</td><td>⌘⇧Space</td><td class="desc-col">Mute huddle</td></tr>
 </tbody></table>
 <h3>VSCode <span class="count">34 rules</span></h3>
-<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th><th>定義元</th></tr></thead><tbody>
-<tr><td class="cond">VK1</td><td class="from">W</td><td>⌃⇧⌥W</td><td class="desc-col">Save file</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">A</td><td>⌃⇧⌥⌘A</td><td class="desc-col">execute command</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">B</td><td>⌃⇧⌥⌘B</td><td class="desc-col">show bookmarks</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">C</td><td>⌃⇧⌥C</td><td class="desc-col">GitHub Copilot: Open Completions Panel</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">D</td><td>⌃⇧⌥⌘D</td><td class="desc-col">Toggle sidebar</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">E</td><td>⌃⇧⌥⌘E</td><td class="desc-col">Show Explorer</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">F</td><td>⌃⇧⌥⌘F</td><td class="desc-col">search file</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">G</td><td>⌃⇧⌥⌘G</td><td class="desc-col">GitLens: Open File on Remote</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">H</td><td>⌃⇧⌥⌘H</td><td class="desc-col">Go Back</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">I</td><td>⌃⇧⌥⌘I</td><td class="desc-col">Go to implementation</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">J</td><td>⌃⇧⌥⌘J</td><td class="desc-col">Codex: Focus on Codex View</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">K</td><td>⌃⇧⌥⌘K</td><td class="desc-col">find in path</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">L</td><td>⌃⇧⌥⌘L</td><td class="desc-col">Go Forward</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">M</td><td>⌃⇧⌥M</td><td class="desc-col">Toggle bookmarks</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">N</td><td>⌃⇧⌥N</td><td class="desc-col">Go to next problem</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">O</td><td>⌃⇧⌥⌘O</td><td class="desc-col">open recent</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">P</td><td>⌃⇧⌥P</td><td class="desc-col">Toggle Problems view</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">R</td><td>⌃⇧⌥⌘R</td><td class="desc-col">reload window</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">S</td><td>⌃⇧⌥⌘S</td><td class="desc-col">go to symbol</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">T</td><td>⌃⇧⌥T</td><td class="desc-col">Go to workspace symbol</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">U</td><td>⌃⇧⌥U</td><td class="desc-col">Go to next reference</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">V</td><td>⌃⇧⌥⌘V</td><td class="desc-col">Copy active file relative path</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">W</td><td>⌃⇧⌥⌘W</td><td class="desc-col">Claude Code: Open in Side Bar</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">X</td><td>⌃⇧⌥⌘X</td><td class="desc-col">Close editor</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">Y</td><td>⌃⇧⌥⌘Y</td><td class="desc-col">Toggle File Blame</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">Z</td><td>⌃⇧⌥⌘Z</td><td class="desc-col">Focus on Source Control: Changes view</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">9</td><td>⌃⇧⌥⌘9</td><td class="desc-col">Zoom in</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">0</td><td>⌃⇧⌥⌘0</td><td class="desc-col">Zoom out</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">⏎</td><td>⌃⇧⌥⌘⏎</td><td class="desc-col">re-run task</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">.</td><td>⌃⇧⌥.</td><td class="desc-col">quick fix</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">1</td><td>⌃⇧⌥1</td><td class="desc-col">Split the editor to the left</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">2</td><td>⌃⇧⌥2</td><td class="desc-col">Split the editor to the bottom</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">3</td><td>⌃⇧⌥3</td><td class="desc-col">Split the editor to the top</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">4</td><td>⌃⇧⌥4</td><td class="desc-col">Split the editor to the right</td><td class="src">apps/vscode</td></tr>
+<p class="src-note">定義元: apps/vscode</p>
+<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th></tr></thead><tbody>
+<tr><td class="cond">VK1</td><td class="from">W</td><td>⌃⇧⌥W</td><td class="desc-col">Save file</td></tr>
+<tr><td class="cond">VK4</td><td class="from">A</td><td>⌃⇧⌥⌘A</td><td class="desc-col">execute command</td></tr>
+<tr><td class="cond">VK4</td><td class="from">B</td><td>⌃⇧⌥⌘B</td><td class="desc-col">show bookmarks</td></tr>
+<tr><td class="cond">VK4</td><td class="from">C</td><td>⌃⇧⌥C</td><td class="desc-col">GitHub Copilot: Open Completions Panel</td></tr>
+<tr><td class="cond">VK4</td><td class="from">D</td><td>⌃⇧⌥⌘D</td><td class="desc-col">Toggle sidebar</td></tr>
+<tr><td class="cond">VK4</td><td class="from">E</td><td>⌃⇧⌥⌘E</td><td class="desc-col">Show Explorer</td></tr>
+<tr><td class="cond">VK4</td><td class="from">F</td><td>⌃⇧⌥⌘F</td><td class="desc-col">search file</td></tr>
+<tr><td class="cond">VK4</td><td class="from">G</td><td>⌃⇧⌥⌘G</td><td class="desc-col">GitLens: Open File on Remote</td></tr>
+<tr><td class="cond">VK4</td><td class="from">H</td><td>⌃⇧⌥⌘H</td><td class="desc-col">Go Back</td></tr>
+<tr><td class="cond">VK4</td><td class="from">I</td><td>⌃⇧⌥⌘I</td><td class="desc-col">Go to implementation</td></tr>
+<tr><td class="cond">VK4</td><td class="from">J</td><td>⌃⇧⌥⌘J</td><td class="desc-col">Codex: Focus on Codex View</td></tr>
+<tr><td class="cond">VK4</td><td class="from">K</td><td>⌃⇧⌥⌘K</td><td class="desc-col">find in path</td></tr>
+<tr><td class="cond">VK4</td><td class="from">L</td><td>⌃⇧⌥⌘L</td><td class="desc-col">Go Forward</td></tr>
+<tr><td class="cond">VK4</td><td class="from">M</td><td>⌃⇧⌥M</td><td class="desc-col">Toggle bookmarks</td></tr>
+<tr><td class="cond">VK4</td><td class="from">N</td><td>⌃⇧⌥N</td><td class="desc-col">Go to next problem</td></tr>
+<tr><td class="cond">VK4</td><td class="from">O</td><td>⌃⇧⌥⌘O</td><td class="desc-col">open recent</td></tr>
+<tr><td class="cond">VK4</td><td class="from">P</td><td>⌃⇧⌥P</td><td class="desc-col">Toggle Problems view</td></tr>
+<tr><td class="cond">VK4</td><td class="from">R</td><td>⌃⇧⌥⌘R</td><td class="desc-col">reload window</td></tr>
+<tr><td class="cond">VK4</td><td class="from">S</td><td>⌃⇧⌥⌘S</td><td class="desc-col">go to symbol</td></tr>
+<tr><td class="cond">VK4</td><td class="from">T</td><td>⌃⇧⌥T</td><td class="desc-col">Go to workspace symbol</td></tr>
+<tr><td class="cond">VK4</td><td class="from">U</td><td>⌃⇧⌥U</td><td class="desc-col">Go to next reference</td></tr>
+<tr><td class="cond">VK4</td><td class="from">V</td><td>⌃⇧⌥⌘V</td><td class="desc-col">Copy active file relative path</td></tr>
+<tr><td class="cond">VK4</td><td class="from">W</td><td>⌃⇧⌥⌘W</td><td class="desc-col">Claude Code: Open in Side Bar</td></tr>
+<tr><td class="cond">VK4</td><td class="from">X</td><td>⌃⇧⌥⌘X</td><td class="desc-col">Close editor</td></tr>
+<tr><td class="cond">VK4</td><td class="from">Y</td><td>⌃⇧⌥⌘Y</td><td class="desc-col">Toggle File Blame</td></tr>
+<tr><td class="cond">VK4</td><td class="from">Z</td><td>⌃⇧⌥⌘Z</td><td class="desc-col">Focus on Source Control: Changes view</td></tr>
+<tr><td class="cond">VK4</td><td class="from">9</td><td>⌃⇧⌥⌘9</td><td class="desc-col">Zoom in</td></tr>
+<tr><td class="cond">VK4</td><td class="from">0</td><td>⌃⇧⌥⌘0</td><td class="desc-col">Zoom out</td></tr>
+<tr><td class="cond">VK4</td><td class="from">⏎</td><td>⌃⇧⌥⌘⏎</td><td class="desc-col">re-run task</td></tr>
+<tr><td class="cond">VK4</td><td class="from">.</td><td>⌃⇧⌥.</td><td class="desc-col">quick fix</td></tr>
+<tr><td class="cond">VK4</td><td class="from">1</td><td>⌃⇧⌥1</td><td class="desc-col">Split the editor to the left</td></tr>
+<tr><td class="cond">VK4</td><td class="from">2</td><td>⌃⇧⌥2</td><td class="desc-col">Split the editor to the bottom</td></tr>
+<tr><td class="cond">VK4</td><td class="from">3</td><td>⌃⇧⌥3</td><td class="desc-col">Split the editor to the top</td></tr>
+<tr><td class="cond">VK4</td><td class="from">4</td><td>⌃⇧⌥4</td><td class="desc-col">Split the editor to the right</td></tr>
 </tbody></table>
 </section>
 <section><h2><span class="chip shingeta">新下駄</span> 配列 <span class="count">144 rules</span></h2>
@@ -858,13 +867,14 @@ a { color: var(--vk1); }
 </tbody></table>
 </section>
 <section><h2>その他の条件 <span class="count">6 rules</span></h2>
-<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th><th>定義元</th></tr></thead><tbody>
-<tr><td class="cond">VK3 + 新下駄</td><td class="from">Z</td><td>Z H</td><td class="desc-col"></td><td class="src">common</td></tr>
-<tr><td class="cond">VK3 + 新下駄</td><td class="from">X</td><td>Z J</td><td class="desc-col"></td><td class="src">common</td></tr>
-<tr><td class="cond">VK3 + 新下駄</td><td class="from">C</td><td>Z K</td><td class="desc-col"></td><td class="src">common</td></tr>
-<tr><td class="cond">VK3 + 新下駄</td><td class="from">V</td><td>Z L</td><td class="desc-col"></td><td class="src">common</td></tr>
-<tr><td class="cond">VK3 + 入力=ja</td><td class="from">O</td><td>英数 [ ] かな ←</td><td class="desc-col">type half-width [] with cursor inside</td><td class="src">common</td></tr>
-<tr><td class="cond">新下駄オフ</td><td class="from">F12</td><td>[新下駄=1] 新下駄モード記録</td><td class="desc-col">enable shingeta layout</td><td class="src">common</td></tr>
+<p class="src-note">定義元: common</p>
+<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th></tr></thead><tbody>
+<tr><td class="cond">VK3 + 新下駄</td><td class="from">Z</td><td>Z H</td><td class="desc-col"></td></tr>
+<tr><td class="cond">VK3 + 新下駄</td><td class="from">X</td><td>Z J</td><td class="desc-col"></td></tr>
+<tr><td class="cond">VK3 + 新下駄</td><td class="from">C</td><td>Z K</td><td class="desc-col"></td></tr>
+<tr><td class="cond">VK3 + 新下駄</td><td class="from">V</td><td>Z L</td><td class="desc-col"></td></tr>
+<tr><td class="cond">VK3 + 入力=ja</td><td class="from">O</td><td>英数 [ ] かな ←</td><td class="desc-col">type half-width [] with cursor inside</td></tr>
+<tr><td class="cond">新下駄オフ</td><td class="from">F12</td><td>[新下駄=1] 新下駄モード記録</td><td class="desc-col">enable shingeta layout</td></tr>
 </tbody></table>
 </section>
 </main></body>
