@@ -125,17 +125,5 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
-    // what is this?
-    manipulators.push(
-        Manipulator::builder()
-            .conditions(vec![
-                Condition::on_app(ITerm2),
-                Condition::with_virtual_key(Vk1),
-            ])
-            .from_key(Semicolon)
-            .to_key(F, Some(CTRL.to_vec()))
-            .build(),
-    );
-
     manipulators
 }
