@@ -5,9 +5,8 @@ use crate::karabiner_data::{
 
 pub fn manipulators() -> Vec<Manipulator> {
     vec![
-        // Mute google meets
         Manipulator::builder()
-            .description("Mute Google Meet")
+            .description("Mute google meets")
             .conditions(vec![
                 Condition::on_app(GoogleChrome),
                 Condition::with_virtual_key(Vk4),
@@ -15,7 +14,6 @@ pub fn manipulators() -> Vec<Manipulator> {
             .from_key(Spacebar)
             .to_key(D, Some(vec![Cmd]))
             .build(),
-        // List profiles
         Manipulator::builder()
             .description("List profiles")
             .conditions(vec![
@@ -25,7 +23,6 @@ pub fn manipulators() -> Vec<Manipulator> {
             .from_key(M)
             .to_key(M, Some(vec![Cmd, Shift]))
             .build(),
-        // Switch profile
         Manipulator::builder()
             .description("Switch profile")
             .conditions(vec![

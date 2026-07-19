@@ -51,10 +51,9 @@ pub fn manipulators() -> Vec<Manipulator> {
         }
         manipulators.push(builder.build());
     }
-    // F with any modifier -> Escape + 英数 (to easily switch to English input)
     manipulators.push(
         Manipulator::builder()
-            .description("Escape + 英数 (switch to English input)")
+            .description("Replace `VK1+F` with `Escape` + `英数` + disable shingeta mode")
             .condition(Condition::with_vk1())
             .from_key_with_modifiers(F, FromModifier::Optional(vec![Any]))
             .to_key(Escape, None)
@@ -67,10 +66,9 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
-    // VK1+S -> JapaneseKana (also enable shingeta mode)
     manipulators.push(
         Manipulator::builder()
-            .description("かな (enable shingeta mode)")
+            .description("Replace `VK1+S` with `かな` (switch to Japanese input)")
             .condition(Condition::with_vk1())
             .from_key(S)
             .to_key(JapaneseKana, None)
@@ -82,10 +80,9 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
-    // VK1+D -> JapaneseEisuu (also disable shingeta mode)
     manipulators.push(
         Manipulator::builder()
-            .description("英数 (disable shingeta mode)")
+            .description("Replace `VK1+D` with `英数` (switch to English input)")
             .condition(Condition::with_vk1())
             .from_key(D)
             .to_key(JapaneseEisuu, None)
@@ -100,7 +97,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     // VK1+R -> type today's date (e.g. 2026-07-18)
     manipulators.push(
         Manipulator::builder()
-            .description("type today's date (e.g. 2026-07-18)")
+            .description("Type today's date (e.g. 2026-07-18)")
             .condition(Condition::with_vk1())
             .from_key(R)
             .to_command(
@@ -112,7 +109,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     // VK1+X -> type current timestamp (e.g. 20260718215230)
     manipulators.push(
         Manipulator::builder()
-            .description("type current timestamp (e.g. 20260718215230)")
+            .description("Type current timestamp (e.g. 20260718215230)")
             .condition(Condition::with_vk1())
             .from_key(X)
             .to_command(
@@ -122,26 +119,31 @@ pub fn manipulators() -> Vec<Manipulator> {
     );
 
     for (from, to, modifiers, description) in [
-        (A, F10, None, "英数に変換"),
-        (Z, F7, None, "カタカナに変換"),
-        (O, Tab, Some(vec![Ctrl, Shift]), "move to previous tab"),
-        (P, Tab, Some(vec![Ctrl]), "move to next tab"),
-        (Y, C, Some(vec![Cmd]), "copy"),
-        (T, X, Some(vec![Cmd]), "cut"),
+        (A, F10, None, "変換中の文字を英数に変換"),
+        (Z, F7, None, "変換中の文字をカタカナに変換"),
+        (O, Tab, Some(vec![Ctrl, Shift]), "Move to previous tab"),
+        (P, Tab, Some(vec![Ctrl]), "Move to next tab"),
+        (Y, C, Some(vec![Cmd]), "Copy"),
+        (T, X, Some(vec![Cmd]), "Cut"),
         (
             V,
             V,
             Some(vec![Cmd, Shift, Opt]),
-            "paste without formatting",
+            "Paste without formatting",
         ),
-        (C, DeleteOrBackspace, None, "backspace"),
-        (E, DeleteForward, None, "delete"),
-        (Quote, H, Some(vec![Cmd]), "hide current app"),
-        (B, M, Some(vec![Ctrl, Opt, Cmd, Shift]), "maximize window"),
-        (International3, D, Some(vec![Cmd, Opt]), "hide dock"),
+        (C, DeleteOrBackspace, None, "Backspace"),
+        (E, DeleteForward, None, "Delete"),
+        (Quote, H, Some(vec![Cmd]), "Hide current app"),
+        (B, M, Some(vec![Ctrl, Opt, Cmd, Shift]), "Maximize window"),
+        (International3, D, Some(vec![Cmd, Opt]), "Hide dock"),
         // NOTE: must stay before the unconditioned `; -> Enter` rule below;
         // otherwise that rule matches first and this one never fires.
-        (Semicolon, ReturnOrEnter, Some(vec![Shift]), ""),
+        (
+            Semicolon,
+            ReturnOrEnter,
+            Some(vec![Shift]),
+            "Replace `VK1+;` with `Shift+Enter`",
+        ),
     ] {
         let mut builder = Manipulator::builder()
             .condition(Condition::with_vk1())
@@ -155,7 +157,7 @@ pub fn manipulators() -> Vec<Manipulator> {
 
     manipulators.push(
         Manipulator::builder()
-            .description("copy + strip newlines and repeated spaces")
+            .description("Replace `VK1+Shift+Y` with `Cmd+C` + remove newlines and extra spaces from clipboard")
             .condition(Condition::with_vk1())
             .from_key_with_modifiers(Y, FromModifier::Mandatory(vec![Shift]))
             .to_key(C, Some(vec![Cmd]))
@@ -165,7 +167,6 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
-    // Mouse movement
     for (key_code, x, y) in [
         (N, Some(-MOUSE_SPEED), None),
         (M, None, Some(MOUSE_SPEED)),
