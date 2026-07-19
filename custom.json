@@ -2873,7 +2873,7 @@
       ]
     },
     {
-      "description": "Notion: VK2+9 -> ⌘+",
+      "description": "Notion: VK2+9 -> Zoom in",
       "manipulators": [
         {
           "type": "basic",
@@ -2905,7 +2905,7 @@
       ]
     },
     {
-      "description": "Notion: VK2+0 -> ⌘-",
+      "description": "Notion: VK2+0 -> Zoom out",
       "manipulators": [
         {
           "type": "basic",
@@ -2937,39 +2937,7 @@
       ]
     },
     {
-      "description": "Notion: VK4+C -> ⌘L",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "notion.id"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "vk4",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "c"
-          },
-          "to": [
-            {
-              "key_code": "l",
-              "modifiers": [
-                "command"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Notion: VK4+E -> ⌘¥",
+      "description": "Notion: VK4+E -> Toggle sidebar",
       "manipulators": [
         {
           "type": "basic",
@@ -3001,7 +2969,7 @@
       ]
     },
     {
-      "description": "Notion: VK4+F -> ⌘P",
+      "description": "Notion: VK4+F -> Search",
       "manipulators": [
         {
           "type": "basic",
@@ -3033,7 +3001,7 @@
       ]
     },
     {
-      "description": "Notion: VK4+H -> ⌘[",
+      "description": "Notion: VK4+Y -> Copy link",
       "manipulators": [
         {
           "type": "basic",
@@ -3051,144 +3019,13 @@
             }
           ],
           "from": {
-            "key_code": "h"
+            "key_code": "y"
           },
           "to": [
             {
-              "key_code": "close_bracket",
+              "key_code": "l",
               "modifiers": [
                 "command"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Notion: VK4+L -> ⌘]",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "notion.id"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "vk4",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "l"
-          },
-          "to": [
-            {
-              "key_code": "non_us_pound",
-              "modifiers": [
-                "command"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Notion: VK4+U -> ⌘⇧U",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "notion.id"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "vk4",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "u"
-          },
-          "to": [
-            {
-              "key_code": "u",
-              "modifiers": [
-                "command",
-                "shift"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Notion: VK4+N -> ⌃⇧J",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "notion.id"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "vk4",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "n"
-          },
-          "to": [
-            {
-              "key_code": "j",
-              "modifiers": [
-                "control",
-                "shift"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Notion: VK4+P -> ⌃⇧K",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "notion.id"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "vk4",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "p"
-          },
-          "to": [
-            {
-              "key_code": "k",
-              "modifiers": [
-                "control",
-                "shift"
               ]
             }
           ]

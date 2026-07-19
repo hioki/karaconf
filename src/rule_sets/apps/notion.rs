@@ -8,25 +8,24 @@ pub fn manipulators() -> Vec<Manipulator> {
     let m = BTreeMap::from([
         (
             VirtualKey::Vk2,
-            vec![(Key9, KeypadPlus, vec![Cmd]), (Key0, Hyphen, vec![Cmd])],
+            vec![
+                ("Zoom in", Key9, KeypadPlus, vec![Cmd]),
+                ("Zoom out", Key0, Hyphen, vec![Cmd]),
+            ],
         ),
         (
             VirtualKey::Vk4,
             vec![
-                (C, L, vec![Cmd]),
-                (E, International3, vec![Cmd]),
-                (F, P, vec![Cmd]),
-                (H, CloseBracket, vec![Cmd]),
-                (L, NonUsPound, vec![Cmd]),
-                (U, U, vec![Cmd, Shift]),
-                (N, J, vec![Ctrl, Shift]),
-                (P, K, vec![Ctrl, Shift]),
+                ("Toggle sidebar", E, International3, vec![Cmd]),
+                ("Search", F, P, vec![Cmd]),
+                ("Copy link", Y, L, vec![Cmd]),
             ],
         ),
     ]);
     for (vk, mappings) in &m {
-        for (from, to, modifiers) in mappings {
+        for (description, from, to, modifiers) in mappings {
             let manipulator = Manipulator::builder()
+                .description(*description)
                 .from_key(from.clone())
                 .to_key(to.clone(), Some(modifiers.clone()))
                 .conditions(vec![
