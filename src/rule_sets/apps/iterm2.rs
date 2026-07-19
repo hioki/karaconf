@@ -17,6 +17,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     // Disable default Cmd+W behavior in iTerm2
     manipulators.push(
         Manipulator::builder()
+            .description("disable default Cmd+W")
             .condition(Condition::on_app(ITerm2))
             .from_key_with_modifiers(W, FromModifier::Mandatory(CMD.to_vec()))
             .to_key(VkNone, None)
@@ -26,6 +27,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     // save file in vim
     manipulators.push(
         Manipulator::builder()
+            .description("vim: save file (:w)")
             .conditions(vec![
                 Condition::on_app(ITerm2),
                 Condition::with_virtual_key(Vk1),
@@ -40,6 +42,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     // quit vim
     manipulators.push(
         Manipulator::builder()
+            .description("vim: quit (:q)")
             .conditions(vec![
                 Condition::on_app(ITerm2),
                 Condition::with_virtual_key(Vk1),
@@ -52,12 +55,13 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
     // go to line head/tail in vim
-    for (from, to) in [
-        (U, Key0), // go to line head in vim
-        (I, Key4), // go to line tail in vim
+    for (from, to, description) in [
+        (U, Key0, "vim: go to line head (0)"),
+        (I, Key4, "vim: go to line tail ($)"),
     ] {
         manipulators.push(
             Manipulator::builder()
+                .description(description)
                 .conditions(vec![
                     Condition::on_app(ITerm2),
                     Condition::with_virtual_key(Vk1),
@@ -88,6 +92,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     for (from, to) in [(O, P), (P, N)] {
         manipulators.push(
             Manipulator::builder()
+                .description("tmux: pane movement")
                 .conditions(vec![
                     Condition::on_app(ITerm2),
                     Condition::with_virtual_key(Vk1),
@@ -102,6 +107,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     for (from, to) in [(A, P), (S, N)] {
         manipulators.push(
             Manipulator::builder()
+                .description("tmux: pane movement")
                 .conditions(vec![
                     Condition::on_app(ITerm2),
                     Condition::with_virtual_key(Vk2),
@@ -115,6 +121,7 @@ pub fn manipulators() -> Vec<Manipulator> {
     // Enter copy mode in tmux
     manipulators.push(
         Manipulator::builder()
+            .description("tmux: enter copy mode")
             .conditions(vec![
                 Condition::on_app(ITerm2),
                 Condition::with_virtual_key(Vk1),

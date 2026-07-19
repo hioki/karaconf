@@ -2,7 +2,9 @@
 //! manipulator definitions: per-layer JIS keyboard grids, per-app tables,
 //! and the shingeta layout rendered as kana.
 
-use crate::display::{from_label, key_label, mods_prefix, to_summary, virtual_key_label};
+use crate::display::{
+    from_label, key_label, mods_prefix, rule_description, to_summary, virtual_key_label,
+};
 use crate::karabiner_data::{Condition, From, FromModifier, KeyCode, Manipulator, To, VirtualKey};
 use crate::lint::Finding;
 use std::collections::BTreeMap;
@@ -242,10 +244,18 @@ fn render_layer_sections(html: &mut String, buckets: &Buckets) {
                         }
                         _ => String::new(),
                     };
+                    let description_line = entry
+                        .manipulator
+                        .description
+                        .as_deref()
+                        .map(|d| format!("<span class=\"desc\">{}</span>", esc(d)))
+                        .unwrap_or_default();
                     cells.entry(key_id(key_code)).or_default().push(format!(
-                        "<span class=\"out\">{}{}</span>",
+                        "<span class=\"out\" title=\"{}\">{}{}</span>{}",
+                        esc(&rule_description(entry.manipulator)),
                         badge,
-                        esc(&to_summary(entry.manipulator))
+                        esc(&to_summary(entry.manipulator)),
+                        description_line,
                     ));
                 }
                 _ => overflow.push(entry),
@@ -314,7 +324,7 @@ fn render_entry_table(html: &mut String, entries: &[&Entry], show_conditions: bo
     if show_conditions {
         html.push_str("<th>条件</th>");
     }
-    html.push_str("<th>入力</th><th>出力</th><th>定義元</th></tr></thead><tbody>\n");
+    html.push_str("<th>入力</th><th>出力</th><th>説明</th><th>定義元</th></tr></thead><tbody>\n");
     for entry in entries {
         html.push_str("<tr>");
         if show_conditions {
@@ -324,9 +334,10 @@ fn render_entry_table(html: &mut String, entries: &[&Entry], show_conditions: bo
             ));
         }
         html.push_str(&format!(
-            "<td class=\"from\">{}</td><td>{}</td><td class=\"src\">{}</td></tr>\n",
+            "<td class=\"from\">{}</td><td>{}</td><td class=\"desc-col\">{}</td><td class=\"src\">{}</td></tr>\n",
             esc(&from_label(&entry.manipulator.from)),
             esc(&to_summary(entry.manipulator)),
+            esc(entry.manipulator.description.as_deref().unwrap_or("")),
             esc(entry.ruleset),
         ));
     }
@@ -421,10 +432,16 @@ fn render_shingeta_section(html: &mut String, buckets: &Buckets) {
 }
 
 fn kana_cell(manipulator: &Manipulator) -> String {
+    let title = esc(&rule_description(manipulator));
     match shingeta_output(manipulator) {
-        Some(kana) => format!("<span class=\"out\">{}</span>", esc(&kana)),
+        Some(kana) => format!(
+            "<span class=\"out\" title=\"{}\">{}</span>",
+            title,
+            esc(&kana)
+        ),
         None => format!(
-            "<span class=\"out fallback\">{}</span>",
+            "<span class=\"out fallback\" title=\"{}\">{}</span>",
+            title,
             esc(&to_summary(manipulator))
         ),
     }
@@ -696,6 +713,8 @@ h3 { font-size: 15px; margin: 18px 0 8px; }
 .kb.kana .key { width: 58px; min-height: 46px; }
 .key .legend { color: var(--muted); font-size: 9px; }
 .key .out { font-weight: 600; line-height: 1.25; word-break: break-all; }
+.key .desc { color: var(--muted); font-size: 9px; line-height: 1.2; }
+td.desc-col { color: var(--muted); }
 .kb.kana .key .out { font-size: 16px; font-weight: 500; }
 .kb.kana .key .out.fallback { font-size: 9.5px; }
 .key.free { opacity: 0.45; }

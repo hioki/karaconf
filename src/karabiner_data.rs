@@ -226,6 +226,11 @@ pub enum PointingButton {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Manipulator {
+    /// Human-readable description used for the generated Rule and the
+    /// cheatsheet. Not part of the Karabiner JSON output.
+    #[serde(skip)]
+    pub description: Option<String>,
+
     pub r#type: ManipulatorType,
 
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -250,6 +255,7 @@ impl Manipulator {
 }
 
 pub struct ManipulatorInitBuilder<S = WithoutFrom> {
+    description: Option<String>,
     conditions: Option<Vec<Condition>>,
     from: Option<From>,
     to: Vec<To>,
@@ -264,6 +270,7 @@ pub struct WithFrom;
 impl Default for ManipulatorInitBuilder<WithoutFrom> {
     fn default() -> Self {
         Self {
+            description: None,
             conditions: None,
             from: None,
             to: Vec::new(),
@@ -275,6 +282,11 @@ impl Default for ManipulatorInitBuilder<WithoutFrom> {
 }
 
 impl<S> ManipulatorInitBuilder<S> {
+    pub fn description(mut self, description: impl Into<String>) -> Self {
+        self.description = Some(description.into());
+        self
+    }
+
     pub fn condition(mut self, condition: Condition) -> Self {
         self.conditions.get_or_insert(vec![]).push(condition);
         self
@@ -355,6 +367,7 @@ impl<S> ManipulatorInitBuilder<S> {
 impl ManipulatorInitBuilder<WithoutFrom> {
     pub fn from_key(self, key_code: KeyCode) -> ManipulatorInitBuilder<WithFrom> {
         ManipulatorInitBuilder {
+            description: self.description,
             conditions: self.conditions,
             from: Some(From::Single {
                 key_code,
@@ -373,6 +386,7 @@ impl ManipulatorInitBuilder<WithoutFrom> {
         modifiers: FromModifier,
     ) -> ManipulatorInitBuilder<WithFrom> {
         ManipulatorInitBuilder {
+            description: self.description,
             conditions: self.conditions,
             from: Some(From::Single {
                 key_code,
@@ -390,6 +404,7 @@ impl ManipulatorInitBuilder<WithoutFrom> {
         key_codes: Vec<KeyCode>,
     ) -> ManipulatorInitBuilder<WithFrom> {
         ManipulatorInitBuilder {
+            description: self.description,
             conditions: self.conditions,
             from: Some(From::Simultaneous {
                 simultaneous: key_codes
@@ -411,6 +426,7 @@ impl ManipulatorInitBuilder<WithoutFrom> {
         options: SimultaneousOptions,
     ) -> ManipulatorInitBuilder<WithFrom> {
         ManipulatorInitBuilder {
+            description: self.description,
             conditions: self.conditions,
             from: Some(From::Simultaneous {
                 simultaneous: key_codes
@@ -430,6 +446,7 @@ impl ManipulatorInitBuilder<WithoutFrom> {
 impl ManipulatorInitBuilder<WithFrom> {
     pub fn build(self) -> Manipulator {
         Manipulator {
+            description: self.description,
             r#type: ManipulatorType::Basic,
             conditions: self.conditions,
             from: self.from.expect("from key should be set"),

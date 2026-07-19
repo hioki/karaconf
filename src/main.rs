@@ -54,10 +54,15 @@ fn main() -> anyhow::Result<()> {
         std::process::exit(if findings.is_empty() { 0 } else { 1 });
     }
 
-    let rules = vec![karabiner_data::Rule {
-        description: TITLE.to_string(),
-        manipulators: rulesets.iter().flat_map(|(_, m)| m.clone()).collect(),
-    }];
+    // One Rule per manipulator so each binding carries its own description.
+    let rules: Vec<karabiner_data::Rule> = rulesets
+        .iter()
+        .flat_map(|(_, manipulators)| manipulators.iter())
+        .map(|manipulator| karabiner_data::Rule {
+            description: display::rule_description(manipulator),
+            manipulators: vec![manipulator.clone()],
+        })
+        .collect();
     let complex_modifications = karabiner_data::ComplexModifications {
         title: TITLE,
         rules: &rules,

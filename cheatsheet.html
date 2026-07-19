@@ -39,6 +39,8 @@ h3 { font-size: 15px; margin: 18px 0 8px; }
 .kb.kana .key { width: 58px; min-height: 46px; }
 .key .legend { color: var(--muted); font-size: 9px; }
 .key .out { font-weight: 600; line-height: 1.25; word-break: break-all; }
+.key .desc { color: var(--muted); font-size: 9px; line-height: 1.2; }
+td.desc-col { color: var(--muted); }
 .kb.kana .key .out { font-size: 16px; font-weight: 500; }
 .kb.kana .key .out.fallback { font-size: 9.5px; }
 .key.free { opacity: 0.45; }
@@ -59,60 +61,60 @@ a { color: var(--vk1); }
 <section><h2><span class="chip vk1">VK1</span> レイヤー <span class="count">56 rules</span></h2>
 <div class="kb">
 <div class="krow" style="margin-left:0px">
-<div class="key"><span class="legend">1</span><span class="out">F1</span></div>
-<div class="key"><span class="legend">2</span><span class="out">F2</span></div>
-<div class="key"><span class="legend">3</span><span class="out">F3</span></div>
-<div class="key"><span class="legend">4</span><span class="out">F4</span></div>
-<div class="key"><span class="legend">5</span><span class="out">F5</span></div>
-<div class="key"><span class="legend">6</span><span class="out">F6</span></div>
-<div class="key"><span class="legend">7</span><span class="out">F7</span></div>
-<div class="key"><span class="legend">8</span><span class="out">F8</span></div>
-<div class="key"><span class="legend">9</span><span class="out">F9</span></div>
-<div class="key"><span class="legend">0</span><span class="out">F10</span></div>
-<div class="key"><span class="legend">-</span><span class="out">F11</span></div>
-<div class="key"><span class="legend">^</span><span class="out">F12</span></div>
-<div class="key"><span class="legend">¥</span><span class="out">⌘⌥D</span></div>
+<div class="key"><span class="legend">1</span><span class="out" title="VK1+1 -&gt; F1">F1</span></div>
+<div class="key"><span class="legend">2</span><span class="out" title="VK1+2 -&gt; F2">F2</span></div>
+<div class="key"><span class="legend">3</span><span class="out" title="VK1+3 -&gt; F3">F3</span></div>
+<div class="key"><span class="legend">4</span><span class="out" title="VK1+4 -&gt; F4">F4</span></div>
+<div class="key"><span class="legend">5</span><span class="out" title="VK1+5 -&gt; F5">F5</span></div>
+<div class="key"><span class="legend">6</span><span class="out" title="VK1+6 -&gt; F6">F6</span></div>
+<div class="key"><span class="legend">7</span><span class="out" title="VK1+7 -&gt; F7">F7</span></div>
+<div class="key"><span class="legend">8</span><span class="out" title="VK1+8 -&gt; F8">F8</span></div>
+<div class="key"><span class="legend">9</span><span class="out" title="VK1+9 -&gt; F9">F9</span></div>
+<div class="key"><span class="legend">0</span><span class="out" title="VK1+0 -&gt; F10">F10</span></div>
+<div class="key"><span class="legend">-</span><span class="out" title="VK1+- -&gt; F11">F11</span></div>
+<div class="key"><span class="legend">^</span><span class="out" title="VK1+^ -&gt; F12">F12</span></div>
+<div class="key"><span class="legend">¥</span><span class="out" title="VK1+¥ -&gt; hide dock">⌘⌥D</span><span class="desc">hide dock</span></div>
 </div>
 <div class="krow" style="margin-left:14px">
-<div class="key"><span class="legend">Q</span><span class="out">⌘Q</span></div>
+<div class="key"><span class="legend">Q</span><span class="out" title="VK1+Q -&gt; ⌘Q">⌘Q</span></div>
 <div class="key free"><span class="legend">W</span></div>
-<div class="key"><span class="legend">E</span><span class="out">⌦</span></div>
-<div class="key"><span class="legend">R</span><span class="out">今日の日付を入力</span></div>
-<div class="key"><span class="legend">T</span><span class="out">⌘X</span></div>
-<div class="key"><span class="legend">Y</span><span class="out">⌘C</span><span class="out"><span class="badge">⇧</span>⌘C クリップボード整形</span></div>
-<div class="key"><span class="legend">U</span><span class="out">⌘←</span></div>
-<div class="key"><span class="legend">I</span><span class="out">⌘→</span></div>
-<div class="key"><span class="legend">O</span><span class="out">⌃⇧Tab</span></div>
-<div class="key"><span class="legend">P</span><span class="out">⌃Tab</span></div>
-<div class="key"><span class="legend">@</span><span class="out">ホイール↑</span><span class="out"><span class="badge">⌃</span>横ホイール→</span></div>
-<div class="key"><span class="legend">[</span><span class="out">⌘Z</span></div>
+<div class="key"><span class="legend">E</span><span class="out" title="VK1+E -&gt; delete">⌦</span><span class="desc">delete</span></div>
+<div class="key"><span class="legend">R</span><span class="out" title="VK1+R -&gt; type today's date (e.g. 2026-07-18)">今日の日付を入力</span><span class="desc">type today's date (e.g. 2026-07-18)</span></div>
+<div class="key"><span class="legend">T</span><span class="out" title="VK1+T -&gt; cut">⌘X</span><span class="desc">cut</span></div>
+<div class="key"><span class="legend">Y</span><span class="out" title="VK1+Y -&gt; copy">⌘C</span><span class="desc">copy</span><span class="out" title="VK1+⇧Y -&gt; copy + strip newlines and repeated spaces"><span class="badge">⇧</span>⌘C クリップボード整形</span><span class="desc">copy + strip newlines and repeated spaces</span></div>
+<div class="key"><span class="legend">U</span><span class="out" title="VK1+U -&gt; go to line head">⌘←</span><span class="desc">go to line head</span></div>
+<div class="key"><span class="legend">I</span><span class="out" title="VK1+I -&gt; go to line tail">⌘→</span><span class="desc">go to line tail</span></div>
+<div class="key"><span class="legend">O</span><span class="out" title="VK1+O -&gt; move to previous tab">⌃⇧Tab</span><span class="desc">move to previous tab</span></div>
+<div class="key"><span class="legend">P</span><span class="out" title="VK1+P -&gt; move to next tab">⌃Tab</span><span class="desc">move to next tab</span></div>
+<div class="key"><span class="legend">@</span><span class="out" title="VK1+@ -&gt; ホイール↑">ホイール↑</span><span class="out" title="VK1+⌃@ -&gt; 横ホイール→"><span class="badge">⌃</span>横ホイール→</span></div>
+<div class="key"><span class="legend">[</span><span class="out" title="VK1+[ -&gt; undo">⌘Z</span><span class="desc">undo</span></div>
 </div>
 <div class="krow" style="margin-left:22px">
-<div class="key"><span class="legend">A</span><span class="out">F10</span></div>
-<div class="key"><span class="legend">S</span><span class="out">かな [新下駄=1] 新下駄モード記録</span></div>
-<div class="key"><span class="legend">D</span><span class="out">英数 [新下駄=0] 新下駄モード記録</span></div>
-<div class="key"><span class="legend">F</span><span class="out">Esc 英数 [新下駄=0] 新下駄モード記録</span></div>
-<div class="key"><span class="legend">G</span><span class="out">Tab</span></div>
-<div class="key"><span class="legend">H</span><span class="out">←</span></div>
-<div class="key"><span class="legend">J</span><span class="out">↓</span></div>
-<div class="key"><span class="legend">K</span><span class="out">↑</span></div>
-<div class="key"><span class="legend">L</span><span class="out">→</span></div>
-<div class="key"><span class="legend">;</span><span class="out">⇧⏎</span></div>
-<div class="key"><span class="legend">:</span><span class="out">⌘H</span></div>
-<div class="key"><span class="legend">]</span><span class="out">ホイール↓</span><span class="out">ホイール↓</span><span class="out"><span class="badge">⌃</span>横ホイール←</span><span class="out"><span class="badge">⌃</span>横ホイール←</span></div>
+<div class="key"><span class="legend">A</span><span class="out" title="VK1+A -&gt; 英数に変換">F10</span><span class="desc">英数に変換</span></div>
+<div class="key"><span class="legend">S</span><span class="out" title="VK1+S -&gt; かな (enable shingeta mode)">かな [新下駄=1] 新下駄モード記録</span><span class="desc">かな (enable shingeta mode)</span></div>
+<div class="key"><span class="legend">D</span><span class="out" title="VK1+D -&gt; 英数 (disable shingeta mode)">英数 [新下駄=0] 新下駄モード記録</span><span class="desc">英数 (disable shingeta mode)</span></div>
+<div class="key"><span class="legend">F</span><span class="out" title="VK1+F -&gt; Escape + 英数 (switch to English input)">Esc 英数 [新下駄=0] 新下駄モード記録</span><span class="desc">Escape + 英数 (switch to English input)</span></div>
+<div class="key"><span class="legend">G</span><span class="out" title="VK1+G -&gt; Tab">Tab</span></div>
+<div class="key"><span class="legend">H</span><span class="out" title="VK1+H -&gt; ←">←</span></div>
+<div class="key"><span class="legend">J</span><span class="out" title="VK1+J -&gt; ↓">↓</span></div>
+<div class="key"><span class="legend">K</span><span class="out" title="VK1+K -&gt; ↑">↑</span></div>
+<div class="key"><span class="legend">L</span><span class="out" title="VK1+L -&gt; →">→</span></div>
+<div class="key"><span class="legend">;</span><span class="out" title="VK1+; -&gt; ⇧⏎">⇧⏎</span></div>
+<div class="key"><span class="legend">:</span><span class="out" title="VK1+: -&gt; hide current app">⌘H</span><span class="desc">hide current app</span></div>
+<div class="key"><span class="legend">]</span><span class="out" title="VK1+] -&gt; ホイール↓">ホイール↓</span><span class="out" title="VK1+] -&gt; ホイール↓">ホイール↓</span><span class="out" title="VK1+⌃] -&gt; 横ホイール←"><span class="badge">⌃</span>横ホイール←</span><span class="out" title="VK1+⌃] -&gt; 横ホイール←"><span class="badge">⌃</span>横ホイール←</span></div>
 </div>
 <div class="krow" style="margin-left:34px">
-<div class="key"><span class="legend">Z</span><span class="out">F7</span></div>
-<div class="key"><span class="legend">X</span><span class="out">タイムスタンプを入力</span></div>
-<div class="key"><span class="legend">C</span><span class="out">⌫</span></div>
-<div class="key"><span class="legend">V</span><span class="out">⌘⇧⌥V</span></div>
-<div class="key"><span class="legend">B</span><span class="out">⌃⌥⌘⇧M</span></div>
-<div class="key"><span class="legend">N</span><span class="out"><span class="badge">⇧</span>マウス←</span><span class="out">マウス←</span></div>
-<div class="key"><span class="legend">M</span><span class="out"><span class="badge">⇧</span>マウス↓</span><span class="out">マウス↓</span></div>
-<div class="key"><span class="legend">,</span><span class="out"><span class="badge">⇧</span>マウス↑</span><span class="out">マウス↑</span></div>
-<div class="key"><span class="legend">.</span><span class="out"><span class="badge">⇧</span>マウス→</span><span class="out">マウス→</span></div>
-<div class="key"><span class="legend">/</span><span class="out">左クリック</span></div>
-<div class="key"><span class="legend">_</span><span class="out">右クリック</span></div>
+<div class="key"><span class="legend">Z</span><span class="out" title="VK1+Z -&gt; カタカナに変換">F7</span><span class="desc">カタカナに変換</span></div>
+<div class="key"><span class="legend">X</span><span class="out" title="VK1+X -&gt; type current timestamp (e.g. 20260718215230)">タイムスタンプを入力</span><span class="desc">type current timestamp (e.g. 20260718215230)</span></div>
+<div class="key"><span class="legend">C</span><span class="out" title="VK1+C -&gt; backspace">⌫</span><span class="desc">backspace</span></div>
+<div class="key"><span class="legend">V</span><span class="out" title="VK1+V -&gt; paste without formatting">⌘⇧⌥V</span><span class="desc">paste without formatting</span></div>
+<div class="key"><span class="legend">B</span><span class="out" title="VK1+B -&gt; maximize window">⌃⌥⌘⇧M</span><span class="desc">maximize window</span></div>
+<div class="key"><span class="legend">N</span><span class="out" title="VK1+⇧N -&gt; マウス←"><span class="badge">⇧</span>マウス←</span><span class="out" title="VK1+N -&gt; マウス←">マウス←</span></div>
+<div class="key"><span class="legend">M</span><span class="out" title="VK1+⇧M -&gt; マウス↓"><span class="badge">⇧</span>マウス↓</span><span class="out" title="VK1+M -&gt; マウス↓">マウス↓</span></div>
+<div class="key"><span class="legend">,</span><span class="out" title="VK1+⇧, -&gt; マウス↑"><span class="badge">⇧</span>マウス↑</span><span class="out" title="VK1+, -&gt; マウス↑">マウス↑</span></div>
+<div class="key"><span class="legend">.</span><span class="out" title="VK1+⇧. -&gt; マウス→"><span class="badge">⇧</span>マウス→</span><span class="out" title="VK1+. -&gt; マウス→">マウス→</span></div>
+<div class="key"><span class="legend">/</span><span class="out" title="VK1+/ -&gt; 左クリック">左クリック</span></div>
+<div class="key"><span class="legend">_</span><span class="out" title="VK1+_ -&gt; 右クリック">右クリック</span></div>
 </div>
 </div>
 <p class="free-list">空きキー: W</p>
@@ -120,59 +122,59 @@ a { color: var(--vk1); }
 <section><h2><span class="chip vk2">VK2</span> レイヤー <span class="count">54 rules</span></h2>
 <div class="kb">
 <div class="krow" style="margin-left:0px">
-<div class="key"><span class="legend">1</span><span class="out">音量-</span><span class="out"><span class="badge">⌃</span>マイク音量調整</span></div>
-<div class="key"><span class="legend">2</span><span class="out">音量+</span><span class="out"><span class="badge">⌃</span>マイク音量調整</span></div>
-<div class="key"><span class="legend">3</span><span class="out">輝度-</span></div>
-<div class="key"><span class="legend">4</span><span class="out">輝度+</span></div>
-<div class="key"><span class="legend">5</span><span class="out">⏪</span></div>
-<div class="key"><span class="legend">6</span><span class="out">⏯</span></div>
-<div class="key"><span class="legend">7</span><span class="out">⏩</span></div>
+<div class="key"><span class="legend">1</span><span class="out" title="VK2+1 -&gt; 音量-">音量-</span><span class="out" title="VK2+⌃1 -&gt; decrease mic input volume"><span class="badge">⌃</span>マイク音量調整</span><span class="desc">decrease mic input volume</span></div>
+<div class="key"><span class="legend">2</span><span class="out" title="VK2+2 -&gt; 音量+">音量+</span><span class="out" title="VK2+⌃2 -&gt; increase mic input volume"><span class="badge">⌃</span>マイク音量調整</span><span class="desc">increase mic input volume</span></div>
+<div class="key"><span class="legend">3</span><span class="out" title="VK2+3 -&gt; 輝度-">輝度-</span></div>
+<div class="key"><span class="legend">4</span><span class="out" title="VK2+4 -&gt; 輝度+">輝度+</span></div>
+<div class="key"><span class="legend">5</span><span class="out" title="VK2+5 -&gt; ⏪">⏪</span></div>
+<div class="key"><span class="legend">6</span><span class="out" title="VK2+6 -&gt; ⏯">⏯</span></div>
+<div class="key"><span class="legend">7</span><span class="out" title="VK2+7 -&gt; ⏩">⏩</span></div>
 <div class="key free"><span class="legend">8</span></div>
-<div class="key"><span class="legend">9</span><span class="out">⌘+</span></div>
-<div class="key"><span class="legend">0</span><span class="out">⌘-</span></div>
+<div class="key"><span class="legend">9</span><span class="out" title="VK2+9 -&gt; zoom in">⌘+</span><span class="desc">zoom in</span></div>
+<div class="key"><span class="legend">0</span><span class="out" title="VK2+0 -&gt; zoom out">⌘-</span><span class="desc">zoom out</span></div>
 <div class="key free"><span class="legend">-</span></div>
 <div class="key free"><span class="legend">^</span></div>
 <div class="key free"><span class="legend">¥</span></div>
 </div>
 <div class="krow" style="margin-left:14px">
-<div class="key"><span class="legend">Q</span><span class="out">⌃⌘Q</span></div>
-<div class="key"><span class="legend">W</span><span class="out">ChatGPT 起動</span></div>
-<div class="key"><span class="legend">E</span><span class="out">$ osascript -e &quot;tell applicati…</span></div>
-<div class="key"><span class="legend">R</span><span class="out">Raspberry Pi Imager 起動</span></div>
-<div class="key"><span class="legend">T</span><span class="out">Visual Studio Code 起動</span></div>
-<div class="key"><span class="legend">Y</span><span class="out">Slack 起動</span></div>
-<div class="key"><span class="legend">U</span><span class="out"><span class="badge">⌃</span>⌘⌃⌥⇧1</span><span class="out">Microsoft To Do 起動</span></div>
-<div class="key"><span class="legend">I</span><span class="out"><span class="badge">⌃</span>⌘⌃⌥⇧2</span><span class="out">Journal 起動</span></div>
-<div class="key"><span class="legend">O</span><span class="out"><span class="badge">⌃</span>⌘⌃⌥⇧→</span><span class="out">Google Chrome 起動</span></div>
-<div class="key"><span class="legend">P</span><span class="out"><span class="badge">⌃</span>⌘⌃⌥⇧↑</span><span class="out">1Password 起動</span></div>
-<div class="key"><span class="legend">@</span><span class="out">Mail 起動</span></div>
+<div class="key"><span class="legend">Q</span><span class="out" title="VK2+Q -&gt; lock screen">⌃⌘Q</span><span class="desc">lock screen</span></div>
+<div class="key"><span class="legend">W</span><span class="out" title="VK2+W -&gt; ChatGPT 起動">ChatGPT 起動</span></div>
+<div class="key"><span class="legend">E</span><span class="out" title="VK2+E -&gt; $ osascript -e &quot;tell applicati…">$ osascript -e &quot;tell applicati…</span></div>
+<div class="key"><span class="legend">R</span><span class="out" title="VK2+R -&gt; Raspberry Pi Imager 起動">Raspberry Pi Imager 起動</span></div>
+<div class="key"><span class="legend">T</span><span class="out" title="VK2+T -&gt; Visual Studio Code 起動">Visual Studio Code 起動</span></div>
+<div class="key"><span class="legend">Y</span><span class="out" title="VK2+Y -&gt; Slack 起動">Slack 起動</span></div>
+<div class="key"><span class="legend">U</span><span class="out" title="VK2+⌃U -&gt; Magnet: 1"><span class="badge">⌃</span>⌘⌃⌥⇧1</span><span class="desc">Magnet: 1</span><span class="out" title="VK2+U -&gt; Microsoft To Do 起動">Microsoft To Do 起動</span></div>
+<div class="key"><span class="legend">I</span><span class="out" title="VK2+⌃I -&gt; Magnet: 2"><span class="badge">⌃</span>⌘⌃⌥⇧2</span><span class="desc">Magnet: 2</span><span class="out" title="VK2+I -&gt; Journal 起動">Journal 起動</span></div>
+<div class="key"><span class="legend">O</span><span class="out" title="VK2+⌃O -&gt; Magnet: →"><span class="badge">⌃</span>⌘⌃⌥⇧→</span><span class="desc">Magnet: →</span><span class="out" title="VK2+O -&gt; Google Chrome 起動">Google Chrome 起動</span></div>
+<div class="key"><span class="legend">P</span><span class="out" title="VK2+⌃P -&gt; Magnet: ↑"><span class="badge">⌃</span>⌘⌃⌥⇧↑</span><span class="desc">Magnet: ↑</span><span class="out" title="VK2+P -&gt; 1Password 起動">1Password 起動</span></div>
+<div class="key"><span class="legend">@</span><span class="out" title="VK2+@ -&gt; Mail 起動">Mail 起動</span></div>
 <div class="key free"><span class="legend">[</span></div>
 </div>
 <div class="krow" style="margin-left:22px">
-<div class="key"><span class="legend">A</span><span class="out">⌃⇧Tab</span></div>
-<div class="key"><span class="legend">S</span><span class="out">⌃Tab</span></div>
-<div class="key"><span class="legend">D</span><span class="out">⌘⇧Tab</span></div>
-<div class="key"><span class="legend">F</span><span class="out">⌘Tab</span></div>
-<div class="key"><span class="legend">G</span><span class="out">Visual Studio Code 起動</span></div>
-<div class="key"><span class="legend">H</span><span class="out">⌃⇧⌘N</span><span class="out"><span class="badge">⌃</span>⌘⌃⌥⇧←</span></div>
-<div class="key"><span class="legend">J</span><span class="out"><span class="badge">⌃</span>⌘⌃⌥⇧P</span><span class="out">Firefox 起動</span></div>
-<div class="key"><span class="legend">K</span><span class="out"><span class="badge">⌃</span>⌘⌃⌥⇧N</span><span class="out">iTerm 起動</span></div>
-<div class="key"><span class="legend">L</span><span class="out">Alfred 5 起動</span></div>
-<div class="key"><span class="legend">;</span><span class="out">⌘⏎</span></div>
-<div class="key"><span class="legend">:</span><span class="out">Figma 起動</span></div>
-<div class="key"><span class="legend">]</span><span class="out">Calculator 起動</span></div>
+<div class="key"><span class="legend">A</span><span class="out" title="VK2+A -&gt; move to previous tab">⌃⇧Tab</span><span class="desc">move to previous tab</span></div>
+<div class="key"><span class="legend">S</span><span class="out" title="VK2+S -&gt; move to next tab">⌃Tab</span><span class="desc">move to next tab</span></div>
+<div class="key"><span class="legend">D</span><span class="out" title="VK2+D -&gt; move to previous app">⌘⇧Tab</span><span class="desc">move to previous app</span></div>
+<div class="key"><span class="legend">F</span><span class="out" title="VK2+F -&gt; move to next app">⌘Tab</span><span class="desc">move to next app</span></div>
+<div class="key"><span class="legend">G</span><span class="out" title="VK2+G -&gt; Visual Studio Code 起動">Visual Studio Code 起動</span></div>
+<div class="key"><span class="legend">H</span><span class="out" title="VK2+H -&gt; open notification center">⌃⇧⌘N</span><span class="desc">open notification center</span><span class="out" title="VK2+⌃H -&gt; Magnet: ←"><span class="badge">⌃</span>⌘⌃⌥⇧←</span><span class="desc">Magnet: ←</span></div>
+<div class="key"><span class="legend">J</span><span class="out" title="VK2+⌃J -&gt; Magnet: P"><span class="badge">⌃</span>⌘⌃⌥⇧P</span><span class="desc">Magnet: P</span><span class="out" title="VK2+J -&gt; Firefox 起動">Firefox 起動</span></div>
+<div class="key"><span class="legend">K</span><span class="out" title="VK2+⌃K -&gt; Magnet: N"><span class="badge">⌃</span>⌘⌃⌥⇧N</span><span class="desc">Magnet: N</span><span class="out" title="VK2+K -&gt; iTerm 起動">iTerm 起動</span></div>
+<div class="key"><span class="legend">L</span><span class="out" title="VK2+L -&gt; Alfred 5 起動">Alfred 5 起動</span></div>
+<div class="key"><span class="legend">;</span><span class="out" title="VK2+; -&gt; ⌘⏎">⌘⏎</span></div>
+<div class="key"><span class="legend">:</span><span class="out" title="VK2+: -&gt; Figma 起動">Figma 起動</span></div>
+<div class="key"><span class="legend">]</span><span class="out" title="VK2+] -&gt; Calculator 起動">Calculator 起動</span></div>
 </div>
 <div class="krow" style="margin-left:34px">
-<div class="key"><span class="legend">Z</span><span class="out">⇧⌘4</span></div>
-<div class="key"><span class="legend">X</span><span class="out">Calendar 起動</span></div>
-<div class="key"><span class="legend">C</span><span class="out">Notion Calendar 起動</span></div>
-<div class="key"><span class="legend">V</span><span class="out">DeepL 起動</span></div>
-<div class="key"><span class="legend">B</span><span class="out">Bitwarden 起動</span></div>
-<div class="key"><span class="legend">N</span><span class="out"><span class="badge">⌃</span>⌘⌃⌥⇧↓</span><span class="out">Notion 起動</span></div>
-<div class="key"><span class="legend">M</span><span class="out"><span class="badge">⌃</span>⌘⌃⌥⇧3</span><span class="out">Dynalist 起動</span></div>
-<div class="key"><span class="legend">,</span><span class="out"><span class="badge">⌃</span>⌘⌃⌥⇧4</span><span class="out">System Settings 起動</span></div>
-<div class="key"><span class="legend">.</span><span class="out">Claude 起動</span></div>
-<div class="key"><span class="legend">/</span><span class="out">s2.kingtime.jp を開く</span></div>
+<div class="key"><span class="legend">Z</span><span class="out" title="VK2+Z -&gt; screenshot (selection)">⇧⌘4</span><span class="desc">screenshot (selection)</span></div>
+<div class="key"><span class="legend">X</span><span class="out" title="VK2+X -&gt; Calendar 起動">Calendar 起動</span></div>
+<div class="key"><span class="legend">C</span><span class="out" title="VK2+C -&gt; Notion Calendar 起動">Notion Calendar 起動</span></div>
+<div class="key"><span class="legend">V</span><span class="out" title="VK2+V -&gt; DeepL 起動">DeepL 起動</span></div>
+<div class="key"><span class="legend">B</span><span class="out" title="VK2+B -&gt; Bitwarden 起動">Bitwarden 起動</span></div>
+<div class="key"><span class="legend">N</span><span class="out" title="VK2+⌃N -&gt; Magnet: ↓"><span class="badge">⌃</span>⌘⌃⌥⇧↓</span><span class="desc">Magnet: ↓</span><span class="out" title="VK2+N -&gt; Notion 起動">Notion 起動</span></div>
+<div class="key"><span class="legend">M</span><span class="out" title="VK2+⌃M -&gt; Magnet: 3"><span class="badge">⌃</span>⌘⌃⌥⇧3</span><span class="desc">Magnet: 3</span><span class="out" title="VK2+M -&gt; Dynalist 起動">Dynalist 起動</span></div>
+<div class="key"><span class="legend">,</span><span class="out" title="VK2+⌃, -&gt; Magnet: 4"><span class="badge">⌃</span>⌘⌃⌥⇧4</span><span class="desc">Magnet: 4</span><span class="out" title="VK2+, -&gt; System Settings 起動">System Settings 起動</span></div>
+<div class="key"><span class="legend">.</span><span class="out" title="VK2+. -&gt; Claude 起動">Claude 起動</span></div>
+<div class="key"><span class="legend">/</span><span class="out" title="VK2+/ -&gt; s2.kingtime.jp を開く">s2.kingtime.jp を開く</span></div>
 <div class="key free"><span class="legend">_</span></div>
 </div>
 </div>
@@ -196,32 +198,32 @@ a { color: var(--vk1); }
 <div class="key free"><span class="legend">¥</span></div>
 </div>
 <div class="krow" style="margin-left:14px">
-<div class="key"><span class="legend">Q</span><span class="out">⌘⌥⇧Q</span></div>
-<div class="key"><span class="legend">W</span><span class="out">⌘⌥⇧W</span></div>
-<div class="key"><span class="legend">E</span><span class="out">⌘⌥⇧E</span></div>
+<div class="key"><span class="legend">Q</span><span class="out" title="VK3+Q -&gt; Super Easy Timer: Play/Pause">⌘⌥⇧Q</span><span class="desc">Super Easy Timer: Play/Pause</span></div>
+<div class="key"><span class="legend">W</span><span class="out" title="VK3+W -&gt; Super Easy Timer: Reset">⌘⌥⇧W</span><span class="desc">Super Easy Timer: Reset</span></div>
+<div class="key"><span class="legend">E</span><span class="out" title="VK3+E -&gt; Super Easy Timer: Show">⌘⌥⇧E</span><span class="desc">Super Easy Timer: Show</span></div>
 <div class="key free"><span class="legend">R</span></div>
 <div class="key free"><span class="legend">T</span></div>
 <div class="key free"><span class="legend">Y</span></div>
 <div class="key free"><span class="legend">U</span></div>
-<div class="key"><span class="legend">I</span><span class="out">⇧8 ⇧9 ←</span></div>
-<div class="key"><span class="legend">O</span><span class="out">[ ] ←</span></div>
-<div class="key"><span class="legend">P</span><span class="out">[ ] ←</span></div>
+<div class="key"><span class="legend">I</span><span class="out" title="VK3+I -&gt; type () with cursor inside">⇧8 ⇧9 ←</span><span class="desc">type () with cursor inside</span></div>
+<div class="key"><span class="legend">O</span><span class="out" title="VK3+O -&gt; type [] with cursor inside">[ ] ←</span><span class="desc">type [] with cursor inside</span></div>
+<div class="key"><span class="legend">P</span><span class="out" title="VK3+P -&gt; type 「」 with cursor inside">[ ] ←</span><span class="desc">type 「」 with cursor inside</span></div>
 <div class="key free"><span class="legend">@</span></div>
 <div class="key free"><span class="legend">[</span></div>
 </div>
 <div class="krow" style="margin-left:22px">
-<div class="key"><span class="legend">A</span><span class="out">1</span></div>
-<div class="key"><span class="legend">S</span><span class="out">2</span></div>
-<div class="key"><span class="legend">D</span><span class="out">3</span></div>
-<div class="key"><span class="legend">F</span><span class="out">4</span></div>
-<div class="key"><span class="legend">G</span><span class="out">5</span></div>
-<div class="key"><span class="legend">H</span><span class="out">6</span></div>
-<div class="key"><span class="legend">J</span><span class="out">7</span></div>
-<div class="key"><span class="legend">K</span><span class="out">8</span></div>
-<div class="key"><span class="legend">L</span><span class="out">9</span></div>
-<div class="key"><span class="legend">;</span><span class="out">0</span></div>
-<div class="key"><span class="legend">:</span><span class="out">-</span></div>
-<div class="key"><span class="legend">]</span><span class="out">-</span><span class="out">-</span></div>
+<div class="key"><span class="legend">A</span><span class="out" title="VK3+A -&gt; 1">1</span></div>
+<div class="key"><span class="legend">S</span><span class="out" title="VK3+S -&gt; 2">2</span></div>
+<div class="key"><span class="legend">D</span><span class="out" title="VK3+D -&gt; 3">3</span></div>
+<div class="key"><span class="legend">F</span><span class="out" title="VK3+F -&gt; 4">4</span></div>
+<div class="key"><span class="legend">G</span><span class="out" title="VK3+G -&gt; 5">5</span></div>
+<div class="key"><span class="legend">H</span><span class="out" title="VK3+H -&gt; 6">6</span></div>
+<div class="key"><span class="legend">J</span><span class="out" title="VK3+J -&gt; 7">7</span></div>
+<div class="key"><span class="legend">K</span><span class="out" title="VK3+K -&gt; 8">8</span></div>
+<div class="key"><span class="legend">L</span><span class="out" title="VK3+L -&gt; 9">9</span></div>
+<div class="key"><span class="legend">;</span><span class="out" title="VK3+; -&gt; 0">0</span></div>
+<div class="key"><span class="legend">:</span><span class="out" title="VK3+: -&gt; -">-</span></div>
+<div class="key"><span class="legend">]</span><span class="out" title="VK3+] -&gt; -">-</span><span class="out" title="VK3+] -&gt; -">-</span></div>
 </div>
 <div class="krow" style="margin-left:34px">
 <div class="key free"><span class="legend">Z</span></div>
@@ -240,133 +242,133 @@ a { color: var(--vk1); }
 <p class="free-list">空きキー: 1 2 3 4 5 6 7 8 9 0 - ^ ¥ R T Y U @ [ Z X C V B N M , . / _</p>
 </section>
 <section><h2>常時有効 <span class="count">14 rules</span></h2>
-<table><thead><tr><th>入力</th><th>出力</th><th>定義元</th></tr></thead><tbody>
-<tr><td class="from">かな</td><td>[VK1=1] ／ 単独: かな</td><td class="src">virtual_key_assignments</td></tr>
-<tr><td class="from">変換</td><td>[VK1=1] ／ 単独: かな</td><td class="src">virtual_key_assignments</td></tr>
-<tr><td class="from">英数</td><td>[VK2=1] ／ 単独: 英数</td><td class="src">virtual_key_assignments</td></tr>
-<tr><td class="from">無変換</td><td>[VK2=1] ／ 単独: 英数</td><td class="src">virtual_key_assignments</td></tr>
-<tr><td class="from">右⌘</td><td>[VK3=1]</td><td class="src">virtual_key_assignments</td></tr>
-<tr><td class="from">Intl2</td><td>[VK3=1]</td><td class="src">virtual_key_assignments</td></tr>
-<tr><td class="from">Tab</td><td>[VK4=1] ／ 単独: Tab</td><td class="src">virtual_key_assignments</td></tr>
-<tr><td class="from">⌃;</td><td>;</td><td class="src">common</td></tr>
-<tr><td class="from">⌘⇧;</td><td>⌘+</td><td class="src">common</td></tr>
-<tr><td class="from">;</td><td>⏎</td><td class="src">common</td></tr>
-<tr><td class="from">⌃:</td><td>⇧7</td><td class="src">common</td></tr>
-<tr><td class="from">Caps</td><td>∅</td><td class="src">common</td></tr>
-<tr><td class="from">英数</td><td>英数 [新下駄=0] 新下駄モード記録</td><td class="src">common</td></tr>
-<tr><td class="from">かな</td><td>かな [新下駄=1] 新下駄モード記録</td><td class="src">common</td></tr>
+<table><thead><tr><th>入力</th><th>出力</th><th>説明</th><th>定義元</th></tr></thead><tbody>
+<tr><td class="from">かな</td><td>[VK1=1] ／ 単独: かな</td><td class="desc-col"></td><td class="src">virtual_key_assignments</td></tr>
+<tr><td class="from">変換</td><td>[VK1=1] ／ 単独: かな</td><td class="desc-col"></td><td class="src">virtual_key_assignments</td></tr>
+<tr><td class="from">英数</td><td>[VK2=1] ／ 単独: 英数</td><td class="desc-col"></td><td class="src">virtual_key_assignments</td></tr>
+<tr><td class="from">無変換</td><td>[VK2=1] ／ 単独: 英数</td><td class="desc-col"></td><td class="src">virtual_key_assignments</td></tr>
+<tr><td class="from">右⌘</td><td>[VK3=1]</td><td class="desc-col"></td><td class="src">virtual_key_assignments</td></tr>
+<tr><td class="from">Intl2</td><td>[VK3=1]</td><td class="desc-col"></td><td class="src">virtual_key_assignments</td></tr>
+<tr><td class="from">Tab</td><td>[VK4=1] ／ 単独: Tab</td><td class="desc-col"></td><td class="src">virtual_key_assignments</td></tr>
+<tr><td class="from">⌃;</td><td>;</td><td class="desc-col"></td><td class="src">common</td></tr>
+<tr><td class="from">⌘⇧;</td><td>⌘+</td><td class="desc-col">zoom in (Cmd+&quot;+&quot;)</td><td class="src">common</td></tr>
+<tr><td class="from">;</td><td>⏎</td><td class="desc-col"></td><td class="src">common</td></tr>
+<tr><td class="from">⌃:</td><td>⇧7</td><td class="desc-col">type '</td><td class="src">common</td></tr>
+<tr><td class="from">Caps</td><td>∅</td><td class="desc-col">disabled</td><td class="src">common</td></tr>
+<tr><td class="from">英数</td><td>英数 [新下駄=0] 新下駄モード記録</td><td class="desc-col">英数 (disable shingeta mode)</td><td class="src">common</td></tr>
+<tr><td class="from">かな</td><td>かな [新下駄=1] 新下駄モード記録</td><td class="desc-col">かな (enable shingeta mode)</td><td class="src">common</td></tr>
 </tbody></table>
 </section>
 <section><h2>アプリ別</h2>
 <h3>Codex <span class="count">2 rules</span></h3>
-<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>定義元</th></tr></thead><tbody>
-<tr><td class="cond">VK4</td><td class="from">E</td><td>⌘B</td><td class="src">apps/codex</td></tr>
-<tr><td class="cond">VK4</td><td class="from">J</td><td>⌥⌘B</td><td class="src">apps/codex</td></tr>
+<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th><th>定義元</th></tr></thead><tbody>
+<tr><td class="cond">VK4</td><td class="from">E</td><td>⌘B</td><td class="desc-col"></td><td class="src">apps/codex</td></tr>
+<tr><td class="cond">VK4</td><td class="from">J</td><td>⌥⌘B</td><td class="desc-col"></td><td class="src">apps/codex</td></tr>
 </tbody></table>
 <h3>Dynalist <span class="count">6 rules</span></h3>
-<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>定義元</th></tr></thead><tbody>
-<tr><td class="cond">VK1</td><td class="from">U</td><td>⌃A</td><td class="src">apps/dynalist</td></tr>
-<tr><td class="cond">VK1</td><td class="from">I</td><td>⌃E</td><td class="src">apps/dynalist</td></tr>
-<tr><td class="cond">VK2</td><td class="from">9</td><td>⌘⇧-</td><td class="src">apps/dynalist</td></tr>
-<tr><td class="cond">VK2</td><td class="from">0</td><td>⌘-</td><td class="src">apps/dynalist</td></tr>
-<tr><td class="cond">VK4</td><td class="from">E</td><td>⌘⇧F</td><td class="src">apps/dynalist</td></tr>
-<tr><td class="cond">VK4</td><td class="from">F</td><td>⌘O</td><td class="src">apps/dynalist</td></tr>
+<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th><th>定義元</th></tr></thead><tbody>
+<tr><td class="cond">VK1</td><td class="from">U</td><td>⌃A</td><td class="desc-col">go to line head</td><td class="src">apps/dynalist</td></tr>
+<tr><td class="cond">VK1</td><td class="from">I</td><td>⌃E</td><td class="desc-col">go to line tail</td><td class="src">apps/dynalist</td></tr>
+<tr><td class="cond">VK2</td><td class="from">9</td><td>⌘⇧-</td><td class="desc-col">zoom in</td><td class="src">apps/dynalist</td></tr>
+<tr><td class="cond">VK2</td><td class="from">0</td><td>⌘-</td><td class="desc-col">zoom out</td><td class="src">apps/dynalist</td></tr>
+<tr><td class="cond">VK4</td><td class="from">E</td><td>⌘⇧F</td><td class="desc-col">hide sidebar</td><td class="src">apps/dynalist</td></tr>
+<tr><td class="cond">VK4</td><td class="from">F</td><td>⌘O</td><td class="desc-col">search</td><td class="src">apps/dynalist</td></tr>
 </tbody></table>
 <h3>Firefox <span class="count">3 rules</span></h3>
-<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>定義元</th></tr></thead><tbody>
-<tr><td class="cond">VK4</td><td class="from">B</td><td>⌘B</td><td class="src">apps/firefox</td></tr>
-<tr><td class="cond">VK4</td><td class="from">E</td><td>⌃Z</td><td class="src">apps/firefox</td></tr>
-<tr><td class="cond">VK4</td><td class="from">R</td><td>⌘L ^</td><td class="src">apps/firefox</td></tr>
+<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th><th>定義元</th></tr></thead><tbody>
+<tr><td class="cond">VK4</td><td class="from">B</td><td>⌘B</td><td class="desc-col"></td><td class="src">apps/firefox</td></tr>
+<tr><td class="cond">VK4</td><td class="from">E</td><td>⌃Z</td><td class="desc-col"></td><td class="src">apps/firefox</td></tr>
+<tr><td class="cond">VK4</td><td class="from">R</td><td>⌘L ^</td><td class="desc-col"></td><td class="src">apps/firefox</td></tr>
 </tbody></table>
 <h3>GoogleChrome <span class="count">3 rules</span></h3>
-<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>定義元</th></tr></thead><tbody>
-<tr><td class="cond">VK4</td><td class="from">Space</td><td>⌘D</td><td class="src">apps/google_chrome</td></tr>
-<tr><td class="cond">VK4</td><td class="from">M</td><td>⌘⇧M</td><td class="src">apps/google_chrome</td></tr>
-<tr><td class="cond">VK4</td><td class="from">N</td><td>⌘⇧M ↓ ↓ ↓ ⏎</td><td class="src">apps/google_chrome</td></tr>
+<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th><th>定義元</th></tr></thead><tbody>
+<tr><td class="cond">VK4</td><td class="from">Space</td><td>⌘D</td><td class="desc-col">mute Google Meet</td><td class="src">apps/google_chrome</td></tr>
+<tr><td class="cond">VK4</td><td class="from">M</td><td>⌘⇧M</td><td class="desc-col">list profiles</td><td class="src">apps/google_chrome</td></tr>
+<tr><td class="cond">VK4</td><td class="from">N</td><td>⌘⇧M ↓ ↓ ↓ ⏎</td><td class="desc-col">switch profile</td><td class="src">apps/google_chrome</td></tr>
 </tbody></table>
 <h3>ITerm2 <span class="count">17 rules</span></h3>
-<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>定義元</th></tr></thead><tbody>
-<tr><td class="cond">常時</td><td class="from">⌘W</td><td>∅</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK1</td><td class="from">W</td><td>Esc : W ⏎</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK1</td><td class="from">Q</td><td>Esc : Q ⏎</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK1</td><td class="from">U</td><td>⇧0</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK1</td><td class="from">I</td><td>⇧4</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK4</td><td class="from">C</td><td>⌃T ⌃C</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK4</td><td class="from">J</td><td>⌃T ⌃J</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK4</td><td class="from">K</td><td>⌃T ⌃K</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK4</td><td class="from">N</td><td>⌃T ⌃N</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK4</td><td class="from">P</td><td>⌃T ⌃P</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK4</td><td class="from">S</td><td>⌃T ⌃S</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK4</td><td class="from">V</td><td>⌃T ⌃V</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK1</td><td class="from">O</td><td>⌃T ⌃P</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK1</td><td class="from">P</td><td>⌃T ⌃N</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK2</td><td class="from">A</td><td>⌃T ⌃P</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK2</td><td class="from">S</td><td>⌃T ⌃N</td><td class="src">apps/iterm2</td></tr>
-<tr><td class="cond">VK1</td><td class="from">Z</td><td>⌃T ⌃B</td><td class="src">apps/iterm2</td></tr>
+<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th><th>定義元</th></tr></thead><tbody>
+<tr><td class="cond">常時</td><td class="from">⌘W</td><td>∅</td><td class="desc-col">disable default Cmd+W</td><td class="src">apps/iterm2</td></tr>
+<tr><td class="cond">VK1</td><td class="from">W</td><td>Esc : W ⏎</td><td class="desc-col">vim: save file (:w)</td><td class="src">apps/iterm2</td></tr>
+<tr><td class="cond">VK1</td><td class="from">Q</td><td>Esc : Q ⏎</td><td class="desc-col">vim: quit (:q)</td><td class="src">apps/iterm2</td></tr>
+<tr><td class="cond">VK1</td><td class="from">U</td><td>⇧0</td><td class="desc-col">vim: go to line head (0)</td><td class="src">apps/iterm2</td></tr>
+<tr><td class="cond">VK1</td><td class="from">I</td><td>⇧4</td><td class="desc-col">vim: go to line tail ($)</td><td class="src">apps/iterm2</td></tr>
+<tr><td class="cond">VK4</td><td class="from">C</td><td>⌃T ⌃C</td><td class="desc-col"></td><td class="src">apps/iterm2</td></tr>
+<tr><td class="cond">VK4</td><td class="from">J</td><td>⌃T ⌃J</td><td class="desc-col"></td><td class="src">apps/iterm2</td></tr>
+<tr><td class="cond">VK4</td><td class="from">K</td><td>⌃T ⌃K</td><td class="desc-col"></td><td class="src">apps/iterm2</td></tr>
+<tr><td class="cond">VK4</td><td class="from">N</td><td>⌃T ⌃N</td><td class="desc-col"></td><td class="src">apps/iterm2</td></tr>
+<tr><td class="cond">VK4</td><td class="from">P</td><td>⌃T ⌃P</td><td class="desc-col"></td><td class="src">apps/iterm2</td></tr>
+<tr><td class="cond">VK4</td><td class="from">S</td><td>⌃T ⌃S</td><td class="desc-col"></td><td class="src">apps/iterm2</td></tr>
+<tr><td class="cond">VK4</td><td class="from">V</td><td>⌃T ⌃V</td><td class="desc-col"></td><td class="src">apps/iterm2</td></tr>
+<tr><td class="cond">VK1</td><td class="from">O</td><td>⌃T ⌃P</td><td class="desc-col">tmux: pane movement</td><td class="src">apps/iterm2</td></tr>
+<tr><td class="cond">VK1</td><td class="from">P</td><td>⌃T ⌃N</td><td class="desc-col">tmux: pane movement</td><td class="src">apps/iterm2</td></tr>
+<tr><td class="cond">VK2</td><td class="from">A</td><td>⌃T ⌃P</td><td class="desc-col">tmux: pane movement</td><td class="src">apps/iterm2</td></tr>
+<tr><td class="cond">VK2</td><td class="from">S</td><td>⌃T ⌃N</td><td class="desc-col">tmux: pane movement</td><td class="src">apps/iterm2</td></tr>
+<tr><td class="cond">VK1</td><td class="from">Z</td><td>⌃T ⌃B</td><td class="desc-col">tmux: enter copy mode</td><td class="src">apps/iterm2</td></tr>
 </tbody></table>
 <h3>Notion <span class="count">10 rules</span></h3>
-<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>定義元</th></tr></thead><tbody>
-<tr><td class="cond">VK2</td><td class="from">9</td><td>⌘+</td><td class="src">apps/notion</td></tr>
-<tr><td class="cond">VK2</td><td class="from">0</td><td>⌘-</td><td class="src">apps/notion</td></tr>
-<tr><td class="cond">VK4</td><td class="from">C</td><td>⌘L</td><td class="src">apps/notion</td></tr>
-<tr><td class="cond">VK4</td><td class="from">E</td><td>⌘¥</td><td class="src">apps/notion</td></tr>
-<tr><td class="cond">VK4</td><td class="from">F</td><td>⌘P</td><td class="src">apps/notion</td></tr>
-<tr><td class="cond">VK4</td><td class="from">H</td><td>⌘[</td><td class="src">apps/notion</td></tr>
-<tr><td class="cond">VK4</td><td class="from">L</td><td>⌘]</td><td class="src">apps/notion</td></tr>
-<tr><td class="cond">VK4</td><td class="from">U</td><td>⌘⇧U</td><td class="src">apps/notion</td></tr>
-<tr><td class="cond">VK4</td><td class="from">N</td><td>⌃⇧J</td><td class="src">apps/notion</td></tr>
-<tr><td class="cond">VK4</td><td class="from">P</td><td>⌃⇧K</td><td class="src">apps/notion</td></tr>
+<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th><th>定義元</th></tr></thead><tbody>
+<tr><td class="cond">VK2</td><td class="from">9</td><td>⌘+</td><td class="desc-col"></td><td class="src">apps/notion</td></tr>
+<tr><td class="cond">VK2</td><td class="from">0</td><td>⌘-</td><td class="desc-col"></td><td class="src">apps/notion</td></tr>
+<tr><td class="cond">VK4</td><td class="from">C</td><td>⌘L</td><td class="desc-col"></td><td class="src">apps/notion</td></tr>
+<tr><td class="cond">VK4</td><td class="from">E</td><td>⌘¥</td><td class="desc-col"></td><td class="src">apps/notion</td></tr>
+<tr><td class="cond">VK4</td><td class="from">F</td><td>⌘P</td><td class="desc-col"></td><td class="src">apps/notion</td></tr>
+<tr><td class="cond">VK4</td><td class="from">H</td><td>⌘[</td><td class="desc-col"></td><td class="src">apps/notion</td></tr>
+<tr><td class="cond">VK4</td><td class="from">L</td><td>⌘]</td><td class="desc-col"></td><td class="src">apps/notion</td></tr>
+<tr><td class="cond">VK4</td><td class="from">U</td><td>⌘⇧U</td><td class="desc-col"></td><td class="src">apps/notion</td></tr>
+<tr><td class="cond">VK4</td><td class="from">N</td><td>⌃⇧J</td><td class="desc-col"></td><td class="src">apps/notion</td></tr>
+<tr><td class="cond">VK4</td><td class="from">P</td><td>⌃⇧K</td><td class="desc-col"></td><td class="src">apps/notion</td></tr>
 </tbody></table>
 <h3>Slack <span class="count">11 rules</span></h3>
-<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>定義元</th></tr></thead><tbody>
-<tr><td class="cond">VK4</td><td class="from">T</td><td>⌘⇧T</td><td class="src">apps/slack</td></tr>
-<tr><td class="cond">VK4</td><td class="from">U</td><td>⌘⇧A</td><td class="src">apps/slack</td></tr>
-<tr><td class="cond">VK4</td><td class="from">E</td><td>⌘⇧D</td><td class="src">apps/slack</td></tr>
-<tr><td class="cond">VK4</td><td class="from">K</td><td>⌘G</td><td class="src">apps/slack</td></tr>
-<tr><td class="cond">VK4</td><td class="from">F</td><td>⌘K</td><td class="src">apps/slack</td></tr>
-<tr><td class="cond">VK4</td><td class="from">B</td><td>⌘⇧S</td><td class="src">apps/slack</td></tr>
-<tr><td class="cond">VK4</td><td class="from">D</td><td>⌘⇧X</td><td class="src">apps/slack</td></tr>
-<tr><td class="cond">VK4</td><td class="from">@</td><td>⌘⇧C</td><td class="src">apps/slack</td></tr>
-<tr><td class="cond">VK4</td><td class="from">C</td><td>⌘⌥⇧C</td><td class="src">apps/slack</td></tr>
-<tr><td class="cond">VK4</td><td class="from">Q</td><td>⌘⇧9</td><td class="src">apps/slack</td></tr>
-<tr><td class="cond">VK4</td><td class="from">Space</td><td>⌘⇧Space</td><td class="src">apps/slack</td></tr>
+<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th><th>定義元</th></tr></thead><tbody>
+<tr><td class="cond">VK4</td><td class="from">T</td><td>⌘⇧T</td><td class="desc-col">Threads</td><td class="src">apps/slack</td></tr>
+<tr><td class="cond">VK4</td><td class="from">U</td><td>⌘⇧A</td><td class="desc-col">All Unreads</td><td class="src">apps/slack</td></tr>
+<tr><td class="cond">VK4</td><td class="from">E</td><td>⌘⇧D</td><td class="desc-col">Toggle Sidebar</td><td class="src">apps/slack</td></tr>
+<tr><td class="cond">VK4</td><td class="from">K</td><td>⌘G</td><td class="desc-col">Search</td><td class="src">apps/slack</td></tr>
+<tr><td class="cond">VK4</td><td class="from">F</td><td>⌘K</td><td class="desc-col">Jump</td><td class="src">apps/slack</td></tr>
+<tr><td class="cond">VK4</td><td class="from">B</td><td>⌘⇧S</td><td class="desc-col">Bookmarks</td><td class="src">apps/slack</td></tr>
+<tr><td class="cond">VK4</td><td class="from">D</td><td>⌘⇧X</td><td class="desc-col">Strike through</td><td class="src">apps/slack</td></tr>
+<tr><td class="cond">VK4</td><td class="from">@</td><td>⌘⇧C</td><td class="desc-col">Code</td><td class="src">apps/slack</td></tr>
+<tr><td class="cond">VK4</td><td class="from">C</td><td>⌘⌥⇧C</td><td class="desc-col">Code Block</td><td class="src">apps/slack</td></tr>
+<tr><td class="cond">VK4</td><td class="from">Q</td><td>⌘⇧9</td><td class="desc-col">Quote</td><td class="src">apps/slack</td></tr>
+<tr><td class="cond">VK4</td><td class="from">Space</td><td>⌘⇧Space</td><td class="desc-col">Mute huddle</td><td class="src">apps/slack</td></tr>
 </tbody></table>
 <h3>VSCode <span class="count">34 rules</span></h3>
-<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>定義元</th></tr></thead><tbody>
-<tr><td class="cond">VK1</td><td class="from">W</td><td>⌃⇧⌥W</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">A</td><td>⌃⇧⌥⌘A</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">B</td><td>⌃⇧⌥⌘B</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">C</td><td>⌃⇧⌥C</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">D</td><td>⌃⇧⌥⌘D</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">E</td><td>⌃⇧⌥⌘E</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">F</td><td>⌃⇧⌥⌘F</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">G</td><td>⌃⇧⌥⌘G</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">H</td><td>⌃⇧⌥⌘H</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">I</td><td>⌃⇧⌥⌘I</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">J</td><td>⌃⇧⌥⌘J</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">K</td><td>⌃⇧⌥⌘K</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">L</td><td>⌃⇧⌥⌘L</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">M</td><td>⌃⇧⌥M</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">N</td><td>⌃⇧⌥N</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">O</td><td>⌃⇧⌥⌘O</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">P</td><td>⌃⇧⌥P</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">R</td><td>⌃⇧⌥⌘R</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">S</td><td>⌃⇧⌥⌘S</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">T</td><td>⌃⇧⌥T</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">U</td><td>⌃⇧⌥U</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">V</td><td>⌃⇧⌥⌘V</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">W</td><td>⌃⇧⌥⌘W</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">X</td><td>⌃⇧⌥⌘X</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">Y</td><td>⌃⇧⌥⌘Y</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">Z</td><td>⌃⇧⌥⌘Z</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">9</td><td>⌃⇧⌥⌘9</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">0</td><td>⌃⇧⌥⌘0</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">⏎</td><td>⌃⇧⌥⌘⏎</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">.</td><td>⌃⇧⌥.</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">1</td><td>⌃⇧⌥1</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">2</td><td>⌃⇧⌥2</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">3</td><td>⌃⇧⌥3</td><td class="src">apps/vscode</td></tr>
-<tr><td class="cond">VK4</td><td class="from">4</td><td>⌃⇧⌥4</td><td class="src">apps/vscode</td></tr>
+<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th><th>定義元</th></tr></thead><tbody>
+<tr><td class="cond">VK1</td><td class="from">W</td><td>⌃⇧⌥W</td><td class="desc-col">Save file</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">A</td><td>⌃⇧⌥⌘A</td><td class="desc-col">execute command</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">B</td><td>⌃⇧⌥⌘B</td><td class="desc-col">show bookmarks</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">C</td><td>⌃⇧⌥C</td><td class="desc-col">GitHub Copilot: Open Completions Panel</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">D</td><td>⌃⇧⌥⌘D</td><td class="desc-col">Toggle sidebar</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">E</td><td>⌃⇧⌥⌘E</td><td class="desc-col">Show Explorer</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">F</td><td>⌃⇧⌥⌘F</td><td class="desc-col">search file</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">G</td><td>⌃⇧⌥⌘G</td><td class="desc-col">GitLens: Open File on Remote</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">H</td><td>⌃⇧⌥⌘H</td><td class="desc-col">Go Back</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">I</td><td>⌃⇧⌥⌘I</td><td class="desc-col">Go to implementation</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">J</td><td>⌃⇧⌥⌘J</td><td class="desc-col">Codex: Focus on Codex View</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">K</td><td>⌃⇧⌥⌘K</td><td class="desc-col">find in path</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">L</td><td>⌃⇧⌥⌘L</td><td class="desc-col">Go Forward</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">M</td><td>⌃⇧⌥M</td><td class="desc-col">Toggle bookmarks</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">N</td><td>⌃⇧⌥N</td><td class="desc-col">Go to next problem</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">O</td><td>⌃⇧⌥⌘O</td><td class="desc-col">open recent</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">P</td><td>⌃⇧⌥P</td><td class="desc-col">Toggle Problems view</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">R</td><td>⌃⇧⌥⌘R</td><td class="desc-col">reload window</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">S</td><td>⌃⇧⌥⌘S</td><td class="desc-col">go to symbol</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">T</td><td>⌃⇧⌥T</td><td class="desc-col">Go to workspace symbol</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">U</td><td>⌃⇧⌥U</td><td class="desc-col">Go to next reference</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">V</td><td>⌃⇧⌥⌘V</td><td class="desc-col">Copy active file relative path</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">W</td><td>⌃⇧⌥⌘W</td><td class="desc-col">Claude Code: Open in Side Bar</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">X</td><td>⌃⇧⌥⌘X</td><td class="desc-col">Close editor</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">Y</td><td>⌃⇧⌥⌘Y</td><td class="desc-col">Toggle File Blame</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">Z</td><td>⌃⇧⌥⌘Z</td><td class="desc-col">Focus on Source Control: Changes view</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">9</td><td>⌃⇧⌥⌘9</td><td class="desc-col">Zoom in</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">0</td><td>⌃⇧⌥⌘0</td><td class="desc-col">Zoom out</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">⏎</td><td>⌃⇧⌥⌘⏎</td><td class="desc-col">re-run task</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">.</td><td>⌃⇧⌥.</td><td class="desc-col">quick fix</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">1</td><td>⌃⇧⌥1</td><td class="desc-col">Split the editor to the left</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">2</td><td>⌃⇧⌥2</td><td class="desc-col">Split the editor to the bottom</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">3</td><td>⌃⇧⌥3</td><td class="desc-col">Split the editor to the top</td><td class="src">apps/vscode</td></tr>
+<tr><td class="cond">VK4</td><td class="from">4</td><td>⌃⇧⌥4</td><td class="desc-col">Split the editor to the right</td><td class="src">apps/vscode</td></tr>
 </tbody></table>
 </section>
 <section><h2><span class="chip shingeta">新下駄</span> 配列 <span class="count">144 rules</span></h2>
@@ -388,55 +390,55 @@ a { color: var(--vk1); }
 <div class="key free"><span class="legend">¥</span></div>
 </div>
 <div class="krow" style="margin-left:14px">
-<div class="key"><span class="legend">Q</span><span class="out">ー</span></div>
-<div class="key"><span class="legend">W</span><span class="out">に</span></div>
-<div class="key"><span class="legend">E</span><span class="out">は</span></div>
-<div class="key"><span class="legend">R</span><span class="out">、</span></div>
-<div class="key"><span class="legend">T</span><span class="out">ち</span></div>
-<div class="key"><span class="legend">Y</span><span class="out">ぐ</span></div>
-<div class="key"><span class="legend">U</span><span class="out">ば</span></div>
-<div class="key"><span class="legend">I</span><span class="out">こ</span></div>
-<div class="key"><span class="legend">O</span><span class="out">が</span></div>
-<div class="key"><span class="legend">P</span><span class="out">ひ</span></div>
-<div class="key"><span class="legend">@</span><span class="out">げ</span></div>
+<div class="key"><span class="legend">Q</span><span class="out" title="新下駄: Q -&gt; -">ー</span></div>
+<div class="key"><span class="legend">W</span><span class="out" title="新下駄: W -&gt; N I">に</span></div>
+<div class="key"><span class="legend">E</span><span class="out" title="新下駄: E -&gt; H A">は</span></div>
+<div class="key"><span class="legend">R</span><span class="out" title="新下駄: R -&gt; ,">、</span></div>
+<div class="key"><span class="legend">T</span><span class="out" title="新下駄: T -&gt; C H I">ち</span></div>
+<div class="key"><span class="legend">Y</span><span class="out" title="新下駄: Y -&gt; G U">ぐ</span></div>
+<div class="key"><span class="legend">U</span><span class="out" title="新下駄: U -&gt; B A">ば</span></div>
+<div class="key"><span class="legend">I</span><span class="out" title="新下駄: I -&gt; K O">こ</span></div>
+<div class="key"><span class="legend">O</span><span class="out" title="新下駄: O -&gt; G A">が</span></div>
+<div class="key"><span class="legend">P</span><span class="out" title="新下駄: P -&gt; H I">ひ</span></div>
+<div class="key"><span class="legend">@</span><span class="out" title="新下駄: @ -&gt; G E">げ</span></div>
 <div class="key free"><span class="legend">[</span></div>
 </div>
 <div class="krow" style="margin-left:22px">
-<div class="key"><span class="legend">A</span><span class="out">の</span></div>
-<div class="key"><span class="legend">S</span><span class="out">と</span></div>
-<div class="key"><span class="legend">D</span><span class="out">か</span></div>
-<div class="key"><span class="legend">F</span><span class="out">ん</span></div>
-<div class="key"><span class="legend">G</span><span class="out">っ</span></div>
-<div class="key"><span class="legend">H</span><span class="out">く</span></div>
-<div class="key"><span class="legend">J</span><span class="out">う</span></div>
-<div class="key"><span class="legend">K</span><span class="out">い</span></div>
-<div class="key"><span class="legend">L</span><span class="out">し</span></div>
+<div class="key"><span class="legend">A</span><span class="out" title="新下駄: A -&gt; N O">の</span></div>
+<div class="key"><span class="legend">S</span><span class="out" title="新下駄: S -&gt; T O">と</span></div>
+<div class="key"><span class="legend">D</span><span class="out" title="新下駄: D -&gt; K A">か</span></div>
+<div class="key"><span class="legend">F</span><span class="out" title="新下駄: F -&gt; N N">ん</span></div>
+<div class="key"><span class="legend">G</span><span class="out" title="新下駄: G -&gt; L T U">っ</span></div>
+<div class="key"><span class="legend">H</span><span class="out" title="新下駄: H -&gt; K U">く</span></div>
+<div class="key"><span class="legend">J</span><span class="out" title="新下駄: J -&gt; U">う</span></div>
+<div class="key"><span class="legend">K</span><span class="out" title="新下駄: K -&gt; I">い</span></div>
+<div class="key"><span class="legend">L</span><span class="out" title="新下駄: L -&gt; S I">し</span></div>
 <div class="key free"><span class="legend">;</span></div>
-<div class="key"><span class="legend">:</span><span class="out">な</span></div>
+<div class="key"><span class="legend">:</span><span class="out" title="新下駄: : -&gt; N A">な</span></div>
 <div class="key free"><span class="legend">]</span></div>
 </div>
 <div class="krow" style="margin-left:34px">
-<div class="key"><span class="legend">Z</span><span class="out">す</span></div>
-<div class="key"><span class="legend">X</span><span class="out">ま</span></div>
-<div class="key"><span class="legend">C</span><span class="out">き</span></div>
-<div class="key"><span class="legend">V</span><span class="out">る</span></div>
-<div class="key"><span class="legend">B</span><span class="out">つ</span></div>
-<div class="key"><span class="legend">N</span><span class="out">て</span></div>
-<div class="key"><span class="legend">M</span><span class="out">た</span></div>
-<div class="key"><span class="legend">,</span><span class="out">で</span></div>
-<div class="key"><span class="legend">.</span><span class="out">。</span></div>
-<div class="key"><span class="legend">/</span><span class="out">ぶ</span></div>
-<div class="key"><span class="legend">_</span><span class="out fallback">⌥¥</span></div>
+<div class="key"><span class="legend">Z</span><span class="out" title="新下駄: Z -&gt; S U">す</span></div>
+<div class="key"><span class="legend">X</span><span class="out" title="新下駄: X -&gt; M A">ま</span></div>
+<div class="key"><span class="legend">C</span><span class="out" title="新下駄: C -&gt; K I">き</span></div>
+<div class="key"><span class="legend">V</span><span class="out" title="新下駄: V -&gt; R U">る</span></div>
+<div class="key"><span class="legend">B</span><span class="out" title="新下駄: B -&gt; T S U">つ</span></div>
+<div class="key"><span class="legend">N</span><span class="out" title="新下駄: N -&gt; T E">て</span></div>
+<div class="key"><span class="legend">M</span><span class="out" title="新下駄: M -&gt; T A">た</span></div>
+<div class="key"><span class="legend">,</span><span class="out" title="新下駄: , -&gt; D E">で</span></div>
+<div class="key"><span class="legend">.</span><span class="out" title="新下駄: . -&gt; .">。</span></div>
+<div class="key"><span class="legend">/</span><span class="out" title="新下駄: / -&gt; B U">ぶ</span></div>
+<div class="key"><span class="legend">_</span><span class="out fallback" title="新下駄: _ -&gt; ⌥¥">⌥¥</span></div>
 </div>
 </div>
 <h3>K + □ 同時押し <span class="count">20 keys</span></h3>
 <div class="kb kana">
 <div class="krow" style="margin-left:0px">
-<div class="key"><span class="legend">1</span><span class="out">ぁ</span></div>
-<div class="key"><span class="legend">2</span><span class="out">ぃ</span></div>
-<div class="key"><span class="legend">3</span><span class="out">ぅ</span></div>
-<div class="key"><span class="legend">4</span><span class="out">ぇ</span></div>
-<div class="key"><span class="legend">5</span><span class="out">ぉ</span></div>
+<div class="key"><span class="legend">1</span><span class="out" title="新下駄: K+1 -&gt; L A">ぁ</span></div>
+<div class="key"><span class="legend">2</span><span class="out" title="新下駄: K+2 -&gt; L I">ぃ</span></div>
+<div class="key"><span class="legend">3</span><span class="out" title="新下駄: K+3 -&gt; L U">ぅ</span></div>
+<div class="key"><span class="legend">4</span><span class="out" title="新下駄: K+4 -&gt; L E">ぇ</span></div>
+<div class="key"><span class="legend">5</span><span class="out" title="新下駄: K+5 -&gt; L O">ぉ</span></div>
 <div class="key free"><span class="legend">6</span></div>
 <div class="key free"><span class="legend">7</span></div>
 <div class="key free"><span class="legend">8</span></div>
@@ -447,11 +449,11 @@ a { color: var(--vk1); }
 <div class="key free"><span class="legend">¥</span></div>
 </div>
 <div class="krow" style="margin-left:14px">
-<div class="key"><span class="legend">Q</span><span class="out">ふぁ</span></div>
-<div class="key"><span class="legend">W</span><span class="out">ご</span></div>
-<div class="key"><span class="legend">E</span><span class="out">ふ</span></div>
-<div class="key"><span class="legend">R</span><span class="out">ふぃ</span></div>
-<div class="key"><span class="legend">T</span><span class="out">ふぇ</span></div>
+<div class="key"><span class="legend">Q</span><span class="out" title="新下駄: K+Q -&gt; F A">ふぁ</span></div>
+<div class="key"><span class="legend">W</span><span class="out" title="新下駄: K+W -&gt; G O">ご</span></div>
+<div class="key"><span class="legend">E</span><span class="out" title="新下駄: K+E -&gt; F U">ふ</span></div>
+<div class="key"><span class="legend">R</span><span class="out" title="新下駄: K+R -&gt; F I">ふぃ</span></div>
+<div class="key"><span class="legend">T</span><span class="out" title="新下駄: K+T -&gt; F E">ふぇ</span></div>
 <div class="key free"><span class="legend">Y</span></div>
 <div class="key free"><span class="legend">U</span></div>
 <div class="key free"><span class="legend">I</span></div>
@@ -461,11 +463,11 @@ a { color: var(--vk1); }
 <div class="key free"><span class="legend">[</span></div>
 </div>
 <div class="krow" style="margin-left:22px">
-<div class="key"><span class="legend">A</span><span class="out">ほ</span></div>
-<div class="key"><span class="legend">S</span><span class="out">じ</span></div>
-<div class="key"><span class="legend">D</span><span class="out">れ</span></div>
-<div class="key"><span class="legend">F</span><span class="out">も</span></div>
-<div class="key"><span class="legend">G</span><span class="out">ゆ</span></div>
+<div class="key"><span class="legend">A</span><span class="out" title="新下駄: K+A -&gt; H O">ほ</span></div>
+<div class="key"><span class="legend">S</span><span class="out" title="新下駄: K+S -&gt; J I">じ</span></div>
+<div class="key"><span class="legend">D</span><span class="out" title="新下駄: K+D -&gt; R E">れ</span></div>
+<div class="key"><span class="legend">F</span><span class="out" title="新下駄: K+F -&gt; M O">も</span></div>
+<div class="key"><span class="legend">G</span><span class="out" title="新下駄: K+G -&gt; Y U">ゆ</span></div>
 <div class="key free"><span class="legend">H</span></div>
 <div class="key free"><span class="legend">J</span></div>
 <div class="key free"><span class="legend">K</span></div>
@@ -475,11 +477,11 @@ a { color: var(--vk1); }
 <div class="key free"><span class="legend">]</span></div>
 </div>
 <div class="krow" style="margin-left:34px">
-<div class="key"><span class="legend">Z</span><span class="out">づ</span></div>
-<div class="key"><span class="legend">X</span><span class="out">ぞ</span></div>
-<div class="key"><span class="legend">C</span><span class="out">ぼ</span></div>
-<div class="key"><span class="legend">V</span><span class="out">む</span></div>
-<div class="key"><span class="legend">B</span><span class="out">ふぉ</span></div>
+<div class="key"><span class="legend">Z</span><span class="out" title="新下駄: K+Z -&gt; D U">づ</span></div>
+<div class="key"><span class="legend">X</span><span class="out" title="新下駄: K+X -&gt; Z O">ぞ</span></div>
+<div class="key"><span class="legend">C</span><span class="out" title="新下駄: K+C -&gt; B O">ぼ</span></div>
+<div class="key"><span class="legend">V</span><span class="out" title="新下駄: K+V -&gt; M U">む</span></div>
+<div class="key"><span class="legend">B</span><span class="out" title="新下駄: K+B -&gt; F O">ふぉ</span></div>
 <div class="key free"><span class="legend">N</span></div>
 <div class="key free"><span class="legend">M</span></div>
 <div class="key free"><span class="legend">,</span></div>
@@ -491,11 +493,11 @@ a { color: var(--vk1); }
 <h3>L + □ 同時押し <span class="count">19 keys</span></h3>
 <div class="kb kana">
 <div class="krow" style="margin-left:0px">
-<div class="key"><span class="legend">1</span><span class="out">ゃ</span></div>
-<div class="key"><span class="legend">2</span><span class="out">みゃ</span></div>
-<div class="key"><span class="legend">3</span><span class="out">みゅ</span></div>
-<div class="key"><span class="legend">4</span><span class="out">みょ</span></div>
-<div class="key"><span class="legend">5</span><span class="out">ゎ</span></div>
+<div class="key"><span class="legend">1</span><span class="out" title="新下駄: L+1 -&gt; L Y A">ゃ</span></div>
+<div class="key"><span class="legend">2</span><span class="out" title="新下駄: L+2 -&gt; M Y A">みゃ</span></div>
+<div class="key"><span class="legend">3</span><span class="out" title="新下駄: L+3 -&gt; M Y U">みゅ</span></div>
+<div class="key"><span class="legend">4</span><span class="out" title="新下駄: L+4 -&gt; M Y O">みょ</span></div>
+<div class="key"><span class="legend">5</span><span class="out" title="新下駄: L+5 -&gt; L W A">ゎ</span></div>
 <div class="key free"><span class="legend">6</span></div>
 <div class="key free"><span class="legend">7</span></div>
 <div class="key free"><span class="legend">8</span></div>
@@ -506,11 +508,11 @@ a { color: var(--vk1); }
 <div class="key free"><span class="legend">¥</span></div>
 </div>
 <div class="krow" style="margin-left:14px">
-<div class="key"><span class="legend">Q</span><span class="out">ぢ</span></div>
-<div class="key"><span class="legend">W</span><span class="out">め</span></div>
-<div class="key"><span class="legend">E</span><span class="out">け</span></div>
-<div class="key"><span class="legend">R</span><span class="out">てぃ</span></div>
-<div class="key"><span class="legend">T</span><span class="out">でぃ</span></div>
+<div class="key"><span class="legend">Q</span><span class="out" title="新下駄: L+Q -&gt; D I">ぢ</span></div>
+<div class="key"><span class="legend">W</span><span class="out" title="新下駄: L+W -&gt; M E">め</span></div>
+<div class="key"><span class="legend">E</span><span class="out" title="新下駄: L+E -&gt; K E">け</span></div>
+<div class="key"><span class="legend">R</span><span class="out" title="新下駄: L+R -&gt; T H I">てぃ</span></div>
+<div class="key"><span class="legend">T</span><span class="out" title="新下駄: L+T -&gt; D H I">でぃ</span></div>
 <div class="key free"><span class="legend">Y</span></div>
 <div class="key free"><span class="legend">U</span></div>
 <div class="key free"><span class="legend">I</span></div>
@@ -520,11 +522,11 @@ a { color: var(--vk1); }
 <div class="key free"><span class="legend">[</span></div>
 </div>
 <div class="krow" style="margin-left:22px">
-<div class="key"><span class="legend">A</span><span class="out">を</span></div>
+<div class="key"><span class="legend">A</span><span class="out" title="新下駄: L+A -&gt; W O">を</span></div>
 <div class="key free"><span class="legend">S</span></div>
-<div class="key"><span class="legend">D</span><span class="out">お</span></div>
-<div class="key"><span class="legend">F</span><span class="out">り</span></div>
-<div class="key"><span class="legend">G</span><span class="out">ず</span></div>
+<div class="key"><span class="legend">D</span><span class="out" title="新下駄: L+D -&gt; O">お</span></div>
+<div class="key"><span class="legend">F</span><span class="out" title="新下駄: L+F -&gt; R I">り</span></div>
+<div class="key"><span class="legend">G</span><span class="out" title="新下駄: L+G -&gt; Z U">ず</span></div>
 <div class="key free"><span class="legend">H</span></div>
 <div class="key free"><span class="legend">J</span></div>
 <div class="key free"><span class="legend">K</span></div>
@@ -534,11 +536,11 @@ a { color: var(--vk1); }
 <div class="key free"><span class="legend">]</span></div>
 </div>
 <div class="krow" style="margin-left:34px">
-<div class="key"><span class="legend">Z</span><span class="out">ぜ</span></div>
-<div class="key"><span class="legend">X</span><span class="out">ざ</span></div>
-<div class="key"><span class="legend">C</span><span class="out">ぎ</span></div>
-<div class="key"><span class="legend">V</span><span class="out">ろ</span></div>
-<div class="key"><span class="legend">B</span><span class="out">ぬ</span></div>
+<div class="key"><span class="legend">Z</span><span class="out" title="新下駄: L+Z -&gt; Z E">ぜ</span></div>
+<div class="key"><span class="legend">X</span><span class="out" title="新下駄: L+X -&gt; Z A">ざ</span></div>
+<div class="key"><span class="legend">C</span><span class="out" title="新下駄: L+C -&gt; G I">ぎ</span></div>
+<div class="key"><span class="legend">V</span><span class="out" title="新下駄: L+V -&gt; R O">ろ</span></div>
+<div class="key"><span class="legend">B</span><span class="out" title="新下駄: L+B -&gt; N U">ぬ</span></div>
 <div class="key free"><span class="legend">N</span></div>
 <div class="key free"><span class="legend">M</span></div>
 <div class="key free"><span class="legend">,</span></div>
@@ -555,10 +557,10 @@ a { color: var(--vk1); }
 <div class="key free"><span class="legend">3</span></div>
 <div class="key free"><span class="legend">4</span></div>
 <div class="key free"><span class="legend">5</span></div>
-<div class="key"><span class="legend">6</span><span class="out">←</span></div>
-<div class="key"><span class="legend">7</span><span class="out">↓</span></div>
-<div class="key"><span class="legend">8</span><span class="out">↑</span></div>
-<div class="key"><span class="legend">9</span><span class="out">→</span></div>
+<div class="key"><span class="legend">6</span><span class="out" title="新下駄: D+6 -&gt; Z H">←</span></div>
+<div class="key"><span class="legend">7</span><span class="out" title="新下駄: D+7 -&gt; Z J">↓</span></div>
+<div class="key"><span class="legend">8</span><span class="out" title="新下駄: D+8 -&gt; Z K">↑</span></div>
+<div class="key"><span class="legend">9</span><span class="out" title="新下駄: D+9 -&gt; Z L">→</span></div>
 <div class="key free"><span class="legend">0</span></div>
 <div class="key free"><span class="legend">-</span></div>
 <div class="key free"><span class="legend">^</span></div>
@@ -570,12 +572,12 @@ a { color: var(--vk1); }
 <div class="key free"><span class="legend">E</span></div>
 <div class="key free"><span class="legend">R</span></div>
 <div class="key free"><span class="legend">T</span></div>
-<div class="key"><span class="legend">Y</span><span class="out">うぃ</span></div>
-<div class="key"><span class="legend">U</span><span class="out">ぱ</span></div>
-<div class="key"><span class="legend">I</span><span class="out">よ</span></div>
-<div class="key"><span class="legend">O</span><span class="out">み</span></div>
-<div class="key"><span class="legend">P</span><span class="out">うぇ</span></div>
-<div class="key"><span class="legend">@</span><span class="out">うぉ</span></div>
+<div class="key"><span class="legend">Y</span><span class="out" title="新下駄: D+Y -&gt; W I">うぃ</span></div>
+<div class="key"><span class="legend">U</span><span class="out" title="新下駄: D+U -&gt; P A">ぱ</span></div>
+<div class="key"><span class="legend">I</span><span class="out" title="新下駄: D+I -&gt; Y O">よ</span></div>
+<div class="key"><span class="legend">O</span><span class="out" title="新下駄: D+O -&gt; M I">み</span></div>
+<div class="key"><span class="legend">P</span><span class="out" title="新下駄: D+P -&gt; W E">うぇ</span></div>
+<div class="key"><span class="legend">@</span><span class="out" title="新下駄: D+@ -&gt; U L O">うぉ</span></div>
 <div class="key free"><span class="legend">[</span></div>
 </div>
 <div class="krow" style="margin-left:22px">
@@ -584,12 +586,12 @@ a { color: var(--vk1); }
 <div class="key free"><span class="legend">D</span></div>
 <div class="key free"><span class="legend">F</span></div>
 <div class="key free"><span class="legend">G</span></div>
-<div class="key"><span class="legend">H</span><span class="out">へ</span></div>
-<div class="key"><span class="legend">J</span><span class="out">あ</span></div>
+<div class="key"><span class="legend">H</span><span class="out" title="新下駄: D+H -&gt; H E">へ</span></div>
+<div class="key"><span class="legend">J</span><span class="out" title="新下駄: D+J -&gt; A">あ</span></div>
 <div class="key free"><span class="legend">K</span></div>
 <div class="key free"><span class="legend">L</span></div>
 <div class="key free"><span class="legend">;</span></div>
-<div class="key"><span class="legend">:</span><span class="out">え</span></div>
+<div class="key"><span class="legend">:</span><span class="out" title="新下駄: D+: -&gt; E">え</span></div>
 <div class="key free"><span class="legend">]</span></div>
 </div>
 <div class="krow" style="margin-left:34px">
@@ -598,11 +600,11 @@ a { color: var(--vk1); }
 <div class="key free"><span class="legend">C</span></div>
 <div class="key free"><span class="legend">V</span></div>
 <div class="key free"><span class="legend">B</span></div>
-<div class="key"><span class="legend">N</span><span class="out">せ</span></div>
-<div class="key"><span class="legend">M</span><span class="out">ね</span></div>
-<div class="key"><span class="legend">,</span><span class="out">べ</span></div>
-<div class="key"><span class="legend">.</span><span class="out">ぷ</span></div>
-<div class="key"><span class="legend">/</span><span class="out">ヴ</span></div>
+<div class="key"><span class="legend">N</span><span class="out" title="新下駄: D+N -&gt; S E">せ</span></div>
+<div class="key"><span class="legend">M</span><span class="out" title="新下駄: D+M -&gt; N E">ね</span></div>
+<div class="key"><span class="legend">,</span><span class="out" title="新下駄: D+, -&gt; B E">べ</span></div>
+<div class="key"><span class="legend">.</span><span class="out" title="新下駄: D+. -&gt; P U">ぷ</span></div>
+<div class="key"><span class="legend">/</span><span class="out" title="新下駄: D+/ -&gt; V U">ヴ</span></div>
 <div class="key free"><span class="legend">_</span></div>
 </div>
 </div>
@@ -629,11 +631,11 @@ a { color: var(--vk1); }
 <div class="key free"><span class="legend">E</span></div>
 <div class="key free"><span class="legend">R</span></div>
 <div class="key free"><span class="legend">T</span></div>
-<div class="key"><span class="legend">Y</span><span class="out">しぇ</span></div>
-<div class="key"><span class="legend">U</span><span class="out">ぺ</span></div>
-<div class="key"><span class="legend">I</span><span class="out">ど</span></div>
-<div class="key"><span class="legend">O</span><span class="out">や</span></div>
-<div class="key"><span class="legend">P</span><span class="out">じぇ</span></div>
+<div class="key"><span class="legend">Y</span><span class="out" title="新下駄: S+Y -&gt; S H E">しぇ</span></div>
+<div class="key"><span class="legend">U</span><span class="out" title="新下駄: S+U -&gt; P E">ぺ</span></div>
+<div class="key"><span class="legend">I</span><span class="out" title="新下駄: S+I -&gt; D O">ど</span></div>
+<div class="key"><span class="legend">O</span><span class="out" title="新下駄: S+O -&gt; Y A">や</span></div>
+<div class="key"><span class="legend">P</span><span class="out" title="新下駄: S+P -&gt; J E">じぇ</span></div>
 <div class="key free"><span class="legend">@</span></div>
 <div class="key free"><span class="legend">[</span></div>
 </div>
@@ -643,12 +645,12 @@ a { color: var(--vk1); }
 <div class="key free"><span class="legend">D</span></div>
 <div class="key free"><span class="legend">F</span></div>
 <div class="key free"><span class="legend">G</span></div>
-<div class="key"><span class="legend">H</span><span class="out">び</span></div>
-<div class="key"><span class="legend">J</span><span class="out">ら</span></div>
+<div class="key"><span class="legend">H</span><span class="out" title="新下駄: S+H -&gt; B I">び</span></div>
+<div class="key"><span class="legend">J</span><span class="out" title="新下駄: S+J -&gt; R A">ら</span></div>
 <div class="key free"><span class="legend">K</span></div>
-<div class="key"><span class="legend">L</span><span class="out">さ</span></div>
+<div class="key"><span class="legend">L</span><span class="out" title="新下駄: S+L -&gt; S A">さ</span></div>
 <div class="key free"><span class="legend">;</span></div>
-<div class="key"><span class="legend">:</span><span class="out">そ</span></div>
+<div class="key"><span class="legend">:</span><span class="out" title="新下駄: S+: -&gt; S O">そ</span></div>
 <div class="key free"><span class="legend">]</span></div>
 </div>
 <div class="krow" style="margin-left:34px">
@@ -657,21 +659,21 @@ a { color: var(--vk1); }
 <div class="key free"><span class="legend">C</span></div>
 <div class="key free"><span class="legend">V</span></div>
 <div class="key free"><span class="legend">B</span></div>
-<div class="key"><span class="legend">N</span><span class="out">わ</span></div>
-<div class="key"><span class="legend">M</span><span class="out">だ</span></div>
-<div class="key"><span class="legend">,</span><span class="out">ぴ</span></div>
-<div class="key"><span class="legend">.</span><span class="out">ぽ</span></div>
-<div class="key"><span class="legend">/</span><span class="out">ちぇ</span></div>
+<div class="key"><span class="legend">N</span><span class="out" title="新下駄: S+N -&gt; W A">わ</span></div>
+<div class="key"><span class="legend">M</span><span class="out" title="新下駄: S+M -&gt; D A">だ</span></div>
+<div class="key"><span class="legend">,</span><span class="out" title="新下駄: S+, -&gt; P I">ぴ</span></div>
+<div class="key"><span class="legend">.</span><span class="out" title="新下駄: S+. -&gt; P O">ぽ</span></div>
+<div class="key"><span class="legend">/</span><span class="out" title="新下駄: S+/ -&gt; C H E">ちぇ</span></div>
 <div class="key free"><span class="legend">_</span></div>
 </div>
 </div>
 <h3>I + □ 同時押し <span class="count">17 keys</span></h3>
 <div class="kb kana">
 <div class="krow" style="margin-left:0px">
-<div class="key"><span class="legend">1</span><span class="out">ゅ</span></div>
-<div class="key"><span class="legend">2</span><span class="out">びゃ</span></div>
-<div class="key"><span class="legend">3</span><span class="out">びゅ</span></div>
-<div class="key"><span class="legend">4</span><span class="out">びょ</span></div>
+<div class="key"><span class="legend">1</span><span class="out" title="新下駄: I+1 -&gt; L Y U">ゅ</span></div>
+<div class="key"><span class="legend">2</span><span class="out" title="新下駄: I+2 -&gt; B Y A">びゃ</span></div>
+<div class="key"><span class="legend">3</span><span class="out" title="新下駄: I+3 -&gt; B Y U">びゅ</span></div>
+<div class="key"><span class="legend">4</span><span class="out" title="新下駄: I+4 -&gt; B Y O">びょ</span></div>
 <div class="key free"><span class="legend">5</span></div>
 <div class="key free"><span class="legend">6</span></div>
 <div class="key free"><span class="legend">7</span></div>
@@ -683,11 +685,11 @@ a { color: var(--vk1); }
 <div class="key free"><span class="legend">¥</span></div>
 </div>
 <div class="krow" style="margin-left:14px">
-<div class="key"><span class="legend">Q</span><span class="out">ひゅ</span></div>
-<div class="key"><span class="legend">W</span><span class="out">しゅ</span></div>
-<div class="key"><span class="legend">E</span><span class="out">しょ</span></div>
-<div class="key"><span class="legend">R</span><span class="out">きゅ</span></div>
-<div class="key"><span class="legend">T</span><span class="out">ちゅ</span></div>
+<div class="key"><span class="legend">Q</span><span class="out" title="新下駄: I+Q -&gt; H Y U">ひゅ</span></div>
+<div class="key"><span class="legend">W</span><span class="out" title="新下駄: I+W -&gt; S H U">しゅ</span></div>
+<div class="key"><span class="legend">E</span><span class="out" title="新下駄: I+E -&gt; S H O">しょ</span></div>
+<div class="key"><span class="legend">R</span><span class="out" title="新下駄: I+R -&gt; K Y U">きゅ</span></div>
+<div class="key"><span class="legend">T</span><span class="out" title="新下駄: I+T -&gt; C H U">ちゅ</span></div>
 <div class="key free"><span class="legend">Y</span></div>
 <div class="key free"><span class="legend">U</span></div>
 <div class="key free"><span class="legend">I</span></div>
@@ -697,11 +699,11 @@ a { color: var(--vk1); }
 <div class="key free"><span class="legend">[</span></div>
 </div>
 <div class="krow" style="margin-left:22px">
-<div class="key"><span class="legend">A</span><span class="out">ひょ</span></div>
+<div class="key"><span class="legend">A</span><span class="out" title="新下駄: I+A -&gt; H Y O">ひょ</span></div>
 <div class="key free"><span class="legend">S</span></div>
 <div class="key free"><span class="legend">D</span></div>
-<div class="key"><span class="legend">F</span><span class="out">きょ</span></div>
-<div class="key"><span class="legend">G</span><span class="out">ちょ</span></div>
+<div class="key"><span class="legend">F</span><span class="out" title="新下駄: I+F -&gt; K Y O">きょ</span></div>
+<div class="key"><span class="legend">G</span><span class="out" title="新下駄: I+G -&gt; C H O">ちょ</span></div>
 <div class="key free"><span class="legend">H</span></div>
 <div class="key free"><span class="legend">J</span></div>
 <div class="key free"><span class="legend">K</span></div>
@@ -711,11 +713,11 @@ a { color: var(--vk1); }
 <div class="key free"><span class="legend">]</span></div>
 </div>
 <div class="krow" style="margin-left:34px">
-<div class="key"><span class="legend">Z</span><span class="out">ひゃ</span></div>
-<div class="key"><span class="legend">X</span><span class="out">ヴぁ</span></div>
-<div class="key"><span class="legend">C</span><span class="out">しゃ</span></div>
-<div class="key"><span class="legend">V</span><span class="out">きゃ</span></div>
-<div class="key"><span class="legend">B</span><span class="out">ちゃ</span></div>
+<div class="key"><span class="legend">Z</span><span class="out" title="新下駄: I+Z -&gt; H Y A">ひゃ</span></div>
+<div class="key"><span class="legend">X</span><span class="out" title="新下駄: I+X -&gt; V U L A">ヴぁ</span></div>
+<div class="key"><span class="legend">C</span><span class="out" title="新下駄: I+C -&gt; S H A">しゃ</span></div>
+<div class="key"><span class="legend">V</span><span class="out" title="新下駄: I+V -&gt; K Y A">きゃ</span></div>
+<div class="key"><span class="legend">B</span><span class="out" title="新下駄: I+B -&gt; C H A">ちゃ</span></div>
 <div class="key free"><span class="legend">N</span></div>
 <div class="key free"><span class="legend">M</span></div>
 <div class="key free"><span class="legend">,</span></div>
@@ -727,10 +729,10 @@ a { color: var(--vk1); }
 <h3>O + □ 同時押し <span class="count">17 keys</span></h3>
 <div class="kb kana">
 <div class="krow" style="margin-left:0px">
-<div class="key"><span class="legend">1</span><span class="out">ょ</span></div>
-<div class="key"><span class="legend">2</span><span class="out">ぴゃ</span></div>
-<div class="key"><span class="legend">3</span><span class="out">ぴゅ</span></div>
-<div class="key"><span class="legend">4</span><span class="out">ぴょ</span></div>
+<div class="key"><span class="legend">1</span><span class="out" title="新下駄: O+1 -&gt; L Y O">ょ</span></div>
+<div class="key"><span class="legend">2</span><span class="out" title="新下駄: O+2 -&gt; P Y A">ぴゃ</span></div>
+<div class="key"><span class="legend">3</span><span class="out" title="新下駄: O+3 -&gt; P Y U">ぴゅ</span></div>
+<div class="key"><span class="legend">4</span><span class="out" title="新下駄: O+4 -&gt; P Y O">ぴょ</span></div>
 <div class="key free"><span class="legend">5</span></div>
 <div class="key free"><span class="legend">6</span></div>
 <div class="key free"><span class="legend">7</span></div>
@@ -742,11 +744,11 @@ a { color: var(--vk1); }
 <div class="key free"><span class="legend">¥</span></div>
 </div>
 <div class="krow" style="margin-left:14px">
-<div class="key"><span class="legend">Q</span><span class="out">りゅ</span></div>
-<div class="key"><span class="legend">W</span><span class="out">じゅ</span></div>
-<div class="key"><span class="legend">E</span><span class="out">じょ</span></div>
-<div class="key"><span class="legend">R</span><span class="out">ぎゅ</span></div>
-<div class="key"><span class="legend">T</span><span class="out">にゅ</span></div>
+<div class="key"><span class="legend">Q</span><span class="out" title="新下駄: O+Q -&gt; R Y U">りゅ</span></div>
+<div class="key"><span class="legend">W</span><span class="out" title="新下駄: O+W -&gt; J U">じゅ</span></div>
+<div class="key"><span class="legend">E</span><span class="out" title="新下駄: O+E -&gt; J O">じょ</span></div>
+<div class="key"><span class="legend">R</span><span class="out" title="新下駄: O+R -&gt; G Y U">ぎゅ</span></div>
+<div class="key"><span class="legend">T</span><span class="out" title="新下駄: O+T -&gt; N Y U">にゅ</span></div>
 <div class="key free"><span class="legend">Y</span></div>
 <div class="key free"><span class="legend">U</span></div>
 <div class="key free"><span class="legend">I</span></div>
@@ -756,11 +758,11 @@ a { color: var(--vk1); }
 <div class="key free"><span class="legend">[</span></div>
 </div>
 <div class="krow" style="margin-left:22px">
-<div class="key"><span class="legend">A</span><span class="out">りょ</span></div>
+<div class="key"><span class="legend">A</span><span class="out" title="新下駄: O+A -&gt; R Y O">りょ</span></div>
 <div class="key free"><span class="legend">S</span></div>
 <div class="key free"><span class="legend">D</span></div>
-<div class="key"><span class="legend">F</span><span class="out">ぎょ</span></div>
-<div class="key"><span class="legend">G</span><span class="out">にょ</span></div>
+<div class="key"><span class="legend">F</span><span class="out" title="新下駄: O+F -&gt; G Y O">ぎょ</span></div>
+<div class="key"><span class="legend">G</span><span class="out" title="新下駄: O+G -&gt; N Y O">にょ</span></div>
 <div class="key free"><span class="legend">H</span></div>
 <div class="key free"><span class="legend">J</span></div>
 <div class="key free"><span class="legend">K</span></div>
@@ -770,11 +772,11 @@ a { color: var(--vk1); }
 <div class="key free"><span class="legend">]</span></div>
 </div>
 <div class="krow" style="margin-left:34px">
-<div class="key"><span class="legend">Z</span><span class="out">りゃ</span></div>
-<div class="key"><span class="legend">X</span><span class="out">でゅ</span></div>
-<div class="key"><span class="legend">C</span><span class="out">じゃ</span></div>
-<div class="key"><span class="legend">V</span><span class="out">ぎゃ</span></div>
-<div class="key"><span class="legend">B</span><span class="out">にゃ</span></div>
+<div class="key"><span class="legend">Z</span><span class="out" title="新下駄: O+Z -&gt; R Y A">りゃ</span></div>
+<div class="key"><span class="legend">X</span><span class="out" title="新下駄: O+X -&gt; D H U">でゅ</span></div>
+<div class="key"><span class="legend">C</span><span class="out" title="新下駄: O+C -&gt; J A">じゃ</span></div>
+<div class="key"><span class="legend">V</span><span class="out" title="新下駄: O+V -&gt; G Y A">ぎゃ</span></div>
+<div class="key"><span class="legend">B</span><span class="out" title="新下駄: O+B -&gt; N Y A">にゃ</span></div>
 <div class="key free"><span class="legend">N</span></div>
 <div class="key free"><span class="legend">M</span></div>
 <div class="key free"><span class="legend">,</span></div>
@@ -818,7 +820,7 @@ a { color: var(--vk1); }
 <div class="key free"><span class="legend">A</span></div>
 <div class="key free"><span class="legend">S</span></div>
 <div class="key free"><span class="legend">D</span></div>
-<div class="key"><span class="legend">F</span><span class="out">・</span></div>
+<div class="key"><span class="legend">F</span><span class="out" title="新下駄: R+F -&gt; /">・</span></div>
 <div class="key free"><span class="legend">G</span></div>
 <div class="key free"><span class="legend">H</span></div>
 <div class="key free"><span class="legend">J</span></div>
@@ -842,23 +844,23 @@ a { color: var(--vk1); }
 <div class="key free"><span class="legend">_</span></div>
 </div>
 </div>
-<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>定義元</th></tr></thead><tbody>
-<tr><td class="cond">新下駄</td><td class="from">F12</td><td>[新下駄=0] 新下駄モード記録</td><td class="src">common</td></tr>
-<tr><td class="cond">新下駄</td><td class="from">⌘:</td><td>:</td><td class="src">shingeta</td></tr>
-<tr><td class="cond">新下駄</td><td class="from">←</td><td>Z H</td><td class="src">shingeta</td></tr>
-<tr><td class="cond">新下駄</td><td class="from">↓</td><td>Z J</td><td class="src">shingeta</td></tr>
-<tr><td class="cond">新下駄</td><td class="from">↑</td><td>Z K</td><td class="src">shingeta</td></tr>
-<tr><td class="cond">新下駄</td><td class="from">→</td><td>Z L</td><td class="src">shingeta</td></tr>
+<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th><th>定義元</th></tr></thead><tbody>
+<tr><td class="cond">新下駄</td><td class="from">F12</td><td>[新下駄=0] 新下駄モード記録</td><td class="desc-col">disable shingeta layout</td><td class="src">common</td></tr>
+<tr><td class="cond">新下駄</td><td class="from">⌘:</td><td>:</td><td class="desc-col"></td><td class="src">shingeta</td></tr>
+<tr><td class="cond">新下駄</td><td class="from">←</td><td>Z H</td><td class="desc-col"></td><td class="src">shingeta</td></tr>
+<tr><td class="cond">新下駄</td><td class="from">↓</td><td>Z J</td><td class="desc-col"></td><td class="src">shingeta</td></tr>
+<tr><td class="cond">新下駄</td><td class="from">↑</td><td>Z K</td><td class="desc-col"></td><td class="src">shingeta</td></tr>
+<tr><td class="cond">新下駄</td><td class="from">→</td><td>Z L</td><td class="desc-col"></td><td class="src">shingeta</td></tr>
 </tbody></table>
 </section>
 <section><h2>その他の条件 <span class="count">6 rules</span></h2>
-<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>定義元</th></tr></thead><tbody>
-<tr><td class="cond">VK3 + 新下駄</td><td class="from">Z</td><td>Z H</td><td class="src">common</td></tr>
-<tr><td class="cond">VK3 + 新下駄</td><td class="from">X</td><td>Z J</td><td class="src">common</td></tr>
-<tr><td class="cond">VK3 + 新下駄</td><td class="from">C</td><td>Z K</td><td class="src">common</td></tr>
-<tr><td class="cond">VK3 + 新下駄</td><td class="from">V</td><td>Z L</td><td class="src">common</td></tr>
-<tr><td class="cond">VK3 + 入力=ja</td><td class="from">O</td><td>英数 [ ] かな ←</td><td class="src">common</td></tr>
-<tr><td class="cond">新下駄オフ</td><td class="from">F12</td><td>[新下駄=1] 新下駄モード記録</td><td class="src">common</td></tr>
+<table><thead><tr><th>条件</th><th>入力</th><th>出力</th><th>説明</th><th>定義元</th></tr></thead><tbody>
+<tr><td class="cond">VK3 + 新下駄</td><td class="from">Z</td><td>Z H</td><td class="desc-col"></td><td class="src">common</td></tr>
+<tr><td class="cond">VK3 + 新下駄</td><td class="from">X</td><td>Z J</td><td class="desc-col"></td><td class="src">common</td></tr>
+<tr><td class="cond">VK3 + 新下駄</td><td class="from">C</td><td>Z K</td><td class="desc-col"></td><td class="src">common</td></tr>
+<tr><td class="cond">VK3 + 新下駄</td><td class="from">V</td><td>Z L</td><td class="desc-col"></td><td class="src">common</td></tr>
+<tr><td class="cond">VK3 + 入力=ja</td><td class="from">O</td><td>英数 [ ] かな ←</td><td class="desc-col">type half-width [] with cursor inside</td><td class="src">common</td></tr>
+<tr><td class="cond">新下駄オフ</td><td class="from">F12</td><td>[新下駄=1] 新下駄モード記録</td><td class="desc-col">enable shingeta layout</td><td class="src">common</td></tr>
 </tbody></table>
 </section>
 </main></body>

@@ -2,8 +2,8 @@
 //! Key legends follow the JIS layout (keyboard_type_v2 = "jis").
 
 use crate::karabiner_data::{
-    From, FromModifier, KeyCode, Manipulator, ModifierKey, PointingButton, To, ToIfAlone,
-    VirtualKey,
+    Condition, From, FromModifier, KeyCode, Manipulator, ModifierKey, PointingButton, To,
+    ToIfAlone, VirtualKey,
 };
 
 pub fn key_label(key: &KeyCode) -> String {
@@ -114,6 +114,61 @@ pub fn from_label(from: &From) -> String {
             .collect::<Vec<_>>()
             .join("+"),
     }
+}
+
+/// Description used for the generated Rule, e.g. "VSCode: VK4+A -> execute command".
+/// The effect part is the manual description when present, otherwise the
+/// mechanical output summary.
+pub fn rule_description(manipulator: &Manipulator) -> String {
+    let effect = manipulator
+        .description
+        .clone()
+        .unwrap_or_else(|| to_summary(manipulator));
+    format!("{} -> {}", context_label(manipulator), effect)
+}
+
+/// "VSCode: VK4+A" style context: conditions followed by the `from` key.
+fn context_label(manipulator: &Manipulator) -> String {
+    let mut prefix = String::new();
+    for condition in manipulator.conditions.iter().flatten() {
+        match condition {
+            Condition::OnApplication {
+                bundle_identifiers, ..
+            } => {
+                prefix.push_str(
+                    &bundle_identifiers
+                        .iter()
+                        .map(|b| format!("{:?}", b))
+                        .collect::<Vec<_>>()
+                        .join("/"),
+                );
+                prefix.push_str(": ");
+            }
+            Condition::WithVirtualKey { name, value, .. } => {
+                if *value == 1 {
+                    match name {
+                        VirtualKey::ShingetaMode => prefix.push_str("新下駄: "),
+                        _ => {
+                            prefix.push_str(virtual_key_label(name));
+                            prefix.push('+');
+                        }
+                    }
+                } else {
+                    prefix.push_str(virtual_key_label(name));
+                    prefix.push_str("オフ: ");
+                }
+            }
+            Condition::InputSource { input_sources, .. } => {
+                let languages = input_sources
+                    .iter()
+                    .map(|s| s.language.as_str())
+                    .collect::<Vec<_>>()
+                    .join(",");
+                prefix.push_str(&format!("({}) ", languages));
+            }
+        }
+    }
+    format!("{}{}", prefix, from_label(&manipulator.from))
 }
 
 /// One-line summary of everything a manipulator emits.
