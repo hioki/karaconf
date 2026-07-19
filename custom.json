@@ -6631,7 +6631,7 @@
       ]
     },
     {
-      "description": "⌃; -> ;",
+      "description": "⌃; -> Replace `Ctrl+;` with `;`",
       "manipulators": [
         {
           "type": "basic",
@@ -6652,32 +6652,7 @@
       ]
     },
     {
-      "description": "⌘⇧; -> zoom in (Cmd+\"+\")",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "semicolon",
-            "modifiers": {
-              "mandatory": [
-                "command",
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "keypad_plus",
-              "modifiers": [
-                "command"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "; -> ⏎",
+      "description": "; -> Replace `;` with `Enter`",
       "manipulators": [
         {
           "type": "basic",
@@ -6693,7 +6668,7 @@
       ]
     },
     {
-      "description": "⌃: -> type '",
+      "description": "⌃: -> Replace `Ctrl+:` with `'`",
       "manipulators": [
         {
           "type": "basic",
@@ -6717,7 +6692,7 @@
       ]
     },
     {
-      "description": "Caps -> disabled",
+      "description": "Caps -> Replace `CapsLock` with no action",
       "manipulators": [
         {
           "type": "basic",
@@ -6738,7 +6713,7 @@
       ]
     },
     {
-      "description": "新下駄オフ: F12 -> enable shingeta layout",
+      "description": "新下駄オフ: F12 -> Enable shingeta layout",
       "manipulators": [
         {
           "type": "basic",
@@ -6767,7 +6742,7 @@
       ]
     },
     {
-      "description": "新下駄: F12 -> disable shingeta layout",
+      "description": "新下駄: F12 -> Disable shingeta layout",
       "manipulators": [
         {
           "type": "basic",
@@ -6796,7 +6771,7 @@
       ]
     },
     {
-      "description": "英数 -> 英数 (disable shingeta mode)",
+      "description": "英数 -> 英数 (Disable shingeta mode when switching to English input)",
       "manipulators": [
         {
           "type": "basic",
@@ -6821,7 +6796,7 @@
       ]
     },
     {
-      "description": "かな -> かな (enable shingeta mode)",
+      "description": "かな -> かな (Enable shingeta mode when switching to Japanese input)",
       "manipulators": [
         {
           "type": "basic",

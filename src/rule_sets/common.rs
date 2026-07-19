@@ -431,7 +431,6 @@ pub fn manipulators() -> Vec<Manipulator> {
     //
     // Virtual Key 3 - Bracket pairs (cursor ends up between the brackets)
     //
-    // VK3+I -> () : Shift+8 / Shift+9 on JIS (IME turns them into （）)
     manipulators.push(
         Manipulator::builder()
             .description("type () with cursor inside")
@@ -442,8 +441,6 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(LeftArrow, None)
             .build(),
     );
-    // VK3+O -> [] : while composing Japanese the bracket keys would become
-    // 「」, so switch to eisuu first and back to kana afterwards.
     manipulators.push(
         Manipulator::builder()
             .description("type half-width [] with cursor inside")
@@ -467,7 +464,6 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(LeftArrow, None)
             .build(),
     );
-    // VK3+P -> 「」 : the physical [ ] keys, which the IME renders as 「」
     manipulators.push(
         Manipulator::builder()
             .description("type 「」 with cursor inside")
@@ -478,7 +474,6 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(LeftArrow, None)
             .build(),
     );
-    // Super Easy Timer
     for (from, description) in [
         (Q, "Super Easy Timer: Play/Pause"),
         (W, "Super Easy Timer: Reset"),
@@ -495,41 +490,31 @@ pub fn manipulators() -> Vec<Manipulator> {
     }
 
     manipulators.extend(vec![
-        // Ctrl+; -> ;
         Manipulator::builder()
+            .description("Replace `Ctrl+;` with `;`")
             .from_key_with_modifiers(Semicolon, FromModifier::Mandatory(vec![Ctrl]))
             .to_key(Semicolon, None)
             .build(),
-        // Cmd+Shift+; -> Cmd+"+"
         Manipulator::builder()
-            .description("zoom in (Cmd+\"+\")")
-            .from_key_with_modifiers(Semicolon, FromModifier::Mandatory(vec![Cmd, Shift]))
-            .to_key(KeypadPlus, Some(vec![Cmd]))
-            .build(),
-        // ; -> Enter
-        Manipulator::builder()
+            .description("Replace `;` with `Enter`")
             .from_key(Semicolon)
             .to_key(ReturnOrEnter, None)
             .build(),
-        // Ctrl+: -> '
         Manipulator::builder()
-            .description("type '")
+            .description("Replace `Ctrl+:` with `'`")
             .from_key_with_modifiers(Quote, FromModifier::Mandatory(vec![Ctrl]))
             .to_key(Key7, Some(vec![Shift]))
             .build(),
-        // CapsLock -> (No Action)
         Manipulator::builder()
-            .description("disabled")
+            .description("Replace `CapsLock` with no action")
             .from_key_with_modifiers(CapsLock, FromModifier::Optional(vec![Any]))
             .to_key(VkNone, None)
             .build(),
     ]);
 
-    // F12: Toggle between default romaji input and shingeta layout
-    // When shingeta_mode is 0 (off), pressing F12 sets it to 1 (on)
     manipulators.push(
         Manipulator::builder()
-            .description("enable shingeta layout")
+            .description("Enable shingeta layout")
             .condition(Condition::without_virtual_key(VirtualKey::ShingetaMode))
             .from_key(F12)
             .to_variable(SetVariable {
@@ -540,10 +525,9 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
-    // When shingeta_mode is 1 (on), pressing F12 sets it to 0 (off)
     manipulators.push(
         Manipulator::builder()
-            .description("disable shingeta layout")
+            .description("Disable shingeta layout")
             .condition(Condition::with_shingeta_mode())
             .from_key(F12)
             .to_variable(SetVariable {
@@ -554,10 +538,9 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
-    // JapaneseEisuu (英数): Disable shingeta mode when switching to English input
     manipulators.push(
         Manipulator::builder()
-            .description("英数 (disable shingeta mode)")
+            .description("英数 (Disable shingeta mode when switching to English input)")
             .from_key(JapaneseEisuu)
             .to_key(JapaneseEisuu, None)
             .to_variable(SetVariable {
@@ -568,10 +551,9 @@ pub fn manipulators() -> Vec<Manipulator> {
             .build(),
     );
 
-    // JapaneseKana (かな): Enable shingeta mode when switching to Japanese input
     manipulators.push(
         Manipulator::builder()
-            .description("かな (enable shingeta mode)")
+            .description("かな (Enable shingeta mode when switching to Japanese input)")
             .from_key(JapaneseKana)
             .to_key(JapaneseKana, None)
             .to_variable(SetVariable {
