@@ -348,7 +348,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         // (F, "Command+Tab"),
         (G, "open -a 'Visual Studio Code.app'"),
         // (H, "Open notification center"),
-        // (I, None),
+        (I, "open -a 'Claude.app'"),
         (J, "open -a 'Firefox.app'"),
         (K, "open -a 'iTerm.app'"),
         (L, "open -a 'Alfred 5.app'"),
@@ -372,7 +372,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         (OpenBracket, "open -a 'Mail.app'"), // @
         // (CloseBracket, None), // [
         (Comma, "open -a 'System Settings.app'"),
-        (Period, "open -a 'Claude.app'"),
+        // (Period, None),
         (
             Slash,
             "open 'https://s2.kingtime.jp/independent/recorder2/personal/'",
