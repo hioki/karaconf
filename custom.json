@@ -3013,7 +3013,7 @@
       ]
     },
     {
-      "description": "VK1+H -> ←",
+      "description": "VK1+H -> Move cursor left",
       "manipulators": [
         {
           "type": "basic",
@@ -3041,7 +3041,7 @@
       ]
     },
     {
-      "description": "VK1+J -> ↓",
+      "description": "VK1+J -> Move cursor down",
       "manipulators": [
         {
           "type": "basic",
@@ -3069,7 +3069,7 @@
       ]
     },
     {
-      "description": "VK1+K -> ↑",
+      "description": "VK1+K -> Move cursor up",
       "manipulators": [
         {
           "type": "basic",
@@ -3097,7 +3097,7 @@
       ]
     },
     {
-      "description": "VK1+L -> →",
+      "description": "VK1+L -> Move cursor right",
       "manipulators": [
         {
           "type": "basic",
@@ -3125,7 +3125,7 @@
       ]
     },
     {
-      "description": "VK1+U -> go to line head",
+      "description": "VK1+U -> Go to line head",
       "manipulators": [
         {
           "type": "basic",
@@ -3156,7 +3156,7 @@
       ]
     },
     {
-      "description": "VK1+I -> go to line tail",
+      "description": "VK1+I -> Go to line tail",
       "manipulators": [
         {
           "type": "basic",
@@ -3187,7 +3187,7 @@
       ]
     },
     {
-      "description": "VK1+G -> Tab",
+      "description": "VK1+G -> Input Tab",
       "manipulators": [
         {
           "type": "basic",
@@ -3215,7 +3215,7 @@
       ]
     },
     {
-      "description": "VK1+[ -> undo",
+      "description": "VK1+[ -> Undo",
       "manipulators": [
         {
           "type": "basic",
@@ -3246,7 +3246,7 @@
       ]
     },
     {
-      "description": "VK1+Q -> ⌘Q",
+      "description": "VK1+Q -> Quit app",
       "manipulators": [
         {
           "type": "basic",
@@ -4130,7 +4130,7 @@
       ]
     },
     {
-      "description": "VK1+⇧N -> マウスを左に移動 (低速)",
+      "description": "VK1+⇧N -> マウスを左に移動する (低速)",
       "manipulators": [
         {
           "type": "basic",
@@ -4160,7 +4160,7 @@
       ]
     },
     {
-      "description": "VK1+N -> マウスを左に移動 (高速)",
+      "description": "VK1+N -> マウスを左に移動する (高速)",
       "manipulators": [
         {
           "type": "basic",
@@ -4185,7 +4185,7 @@
       ]
     },
     {
-      "description": "VK1+⇧M -> マウスを下に移動 (低速)",
+      "description": "VK1+⇧M -> マウスを下に移動する (低速)",
       "manipulators": [
         {
           "type": "basic",
@@ -4215,7 +4215,7 @@
       ]
     },
     {
-      "description": "VK1+M -> マウスを下に移動 (高速)",
+      "description": "VK1+M -> マウスを下に移動する (高速)",
       "manipulators": [
         {
           "type": "basic",
@@ -4240,7 +4240,7 @@
       ]
     },
     {
-      "description": "VK1+⇧, -> マウスを上に移動 (低速)",
+      "description": "VK1+⇧, -> マウスを上に移動する (低速)",
       "manipulators": [
         {
           "type": "basic",
@@ -4270,7 +4270,7 @@
       ]
     },
     {
-      "description": "VK1+, -> マウスを上に移動 (高速)",
+      "description": "VK1+, -> マウスを上に移動する (高速)",
       "manipulators": [
         {
           "type": "basic",
@@ -4295,7 +4295,7 @@
       ]
     },
     {
-      "description": "VK1+⇧. -> マウスを右に移動 (低速)",
+      "description": "VK1+⇧. -> マウスを右に移動する (低速)",
       "manipulators": [
         {
           "type": "basic",
@@ -4325,7 +4325,7 @@
       ]
     },
     {
-      "description": "VK1+. -> マウスを右に移動 (高速)",
+      "description": "VK1+. -> マウスを右に移動する (高速)",
       "manipulators": [
         {
           "type": "basic",

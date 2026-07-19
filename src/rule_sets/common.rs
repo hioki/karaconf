@@ -17,15 +17,15 @@ pub fn manipulators() -> Vec<Manipulator> {
     // Virtual Key 1
     //
     for (from, to, modifiers, description) in [
-        (H, LeftArrow, None, ""),
-        (J, DownArrow, None, ""),
-        (K, UpArrow, None, ""),
-        (L, RightArrow, None, ""),
-        (U, LeftArrow, Some(vec![Cmd]), "go to line head"),
-        (I, RightArrow, Some(vec![Cmd]), "go to line tail"),
-        (G, Tab, None, ""),
-        (CloseBracket, Z, Some(vec![Cmd]), "undo"),
-        (Q, Q, Some(vec![Cmd]), ""),
+        (H, LeftArrow, None, "Move cursor left"),
+        (J, DownArrow, None, "Move cursor down"),
+        (K, UpArrow, None, "Move cursor up"),
+        (L, RightArrow, None, "Move cursor right"),
+        (U, LeftArrow, Some(vec![Cmd]), "Go to line head"),
+        (I, RightArrow, Some(vec![Cmd]), "Go to line tail"),
+        (G, Tab, None, "Input Tab"),
+        (CloseBracket, Z, Some(vec![Cmd]), "Undo"),
+        (Q, Q, Some(vec![Cmd]), "Quit app"),
         //
         // F1-F12
         //
@@ -168,10 +168,10 @@ pub fn manipulators() -> Vec<Manipulator> {
     );
 
     for (description, key_code, x, y) in [
-        ("マウスを左に移動", N, Some(-MOUSE_SPEED), None),
-        ("マウスを下に移動", M, None, Some(MOUSE_SPEED)),
-        ("マウスを上に移動", Comma, None, Some(-MOUSE_SPEED)),
-        ("マウスを右に移動", Period, Some(MOUSE_SPEED), None),
+        ("マウスを左に移動する", N, Some(-MOUSE_SPEED), None),
+        ("マウスを下に移動する", M, None, Some(MOUSE_SPEED)),
+        ("マウスを上に移動する", Comma, None, Some(-MOUSE_SPEED)),
+        ("マウスを右に移動する", Period, Some(MOUSE_SPEED), None),
     ] {
         manipulators.push({
             Manipulator::builder()
