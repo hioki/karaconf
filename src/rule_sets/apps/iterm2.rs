@@ -130,6 +130,18 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(B, Some(CTRL.to_vec()))
             .build(),
     );
+    manipulators.push(
+        Manipulator::builder()
+            .description("Confirm the completion")
+            .conditions(vec![
+                Condition::on_app(ITerm2),
+                Condition::with_virtual_key(Vk2),
+            ])
+            .from_key_with_modifiers(L, FromModifier::Mandatory(CTRL.to_vec()))
+            .to_key(RightArrow, None)
+            .to_key(ReturnOrEnter, None)
+            .build(),
+    );
 
     manipulators
 }
