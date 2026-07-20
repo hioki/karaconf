@@ -391,7 +391,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         (Quote, "open -a 'App Store.app'"),
         // (NonUsPound, None), // ]
         (OpenBracket, "open -a 'Mail.app'"), // @
-        // (CloseBracket, None), // [
+        (CloseBracket, "open -a 'Karabiner-EventViewer.app'"), // [
         (Comma, "open -a 'System Settings.app'"),
         (Period, "open -a 'Slack.app'"),
         (

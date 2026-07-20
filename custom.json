@@ -5673,6 +5673,29 @@
       ]
     },
     {
+      "description": "VK2+[ -> Karabiner-EventViewer 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "close_bracket"
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Karabiner-EventViewer.app'"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "VK2+, -> System Settings 起動",
       "manipulators": [
         {

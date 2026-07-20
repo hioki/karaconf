@@ -25,6 +25,10 @@ pub enum BundleIdentifier {
     // Claude
     // 1Password
     // Finder
+    // NotionCalendar
+    // Calendar
+    // Preview
+    // Mail
 }
 
 // https://karabiner-elements.pqrs.org/docs/json/root-data-structure/#custom-json-file-in-configkarabinerassetscomplex_modifications
