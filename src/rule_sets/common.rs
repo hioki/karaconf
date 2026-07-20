@@ -335,6 +335,8 @@ pub fn manipulators() -> Vec<Manipulator> {
         ("TopRight", I, Key2),
         ("BottomLeft", M, Key3),
         ("BottomRight", Comma, Key4),
+        ("Previous Display", J, P),
+        ("Next Display", K, N),
     ] {
         manipulators.push(
             Manipulator::builder()
