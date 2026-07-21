@@ -9,6 +9,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         ("Expand/Collapse the Tab List Area", E, Z, Some(vec![Ctrl])),
         ("Select from the history list", R, L, Some(vec![Cmd])),
         ("Open Private Window", N, P, Some(vec![Cmd, Shift])),
+        ("Developer tools", F, F12, None),
     ] {
         manipulators.push(
             Manipulator::builder()

@@ -24,17 +24,31 @@ pub fn manipulators() -> Vec<Manipulator> {
             .to_key(M, Some(vec![Cmd, Shift]))
             .build(),
         Manipulator::builder()
-            .description("Switch profile")
+            .description("Toggle bookmarks")
             .conditions(vec![
                 Condition::on_app(GoogleChrome),
                 Condition::with_virtual_key(Vk4),
             ])
-            .from_key(N)
-            .to_key(M, Some(vec![Cmd, Shift]))
-            .to_key(DownArrow, None)
-            .to_key(DownArrow, None)
-            .to_key(DownArrow, None)
-            .to_key(ReturnOrEnter, None)
+            .from_key(B)
+            .to_key(B, Some(vec![Cmd, Shift]))
+            .build(),
+        Manipulator::builder()
+            .description("Search tabs")
+            .conditions(vec![
+                Condition::on_app(GoogleChrome),
+                Condition::with_virtual_key(Vk4),
+            ])
+            .from_key(R)
+            .to_key(A, Some(vec![Cmd, Shift]))
+            .build(),
+        Manipulator::builder()
+            .description("Developer tools")
+            .conditions(vec![
+                Condition::on_app(GoogleChrome),
+                Condition::with_virtual_key(Vk4),
+            ])
+            .from_key(F)
+            .to_key(F12, None)
             .build(),
     ]
 }
