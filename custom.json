@@ -4812,7 +4812,7 @@
       ]
     },
     {
-      "description": "VK2+Q -> スクリーンロック",
+      "description": "VK2+- -> スクリーンロック",
       "manipulators": [
         {
           "type": "basic",
@@ -4824,7 +4824,7 @@
             }
           ],
           "from": {
-            "key_code": "q"
+            "key_code": "hyphen"
           },
           "to": [
             {
@@ -5565,6 +5565,29 @@
           "to": [
             {
               "shell_command": "open -a '1Password.app'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "VK2+Q -> Super Easy Timer 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "q"
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Super Easy Timer.app'"
             }
           ]
         }

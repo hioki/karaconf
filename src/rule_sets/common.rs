@@ -285,7 +285,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         (Key5, Rewind, None, "巻き戻し"),
         (Key6, PlayOrPause, None, "再生/一時停止"),
         (Key7, Fastforward, None, "早送り"),
-        (Q, Q, Some(vec![Ctrl, Cmd]), "スクリーンロック"),
+        (Hyphen, Q, Some(vec![Ctrl, Cmd]), "スクリーンロック"),
         (
             Semicolon,
             ReturnOrEnter,
@@ -379,7 +379,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         (N, "open -a 'Notion.app'"),
         (O, "open -a \"Google Chrome\""),
         (P, "open -a '1Password.app'"),
-        // (Q, "Ctrl+Cmd+Q - lock screen"),
+        (Q, "open -a 'Super Easy Timer.app'"),
         (R, "open -a 'Calculator.app'"),
         // (S, "Ctrl+Tab"),
         (T, "open -a 'Finder.app'"),
