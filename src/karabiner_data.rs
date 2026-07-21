@@ -20,15 +20,22 @@ pub enum BundleIdentifier {
     Notion,
     #[serde(rename = "com.openai.chat")]
     ChatGPT,
-    // TODO:
-    // BitWarden
-    // Claude
-    // 1Password
-    // Finder
-    // NotionCalendar
-    // Calendar
-    // Preview
-    // Mail
+    #[serde(rename = "com.bitwarden.desktop")]
+    BitWarden,
+    #[serde(rename = "com.anthropic.claudefordesktop")]
+    Claude,
+    #[serde(rename = "com.1password.1password")]
+    OnePassword,
+    #[serde(rename = "com.apple.finder")]
+    Finder,
+    #[serde(rename = "com.cron.electron")]
+    NotionCalendar,
+    #[serde(rename = "com.apple.iCal")]
+    Calendar,
+    #[serde(rename = "com.apple.Preview")]
+    Preview,
+    #[serde(rename = "com.apple.mail")]
+    Mail,
 }
 
 // https://karabiner-elements.pqrs.org/docs/json/root-data-structure/#custom-json-file-in-configkarabinerassetscomplex_modifications
