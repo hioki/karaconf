@@ -1,7 +1,15 @@
+pub mod bitwarden;
+pub mod calendar;
+pub mod claude;
 pub mod dynalist;
+pub mod finder;
 pub mod firefox;
 pub mod google_chrome;
 pub mod iterm2;
+pub mod mail;
 pub mod notion;
+pub mod notion_calendar;
+pub mod onepassword;
+pub mod preview;
 pub mod slack;
 pub mod vscode;

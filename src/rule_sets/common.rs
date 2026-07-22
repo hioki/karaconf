@@ -259,12 +259,6 @@ pub fn manipulators() -> Vec<Manipulator> {
         (S, Tab, Some(vec![Ctrl]), "次のタブに切り替え"),
         (A, Tab, Some(vec![Ctrl, Shift]), "前のタブに切り替え"),
         (H, N, Some(vec![Ctrl, Shift, Cmd]), "通知センターを開く"),
-        (
-            Z,
-            Key4,
-            Some(vec![Shift, Cmd]),
-            "スクリーンショット（選択範囲）",
-        ),
         (Key8, Key0, Some(vec![Cmd]), "拡大/縮小をリセット"),
         (Key9, KeypadPlus, Some(vec![Cmd]), "拡大"),
         (Key0, Hyphen, Some(vec![Cmd]), "縮小"),
@@ -291,6 +285,12 @@ pub fn manipulators() -> Vec<Manipulator> {
             ReturnOrEnter,
             Some(vec![Cmd]),
             "複数行の文字列の送信など",
+        ),
+        (
+            NonUsPound,
+            Key4,
+            Some(vec![Shift, Cmd]),
+            "スクリーンショット（選択範囲）",
         ),
     ] {
         let mut builder = Manipulator::builder()
@@ -379,7 +379,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         (N, "open -a 'Notion.app'"),
         (O, "open -a \"Google Chrome\""),
         (P, "open -a '1Password.app'"),
-        (Q, "open -a 'Super Easy Timer.app'"),
+        // (Q, None),
         (R, "open -a 'Calculator.app'"),
         // (S, "Ctrl+Tab"),
         (T, "open -a 'Finder.app'"),
@@ -388,7 +388,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         (W, "open -a 'ChatGPT.app'"),
         (X, "open -a 'Calendar.app'"),
         (Y, "open -a 'Preview.app'"),
-        // (Z, "Cmd+Shift+4 - screenshot selection"),
+        (Z, "open -a 'Super Easy Timer.app'"),
         // (ReturnOrEnter, None),
         (Quote, "open -a 'App Store.app'"),
         // (NonUsPound, None), // ]

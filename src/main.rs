@@ -31,6 +31,21 @@ const RULE_SETS: &[RuleSet] = &[
     ),
     ("apps/firefox", rule_sets::apps::firefox::manipulators),
     ("apps/notion", rule_sets::apps::notion::manipulators),
+    ("apps/bitwarden", rule_sets::apps::bitwarden::manipulators),
+    // Claude,
+    ("apps/claude", rule_sets::apps::claude::manipulators),
+    (
+        "apps/onepassword",
+        rule_sets::apps::onepassword::manipulators,
+    ),
+    ("apps/finder", rule_sets::apps::finder::manipulators),
+    (
+        "apps/notion_calendar",
+        rule_sets::apps::notion_calendar::manipulators,
+    ),
+    ("apps/calendar", rule_sets::apps::calendar::manipulators),
+    ("apps/preview", rule_sets::apps::preview::manipulators),
+    ("apps/mail", rule_sets::apps::mail::manipulators),
     ("common", rule_sets::common::manipulators),
     ("shingeta", rule_sets::shingeta::manipulators),
 ];
