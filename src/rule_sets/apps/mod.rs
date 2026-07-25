@@ -1,6 +1,7 @@
 pub mod bitwarden;
 pub mod calendar;
 pub mod claude;
+pub mod codex;
 pub mod dynalist;
 pub mod finder;
 pub mod firefox;

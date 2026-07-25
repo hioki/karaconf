@@ -46,6 +46,7 @@ const RULE_SETS: &[RuleSet] = &[
     ("apps/calendar", rule_sets::apps::calendar::manipulators),
     ("apps/preview", rule_sets::apps::preview::manipulators),
     ("apps/mail", rule_sets::apps::mail::manipulators),
+    ("apps/codex", rule_sets::apps::codex::manipulators),
     ("common", rule_sets::common::manipulators),
     ("shingeta", rule_sets::shingeta::manipulators),
 ];

@@ -6,8 +6,6 @@ pub enum BundleIdentifier {
     ITerm2,
     #[serde(rename = "com.microsoft.VSCode")]
     VSCode,
-    #[serde(rename = "com.todesktop.230313mzl4w4u92")]
-    Cursor,
     #[serde(rename = "io.dynalist")]
     Dynalist, // https://help.dynalist.io/article/91-keyboard-shortcut-reference
     #[serde(rename = "com.tinyspeck.slackmacgap")]
@@ -18,8 +16,8 @@ pub enum BundleIdentifier {
     Firefox,
     #[serde(rename = "notion.id")]
     Notion,
-    #[serde(rename = "com.openai.chat")]
-    ChatGPT,
+    #[serde(rename = "com.openai.codex")]
+    Codex,
     #[serde(rename = "com.bitwarden.desktop")]
     BitWarden,
     #[serde(rename = "com.anthropic.claudefordesktop")]
