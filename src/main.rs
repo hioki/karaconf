@@ -47,6 +47,10 @@ const RULE_SETS: &[RuleSet] = &[
     ("apps/preview", rule_sets::apps::preview::manipulators),
     ("apps/mail", rule_sets::apps::mail::manipulators),
     ("apps/codex", rule_sets::apps::codex::manipulators),
+    (
+        "apps/microsoft_to_do",
+        rule_sets::apps::microsoft_to_do::manipulators,
+    ),
     ("common", rule_sets::common::manipulators),
     ("shingeta", rule_sets::shingeta::manipulators),
 ];

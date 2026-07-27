@@ -8,6 +8,7 @@ pub mod firefox;
 pub mod google_chrome;
 pub mod iterm2;
 pub mod mail;
+pub mod microsoft_to_do;
 pub mod notion;
 pub mod notion_calendar;
 pub mod onepassword;

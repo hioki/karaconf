@@ -34,6 +34,8 @@ pub enum BundleIdentifier {
     Preview,
     #[serde(rename = "com.apple.mail")]
     Mail,
+    #[serde(rename = "com.microsoft.to-do-mac")]
+    MicrosoftToDo,
 }
 
 // https://karabiner-elements.pqrs.org/docs/json/root-data-structure/#custom-json-file-in-configkarabinerassetscomplex_modifications
