@@ -4296,7 +4296,7 @@
       ]
     },
     {
-      "description": "Codex: VK4+S -> スキルに移動",
+      "description": "Codex: VK4+S -> サイドタスクを開く",
       "manipulators": [
         {
           "type": "basic",
@@ -4321,9 +4321,7 @@
               "key_code": "s",
               "modifiers": [
                 "command",
-                "option",
-                "shift",
-                "control"
+                "option"
               ]
             }
           ]

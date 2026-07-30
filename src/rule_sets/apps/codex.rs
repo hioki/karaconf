@@ -17,7 +17,7 @@ pub fn manipulators() -> Vec<Manipulator> {
             J,
             (B, Some(vec![Cmd, Opt])),
         ),
-        ("スキルに移動", S, (S, Some(vec![Cmd, Opt, Shift, Ctrl]))),
+        ("サイドタスクを開く", S, (S, Some(vec![Cmd, Opt]))),
         ("MCP", P, (P, Some(vec![Cmd, Shift, Ctrl]))),
         (
             "リクエストを承認",
