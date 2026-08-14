@@ -8332,6 +8332,42 @@
       ]
     },
     {
+      "description": "VK3+R -> [Super Easy Timer] Restart",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "vk3",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "r"
+          },
+          "to": [
+            {
+              "key_code": "w",
+              "modifiers": [
+                "command",
+                "option",
+                "shift"
+              ]
+            },
+            {
+              "key_code": "q",
+              "modifiers": [
+                "command",
+                "option",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "⌃; -> ; を入力",
       "manipulators": [
         {

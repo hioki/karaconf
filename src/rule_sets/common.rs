@@ -494,6 +494,15 @@ pub fn manipulators() -> Vec<Manipulator> {
                 .build(),
         );
     }
+    manipulators.push(
+        Manipulator::builder()
+            .description("[Super Easy Timer] Restart")
+            .condition(Condition::with_vk3())
+            .from_key(R)
+            .to_key(W, Some(vec![Cmd, Opt, Shift]))
+            .to_key(Q, Some(vec![Cmd, Opt, Shift]))
+            .build(),
+    );
 
     manipulators.extend(vec![
         Manipulator::builder()
