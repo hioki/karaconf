@@ -5,6 +5,7 @@ pub mod codex;
 pub mod dynalist;
 pub mod finder;
 pub mod firefox;
+pub mod github_copilot;
 pub mod google_chrome;
 pub mod iterm2;
 pub mod mail;

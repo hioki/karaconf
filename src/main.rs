@@ -51,6 +51,10 @@ const RULE_SETS: &[RuleSet] = &[
         "apps/microsoft_to_do",
         rule_sets::apps::microsoft_to_do::manipulators,
     ),
+    (
+        "apps/github_copilot",
+        rule_sets::apps::github_copilot::manipulators,
+    ),
     ("common", rule_sets::common::manipulators),
     ("shingeta", rule_sets::shingeta::manipulators),
 ];
