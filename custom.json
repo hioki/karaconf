@@ -4829,7 +4829,7 @@
       ]
     },
     {
-      "description": "GitHubCopilot: VK4+F -> Find in file",
+      "description": "GitHubCopilot: VK4+K -> Find in file",
       "manipulators": [
         {
           "type": "basic",
@@ -4847,7 +4847,7 @@
             }
           ],
           "from": {
-            "key_code": "f"
+            "key_code": "k"
           },
           "to": [
             {
@@ -4861,7 +4861,7 @@
       ]
     },
     {
-      "description": "GitHubCopilot: VK4+N -> Next session",
+      "description": "GitHubCopilot: VK4+2 -> Next session",
       "manipulators": [
         {
           "type": "basic",
@@ -4879,7 +4879,7 @@
             }
           ],
           "from": {
-            "key_code": "n"
+            "key_code": "2"
           },
           "to": [
             {
@@ -4893,7 +4893,7 @@
       ]
     },
     {
-      "description": "GitHubCopilot: VK4+N -> Previous session",
+      "description": "GitHubCopilot: VK4+1 -> Previous session",
       "manipulators": [
         {
           "type": "basic",
@@ -4911,7 +4911,7 @@
             }
           ],
           "from": {
-            "key_code": "n"
+            "key_code": "1"
           },
           "to": [
             {
@@ -4958,7 +4958,7 @@
       ]
     },
     {
-      "description": "GitHubCopilot: VK4+H -> Go forward",
+      "description": "GitHubCopilot: VK4+L -> Go forward",
       "manipulators": [
         {
           "type": "basic",
@@ -4976,7 +4976,7 @@
             }
           ],
           "from": {
-            "key_code": "h"
+            "key_code": "l"
           },
           "to": [
             {
@@ -5022,7 +5022,7 @@
       ]
     },
     {
-      "description": "GitHubCopilot: VK4+K -> Go to file",
+      "description": "GitHubCopilot: VK4+F -> Go to file",
       "manipulators": [
         {
           "type": "basic",
@@ -5040,7 +5040,7 @@
             }
           ],
           "from": {
-            "key_code": "k"
+            "key_code": "f"
           },
           "to": [
             {
@@ -5080,6 +5080,39 @@
               "modifiers": [
                 "command",
                 "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "GitHubCopilot: VK4+J -> Toggle review panel",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.github.githubapp"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "j"
+          },
+          "to": [
+            {
+              "key_code": "b",
+              "modifiers": [
+                "command",
+                "option"
               ]
             }
           ]
