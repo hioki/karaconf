@@ -402,6 +402,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         // (International1, None), // _
         // (NonUsPound, None),
         // (Backslash, None),
+        (International3, "open -a 'Journal.app'"),
     ] {
         manipulators.push(
             Manipulator::builder()
