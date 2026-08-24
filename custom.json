@@ -3257,73 +3257,7 @@
       ]
     },
     {
-      "description": "Claude: VK4+M -> モデル切替",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "com.anthropic.claudefordesktop"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "vk4",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "m"
-          },
-          "to": [
-            {
-              "key_code": "i",
-              "modifiers": [
-                "shift",
-                "command"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Claude: VK4+O -> モード切替",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "com.anthropic.claudefordesktop"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "vk4",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "o"
-          },
-          "to": [
-            {
-              "key_code": "m",
-              "modifiers": [
-                "shift",
-                "command"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Claude: VK4+E -> エフォート切替",
+      "description": "Claude: VK4+E -> Toggle Sidebar",
       "manipulators": [
         {
           "type": "basic",
@@ -3345,9 +3279,8 @@
           },
           "to": [
             {
-              "key_code": "e",
+              "key_code": "b",
               "modifiers": [
-                "shift",
                 "command"
               ]
             }
