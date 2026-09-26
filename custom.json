@@ -7673,7 +7673,7 @@
       ]
     },
     {
-      "description": "VK2+M -> Dynalist 起動",
+      "description": "VK2+M -> Screen Sharing 起動",
       "manipulators": [
         {
           "type": "basic",
@@ -7689,7 +7689,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Dynalist.app'"
+              "shell_command": "open -a 'Screen Sharing.app'"
             }
           ]
         }
