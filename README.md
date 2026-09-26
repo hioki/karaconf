@@ -14,6 +14,15 @@ cargo run
 cargo run -- --check
 ```
 
+## What gets written to karabiner.json
+
+`cargo run` only replaces the first profile's `complex_modifications.rules` and
+sets `basic.simultaneous_threshold_milliseconds`; every other setting (devices,
+simple modifications, fields added by newer Karabiner-Elements, ...) is kept as is.
+Before overwriting, the previous file is saved to
+`~/.config/karabiner/karabiner.json.karaconf-bak`. If `karabiner.json` cannot be
+parsed, karaconf aborts and leaves the file untouched.
+
 ## Lint
 
 Karabiner-Elements evaluates manipulators in order and the first match wins.

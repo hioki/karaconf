@@ -14,6 +14,10 @@ const CUSTOM_JSON_FILENAME: &str = "custom.json";
 
 const CHEATSHEET_FILENAME: &str = "cheatsheet.html";
 
+const KARABINER_JSON_FILENAME: &str = "karabiner.json";
+
+const KARABINER_JSON_BACKUP_FILENAME: &str = "karabiner.json.karaconf-bak";
+
 type RuleSet = (&'static str, fn() -> Vec<karabiner_data::Manipulator>);
 
 const RULE_SETS: &[RuleSet] = &[
@@ -167,43 +171,228 @@ fn copy_to_karabiner_assets(config_dir: &Path) -> anyhow::Result<()> {
     Ok(())
 }
 
-/// Update karabiner.json with type-safe operations
+/// Replace karaconf's rules in karabiner.json, keeping every other setting as it is.
+///
+/// The file is handled as an untyped `serde_json::Value`, so settings karaconf does not
+/// model (devices, simple_modifications, fields added by newer Karabiner-Elements, ...)
+/// and rules written by other karaconf versions never block the update or get dropped.
+/// A file that cannot be parsed is left untouched instead of being replaced with a
+/// default structure, which would silently wipe the user's settings. The previous
+/// content is saved to `KARABINER_JSON_BACKUP_FILENAME` before the file is overwritten.
 fn update_karabiner_config(
     config_dir: &Path,
     rules: &[karabiner_data::Rule],
 ) -> anyhow::Result<()> {
-    let karabiner_json_path = config_dir.join("karabiner.json");
+    let karabiner_json_path = config_dir.join(KARABINER_JSON_FILENAME);
 
-    // Read and parse the existing karabiner.json
-    let mut karabiner_config: karabiner_data::KarabinerConfig =
-        serde_json::from_reader(&std::fs::File::open(&karabiner_json_path)?).unwrap_or_else(|_| {
-            eprintln!(
-                "⚠️  Warning: Unable to parse existing karabiner.json, using default structure"
-            );
-            karabiner_data::KarabinerConfig::default()
-        });
+    let original = std::fs::read_to_string(&karabiner_json_path)
+        .map_err(|e| anyhow::anyhow!("Failed to read {:?}: {}", karabiner_json_path, e))?;
+    let mut karabiner_config: serde_json::Value = serde_json::from_str(&original).map_err(|e| {
+        anyhow::anyhow!(
+            "Failed to parse {:?}: {}\n\
+                The file was left untouched. Fix or restore it (e.g. from {} or \
+                Karabiner-Elements' automatic_backups) and run again.",
+            karabiner_json_path,
+            e,
+            KARABINER_JSON_BACKUP_FILENAME
+        )
+    })?;
 
-    // Update the first profile's complex modifications
-    if let Some(profile) = karabiner_config.profiles.get_mut(0) {
-        profile.complex_modifications.rules = rules.to_vec();
+    apply_rules(&mut karabiner_config, rules).map_err(|e| {
+        anyhow::anyhow!(
+            "Unexpected structure in {:?}: {}\nThe file was left untouched.",
+            karabiner_json_path,
+            e
+        )
+    })?;
 
-        // Update simultaneous threshold to 100ms for shingeta layout
-        if let Some(params) = profile.complex_modifications.parameters.as_object_mut() {
-            params.insert(
-                "basic.simultaneous_threshold_milliseconds".to_string(),
-                serde_json::json!(SIMULTANEOUS_THRESHOLD_MILLISECONDS),
-            );
-        }
-    } else {
-        anyhow::bail!("No profile found in karabiner.json");
+    let updated = serde_json::to_string_pretty(&karabiner_config)
+        .map_err(|e| anyhow::anyhow!("Failed to serialize karabiner.json: {}", e))?;
+    // Skipping no-op writes also keeps the backup pointing at the last real change.
+    if updated == original {
+        return Ok(());
     }
 
-    // Write back the updated configuration
-    let karabiner_json_data = serde_json::to_vec_pretty(&karabiner_config)
-        .map_err(|e| anyhow::anyhow!("Failed to serialize karabiner.json: {}", e))?;
-
-    std::fs::write(&karabiner_json_path, karabiner_json_data)
-        .map_err(|e| anyhow::anyhow!("Failed to write karabiner.json: {}", e))?;
+    let backup_path = config_dir.join(KARABINER_JSON_BACKUP_FILENAME);
+    std::fs::write(&backup_path, &original)
+        .map_err(|e| anyhow::anyhow!("Failed to write backup {:?}: {}", backup_path, e))?;
+    std::fs::write(&karabiner_json_path, updated)
+        .map_err(|e| anyhow::anyhow!("Failed to write {:?}: {}", karabiner_json_path, e))?;
 
     Ok(())
+}
+
+/// Set the parts of karabiner.json that karaconf owns: the first profile's
+/// complex_modifications rules (replaced wholesale) and simultaneous threshold.
+///
+/// Missing sections are created, since Karabiner-Elements omits sections that hold
+/// only default values.
+fn apply_rules(
+    karabiner_config: &mut serde_json::Value,
+    rules: &[karabiner_data::Rule],
+) -> anyhow::Result<()> {
+    let profile = karabiner_config
+        .get_mut("profiles")
+        .and_then(serde_json::Value::as_array_mut)
+        .and_then(|profiles| profiles.first_mut())
+        .and_then(serde_json::Value::as_object_mut)
+        .ok_or_else(|| anyhow::anyhow!("No profile found"))?;
+
+    let complex_modifications = profile
+        .entry("complex_modifications")
+        .or_insert_with(|| serde_json::json!({}))
+        .as_object_mut()
+        .ok_or_else(|| anyhow::anyhow!("profiles[0].complex_modifications is not an object"))?;
+    complex_modifications.insert("rules".to_string(), serde_json::to_value(rules)?);
+
+    // Update simultaneous threshold for the shingeta layout
+    complex_modifications
+        .entry("parameters")
+        .or_insert_with(|| serde_json::json!({}))
+        .as_object_mut()
+        .ok_or_else(|| {
+            anyhow::anyhow!("profiles[0].complex_modifications.parameters is not an object")
+        })?
+        .insert(
+            "basic.simultaneous_threshold_milliseconds".to_string(),
+            serde_json::json!(SIMULTANEOUS_THRESHOLD_MILLISECONDS),
+        );
+
+    Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::karabiner_data::{KeyCode::*, Manipulator, Rule};
+    use serde_json::json;
+
+    fn rules() -> Vec<Rule> {
+        vec![Rule {
+            description: "test".to_string(),
+            manipulators: vec![Manipulator::builder().from_key(A).to_key(B, None).build()],
+        }]
+    }
+
+    fn scratch_dir(name: &str) -> std::path::PathBuf {
+        let dir =
+            std::env::temp_dir().join(format!("karaconf-test-{}-{}", std::process::id(), name));
+        let _ = std::fs::remove_dir_all(&dir);
+        std::fs::create_dir_all(&dir).unwrap();
+        dir
+    }
+
+    #[test]
+    fn apply_rules_keeps_everything_but_rules_and_threshold() {
+        // Rules from another karaconf version (unknown condition type) and fields karaconf
+        // does not model must neither block the update nor be dropped.
+        let mut config = json!({
+            "global": { "ask_for_confirmation_before_quitting": false },
+            "profiles": [
+                {
+                    "complex_modifications": {
+                        "parameters": {
+                            "basic.simultaneous_threshold_milliseconds": 50,
+                            "basic.to_if_alone_timeout_milliseconds": 1000
+                        },
+                        "rules": [{
+                            "description": "old",
+                            "manipulators": [{ "conditions": [{ "type": "device_exists_if" }] }]
+                        }]
+                    },
+                    "devices": [{ "identifiers": { "vendor_id": 1452 }, "ignore": true }],
+                    "name": "Default profile",
+                    "simple_modifications": [{
+                        "from": { "key_code": "caps_lock" },
+                        "to": [{ "key_code": "left_control" }]
+                    }],
+                    "unknown_future_field": 1
+                },
+                { "name": "Second profile" }
+            ]
+        });
+        let mut expected = config.clone();
+        let complex_modifications = &mut expected["profiles"][0]["complex_modifications"];
+        complex_modifications["rules"] = serde_json::to_value(rules()).unwrap();
+        complex_modifications["parameters"]["basic.simultaneous_threshold_milliseconds"] =
+            json!(SIMULTANEOUS_THRESHOLD_MILLISECONDS);
+
+        apply_rules(&mut config, &rules()).unwrap();
+
+        // Compare the serialized text so that key order is checked too.
+        assert_eq!(
+            serde_json::to_string_pretty(&config).unwrap(),
+            serde_json::to_string_pretty(&expected).unwrap()
+        );
+    }
+
+    #[test]
+    fn apply_rules_creates_sections_karabiner_omits() {
+        let mut config = json!({ "profiles": [{ "name": "Default profile" }] });
+
+        apply_rules(&mut config, &rules()).unwrap();
+
+        assert_eq!(
+            config,
+            json!({ "profiles": [{
+                "name": "Default profile",
+                "complex_modifications": {
+                    "rules": serde_json::to_value(rules()).unwrap(),
+                    "parameters": {
+                        "basic.simultaneous_threshold_milliseconds": SIMULTANEOUS_THRESHOLD_MILLISECONDS
+                    }
+                }
+            }] })
+        );
+    }
+
+    #[test]
+    fn apply_rules_rejects_unexpected_structure() {
+        for mut config in [
+            json!({}),
+            json!({ "profiles": [] }),
+            json!({ "profiles": [{ "complex_modifications": [] }] }),
+            json!({ "profiles": [{ "complex_modifications": { "parameters": [] } }] }),
+        ] {
+            assert!(apply_rules(&mut config, &rules()).is_err(), "{config}");
+        }
+    }
+
+    #[test]
+    fn unparsable_karabiner_json_is_left_untouched() {
+        let dir = scratch_dir("unparsable");
+        let path = dir.join(KARABINER_JSON_FILENAME);
+        let broken = r#"{"profiles": [{"name": "#;
+        std::fs::write(&path, broken).unwrap();
+
+        let error = update_karabiner_config(&dir, &rules())
+            .unwrap_err()
+            .to_string();
+
+        assert!(error.contains("Failed to parse"), "{error}");
+        assert!(error.contains(&format!("{:?}", path)), "{error}");
+        assert_eq!(std::fs::read_to_string(&path).unwrap(), broken);
+        assert!(!dir.join(KARABINER_JSON_BACKUP_FILENAME).exists());
+        std::fs::remove_dir_all(&dir).unwrap();
+    }
+
+    #[test]
+    fn previous_karabiner_json_is_backed_up_only_when_changed() {
+        let dir = scratch_dir("backup");
+        let path = dir.join(KARABINER_JSON_FILENAME);
+        let backup_path = dir.join(KARABINER_JSON_BACKUP_FILENAME);
+        let original = r#"{"profiles": [{"name": "Default profile"}]}"#;
+        std::fs::write(&path, original).unwrap();
+
+        update_karabiner_config(&dir, &rules()).unwrap();
+        let updated = std::fs::read_to_string(&path).unwrap();
+        assert_ne!(updated, original);
+        assert_eq!(std::fs::read_to_string(&backup_path).unwrap(), original);
+
+        // A run that changes nothing must not replace the backup with the current file.
+        update_karabiner_config(&dir, &rules()).unwrap();
+        assert_eq!(std::fs::read_to_string(&path).unwrap(), updated);
+        assert_eq!(std::fs::read_to_string(&backup_path).unwrap(), original);
+        std::fs::remove_dir_all(&dir).unwrap();
+    }
 }
