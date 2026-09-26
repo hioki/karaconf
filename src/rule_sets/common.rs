@@ -1,6 +1,6 @@
 use crate::karabiner_data::{
-    Condition, FromModifier, KeyCode::*, Manipulator, ModifierKey::*, MouseKey, PointingButton,
-    SetVariable, VirtualKey,
+    Condition, FromModifier, KeyCode, KeyCode::*, Manipulator, ModifierKey::*, MouseKey,
+    PointingButton, SetVariable, VirtualKey,
 };
 
 const MOUSE_SPEED: i32 = 768;
@@ -9,6 +9,55 @@ const SHINGETA_MODE_ON_COMMAND: &str =
     "mkdir -p \"$HOME/.cache/karaconf\" && printf 'on' > \"$HOME/.cache/karaconf/shingeta_mode\"";
 const SHINGETA_MODE_OFF_COMMAND: &str =
     "mkdir -p \"$HOME/.cache/karaconf\" && printf 'off' > \"$HOME/.cache/karaconf/shingeta_mode\"";
+
+/// VK2 + key shell commands (mostly app launchers). `apps/screen_sharing` runs
+/// the same list on the remote Mac while Screen Sharing is frontmost.
+pub const VK2_SHELL_COMMANDS: &[(KeyCode, &str)] = &[
+    // (A, "Ctrl+Shift+Tab"),
+    (B, "open -a 'Bitwarden.app'"),
+    (C, "open -a 'Notion Calendar.app'"),
+    // (D, "Command+Shift+Tab"),
+    (
+        E,
+        r#"osascript -e "tell application \"Alfred 5\" to search \"snip \"""#,
+    ),
+    // (F, "Command+Tab"),
+    (G, "open -a 'Visual Studio Code.app'"),
+    (H, "open -a 'GitHub Copilot.app'"),
+    (I, "open -a 'Claude.app'"),
+    (J, "open -a 'Firefox.app'"),
+    (K, "open -a 'iTerm.app'"),
+    (L, "open -a 'Alfred 5.app'"),
+    (M, "open -a 'Screen Sharing.app'"),
+    (N, "open -a 'Notion.app'"),
+    (O, "open -a \"Google Chrome\""),
+    (P, "open -a '1Password.app'"),
+    // (Q, None),
+    (R, "open -a 'Calculator.app'"),
+    // (S, "Ctrl+Tab"),
+    (T, "open -a 'Finder.app'"),
+    (U, "open -a 'Microsoft To Do.app'"),
+    (V, "open -a 'DeepL.app'"),
+    (W, "open -a 'ChatGPT.app'"),
+    (X, "open -a 'Calendar.app'"),
+    (Y, "open -a 'Preview.app'"),
+    (Z, "open -a 'Super Easy Timer.app'"),
+    // (ReturnOrEnter, None),
+    (Quote, "open -a 'App Store.app'"),
+    // (NonUsPound, None), // ]
+    (OpenBracket, "open -a 'Mail.app'"),                   // @
+    (CloseBracket, "open -a 'Karabiner-EventViewer.app'"), // [
+    (Comma, "open -a 'System Settings.app'"),
+    (Period, "open -a 'Slack.app'"),
+    (
+        Slash,
+        "open 'https://s2.kingtime.jp/independent/recorder2/personal/'",
+    ),
+    // (International1, None), // _
+    // (NonUsPound, None),
+    // (Backslash, None),
+    (International3, "open -a 'Journal.app'"),
+];
 
 pub fn manipulators() -> Vec<Manipulator> {
     let mut manipulators = Vec::new();
@@ -358,56 +407,11 @@ pub fn manipulators() -> Vec<Manipulator> {
     //
     // Virtual Key 2 - Shell Commands
     //
-    for (key_code, shell_command) in [
-        // (A, "Ctrl+Shift+Tab"),
-        (B, "open -a 'Bitwarden.app'"),
-        (C, "open -a 'Notion Calendar.app'"),
-        // (D, "Command+Shift+Tab"),
-        (
-            E,
-            r#"osascript -e "tell application \"Alfred 5\" to search \"snip \"""#,
-        ),
-        // (F, "Command+Tab"),
-        (G, "open -a 'Visual Studio Code.app'"),
-        (H, "open -a 'GitHub Copilot.app'"),
-        (I, "open -a 'Claude.app'"),
-        (J, "open -a 'Firefox.app'"),
-        (K, "open -a 'iTerm.app'"),
-        (L, "open -a 'Alfred 5.app'"),
-        (M, "open -a 'Screen Sharing.app'"),
-        (N, "open -a 'Notion.app'"),
-        (O, "open -a \"Google Chrome\""),
-        (P, "open -a '1Password.app'"),
-        // (Q, None),
-        (R, "open -a 'Calculator.app'"),
-        // (S, "Ctrl+Tab"),
-        (T, "open -a 'Finder.app'"),
-        (U, "open -a 'Microsoft To Do.app'"),
-        (V, "open -a 'DeepL.app'"),
-        (W, "open -a 'ChatGPT.app'"),
-        (X, "open -a 'Calendar.app'"),
-        (Y, "open -a 'Preview.app'"),
-        (Z, "open -a 'Super Easy Timer.app'"),
-        // (ReturnOrEnter, None),
-        (Quote, "open -a 'App Store.app'"),
-        // (NonUsPound, None), // ]
-        (OpenBracket, "open -a 'Mail.app'"), // @
-        (CloseBracket, "open -a 'Karabiner-EventViewer.app'"), // [
-        (Comma, "open -a 'System Settings.app'"),
-        (Period, "open -a 'Slack.app'"),
-        (
-            Slash,
-            "open 'https://s2.kingtime.jp/independent/recorder2/personal/'",
-        ),
-        // (International1, None), // _
-        // (NonUsPound, None),
-        // (Backslash, None),
-        (International3, "open -a 'Journal.app'"),
-    ] {
+    for (key_code, shell_command) in VK2_SHELL_COMMANDS {
         manipulators.push(
             Manipulator::builder()
                 .condition(Condition::with_vk2())
-                .from_key(key_code)
+                .from_key(key_code.clone())
                 .to_command(shell_command)
                 .build(),
         )

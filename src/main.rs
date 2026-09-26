@@ -55,6 +55,10 @@ const RULE_SETS: &[RuleSet] = &[
         "apps/github_copilot",
         rule_sets::apps::github_copilot::manipulators,
     ),
+    (
+        "apps/screen_sharing",
+        rule_sets::apps::screen_sharing::manipulators,
+    ),
     ("common", rule_sets::common::manipulators),
     ("shingeta", rule_sets::shingeta::manipulators),
 ];

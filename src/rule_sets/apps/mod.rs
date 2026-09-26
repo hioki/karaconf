@@ -14,5 +14,6 @@ pub mod notion;
 pub mod notion_calendar;
 pub mod onepassword;
 pub mod preview;
+pub mod screen_sharing;
 pub mod slack;
 pub mod vscode;
