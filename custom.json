@@ -5314,6 +5314,35 @@
       ]
     },
     {
+      "description": "ScreenSharing: VK2+M -> Screen Sharing を隠す",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "m"
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell application \"System Events\" to set visible of (first process whose bundle identifier is \"com.apple.ScreenSharing\") to false'"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "ScreenSharing: VK2+N -> [h-ms] Notion 起動",
       "manipulators": [
         {

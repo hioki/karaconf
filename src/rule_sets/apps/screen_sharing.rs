@@ -9,26 +9,36 @@ use crate::{
 /// sees Screen Sharing input, so VK2 commands are forwarded over ssh instead.
 const REMOTE_HOST: &str = "h-ms";
 
+/// Hides Screen Sharing on the local Mac so the previously used app gets focus,
+/// like ⌘H. Matched by bundle id because the process name is localized.
+const HIDE_SCREEN_SHARING_COMMAND: &str = r#"osascript -e 'tell application "System Events" to set visible of (first process whose bundle identifier is "com.apple.ScreenSharing") to false'"#;
+
 pub fn manipulators() -> Vec<Manipulator> {
     VK2_SHELL_COMMANDS
         .iter()
-        // Launching Screen Sharing on the remote Mac is pointless; this falls
-        // through to the local command, which keeps Screen Sharing frontmost.
-        .filter(|(_, command)| !command.contains("Screen Sharing.app"))
         .map(|(key_code, command)| {
-            Manipulator::builder()
-                .description(format!(
-                    "[{}] {}",
-                    REMOTE_HOST,
-                    display::command_summary(command)
-                ))
+            let builder = Manipulator::builder()
                 .conditions(vec![
                     Condition::on_app(ScreenSharing),
                     Condition::with_vk2(),
                 ])
-                .from_key(key_code.clone())
-                .to_command(&remote_command(command))
-                .build()
+                .from_key(key_code.clone());
+            if command.contains("Screen Sharing.app") {
+                // The same key launches Screen Sharing elsewhere, so it
+                // toggles in and out of Screen Sharing.
+                builder
+                    .description("Screen Sharing を隠す")
+                    .to_command(HIDE_SCREEN_SHARING_COMMAND)
+            } else {
+                builder
+                    .description(format!(
+                        "[{}] {}",
+                        REMOTE_HOST,
+                        display::command_summary(command)
+                    ))
+                    .to_command(&remote_command(command))
+            }
+            .build()
         })
         .collect()
 }

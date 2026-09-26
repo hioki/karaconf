@@ -11,7 +11,8 @@ const SHINGETA_MODE_OFF_COMMAND: &str =
     "mkdir -p \"$HOME/.cache/karaconf\" && printf 'off' > \"$HOME/.cache/karaconf/shingeta_mode\"";
 
 /// VK2 + key shell commands (mostly app launchers). `apps/screen_sharing` runs
-/// the same list on the remote Mac while Screen Sharing is frontmost.
+/// the same list on the remote Mac while Screen Sharing is frontmost, except
+/// the Screen Sharing launcher, which hides Screen Sharing there instead.
 pub const VK2_SHELL_COMMANDS: &[(KeyCode, &str)] = &[
     // (A, "Ctrl+Shift+Tab"),
     (B, "open -a 'Bitwarden.app'"),
