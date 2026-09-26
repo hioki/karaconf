@@ -5053,6 +5053,818 @@
       ]
     },
     {
+      "description": "ScreenSharing: VK2+B -> [h-ms] Bitwarden 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "b"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''Bitwarden.app'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+C -> [h-ms] Notion Calendar 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "c"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''Notion Calendar.app'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+E -> [h-ms] $ osascript -e \"tell applicati…",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "e"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'osascript -e \"tell application \\\"Alfred 5\\\" to search \\\"snip \\\"\"'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+G -> [h-ms] Visual Studio Code 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "g"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''Visual Studio Code.app'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+H -> [h-ms] GitHub Copilot 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "h"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''GitHub Copilot.app'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+I -> [h-ms] Claude 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "i"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''Claude.app'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+J -> [h-ms] Firefox 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "j"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''Firefox.app'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+K -> [h-ms] iTerm 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "k"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''iTerm.app'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+L -> [h-ms] Alfred 5 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "l"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''Alfred 5.app'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+M -> Screen Sharing を隠す",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "m"
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell application \"System Events\" to set visible of (first process whose bundle identifier is \"com.apple.ScreenSharing\") to false'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+N -> [h-ms] Notion 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "n"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''Notion.app'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+O -> [h-ms] Google Chrome 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "o"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a \"Google Chrome\"'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+P -> [h-ms] 1Password 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "p"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''1Password.app'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+R -> [h-ms] Calculator 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "r"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''Calculator.app'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+T -> [h-ms] Finder 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "t"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''Finder.app'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+U -> [h-ms] Microsoft To Do 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "u"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''Microsoft To Do.app'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+V -> [h-ms] DeepL 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "v"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''DeepL.app'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+W -> [h-ms] ChatGPT 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "w"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''ChatGPT.app'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+X -> [h-ms] Calendar 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "x"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''Calendar.app'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+Y -> [h-ms] Preview 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "y"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''Preview.app'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+Z -> [h-ms] Super Easy Timer 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "z"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''Super Easy Timer.app'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+: -> [h-ms] App Store 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "quote"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''App Store.app'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+@ -> [h-ms] Mail 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "open_bracket"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''Mail.app'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+[ -> [h-ms] Karabiner-EventViewer 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "close_bracket"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''Karabiner-EventViewer.app'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+, -> [h-ms] System Settings 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "comma"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''System Settings.app'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+. -> [h-ms] Slack 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "period"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''Slack.app'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+/ -> [h-ms] s2.kingtime.jp を開く",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "slash"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open '\\''https://s2.kingtime.jp/independent/recorder2/personal/'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VK2+¥ -> [h-ms] Journal 起動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "international3"
+          },
+          "to": [
+            {
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''Journal.app'\\'''"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "VK1+H -> カーソルを左に移動",
       "manipulators": [
         {

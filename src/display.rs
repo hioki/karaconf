@@ -257,7 +257,7 @@ fn mouse_speed_label(speed: i32) -> &'static str {
     }
 }
 
-fn command_summary(shell_command: &str) -> String {
+pub fn command_summary(shell_command: &str) -> String {
     if let Some(app) = launched_app_name(shell_command) {
         return format!("{} 起動", app);
     }
