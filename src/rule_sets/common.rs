@@ -1,6 +1,10 @@
 use crate::karabiner_data::{
-    Condition, FromModifier, KeyCode, KeyCode::*, Manipulator, ModifierKey::*, MouseKey,
-    PointingButton, SetVariable, VirtualKey,
+    BundleIdentifier::ScreenSharing,
+    Condition, FromModifier,
+    KeyCode::{self, *},
+    Manipulator,
+    ModifierKey::*,
+    MouseKey, PointingButton, SetVariable, VirtualKey,
 };
 
 const MOUSE_SPEED: i32 = 768;
@@ -371,6 +375,28 @@ pub fn manipulators() -> Vec<Manipulator> {
                 .condition(Condition::with_vk2())
                 .from_key_with_modifiers(key_code, FromModifier::Mandatory(vec![Ctrl]))
                 .to_command(shell_command)
+                .build(),
+        );
+    }
+
+    for (description, key) in [
+        ("Left", H),
+        ("Right", O),
+        ("Down", N),
+        ("Up", P),
+        ("TopLeft", U),
+        ("TopRight", I),
+        ("BottomLeft", M),
+        ("BottomRight", Comma),
+        ("Maximize", B),
+    ] {
+        manipulators.push(
+            Manipulator::builder()
+                .description(format!("[Magnet] [ScreenSharing] {}", description))
+                .condition(Condition::on_app(ScreenSharing))
+                .condition(Condition::with_vk2())
+                .from_key_with_modifiers(key.clone(), FromModifier::Mandatory(vec![Ctrl]))
+                .to_key(key, Some(vec![Ctrl, Opt, Shift]))
                 .build(),
         );
     }
