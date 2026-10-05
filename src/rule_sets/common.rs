@@ -375,6 +375,31 @@ pub fn manipulators() -> Vec<Manipulator> {
         );
     }
 
+    // for MacStudio
+    for (description, from, to) in [
+        ("Left", H, Key1),
+        ("Right", O, Key2),
+        ("Down", N, Key3),
+        ("Up", P, Key4),
+        ("TopLeft", U, Key5),
+        ("TopRight", I, Key6),
+        ("BottomLeft", M, Key7),
+        ("BottomRight", Comma, Key8),
+        ("Previous Display", J, Key9),
+        ("Next Display", K, Key0),
+        ("Maximize", B, Hyphen),
+    ] {
+        manipulators.push(
+            Manipulator::builder()
+                .description(format!("[Magnet] {}", description))
+                .condition(Condition::with_vk2())
+                .from_key_with_modifiers(from, FromModifier::Mandatory(vec![Ctrl]))
+                .to_key(to, Some(vec![Cmd, Ctrl, Opt, Shift]))
+                .build(),
+        );
+    }
+
+    // for non-MacStudio
     for (description, from, to) in [
         ("Left", H, LeftArrow),
         ("Right", O, RightArrow),
@@ -386,6 +411,7 @@ pub fn manipulators() -> Vec<Manipulator> {
         ("BottomRight", Comma, Key4),
         ("Previous Display", J, P),
         ("Next Display", K, N),
+        ("Maximize", B, B),
     ] {
         manipulators.push(
             Manipulator::builder()
@@ -396,14 +422,6 @@ pub fn manipulators() -> Vec<Manipulator> {
                 .build(),
         );
     }
-    manipulators.push(
-        Manipulator::builder()
-            .description("ウィンドウの最大化")
-            .condition(Condition::with_vk2())
-            .from_key_with_modifiers(B, FromModifier::Mandatory(vec![Ctrl]))
-            .to_key(M, Some(vec![Ctrl, Opt, Cmd, Shift]))
-            .build(),
-    );
 
     //
     // Virtual Key 2 - Shell Commands

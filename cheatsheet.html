@@ -63,7 +63,7 @@ a { color: var(--vk1); }
 </head>
 <body><main>
 <h1>karaconf cheatsheet</h1>
-<p class="meta">全 458 manipulators ／ 22 rule sets ／ lint: 問題なし ✅</p>
+<p class="meta">全 469 manipulators ／ 22 rule sets ／ <a href="#lint">lint: 11 件 ⚠️</a></p>
 <nav class="toc">
 <a class="lv2" href="#sec-0">VK1 レイヤー</a>
 <a class="lv2" href="#sec-1">VK2 レイヤー</a>
@@ -98,6 +98,7 @@ a { color: var(--vk1); }
 <a class="lv3" href="#sec-30">O + □ 同時押し</a>
 <a class="lv3" href="#sec-31">R + □ 同時押し</a>
 <a class="lv2" href="#sec-32">その他の条件</a>
+<a class="lv2" href="#lint">⚠️ lint</a>
 </nav>
 <section><h2 id="sec-0"><span class="chip vk1">VK1</span> レイヤー <span class="count">56 rules</span></h2>
 <div class="kb">
@@ -160,7 +161,7 @@ a { color: var(--vk1); }
 </div>
 <p class="free-list">空きキー: W</p>
 </section>
-<section><h2 id="sec-1"><span class="chip vk2">VK2</span> レイヤー <span class="count">58 rules</span></h2>
+<section><h2 id="sec-1"><span class="chip vk2">VK2</span> レイヤー <span class="count">69 rules</span></h2>
 <div class="kb">
 <div class="krow" style="margin-left:0px">
 <div class="key"><span class="legend">1</span><span class="out" title="VK2+1 -&gt; 音量を下げる">音量-</span><span class="desc">音量を下げる</span><span class="out" title="VK2+⌃1 -&gt; マイク入力音量を下げる"><span class="badge">⌃</span>マイク音量調整</span><span class="desc">マイク入力音量を下げる</span></div>
@@ -184,10 +185,10 @@ a { color: var(--vk1); }
 <div class="key"><span class="legend">R</span><span class="out" title="VK2+R -&gt; Calculator 起動">Calculator 起動</span></div>
 <div class="key"><span class="legend">T</span><span class="out" title="VK2+T -&gt; Finder 起動">Finder 起動</span></div>
 <div class="key"><span class="legend">Y</span><span class="out" title="VK2+Y -&gt; Preview 起動">Preview 起動</span></div>
-<div class="key"><span class="legend">U</span><span class="out" title="VK2+⌃U -&gt; [Magnet] TopLeft"><span class="badge">⌃</span>⌘⌃⌥⇧1</span><span class="desc">[Magnet] TopLeft</span><span class="out" title="VK2+U -&gt; Microsoft To Do 起動">Microsoft To Do 起動</span></div>
-<div class="key"><span class="legend">I</span><span class="out" title="VK2+⌃I -&gt; [Magnet] TopRight"><span class="badge">⌃</span>⌘⌃⌥⇧2</span><span class="desc">[Magnet] TopRight</span><span class="out" title="VK2+I -&gt; Claude 起動">Claude 起動</span></div>
-<div class="key"><span class="legend">O</span><span class="out" title="VK2+⌃O -&gt; [Magnet] Right"><span class="badge">⌃</span>⌘⌃⌥⇧→</span><span class="desc">[Magnet] Right</span><span class="out" title="VK2+O -&gt; Google Chrome 起動">Google Chrome 起動</span></div>
-<div class="key"><span class="legend">P</span><span class="out" title="VK2+⌃P -&gt; [Magnet] Up"><span class="badge">⌃</span>⌘⌃⌥⇧↑</span><span class="desc">[Magnet] Up</span><span class="out" title="VK2+P -&gt; 1Password 起動">1Password 起動</span></div>
+<div class="key"><span class="legend">U</span><span class="out" title="VK2+⌃U -&gt; [Magnet] TopLeft"><span class="badge">⌃</span>⌘⌃⌥⇧5</span><span class="desc">[Magnet] TopLeft</span><span class="out" title="VK2+⌃U -&gt; [Magnet] TopLeft"><span class="badge">⌃</span>⌘⌃⌥⇧1</span><span class="desc">[Magnet] TopLeft</span><span class="out" title="VK2+U -&gt; Microsoft To Do 起動">Microsoft To Do 起動</span></div>
+<div class="key"><span class="legend">I</span><span class="out" title="VK2+⌃I -&gt; [Magnet] TopRight"><span class="badge">⌃</span>⌘⌃⌥⇧6</span><span class="desc">[Magnet] TopRight</span><span class="out" title="VK2+⌃I -&gt; [Magnet] TopRight"><span class="badge">⌃</span>⌘⌃⌥⇧2</span><span class="desc">[Magnet] TopRight</span><span class="out" title="VK2+I -&gt; Claude 起動">Claude 起動</span></div>
+<div class="key"><span class="legend">O</span><span class="out" title="VK2+⌃O -&gt; [Magnet] Right"><span class="badge">⌃</span>⌘⌃⌥⇧2</span><span class="desc">[Magnet] Right</span><span class="out" title="VK2+⌃O -&gt; [Magnet] Right"><span class="badge">⌃</span>⌘⌃⌥⇧→</span><span class="desc">[Magnet] Right</span><span class="out" title="VK2+O -&gt; Google Chrome 起動">Google Chrome 起動</span></div>
+<div class="key"><span class="legend">P</span><span class="out" title="VK2+⌃P -&gt; [Magnet] Up"><span class="badge">⌃</span>⌘⌃⌥⇧4</span><span class="desc">[Magnet] Up</span><span class="out" title="VK2+⌃P -&gt; [Magnet] Up"><span class="badge">⌃</span>⌘⌃⌥⇧↑</span><span class="desc">[Magnet] Up</span><span class="out" title="VK2+P -&gt; 1Password 起動">1Password 起動</span></div>
 <div class="key"><span class="legend">@</span><span class="out" title="VK2+@ -&gt; Mail 起動">Mail 起動</span></div>
 <div class="key"><span class="legend">[</span><span class="out" title="VK2+[ -&gt; Karabiner-EventViewer 起動">Karabiner-EventViewer 起動</span></div>
 </div>
@@ -197,9 +198,9 @@ a { color: var(--vk1); }
 <div class="key"><span class="legend">D</span><span class="out" title="VK2+D -&gt; 前のアプリに切り替え">⌘⇧Tab</span><span class="desc">前のアプリに切り替え</span></div>
 <div class="key"><span class="legend">F</span><span class="out" title="VK2+F -&gt; 次のアプリに切り替え">⌘Tab</span><span class="desc">次のアプリに切り替え</span></div>
 <div class="key"><span class="legend">G</span><span class="out" title="VK2+G -&gt; Visual Studio Code 起動">Visual Studio Code 起動</span></div>
-<div class="key"><span class="legend">H</span><span class="out" title="VK2+⌃H -&gt; [Magnet] Left"><span class="badge">⌃</span>⌘⌃⌥⇧←</span><span class="desc">[Magnet] Left</span><span class="out" title="VK2+H -&gt; GitHub Copilot 起動">GitHub Copilot 起動</span></div>
-<div class="key"><span class="legend">J</span><span class="out" title="VK2+⌃J -&gt; [Magnet] Previous Display"><span class="badge">⌃</span>⌘⌃⌥⇧P</span><span class="desc">[Magnet] Previous Display</span><span class="out" title="VK2+J -&gt; Firefox 起動">Firefox 起動</span></div>
-<div class="key"><span class="legend">K</span><span class="out" title="VK2+⌃K -&gt; [Magnet] Next Display"><span class="badge">⌃</span>⌘⌃⌥⇧N</span><span class="desc">[Magnet] Next Display</span><span class="out" title="VK2+K -&gt; iTerm 起動">iTerm 起動</span></div>
+<div class="key"><span class="legend">H</span><span class="out" title="VK2+⌃H -&gt; [Magnet] Left"><span class="badge">⌃</span>⌘⌃⌥⇧1</span><span class="desc">[Magnet] Left</span><span class="out" title="VK2+⌃H -&gt; [Magnet] Left"><span class="badge">⌃</span>⌘⌃⌥⇧←</span><span class="desc">[Magnet] Left</span><span class="out" title="VK2+H -&gt; GitHub Copilot 起動">GitHub Copilot 起動</span></div>
+<div class="key"><span class="legend">J</span><span class="out" title="VK2+⌃J -&gt; [Magnet] Previous Display"><span class="badge">⌃</span>⌘⌃⌥⇧9</span><span class="desc">[Magnet] Previous Display</span><span class="out" title="VK2+⌃J -&gt; [Magnet] Previous Display"><span class="badge">⌃</span>⌘⌃⌥⇧P</span><span class="desc">[Magnet] Previous Display</span><span class="out" title="VK2+J -&gt; Firefox 起動">Firefox 起動</span></div>
+<div class="key"><span class="legend">K</span><span class="out" title="VK2+⌃K -&gt; [Magnet] Next Display"><span class="badge">⌃</span>⌘⌃⌥⇧0</span><span class="desc">[Magnet] Next Display</span><span class="out" title="VK2+⌃K -&gt; [Magnet] Next Display"><span class="badge">⌃</span>⌘⌃⌥⇧N</span><span class="desc">[Magnet] Next Display</span><span class="out" title="VK2+K -&gt; iTerm 起動">iTerm 起動</span></div>
 <div class="key"><span class="legend">L</span><span class="out" title="VK2+L -&gt; Alfred 5 起動">Alfred 5 起動</span></div>
 <div class="key"><span class="legend">;</span><span class="out" title="VK2+; -&gt; 複数行の文字列の送信など">⌘⏎</span><span class="desc">複数行の文字列の送信など</span></div>
 <div class="key"><span class="legend">:</span><span class="out" title="VK2+: -&gt; App Store 起動">App Store 起動</span></div>
@@ -210,10 +211,10 @@ a { color: var(--vk1); }
 <div class="key"><span class="legend">X</span><span class="out" title="VK2+X -&gt; Calendar 起動">Calendar 起動</span></div>
 <div class="key"><span class="legend">C</span><span class="out" title="VK2+C -&gt; Notion Calendar 起動">Notion Calendar 起動</span></div>
 <div class="key"><span class="legend">V</span><span class="out" title="VK2+V -&gt; DeepL 起動">DeepL 起動</span></div>
-<div class="key"><span class="legend">B</span><span class="out" title="VK2+⌃B -&gt; ウィンドウの最大化"><span class="badge">⌃</span>⌃⌥⌘⇧M</span><span class="desc">ウィンドウの最大化</span><span class="out" title="VK2+B -&gt; Bitwarden 起動">Bitwarden 起動</span></div>
-<div class="key"><span class="legend">N</span><span class="out" title="VK2+⌃N -&gt; [Magnet] Down"><span class="badge">⌃</span>⌘⌃⌥⇧↓</span><span class="desc">[Magnet] Down</span><span class="out" title="VK2+N -&gt; Notion 起動">Notion 起動</span></div>
-<div class="key"><span class="legend">M</span><span class="out" title="VK2+⌃M -&gt; [Magnet] BottomLeft"><span class="badge">⌃</span>⌘⌃⌥⇧3</span><span class="desc">[Magnet] BottomLeft</span><span class="out" title="VK2+M -&gt; Screen Sharing 起動">Screen Sharing 起動</span></div>
-<div class="key"><span class="legend">,</span><span class="out" title="VK2+⌃, -&gt; [Magnet] BottomRight"><span class="badge">⌃</span>⌘⌃⌥⇧4</span><span class="desc">[Magnet] BottomRight</span><span class="out" title="VK2+, -&gt; System Settings 起動">System Settings 起動</span></div>
+<div class="key"><span class="legend">B</span><span class="out" title="VK2+⌃B -&gt; [Magnet] Maximize"><span class="badge">⌃</span>⌘⌃⌥⇧-</span><span class="desc">[Magnet] Maximize</span><span class="out" title="VK2+⌃B -&gt; [Magnet] Maximize"><span class="badge">⌃</span>⌘⌃⌥⇧B</span><span class="desc">[Magnet] Maximize</span><span class="out" title="VK2+B -&gt; Bitwarden 起動">Bitwarden 起動</span></div>
+<div class="key"><span class="legend">N</span><span class="out" title="VK2+⌃N -&gt; [Magnet] Down"><span class="badge">⌃</span>⌘⌃⌥⇧3</span><span class="desc">[Magnet] Down</span><span class="out" title="VK2+⌃N -&gt; [Magnet] Down"><span class="badge">⌃</span>⌘⌃⌥⇧↓</span><span class="desc">[Magnet] Down</span><span class="out" title="VK2+N -&gt; Notion 起動">Notion 起動</span></div>
+<div class="key"><span class="legend">M</span><span class="out" title="VK2+⌃M -&gt; [Magnet] BottomLeft"><span class="badge">⌃</span>⌘⌃⌥⇧7</span><span class="desc">[Magnet] BottomLeft</span><span class="out" title="VK2+⌃M -&gt; [Magnet] BottomLeft"><span class="badge">⌃</span>⌘⌃⌥⇧3</span><span class="desc">[Magnet] BottomLeft</span><span class="out" title="VK2+M -&gt; Screen Sharing 起動">Screen Sharing 起動</span></div>
+<div class="key"><span class="legend">,</span><span class="out" title="VK2+⌃, -&gt; [Magnet] BottomRight"><span class="badge">⌃</span>⌘⌃⌥⇧8</span><span class="desc">[Magnet] BottomRight</span><span class="out" title="VK2+⌃, -&gt; [Magnet] BottomRight"><span class="badge">⌃</span>⌘⌃⌥⇧4</span><span class="desc">[Magnet] BottomRight</span><span class="out" title="VK2+, -&gt; System Settings 起動">System Settings 起動</span></div>
 <div class="key"><span class="legend">.</span><span class="out" title="VK2+. -&gt; Slack 起動">Slack 起動</span></div>
 <div class="key"><span class="legend">/</span><span class="out" title="VK2+/ -&gt; s2.kingtime.jp を開く">s2.kingtime.jp を開く</span></div>
 <div class="key free"><span class="legend">_</span></div>
@@ -1033,4 +1034,17 @@ a { color: var(--vk1); }
 <tr><td class="cond">新下駄オフ</td><td class="from">F12</td><td>[新下駄=1] 新下駄モード記録</td><td class="desc-col">Enable shingeta layout</td></tr>
 </tbody></table>
 </section>
+<section id="lint"><h2>⚠️ lint <span class="count">11 件</span></h2><ul class="lint">
+<li>[common#86] (⌃H) は先行する [common#75] に覆われていて発火しません</li>
+<li>[common#87] (⌃O) は先行する [common#76] に覆われていて発火しません</li>
+<li>[common#88] (⌃N) は先行する [common#77] に覆われていて発火しません</li>
+<li>[common#89] (⌃P) は先行する [common#78] に覆われていて発火しません</li>
+<li>[common#90] (⌃U) は先行する [common#79] に覆われていて発火しません</li>
+<li>[common#91] (⌃I) は先行する [common#80] に覆われていて発火しません</li>
+<li>[common#92] (⌃M) は先行する [common#81] に覆われていて発火しません</li>
+<li>[common#93] (⌃,) は先行する [common#82] に覆われていて発火しません</li>
+<li>[common#94] (⌃J) は先行する [common#83] に覆われていて発火しません</li>
+<li>[common#95] (⌃K) は先行する [common#84] に覆われていて発火しません</li>
+<li>[common#96] (⌃B) は先行する [common#85] に覆われていて発火しません</li>
+</ul></section>
 </main></body>
