@@ -144,6 +144,9 @@ fn context_label(manipulator: &Manipulator) -> String {
                 );
                 prefix.push_str(": ");
             }
+            Condition::OnRemoteApplication { value, .. } => {
+                prefix.push_str(&format!("{:?} (remote): ", value));
+            }
             Condition::WithVirtualKey { name, value, .. } => {
                 if *value == 1 {
                     match name {
