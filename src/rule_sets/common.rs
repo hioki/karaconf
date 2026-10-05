@@ -1,6 +1,6 @@
 use crate::karabiner_data::{
-    Condition, FromModifier, KeyCode, KeyCode::*, Manipulator, ModifierKey::*, MouseKey,
-    PointingButton, SetVariable, VirtualKey,
+    Condition, FromModifier, KeyCode, KeyCode::*, Manipulator, ModifierKey, ModifierKey::*,
+    MouseKey, PointingButton, SetVariable, VirtualKey,
 };
 
 const MOUSE_SPEED: i32 = 768;
@@ -9,6 +9,43 @@ const SHINGETA_MODE_ON_COMMAND: &str =
     "mkdir -p \"$HOME/.cache/karaconf\" && printf 'on' > \"$HOME/.cache/karaconf/shingeta_mode\"";
 const SHINGETA_MODE_OFF_COMMAND: &str =
     "mkdir -p \"$HOME/.cache/karaconf\" && printf 'off' > \"$HOME/.cache/karaconf/shingeta_mode\"";
+
+/// A Magnet action, the key pressed with VK2+⌃ for it, and the key of the
+/// shortcut Magnet is set up with for it.
+pub type MagnetShortcut = (&'static str, KeyCode, KeyCode);
+
+/// Magnet's shortcuts on the Mac Studio, all with `MAC_STUDIO_MAGNET_MODIFIERS`.
+/// `apps/screen_sharing` sends them to the Mac Studio through Screen Sharing.
+pub const MAC_STUDIO_MAGNET_SHORTCUTS: &[MagnetShortcut] = &[
+    ("Left", H, Key1),
+    ("Right", O, Key2),
+    ("Down", N, Key3),
+    ("Up", P, Key4),
+    ("TopLeft", U, Key5),
+    ("TopRight", I, Key6),
+    ("BottomLeft", M, Key7),
+    ("BottomRight", Comma, Key8),
+    ("Previous Display", J, Key9),
+    ("Next Display", K, Key0),
+    ("Maximize", B, Hyphen),
+];
+pub const MAC_STUDIO_MAGNET_MODIFIERS: &[ModifierKey] = &[Ctrl, Opt, Shift];
+
+/// Magnet's shortcuts on the other Macs, all with `MAGNET_MODIFIERS`.
+const MAGNET_SHORTCUTS: &[MagnetShortcut] = &[
+    ("Left", H, LeftArrow),
+    ("Right", O, RightArrow),
+    ("Down", N, DownArrow),
+    ("Up", P, UpArrow),
+    ("TopLeft", U, Key1),
+    ("TopRight", I, Key2),
+    ("BottomLeft", M, Key3),
+    ("BottomRight", Comma, Key4),
+    ("Previous Display", J, P),
+    ("Next Display", K, N),
+    ("Maximize", B, B),
+];
+const MAGNET_MODIFIERS: &[ModifierKey] = &[Cmd, Ctrl, Opt, Shift];
 
 /// VK2 + key shell commands (mostly app launchers). `apps/screen_sharing` runs
 /// the same list on the remote Mac while Screen Sharing is frontmost, except
@@ -375,50 +412,20 @@ pub fn manipulators() -> Vec<Manipulator> {
         );
     }
 
-    // for MacStudio
-    for (description, from, to) in [
-        ("Left", H, Key1),
-        ("Right", O, Key2),
-        ("Down", N, Key3),
-        ("Up", P, Key4),
-        ("TopLeft", U, Key5),
-        ("TopRight", I, Key6),
-        ("BottomLeft", M, Key7),
-        ("BottomRight", Comma, Key8),
-        ("Previous Display", J, Key9),
-        ("Next Display", K, Key0),
-        ("Maximize", B, Hyphen),
-    ] {
+    // Magnet's shortcuts are set up differently on the Mac Studio, so pick the
+    // mapping for the Mac that runs karaconf.
+    let (magnet_shortcuts, magnet_modifiers) = if is_mac_studio() {
+        (MAC_STUDIO_MAGNET_SHORTCUTS, MAC_STUDIO_MAGNET_MODIFIERS)
+    } else {
+        (MAGNET_SHORTCUTS, MAGNET_MODIFIERS)
+    };
+    for (description, from, to) in magnet_shortcuts {
         manipulators.push(
             Manipulator::builder()
                 .description(format!("[Magnet] {}", description))
                 .condition(Condition::with_vk2())
-                .from_key_with_modifiers(from, FromModifier::Mandatory(vec![Ctrl]))
-                .to_key(to, Some(vec![Cmd, Ctrl, Opt, Shift]))
-                .build(),
-        );
-    }
-
-    // for non-MacStudio
-    for (description, from, to) in [
-        ("Left", H, LeftArrow),
-        ("Right", O, RightArrow),
-        ("Down", N, DownArrow),
-        ("Up", P, UpArrow),
-        ("TopLeft", U, Key1),
-        ("TopRight", I, Key2),
-        ("BottomLeft", M, Key3),
-        ("BottomRight", Comma, Key4),
-        ("Previous Display", J, P),
-        ("Next Display", K, N),
-        ("Maximize", B, B),
-    ] {
-        manipulators.push(
-            Manipulator::builder()
-                .description(format!("[Magnet] {}", description))
-                .condition(Condition::with_vk2())
-                .from_key_with_modifiers(from, FromModifier::Mandatory(vec![Ctrl]))
-                .to_key(to, Some(vec![Cmd, Ctrl, Opt, Shift]))
+                .from_key_with_modifiers(from.clone(), FromModifier::Mandatory(vec![Ctrl]))
+                .to_key(to.clone(), Some(magnet_modifiers.to_vec()))
                 .build(),
         );
     }
@@ -603,4 +610,13 @@ pub fn manipulators() -> Vec<Manipulator> {
     );
 
     manipulators
+}
+
+/// Whether the Mac running karaconf is a Mac Studio.
+fn is_mac_studio() -> bool {
+    std::process::Command::new("system_profiler")
+        .arg("SPHardwareDataType")
+        .output()
+        .map(|output| String::from_utf8_lossy(&output.stdout).contains("Model Name: Mac Studio"))
+        .unwrap_or(false)
 }

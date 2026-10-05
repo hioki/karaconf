@@ -7904,7 +7904,7 @@
       ]
     },
     {
-      "description": "VK2+⌃H -> [Magnet] Left",
+      "description": "VK2+⌃⇧H -> [Magnet] Left",
       "manipulators": [
         {
           "type": "basic",
@@ -7919,7 +7919,8 @@
             "key_code": "h",
             "modifiers": {
               "mandatory": [
-                "control"
+                "control",
+                "shift"
               ]
             }
           },
@@ -7938,7 +7939,7 @@
       ]
     },
     {
-      "description": "VK2+⌃O -> [Magnet] Right",
+      "description": "VK2+⌃⇧O -> [Magnet] Right",
       "manipulators": [
         {
           "type": "basic",
@@ -7953,7 +7954,8 @@
             "key_code": "o",
             "modifiers": {
               "mandatory": [
-                "control"
+                "control",
+                "shift"
               ]
             }
           },
@@ -7972,7 +7974,7 @@
       ]
     },
     {
-      "description": "VK2+⌃N -> [Magnet] Down",
+      "description": "VK2+⌃⇧N -> [Magnet] Down",
       "manipulators": [
         {
           "type": "basic",
@@ -7987,7 +7989,8 @@
             "key_code": "n",
             "modifiers": {
               "mandatory": [
-                "control"
+                "control",
+                "shift"
               ]
             }
           },
@@ -8006,7 +8009,7 @@
       ]
     },
     {
-      "description": "VK2+⌃P -> [Magnet] Up",
+      "description": "VK2+⌃⇧P -> [Magnet] Up",
       "manipulators": [
         {
           "type": "basic",
@@ -8021,7 +8024,8 @@
             "key_code": "p",
             "modifiers": {
               "mandatory": [
-                "control"
+                "control",
+                "shift"
               ]
             }
           },
@@ -8040,7 +8044,7 @@
       ]
     },
     {
-      "description": "VK2+⌃U -> [Magnet] TopLeft",
+      "description": "VK2+⌃⇧U -> [Magnet] TopLeft",
       "manipulators": [
         {
           "type": "basic",
@@ -8055,7 +8059,8 @@
             "key_code": "u",
             "modifiers": {
               "mandatory": [
-                "control"
+                "control",
+                "shift"
               ]
             }
           },
@@ -8074,7 +8079,7 @@
       ]
     },
     {
-      "description": "VK2+⌃I -> [Magnet] TopRight",
+      "description": "VK2+⌃⇧I -> [Magnet] TopRight",
       "manipulators": [
         {
           "type": "basic",
@@ -8089,7 +8094,8 @@
             "key_code": "i",
             "modifiers": {
               "mandatory": [
-                "control"
+                "control",
+                "shift"
               ]
             }
           },
@@ -8108,7 +8114,7 @@
       ]
     },
     {
-      "description": "VK2+⌃M -> [Magnet] BottomLeft",
+      "description": "VK2+⌃⇧M -> [Magnet] BottomLeft",
       "manipulators": [
         {
           "type": "basic",
@@ -8123,7 +8129,8 @@
             "key_code": "m",
             "modifiers": {
               "mandatory": [
-                "control"
+                "control",
+                "shift"
               ]
             }
           },
@@ -8142,7 +8149,7 @@
       ]
     },
     {
-      "description": "VK2+⌃, -> [Magnet] BottomRight",
+      "description": "VK2+⌃⇧, -> [Magnet] BottomRight",
       "manipulators": [
         {
           "type": "basic",
@@ -8157,7 +8164,8 @@
             "key_code": "comma",
             "modifiers": {
               "mandatory": [
-                "control"
+                "control",
+                "shift"
               ]
             }
           },
@@ -8176,7 +8184,7 @@
       ]
     },
     {
-      "description": "VK2+⌃J -> [Magnet] Previous Display",
+      "description": "VK2+⌃⇧J -> [Magnet] Previous Display",
       "manipulators": [
         {
           "type": "basic",
@@ -8191,7 +8199,8 @@
             "key_code": "j",
             "modifiers": {
               "mandatory": [
-                "control"
+                "control",
+                "shift"
               ]
             }
           },
@@ -8210,7 +8219,7 @@
       ]
     },
     {
-      "description": "VK2+⌃K -> [Magnet] Next Display",
+      "description": "VK2+⌃⇧K -> [Magnet] Next Display",
       "manipulators": [
         {
           "type": "basic",
@@ -8225,7 +8234,8 @@
             "key_code": "k",
             "modifiers": {
               "mandatory": [
-                "control"
+                "control",
+                "shift"
               ]
             }
           },
@@ -8244,7 +8254,7 @@
       ]
     },
     {
-      "description": "VK2+⌃B -> [Magnet] Maximize",
+      "description": "VK2+⌃⇧B -> [Magnet] Maximize",
       "manipulators": [
         {
           "type": "basic",
@@ -8259,387 +8269,14 @@
             "key_code": "b",
             "modifiers": {
               "mandatory": [
-                "control"
+                "control",
+                "shift"
               ]
             }
           },
           "to": [
             {
               "key_code": "hyphen",
-              "modifiers": [
-                "command",
-                "control",
-                "option",
-                "shift"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "VK2+⌃H -> [Magnet] Left",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vk2",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "h",
-            "modifiers": {
-              "mandatory": [
-                "control"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "left_arrow",
-              "modifiers": [
-                "command",
-                "control",
-                "option",
-                "shift"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "VK2+⌃O -> [Magnet] Right",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vk2",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "o",
-            "modifiers": {
-              "mandatory": [
-                "control"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_arrow",
-              "modifiers": [
-                "command",
-                "control",
-                "option",
-                "shift"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "VK2+⌃N -> [Magnet] Down",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vk2",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "n",
-            "modifiers": {
-              "mandatory": [
-                "control"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "down_arrow",
-              "modifiers": [
-                "command",
-                "control",
-                "option",
-                "shift"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "VK2+⌃P -> [Magnet] Up",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vk2",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "p",
-            "modifiers": {
-              "mandatory": [
-                "control"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "up_arrow",
-              "modifiers": [
-                "command",
-                "control",
-                "option",
-                "shift"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "VK2+⌃U -> [Magnet] TopLeft",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vk2",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "u",
-            "modifiers": {
-              "mandatory": [
-                "control"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "1",
-              "modifiers": [
-                "command",
-                "control",
-                "option",
-                "shift"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "VK2+⌃I -> [Magnet] TopRight",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vk2",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "i",
-            "modifiers": {
-              "mandatory": [
-                "control"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "2",
-              "modifiers": [
-                "command",
-                "control",
-                "option",
-                "shift"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "VK2+⌃M -> [Magnet] BottomLeft",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vk2",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "m",
-            "modifiers": {
-              "mandatory": [
-                "control"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "3",
-              "modifiers": [
-                "command",
-                "control",
-                "option",
-                "shift"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "VK2+⌃, -> [Magnet] BottomRight",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vk2",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "comma",
-            "modifiers": {
-              "mandatory": [
-                "control"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "4",
-              "modifiers": [
-                "command",
-                "control",
-                "option",
-                "shift"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "VK2+⌃J -> [Magnet] Previous Display",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vk2",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "j",
-            "modifiers": {
-              "mandatory": [
-                "control"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "p",
-              "modifiers": [
-                "command",
-                "control",
-                "option",
-                "shift"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "VK2+⌃K -> [Magnet] Next Display",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vk2",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "k",
-            "modifiers": {
-              "mandatory": [
-                "control"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "n",
-              "modifiers": [
-                "command",
-                "control",
-                "option",
-                "shift"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "VK2+⌃B -> [Magnet] Maximize",
-      "manipulators": [
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "vk2",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "b",
-            "modifiers": {
-              "mandatory": [
-                "control"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "b",
               "modifiers": [
                 "command",
                 "control",

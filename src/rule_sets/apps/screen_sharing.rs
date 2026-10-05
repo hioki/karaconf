@@ -1,7 +1,11 @@
 use crate::{
     display,
-    karabiner_data::{BundleIdentifier::ScreenSharing, Condition, Manipulator},
-    rule_sets::common::VK2_SHELL_COMMANDS,
+    karabiner_data::{
+        BundleIdentifier::ScreenSharing, Condition, FromModifier, Manipulator, ModifierKey::*,
+    },
+    rule_sets::common::{
+        MAC_STUDIO_MAGNET_MODIFIERS, MAC_STUDIO_MAGNET_SHORTCUTS, VK2_SHELL_COMMANDS,
+    },
 };
 
 /// The Mac controlled through Screen Sharing (an ssh host alias). Karabiner
@@ -40,7 +44,27 @@ pub fn manipulators() -> Vec<Manipulator> {
             }
             .build()
         })
+        .chain(magnet_manipulators())
         .collect()
+}
+
+/// Screen Sharing forwards the keys Karabiner sends, so VK2+⌃ sends the remote
+/// Mac's Magnet shortcuts. The local Magnet must not use the same shortcuts,
+/// or it takes them before Screen Sharing does.
+fn magnet_manipulators() -> impl Iterator<Item = Manipulator> {
+    MAC_STUDIO_MAGNET_SHORTCUTS
+        .iter()
+        .map(|(description, from, to)| {
+            Manipulator::builder()
+                .description(format!("[{}] [Magnet] {}", REMOTE_HOST, description))
+                .conditions(vec![
+                    Condition::on_app(ScreenSharing),
+                    Condition::with_vk2(),
+                ])
+                .from_key_with_modifiers(from.clone(), FromModifier::Mandatory(vec![Ctrl]))
+                .to_key(to.clone(), Some(MAC_STUDIO_MAGNET_MODIFIERS.to_vec()))
+                .build()
+        })
 }
 
 /// - BatchMode: fail instead of waiting for a password prompt that nobody can
