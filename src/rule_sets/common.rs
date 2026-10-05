@@ -61,7 +61,7 @@ pub const VK2_SHELL_COMMANDS: &[(KeyCode, &str)] = &[
     ),
     // (F, "Command+Tab"),
     (G, "open -a 'Visual Studio Code.app'"),
-    (H, "open -a 'GitHub Copilot.app'"),
+    (H, "open -a 'Screenshot.app'"),
     (I, "open -a 'Claude.app'"),
     (J, "open -a 'Firefox.app'"),
     (K, "open -a 'iTerm.app'"),

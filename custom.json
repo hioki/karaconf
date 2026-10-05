@@ -10662,7 +10662,7 @@
       ]
     },
     {
-      "description": "ScreenSharing: VK2+H -> [h-ms] GitHub Copilot 起動",
+      "description": "ScreenSharing: VK2+H -> [h-ms] Screenshot 起動",
       "manipulators": [
         {
           "type": "basic",
@@ -10684,7 +10684,7 @@
           },
           "to": [
             {
-              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''GitHub Copilot.app'\\'''"
+              "shell_command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ControlMaster=auto -o ControlPath=~/.ssh/karaconf-%C -o ControlPersist=10m -o ServerAliveInterval=5 -o ServerAliveCountMax=2 h-ms 'open -a '\\''Screenshot.app'\\'''"
             }
           ]
         }
@@ -13847,8 +13847,9 @@
           },
           "to": [
             {
-              "key_code": "1",
+              "key_code": "left_arrow",
               "modifiers": [
+                "command",
                 "control",
                 "option",
                 "shift"
@@ -13880,8 +13881,9 @@
           },
           "to": [
             {
-              "key_code": "2",
+              "key_code": "right_arrow",
               "modifiers": [
+                "command",
                 "control",
                 "option",
                 "shift"
@@ -13913,8 +13915,9 @@
           },
           "to": [
             {
-              "key_code": "3",
+              "key_code": "down_arrow",
               "modifiers": [
+                "command",
                 "control",
                 "option",
                 "shift"
@@ -13946,8 +13949,9 @@
           },
           "to": [
             {
-              "key_code": "4",
+              "key_code": "up_arrow",
               "modifiers": [
+                "command",
                 "control",
                 "option",
                 "shift"
@@ -13979,8 +13983,9 @@
           },
           "to": [
             {
-              "key_code": "5",
+              "key_code": "1",
               "modifiers": [
+                "command",
                 "control",
                 "option",
                 "shift"
@@ -14012,8 +14017,9 @@
           },
           "to": [
             {
-              "key_code": "6",
+              "key_code": "2",
               "modifiers": [
+                "command",
                 "control",
                 "option",
                 "shift"
@@ -14045,8 +14051,9 @@
           },
           "to": [
             {
-              "key_code": "7",
+              "key_code": "3",
               "modifiers": [
+                "command",
                 "control",
                 "option",
                 "shift"
@@ -14078,8 +14085,9 @@
           },
           "to": [
             {
-              "key_code": "8",
+              "key_code": "4",
               "modifiers": [
+                "command",
                 "control",
                 "option",
                 "shift"
@@ -14111,8 +14119,9 @@
           },
           "to": [
             {
-              "key_code": "9",
+              "key_code": "p",
               "modifiers": [
+                "command",
                 "control",
                 "option",
                 "shift"
@@ -14144,8 +14153,9 @@
           },
           "to": [
             {
-              "key_code": "0",
+              "key_code": "n",
               "modifiers": [
+                "command",
                 "control",
                 "option",
                 "shift"
@@ -14177,8 +14187,9 @@
           },
           "to": [
             {
-              "key_code": "hyphen",
+              "key_code": "b",
               "modifiers": [
+                "command",
                 "control",
                 "option",
                 "shift"
@@ -14281,7 +14292,7 @@
       ]
     },
     {
-      "description": "VK2+H -> GitHub Copilot 起動",
+      "description": "VK2+H -> Screenshot 起動",
       "manipulators": [
         {
           "type": "basic",
@@ -14297,7 +14308,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'GitHub Copilot.app'"
+              "shell_command": "open -a 'Screenshot.app'"
             }
           ]
         }
