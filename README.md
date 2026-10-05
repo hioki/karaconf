@@ -35,3 +35,28 @@ conditions, covering modifiers), as well as fully duplicated definitions.
 `cargo run` also generates `cheatsheet.html`: per-layer (VK1-VK4) JIS keyboard
 diagrams with unused keys dimmed, per-app rule tables, and the shingeta layout
 rendered as kana (letter-key outputs are interpreted as romaji).
+
+## App rules over Screen Sharing
+
+Keys typed into Screen Sharing are handled by Karabiner-Elements on the local
+Mac only (the remote Mac's Karabiner never sees them), and there the frontmost
+app is Screen Sharing itself. So karaconf also generates a copy of every app
+rule for "Screen Sharing is frontmost and the app is frontmost on the remote
+Mac", checking the Karabiner variable `remote_frontmost_app`.
+
+`screen_sharing/sync_frontmost_app.sh` keeps that variable up to date: it runs
+`screen_sharing/frontmost_app.swift` on the remote Mac over ssh (the remote Mac
+needs Swift from the Xcode Command Line Tools) and passes each frontmost app
+change to `karabiner_cli`. Install it as a LaunchAgent on the Mac that runs
+Screen Sharing:
+
+```sh
+# HOST defaults to h-ms, REMOTE_HOST in src/rule_sets/apps/screen_sharing.rs
+screen_sharing/install.sh [HOST]
+
+# Uninstall
+launchctl bootout gui/$(id -u)/com.github.hioki.karaconf.remote-frontmost-app
+rm ~/Library/LaunchAgents/com.github.hioki.karaconf.remote-frontmost-app.plist
+```
+
+The log goes to `~/Library/Logs/karaconf-remote-frontmost-app.log`.

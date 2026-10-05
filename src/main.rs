@@ -20,11 +20,9 @@ const KARABINER_JSON_BACKUP_FILENAME: &str = "karabiner.json.karaconf-bak";
 
 type RuleSet = (&'static str, fn() -> Vec<karabiner_data::Manipulator>);
 
-const RULE_SETS: &[RuleSet] = &[
-    (
-        "virtual_key_assignments",
-        rule_sets::virtual_key_assignments::manipulators,
-    ),
+/// Rule sets keyed on the frontmost app. Screen Sharing gets copies of their
+/// rules for the remote Mac's frontmost app (see `rulesets`).
+const APP_RULE_SETS: &[RuleSet] = &[
     ("apps/iterm2", rule_sets::apps::iterm2::manipulators),
     ("apps/vscode", rule_sets::apps::vscode::manipulators),
     ("apps/dynalist", rule_sets::apps::dynalist::manipulators),
@@ -59,17 +57,37 @@ const RULE_SETS: &[RuleSet] = &[
         "apps/github_copilot",
         rule_sets::apps::github_copilot::manipulators,
     ),
-    (
-        "apps/screen_sharing",
-        rule_sets::apps::screen_sharing::manipulators,
-    ),
-    ("common", rule_sets::common::manipulators),
-    ("shingeta", rule_sets::shingeta::manipulators),
 ];
 
+/// All rule sets in evaluation order (the first matching manipulator wins).
+fn rulesets() -> Vec<(&'static str, Vec<karabiner_data::Manipulator>)> {
+    let apps: Vec<(&str, Vec<karabiner_data::Manipulator>)> =
+        APP_RULE_SETS.iter().map(|(name, f)| (*name, f())).collect();
+    // Right after the app rules, so that over Screen Sharing they win over the
+    // other rules just as they do on the remote Mac itself.
+    let remote_apps = rule_sets::apps::screen_sharing::remote_app_manipulators(
+        apps.iter().flat_map(|(_, manipulators)| manipulators),
+    );
+
+    let mut rulesets = vec![(
+        "virtual_key_assignments",
+        rule_sets::virtual_key_assignments::manipulators(),
+    )];
+    rulesets.extend(apps);
+    rulesets.extend([
+        ("apps/screen_sharing/remote_apps", remote_apps),
+        (
+            "apps/screen_sharing",
+            rule_sets::apps::screen_sharing::manipulators(),
+        ),
+        ("common", rule_sets::common::manipulators()),
+        ("shingeta", rule_sets::shingeta::manipulators()),
+    ]);
+    rulesets
+}
+
 fn main() -> anyhow::Result<()> {
-    let rulesets: Vec<(&str, Vec<karabiner_data::Manipulator>)> =
-        RULE_SETS.iter().map(|(name, f)| (*name, f())).collect();
+    let rulesets = rulesets();
 
     let findings = lint::lint(&rulesets);
     if !findings.is_empty() {

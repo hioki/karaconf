@@ -55,6 +55,11 @@ pub struct Rule {
     pub manipulators: Vec<Manipulator>,
 }
 
+/// Karabiner variable holding the bundle identifier of the frontmost app on
+/// the Mac controlled through Screen Sharing. `screen_sharing/sync_frontmost_app.sh`
+/// sets it.
+pub const REMOTE_FRONTMOST_APP_VARIABLE: &str = "remote_frontmost_app";
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum Condition {
@@ -66,6 +71,12 @@ pub enum Condition {
         r#type: ConditionType,
         name: VirtualKey,
         value: u8,
+    },
+    /// Frontmost application of the Mac controlled through Screen Sharing.
+    OnRemoteApplication {
+        r#type: ConditionType,
+        name: String,
+        value: BundleIdentifier,
     },
     InputSource {
         r#type: ConditionType,
@@ -91,6 +102,14 @@ impl Condition {
         Condition::OnApplication {
             r#type: ConditionType::FrontmostApplicationIf,
             bundle_identifiers: vec![bundle_identifier],
+        }
+    }
+
+    pub fn on_remote_app(bundle_identifier: BundleIdentifier) -> Condition {
+        Condition::OnRemoteApplication {
+            r#type: ConditionType::VariableIf,
+            name: REMOTE_FRONTMOST_APP_VARIABLE.to_string(),
+            value: bundle_identifier,
         }
     }
 

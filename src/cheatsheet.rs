@@ -21,7 +21,7 @@ pub fn generate(rulesets: &[(&str, Vec<Manipulator>)], findings: &[Finding]) -> 
     let mut toc = TocEntries::new();
     render_layer_sections(&mut body, &mut toc, &buckets);
     render_global_section(&mut body, &mut toc, &buckets.global);
-    render_app_sections(&mut body, &mut toc, &buckets.apps);
+    render_app_sections(&mut body, &mut toc, &buckets.apps, buckets.remote_apps);
     render_shingeta_section(&mut body, &mut toc, &buckets);
     render_misc_section(&mut body, &mut toc, &buckets.misc);
     render_lint_section(&mut body, &mut toc, findings);
@@ -88,6 +88,9 @@ struct Buckets<'a> {
     shingeta: Vec<Entry<'a>>,
     /// Has a frontmost-application condition, grouped by app name(s).
     apps: BTreeMap<String, Vec<Entry<'a>>>,
+    /// Number of the copies of the app rules for Screen Sharing. They mirror
+    /// the app tables, so they are only counted.
+    remote_apps: usize,
     /// Everything else (mixed conditions, input sources, ...).
     misc: Vec<Entry<'a>>,
 }
@@ -104,6 +107,13 @@ impl<'a> Buckets<'a> {
             manipulator,
         };
         let conditions: Vec<&Condition> = manipulator.conditions.iter().flatten().collect();
+        if conditions
+            .iter()
+            .any(|c| matches!(c, Condition::OnRemoteApplication { .. }))
+        {
+            self.remote_apps += 1;
+            return;
+        }
 
         let app_names: Vec<String> = conditions
             .iter()
@@ -148,7 +158,9 @@ fn conditions_label(manipulator: &Manipulator) -> String {
         .iter()
         .flatten()
         .map(|c| match c {
-            Condition::OnApplication { .. } => String::new(),
+            Condition::OnApplication { .. } | Condition::OnRemoteApplication { .. } => {
+                String::new()
+            }
             Condition::WithVirtualKey { name, value, .. } => {
                 if *value == 1 {
                     virtual_key_label(name).to_string()
@@ -344,12 +356,19 @@ fn render_app_sections(
     html: &mut String,
     toc: &mut TocEntries,
     apps: &BTreeMap<String, Vec<Entry>>,
+    remote_apps: usize,
 ) {
     if apps.is_empty() {
         return;
     }
     html.push_str("<section>");
     push_heading(html, toc, 2, "アプリ別", "アプリ別");
+    if remote_apps > 0 {
+        html.push_str(&format!(
+            "<p class=\"src-note\">Screen Sharing が最前面のときは、操作先の Mac の最前面アプリに応じて同じルールが有効です ({} rules)</p>\n",
+            remote_apps
+        ));
+    }
     for (app, entries) in apps {
         push_heading(
             html,

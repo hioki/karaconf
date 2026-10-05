@@ -5053,6 +5053,5499 @@
       ]
     },
     {
+      "description": "ScreenSharing: ITerm2 (remote): ⌘W -> disable default Cmd+W",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.googlecode.iterm2"
+            }
+          ],
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "mandatory": [
+                "command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "vk_none"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: ITerm2 (remote): VK1+W -> vim: save file (:w)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.googlecode.iterm2"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk1",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "w"
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "quote"
+            },
+            {
+              "key_code": "w"
+            },
+            {
+              "key_code": "return_or_enter"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: ITerm2 (remote): VK1+Q -> vim: quit (:q)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.googlecode.iterm2"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk1",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "q"
+          },
+          "to": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "quote"
+            },
+            {
+              "key_code": "q"
+            },
+            {
+              "key_code": "return_or_enter"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: ITerm2 (remote): VK1+U -> vim: go to line head (0)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.googlecode.iterm2"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk1",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "u"
+          },
+          "to": [
+            {
+              "key_code": "0",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: ITerm2 (remote): VK1+I -> vim: go to line tail ($)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.googlecode.iterm2"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk1",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "i"
+          },
+          "to": [
+            {
+              "key_code": "4",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: ITerm2 (remote): VK4+C -> tmux: Create a new window",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.googlecode.iterm2"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "c"
+          },
+          "to": [
+            {
+              "key_code": "t",
+              "modifiers": [
+                "control"
+              ]
+            },
+            {
+              "key_code": "c",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: ITerm2 (remote): VK4+N -> tmux: Select the next window",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.googlecode.iterm2"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "n"
+          },
+          "to": [
+            {
+              "key_code": "t",
+              "modifiers": [
+                "control"
+              ]
+            },
+            {
+              "key_code": "n",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: ITerm2 (remote): VK4+P -> tmux: Select the previous window",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.googlecode.iterm2"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "p"
+          },
+          "to": [
+            {
+              "key_code": "t",
+              "modifiers": [
+                "control"
+              ]
+            },
+            {
+              "key_code": "p",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: ITerm2 (remote): VK4+S -> tmux: Split the current pane horizontally",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.googlecode.iterm2"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "s"
+          },
+          "to": [
+            {
+              "key_code": "t",
+              "modifiers": [
+                "control"
+              ]
+            },
+            {
+              "key_code": "s",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: ITerm2 (remote): VK4+V -> tmux: Split the current pane vertically",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.googlecode.iterm2"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "v"
+          },
+          "to": [
+            {
+              "key_code": "t",
+              "modifiers": [
+                "control"
+              ]
+            },
+            {
+              "key_code": "v",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: ITerm2 (remote): VK1+O -> tmux: Go to previous window",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.googlecode.iterm2"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk1",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "o"
+          },
+          "to": [
+            {
+              "key_code": "t",
+              "modifiers": [
+                "control"
+              ]
+            },
+            {
+              "key_code": "p",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: ITerm2 (remote): VK1+P -> tmux: Go to next window",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.googlecode.iterm2"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk1",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "p"
+          },
+          "to": [
+            {
+              "key_code": "t",
+              "modifiers": [
+                "control"
+              ]
+            },
+            {
+              "key_code": "n",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: ITerm2 (remote): VK2+A -> tmux: Go to previous window",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.googlecode.iterm2"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "a"
+          },
+          "to": [
+            {
+              "key_code": "t",
+              "modifiers": [
+                "control"
+              ]
+            },
+            {
+              "key_code": "p",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: ITerm2 (remote): VK2+S -> tmux: Go to next window",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.googlecode.iterm2"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "s"
+          },
+          "to": [
+            {
+              "key_code": "t",
+              "modifiers": [
+                "control"
+              ]
+            },
+            {
+              "key_code": "n",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: ITerm2 (remote): VK1+Z -> tmux: Enter copy mode",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.googlecode.iterm2"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk1",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "z"
+          },
+          "to": [
+            {
+              "key_code": "t",
+              "modifiers": [
+                "control"
+              ]
+            },
+            {
+              "key_code": "b",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: ITerm2 (remote): VK2+⌃L -> Confirm the completion",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.googlecode.iterm2"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow"
+            },
+            {
+              "key_code": "return_or_enter"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK1+W -> Save file",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk1",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "w"
+          },
+          "to": [
+            {
+              "key_code": "w",
+              "modifiers": [
+                "control",
+                "shift",
+                "option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+A -> Execute command",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "a"
+          },
+          "to": [
+            {
+              "key_code": "a",
+              "modifiers": [
+                "control",
+                "shift",
+                "option",
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+B -> Show bookmarks",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "b"
+          },
+          "to": [
+            {
+              "key_code": "b",
+              "modifiers": [
+                "control",
+                "shift",
+                "option",
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+C -> GitHub Copilot: Open Completions Panel",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "c"
+          },
+          "to": [
+            {
+              "key_code": "c",
+              "modifiers": [
+                "control",
+                "shift",
+                "option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+D -> Toggle sidebar",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "d"
+          },
+          "to": [
+            {
+              "key_code": "d",
+              "modifiers": [
+                "control",
+                "shift",
+                "option",
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+E -> Show Explorer",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "e"
+          },
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "control",
+                "shift",
+                "option",
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+F -> Search file",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "f"
+          },
+          "to": [
+            {
+              "key_code": "f",
+              "modifiers": [
+                "control",
+                "shift",
+                "option",
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+G -> GitLens: Open File on Remote",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "g"
+          },
+          "to": [
+            {
+              "key_code": "g",
+              "modifiers": [
+                "control",
+                "shift",
+                "option",
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+H -> Go Back",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "h"
+          },
+          "to": [
+            {
+              "key_code": "h",
+              "modifiers": [
+                "control",
+                "shift",
+                "option",
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+I -> Go to implementation",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "i"
+          },
+          "to": [
+            {
+              "key_code": "i",
+              "modifiers": [
+                "control",
+                "shift",
+                "option",
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+J -> Toggle secondary sidebar",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "j"
+          },
+          "to": [
+            {
+              "key_code": "j",
+              "modifiers": [
+                "control",
+                "shift",
+                "option",
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+K -> Search",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "k"
+          },
+          "to": [
+            {
+              "key_code": "k",
+              "modifiers": [
+                "control",
+                "shift",
+                "option",
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+L -> Go Forward",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "l"
+          },
+          "to": [
+            {
+              "key_code": "l",
+              "modifiers": [
+                "control",
+                "shift",
+                "option",
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+M -> Bookmarks: Toggle bookmarks",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "m"
+          },
+          "to": [
+            {
+              "key_code": "m",
+              "modifiers": [
+                "control",
+                "shift",
+                "option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+N -> Go to next problem",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "n"
+          },
+          "to": [
+            {
+              "key_code": "n",
+              "modifiers": [
+                "control",
+                "shift",
+                "option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+O -> Open recent",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "o"
+          },
+          "to": [
+            {
+              "key_code": "o",
+              "modifiers": [
+                "control",
+                "shift",
+                "option",
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+P -> Toggle Problems view",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "p"
+          },
+          "to": [
+            {
+              "key_code": "p",
+              "modifiers": [
+                "control",
+                "shift",
+                "option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+R -> Search all references",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "r"
+          },
+          "to": [
+            {
+              "key_code": "r",
+              "modifiers": [
+                "control",
+                "shift",
+                "option",
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+S -> Go to symbol",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "s"
+          },
+          "to": [
+            {
+              "key_code": "s",
+              "modifiers": [
+                "control",
+                "shift",
+                "option",
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+T -> Go to workspace symbol",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "t"
+          },
+          "to": [
+            {
+              "key_code": "t",
+              "modifiers": [
+                "control",
+                "shift",
+                "option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+U -> Go to next reference",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "u"
+          },
+          "to": [
+            {
+              "key_code": "u",
+              "modifiers": [
+                "control",
+                "shift",
+                "option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+V -> Copy active file relative path",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "v"
+          },
+          "to": [
+            {
+              "key_code": "v",
+              "modifiers": [
+                "control",
+                "shift",
+                "option",
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+W -> Focus on changes view",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "w"
+          },
+          "to": [
+            {
+              "key_code": "w",
+              "modifiers": [
+                "control",
+                "shift",
+                "option",
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+X -> Close editor",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "x"
+          },
+          "to": [
+            {
+              "key_code": "x",
+              "modifiers": [
+                "control",
+                "shift",
+                "option",
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+Y -> Toggle File Blame",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "y"
+          },
+          "to": [
+            {
+              "key_code": "y",
+              "modifiers": [
+                "control",
+                "shift",
+                "option",
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+. -> Quick Fix",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "period"
+          },
+          "to": [
+            {
+              "key_code": "period",
+              "modifiers": [
+                "control",
+                "shift",
+                "option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+1 -> Split the editor to the left",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "1"
+          },
+          "to": [
+            {
+              "key_code": "1",
+              "modifiers": [
+                "control",
+                "shift",
+                "option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+2 -> Split the editor to the bottom",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "2"
+          },
+          "to": [
+            {
+              "key_code": "2",
+              "modifiers": [
+                "control",
+                "shift",
+                "option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+3 -> Split the editor to the top",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "3"
+          },
+          "to": [
+            {
+              "key_code": "3",
+              "modifiers": [
+                "control",
+                "shift",
+                "option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: VSCode (remote): VK4+4 -> Split the editor to the right",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.VSCode"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "4"
+          },
+          "to": [
+            {
+              "key_code": "4",
+              "modifiers": [
+                "control",
+                "shift",
+                "option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Dynalist (remote): VK1+U -> Go to line head",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "io.dynalist"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk1",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "u"
+          },
+          "to": [
+            {
+              "key_code": "a",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Dynalist (remote): VK1+I -> Go to line tail",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "io.dynalist"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk1",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "i"
+          },
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Dynalist (remote): VK2+9 -> Zoom in",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "io.dynalist"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "9"
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Dynalist (remote): VK2+0 -> Zoom out",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "io.dynalist"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "0"
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Dynalist (remote): VK4+E -> Hide sidebar",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "io.dynalist"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "e"
+          },
+          "to": [
+            {
+              "key_code": "f",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Dynalist (remote): VK4+F -> Search",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "io.dynalist"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "f"
+          },
+          "to": [
+            {
+              "key_code": "o",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Slack (remote): VK4+T -> Threads",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.tinyspeck.slackmacgap"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "t"
+          },
+          "to": [
+            {
+              "key_code": "t",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Slack (remote): VK4+U -> All Unreads",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.tinyspeck.slackmacgap"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "u"
+          },
+          "to": [
+            {
+              "key_code": "a",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Slack (remote): VK4+E -> Toggle Sidebar",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.tinyspeck.slackmacgap"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "e"
+          },
+          "to": [
+            {
+              "key_code": "d",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Slack (remote): VK4+K -> Search",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.tinyspeck.slackmacgap"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "k"
+          },
+          "to": [
+            {
+              "key_code": "g",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Slack (remote): VK4+F -> Jump",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.tinyspeck.slackmacgap"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "f"
+          },
+          "to": [
+            {
+              "key_code": "k",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Slack (remote): VK4+B -> Bookmarks",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.tinyspeck.slackmacgap"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "b"
+          },
+          "to": [
+            {
+              "key_code": "s",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Slack (remote): VK4+D -> Strike through",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.tinyspeck.slackmacgap"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "d"
+          },
+          "to": [
+            {
+              "key_code": "x",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Slack (remote): VK4+@ -> Code",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.tinyspeck.slackmacgap"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "open_bracket"
+          },
+          "to": [
+            {
+              "key_code": "c",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Slack (remote): VK4+C -> Code Block",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.tinyspeck.slackmacgap"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "c"
+          },
+          "to": [
+            {
+              "key_code": "c",
+              "modifiers": [
+                "command",
+                "option",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Slack (remote): VK4+Q -> Quote",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.tinyspeck.slackmacgap"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "q"
+          },
+          "to": [
+            {
+              "key_code": "9",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Slack (remote): VK4+Space -> Mute huddle",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.tinyspeck.slackmacgap"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "spacebar"
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: GoogleChrome (remote): VK4+Space -> Mute google meets",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.google.Chrome"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "spacebar"
+          },
+          "to": [
+            {
+              "key_code": "d",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: GoogleChrome (remote): VK4+M -> List profiles",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.google.Chrome"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "m"
+          },
+          "to": [
+            {
+              "key_code": "m",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: GoogleChrome (remote): VK4+B -> Toggle bookmarks",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.google.Chrome"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "b"
+          },
+          "to": [
+            {
+              "key_code": "b",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: GoogleChrome (remote): VK4+R -> Search tabs",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.google.Chrome"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "r"
+          },
+          "to": [
+            {
+              "key_code": "a",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: GoogleChrome (remote): VK4+F -> Developer tools",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.google.Chrome"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "f"
+          },
+          "to": [
+            {
+              "key_code": "f12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Firefox (remote): VK4+B -> Toggle bookmarks",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "org.mozilla.firefox"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "b"
+          },
+          "to": [
+            {
+              "key_code": "b",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Firefox (remote): VK4+E -> Expand/Collapse the Tab List Area",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "org.mozilla.firefox"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "e"
+          },
+          "to": [
+            {
+              "key_code": "z",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Firefox (remote): VK4+R -> Select from the history list",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "org.mozilla.firefox"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "r"
+          },
+          "to": [
+            {
+              "key_code": "l",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Firefox (remote): VK4+N -> Open Private Window",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "org.mozilla.firefox"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "n"
+          },
+          "to": [
+            {
+              "key_code": "p",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Firefox (remote): VK4+F -> Developer tools",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "org.mozilla.firefox"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "f"
+          },
+          "to": [
+            {
+              "key_code": "f12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Notion (remote): VK2+9 -> 拡大",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "notion.id"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "9"
+          },
+          "to": [
+            {
+              "key_code": "keypad_plus",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Notion (remote): VK2+0 -> 縮小",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "notion.id"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk2",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "0"
+          },
+          "to": [
+            {
+              "key_code": "hyphen",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Notion (remote): VK4+E -> サイドバーを表示/非表示",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "notion.id"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "e"
+          },
+          "to": [
+            {
+              "key_code": "international3",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Notion (remote): VK4+F -> 検索",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "notion.id"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "f"
+          },
+          "to": [
+            {
+              "key_code": "p",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Notion (remote): VK4+Y -> ページのリンクをコピー",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "notion.id"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "y"
+          },
+          "to": [
+            {
+              "key_code": "l",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: BitWarden (remote): VK4+E -> Toggle sidebar",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.bitwarden.desktop"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "e"
+          },
+          "to": [
+            {
+              "key_code": "s",
+              "modifiers": [
+                "command",
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: BitWarden (remote): VK4+U -> Copy username",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.bitwarden.desktop"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "u"
+          },
+          "to": [
+            {
+              "key_code": "u",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: BitWarden (remote): VK4+P -> Copy password",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.bitwarden.desktop"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "p"
+          },
+          "to": [
+            {
+              "key_code": "p",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: BitWarden (remote): VK4+T -> Copy TOTP",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.bitwarden.desktop"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "t"
+          },
+          "to": [
+            {
+              "key_code": "t",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: BitWarden (remote): VK4+K -> Search",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.bitwarden.desktop"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "k"
+          },
+          "to": [
+            {
+              "key_code": "f",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Claude (remote): VK4+/ -> キーボードショートカットを表示",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.anthropic.claudefordesktop"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "slash"
+          },
+          "to": [
+            {
+              "key_code": "slash",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Claude (remote): VK4+H -> Home に切替",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.anthropic.claudefordesktop"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "h"
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "option",
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Claude (remote): VK4+L -> Code に切替",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.anthropic.claudefordesktop"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "l"
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "option",
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Claude (remote): VK4+N -> 次のセッションを表示",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.anthropic.claudefordesktop"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "n"
+          },
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Claude (remote): VK4+P -> 前のセッションを表示",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.anthropic.claudefordesktop"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "p"
+          },
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": [
+                "shift",
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Claude (remote): VK4+E -> Toggle Sidebar",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.anthropic.claudefordesktop"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "e"
+          },
+          "to": [
+            {
+              "key_code": "b",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: OnePassword (remote): VK4+E -> Toggle sidebar",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.1password.1password"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "e"
+          },
+          "to": [
+            {
+              "key_code": "d",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: OnePassword (remote): VK4+U -> Copy username",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.1password.1password"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "u"
+          },
+          "to": [
+            {
+              "key_code": "c",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: OnePassword (remote): VK4+P -> Copy password",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.1password.1password"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "p"
+          },
+          "to": [
+            {
+              "key_code": "c",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: OnePassword (remote): VK4+T -> Copy TOTP",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.1password.1password"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "t"
+          },
+          "to": [
+            {
+              "key_code": "c",
+              "modifiers": [
+                "command",
+                "option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: OnePassword (remote): VK4+X -> Open URL",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.1password.1password"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "x"
+          },
+          "to": [
+            {
+              "key_code": "f",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: OnePassword (remote): VK4+M -> Toggle masked field",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.1password.1password"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "m"
+          },
+          "to": [
+            {
+              "key_code": "r",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Finder (remote): VK4+E -> Toggle sidebar",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.apple.finder"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "e"
+          },
+          "to": [
+            {
+              "key_code": "s",
+              "modifiers": [
+                "command",
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Finder (remote): VK4+J -> Toggle preview",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.apple.finder"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "j"
+          },
+          "to": [
+            {
+              "key_code": "p",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Finder (remote): VK4+F -> フォルダーへ移動",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.apple.finder"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "f"
+          },
+          "to": [
+            {
+              "key_code": "g",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: NotionCalendar (remote): VK4+E -> Toggle sidebar",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.cron.electron"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "e"
+          },
+          "to": [
+            {
+              "key_code": "international3",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: NotionCalendar (remote): VK4+J -> Toggle secondary sidebar",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.cron.electron"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "j"
+          },
+          "to": [
+            {
+              "key_code": "international3",
+              "modifiers": [
+                "option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: NotionCalendar (remote): VK4+N -> 次の日/週/月",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.cron.electron"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "n"
+          },
+          "to": [
+            {
+              "key_code": "right_arrow"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: NotionCalendar (remote): VK4+P -> 前の日/週/月",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.cron.electron"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "p"
+          },
+          "to": [
+            {
+              "key_code": "left_arrow"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Calendar (remote): VK4+T -> Today",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.apple.iCal"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "t"
+          },
+          "to": [
+            {
+              "key_code": "t",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Calendar (remote): VK4+D -> Day",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.apple.iCal"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "d"
+          },
+          "to": [
+            {
+              "key_code": "1",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Calendar (remote): VK4+W -> Week",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.apple.iCal"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "w"
+          },
+          "to": [
+            {
+              "key_code": "2",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Calendar (remote): VK4+M -> Month",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.apple.iCal"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "m"
+          },
+          "to": [
+            {
+              "key_code": "3",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Calendar (remote): VK4+Y -> Year",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.apple.iCal"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "y"
+          },
+          "to": [
+            {
+              "key_code": "4",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Calendar (remote): VK4+N -> Next",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.apple.iCal"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "n"
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Calendar (remote): VK4+P -> Previous",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.apple.iCal"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "p"
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Mail (remote): VK4+E -> Toggle sidebar",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.apple.mail"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "e"
+          },
+          "to": [
+            {
+              "key_code": "s",
+              "modifiers": [
+                "command",
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Mail (remote): VK4+J -> Toggle toolbar",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.apple.mail"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "j"
+          },
+          "to": [
+            {
+              "key_code": "h",
+              "modifiers": [
+                "command",
+                "option",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Mail (remote): VK4+K -> Search",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.apple.mail"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "k"
+          },
+          "to": [
+            {
+              "key_code": "f",
+              "modifiers": [
+                "command",
+                "option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Mail (remote): VK4+H -> Show Header",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.apple.mail"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "h"
+          },
+          "to": [
+            {
+              "key_code": "h",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Mail (remote): VK4+M -> Toggle flag",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.apple.mail"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "m"
+          },
+          "to": [
+            {
+              "key_code": "l",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Codex (remote): VK4+/ -> キーボードショートカットを表示",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.openai.codex"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "slash"
+          },
+          "to": [
+            {
+              "key_code": "k",
+              "modifiers": [
+                "command",
+                "option",
+                "shift",
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Codex (remote): VK4+N -> 新しいタスク",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.openai.codex"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "n"
+          },
+          "to": [
+            {
+              "key_code": "n",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Codex (remote): VK4+E -> サイドバーを切り替える",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.openai.codex"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "e"
+          },
+          "to": [
+            {
+              "key_code": "b",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Codex (remote): VK4+J -> レビューパネルの表示を切り替え",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.openai.codex"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "j"
+          },
+          "to": [
+            {
+              "key_code": "b",
+              "modifiers": [
+                "command",
+                "option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Codex (remote): VK4+S -> サイドタスクを開く",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.openai.codex"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "s"
+          },
+          "to": [
+            {
+              "key_code": "s",
+              "modifiers": [
+                "command",
+                "option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Codex (remote): VK4+P -> MCP",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.openai.codex"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "p"
+          },
+          "to": [
+            {
+              "key_code": "p",
+              "modifiers": [
+                "command",
+                "shift",
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Codex (remote): VK4+A -> リクエストを承認",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.openai.codex"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "a"
+          },
+          "to": [
+            {
+              "key_code": "a",
+              "modifiers": [
+                "command",
+                "option",
+                "shift",
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Codex (remote): VK4+D -> リクエストを拒否",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.openai.codex"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "d"
+          },
+          "to": [
+            {
+              "key_code": "d",
+              "modifiers": [
+                "command",
+                "option",
+                "shift",
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Codex (remote): VK4+M -> モデル選択を選ぶ",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.openai.codex"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "m"
+          },
+          "to": [
+            {
+              "key_code": "m",
+              "modifiers": [
+                "control",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Codex (remote): VK4+Space -> 音声入力を開始",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.openai.codex"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "spacebar"
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "command",
+                "option",
+                "shift",
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Codex (remote): VK4+O -> プランモードを切り替え",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.openai.codex"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "o"
+          },
+          "to": [
+            {
+              "key_code": "o",
+              "modifiers": [
+                "command",
+                "option",
+                "shift",
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: Codex (remote): VK4+Y -> Markdown形式でコピー",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.openai.codex"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "y"
+          },
+          "to": [
+            {
+              "key_code": "y",
+              "modifiers": [
+                "command",
+                "option",
+                "shift",
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: MicrosoftToDo (remote): VK4+N -> 新しいリスト",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.to-do-mac"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "n"
+          },
+          "to": [
+            {
+              "key_code": "l",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: MicrosoftToDo (remote): VK4+R -> リスト名の変更",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.to-do-mac"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "r"
+          },
+          "to": [
+            {
+              "key_code": "e",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: MicrosoftToDo (remote): VK4+L -> 新しいタスク",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.to-do-mac"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "l"
+          },
+          "to": [
+            {
+              "key_code": "n",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: MicrosoftToDo (remote): VK4+K -> タスクを完了",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.to-do-mac"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "k"
+          },
+          "to": [
+            {
+              "key_code": "d",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: MicrosoftToDo (remote): VK4+D -> タスクの削除",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.to-do-mac"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "d"
+          },
+          "to": [
+            {
+              "key_code": "delete_or_backspace",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: MicrosoftToDo (remote): VK4+H -> 完了済みタスクを非表示にする",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.microsoft.to-do-mac"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "h"
+          },
+          "to": [
+            {
+              "key_code": "d",
+              "modifiers": [
+                "shift",
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: GitHubCopilot (remote): VK4+/ -> View keyboard shortcuts",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.github.githubapp"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "slash"
+          },
+          "to": [
+            {
+              "key_code": "slash",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: GitHubCopilot (remote): VK4+A -> Command palette",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.github.githubapp"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "a"
+          },
+          "to": [
+            {
+              "key_code": "k",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: GitHubCopilot (remote): VK4+K -> Find in file",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.github.githubapp"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "k"
+          },
+          "to": [
+            {
+              "key_code": "f",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: GitHubCopilot (remote): VK4+2 -> Next session",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.github.githubapp"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "2"
+          },
+          "to": [
+            {
+              "key_code": "g",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: GitHubCopilot (remote): VK4+1 -> Previous session",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.github.githubapp"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "1"
+          },
+          "to": [
+            {
+              "key_code": "p",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: GitHubCopilot (remote): VK4+H -> Go back",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.github.githubapp"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "h"
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: GitHubCopilot (remote): VK4+L -> Go forward",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.github.githubapp"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "l"
+          },
+          "to": [
+            {
+              "key_code": "non_us_pound",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: GitHubCopilot (remote): VK4+E -> Toggle sidebar",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.github.githubapp"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "e"
+          },
+          "to": [
+            {
+              "key_code": "b",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: GitHubCopilot (remote): VK4+F -> Go to file",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.github.githubapp"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "f"
+          },
+          "to": [
+            {
+              "key_code": "p",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: GitHubCopilot (remote): VK4+N -> New chat",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.github.githubapp"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "n"
+          },
+          "to": [
+            {
+              "key_code": "o",
+              "modifiers": [
+                "command",
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ScreenSharing: GitHubCopilot (remote): VK4+J -> Toggle review panel",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "com.apple.ScreenSharing"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "remote_frontmost_app",
+              "value": "com.github.githubapp"
+            },
+            {
+              "type": "variable_if",
+              "name": "vk4",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "j"
+          },
+          "to": [
+            {
+              "key_code": "b",
+              "modifiers": [
+                "command",
+                "option"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "ScreenSharing: VK2+B -> [h-ms] Bitwarden 起動",
       "manipulators": [
         {
@@ -8354,9 +13847,8 @@
           },
           "to": [
             {
-              "key_code": "left_arrow",
+              "key_code": "1",
               "modifiers": [
-                "command",
                 "control",
                 "option",
                 "shift"
@@ -8388,9 +13880,8 @@
           },
           "to": [
             {
-              "key_code": "right_arrow",
+              "key_code": "2",
               "modifiers": [
-                "command",
                 "control",
                 "option",
                 "shift"
@@ -8422,9 +13913,8 @@
           },
           "to": [
             {
-              "key_code": "down_arrow",
+              "key_code": "3",
               "modifiers": [
-                "command",
                 "control",
                 "option",
                 "shift"
@@ -8456,9 +13946,8 @@
           },
           "to": [
             {
-              "key_code": "up_arrow",
+              "key_code": "4",
               "modifiers": [
-                "command",
                 "control",
                 "option",
                 "shift"
@@ -8490,9 +13979,8 @@
           },
           "to": [
             {
-              "key_code": "1",
+              "key_code": "5",
               "modifiers": [
-                "command",
                 "control",
                 "option",
                 "shift"
@@ -8524,9 +14012,8 @@
           },
           "to": [
             {
-              "key_code": "2",
+              "key_code": "6",
               "modifiers": [
-                "command",
                 "control",
                 "option",
                 "shift"
@@ -8558,9 +14045,8 @@
           },
           "to": [
             {
-              "key_code": "3",
+              "key_code": "7",
               "modifiers": [
-                "command",
                 "control",
                 "option",
                 "shift"
@@ -8592,9 +14078,8 @@
           },
           "to": [
             {
-              "key_code": "4",
+              "key_code": "8",
               "modifiers": [
-                "command",
                 "control",
                 "option",
                 "shift"
@@ -8626,9 +14111,8 @@
           },
           "to": [
             {
-              "key_code": "p",
+              "key_code": "9",
               "modifiers": [
-                "command",
                 "control",
                 "option",
                 "shift"
@@ -8660,9 +14144,8 @@
           },
           "to": [
             {
-              "key_code": "n",
+              "key_code": "0",
               "modifiers": [
-                "command",
                 "control",
                 "option",
                 "shift"
@@ -8694,9 +14177,8 @@
           },
           "to": [
             {
-              "key_code": "b",
+              "key_code": "hyphen",
               "modifiers": [
-                "command",
                 "control",
                 "option",
                 "shift"
