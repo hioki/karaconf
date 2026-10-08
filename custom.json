@@ -11748,7 +11748,7 @@
       ]
     },
     {
-      "description": "ScreenSharing: VK2+⌃B -> [h-ms] [Magnet] Maximize",
+      "description": "ScreenSharing: VK2+⌃F -> [h-ms] [Magnet] Maximize",
       "manipulators": [
         {
           "type": "basic",
@@ -11766,7 +11766,7 @@
             }
           ],
           "from": {
-            "key_code": "b",
+            "key_code": "f",
             "modifiers": {
               "mandatory": [
                 "control"

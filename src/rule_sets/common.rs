@@ -27,7 +27,7 @@ pub const MAC_STUDIO_MAGNET_SHORTCUTS: &[MagnetShortcut] = &[
     ("BottomRight", Comma, Key8),
     ("Previous Display", J, Key9),
     ("Next Display", K, Key0),
-    ("Maximize", B, Hyphen),
+    ("Maximize", F, Hyphen),
 ];
 pub const MAC_STUDIO_MAGNET_MODIFIERS: &[ModifierKey] = &[Ctrl, Opt, Shift];
 
